@@ -1,0 +1,77 @@
+Judge:
+  FAIL DRC      30048 violation(s): 6272 x N-Diffusion overlap of contact < 0.065um (CO.4); 2832 x N-well overlap of N-Ohmic < 0.12um (DF.4a); 2320 x N-Diffusion spacing to N-well < 0.43um (DF.8); 2176 x Varactor length and width < 1um (DF.1c); 2048 x Metal1 overlap of Via1 < 0.06um in one direction (V1.3); 1872 x Diffusion contact width < 0.23um (CO.1 + 2 * CO.6)
+  FAIL DRC2     foundry KLayout deck: 9712 violation(s): 1024 x DF.2a_LV: DF.2a_LV : Min Channel Width. : 0.22µm; 768 x V1.3a: V1.3a : metal1 overlap of via1 >= 0; 768 x PL.6: PL.6 : 90 degree bends on the COMP are not allowed.; 512 x DF.14_LV: DF.14_LV : Max distance of substrate tap (PCOMP outside Nwell) from (NCOMP outsi; 512 x DF.6_LV: DF.6_LV : Min. COMP extend beyond gate (it also means source/drain overhang). : 0; 512 x M1.2a: M1.2a : min. metal1 spacing : 0.23µm
+  FAIL LVS      Top level cell failed pin matching.  (devices layout/ref 8/768; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/sram16x8.gf180mcuD/a2/judge/sram16x8.lvs.txt)
+  FAIL pins     not confirmed (LVS failed)
+  ok   area     41.04 x 88.56 = 3634.5 um2, budget 7253, reference 3626.29
+
+Tool report:
+DRC (magic drc(full)): 30048 violation(s), boxes in um
+  6272 x N-Diffusion overlap of contact < 0.065um (CO.4)   e.g. at (1.080 79.895 1.150 79.960)  (1.150 79.830 1.215 79.895)  (1.145 79.830 1.210 79.895)
+  2832 x N-well overlap of N-Ohmic < 0.12um (DF.4a)   e.g. at (1.150 79.895 1.210 80.400)  (1.150 79.665 1.235 79.895)  (1.235 79.665 1.270 79.890)
+  2320 x N-Diffusion spacing to N-well < 0.43um (DF.8)   e.g. at (3.730 78.920 3.940 80.400)  (3.730 78.640 3.940 78.920)  (3.730 78.195 3.940 78.640)
+  2176 x Varactor length and width < 1um (DF.1c)   e.g. at (1.300 78.640 1.580 78.920)  (1.580 78.640 2.150 78.920)  (1.150 78.920 1.300 79.640)
+  2048 x Metal1 overlap of Via1 < 0.06um in one direction (V1.3)   e.g. at (0.110 77.070 0.170 77.130)  (0.430 77.070 0.490 77.130)  (4.030 77.070 4.090 77.130)
+  1872 x Diffusion contact width < 0.23um (CO.1 + 2 * CO.6)   e.g. at (1.145 79.665 1.155 79.895)  (1.235 79.665 1.385 79.895)  (2.580 78.640 2.685 78.780)
+  1552 x Diffusion contact spacing < 0.24um (CO.2a - 2 * CO.6)   e.g. at (1.145 79.665 1.235 79.895)  (1.155 79.665 1.235 79.895)  (2.455 78.640 2.580 78.780)
+  1536 x Only 45 degrees allowed on transistors (PL.6)   e.g. at (1.080 80.120 1.085 80.125)  (1.075 80.115 1.080 80.120)  (1.720 80.120 1.725 80.125)
+  1168 x N-Diffusion overhang of nmos < 0.23um (DF.6)   e.g. at (1.150 79.895 1.210 80.120)  (1.210 79.895 1.310 80.120)  (1.150 79.895 1.210 80.400)
+  1104 x Metal2 overlap of Via1 < 0.01um (V1.4)   e.g. at (2.435 78.640 2.445 78.650)  (2.435 78.540 2.445 78.650)  (2.435 78.540 2.695 78.550)
+  1072 x P-Diffusion overlap of contact < 0.065um (CO.4)   e.g. at (2.515 78.640 2.580 78.705)  (2.580 78.640 2.675 78.705)  (2.580 78.560 2.645 78.640)
+  1024 x N-Ohmic overhang of Varactor < 0.32um (FIXME)   e.g. at (3.580 77.010 4.040 77.240)  (3.730 76.920 3.940 77.010)  (3.940 76.920 4.040 77.010)
+DRC2 (foundry KLayout deck): 9712 violation(s), boxes in um
+  1024 x DF.2a_LV: DF.2a_LV : Min Channel Width. : 0.22µm   e.g. at (37.490 80.120 37.630 80.120)  (36.850 80.120 36.990 80.120)  (39.490 81.720 39.630 81.720)
+   768 x V1.3a: V1.3a : metal1 overlap of via1 >= 0   e.g. at (35.500 66.780 35.760 66.925)  (40.630 66.780 40.890 66.925)  (35.500 70.980 35.760 71.125)
+   768 x PL.6: PL.6 : 90 degree bends on the COMP are not allowed.   e.g. at (31.759 69.699 31.961 69.901)  (36.889 75.219 37.091 75.421)  (32.399 68.979 32.601 69.181)
+   512 x DF.14_LV: DF.14_LV : Max distance of substrate tap (PCOMP outside Nwell) from (NCOMP outside Nwell): 20um   e.g. at (31.080 66.790 31.440 71.490)  (31.720 66.790 31.930 71.490)  (34.510 66.790 34.720 71.490)
+   512 x DF.6_LV: DF.6_LV : Min. COMP extend beyond gate (it also means source/drain overhang). : 0.24µm   e.g. at (36.990 85.544 37.210 86.456)  (31.860 68.984 32.080 69.896)  (38.350 71.400 38.852 71.490)
+   512 x M1.2a: M1.2a : min. metal1 spacing : 0.23µm   e.g. at (39.840 83.715 40.015 83.919)  (39.840 72.241 40.015 72.445)  (39.840 67.155 40.015 67.359)
+   512 x PL.4_LV: PL.4_LV : Extension beyond COMP to form Poly2 end cap. : 0.22µm   e.g. at (36.710 85.470 36.850 86.530)  (36.710 74.430 36.850 75.490)  (31.580 68.910 31.720 69.970)
+   384 x CO.7: CO.7 : Space from COMP contact to Poly2 : 0.15µm   e.g. at (26.590 53.240 26.840 53.240)  (23.240 54.468 23.350 54.840)  (23.100 54.120 23.350 54.120)
+   384 x PP.5b: PP.5b : Extension beyond COMP for COMP
+                 (1) Inside NWELL (2) outside LVPWELL but inside DNWELL. : 0.16µm   e.g. at (21.730 46.770 21.820 46.770)  (21.730 46.770 21.730 47.950)  (21.730 47.950 21.820 47.950)
+   384 x PP.5dii: PP.5dii : Extension beyond COMP: For Outside DNWELL
+                     (ii) For Pplus to NWELL space < 0.43um for Pfield or LVPWELL tap. :    e.g. at (21.730 47.950 21.820 47.950)  (21.730 46.770 21.730 47.950)  (21.730 46.770 21.820 46.770)
+   272 x V1.4a: V1.4a : metal2 overlap of via1 >= 0.01 upper_metal   e.g. at (25.240 44.700 25.500 44.960)  (30.370 44.700 30.630 44.960)  (35.500 44.700 35.760 44.960)
+   272 x CO.4: CO.4 : COMP overlap of contact. : 0.07µm   e.g. at (21.459 47.656 21.491 48.004)  (26.589 47.656 26.621 48.004)  (31.719 47.656 31.751 48.004)
+LVS: Top level cell failed pin matching.   devices layout/ref 8/768, nets layout/ref 7/290
+  pfet_03v3 (512->3)                         |pfet_03v3 (256) **Mismatch**
+  nfet_03v3 (640->3)                         |nfet_03v3 (512) **Mismatch**
+  cap_nmos_03v3_b (384->2)                   |(no matching element)
+  Number of devices: 8 **Mismatch**          |Number of devices: 768 **Mismatch**
+  Number of nets: 7 **Mismatch**             |Number of nets: 290 **Mismatch**
+  ---------------------------------------------------------------------------------------
+  NET mismatches: Class fragments follow (with fanout counts):
+  Circuit 1: sram16x8                        |Circuit 2: sram16x8
+  ---------------------------------------------------------------------------------------
+  Net: WL9                                   |Net: WL9
+    nfet_03v3/2 = 2                          |  nfet_03v3/2 = 16
+    pfet_03v3/4 = 3                          |
+    nfet_03v3/(1|3) = 5                      |
+    pfet_03v3/(1|3) = 5                      |
+    pfet_03v3/2 = 2                          |
+    cap_nmos_03v3_b/2 = 2                    |
+    cap_nmos_03v3_b/1 = 1                    |
+                                             |
+  Net: CELL_84/a_516_110#                    |Net: VDD
+    pfet_03v3/(1|3) = 1                      |  pfet_03v3/(1|3) = 256
+                                             |  pfet_03v3/4 = 256
+                                             |
+  Net: /CELL_84/a_488_888#                   |Net: BL0
+    pfet_03v3/2 = 1                          |  nfet_03v3/(1|3) = 16
+                                             |
+  Net: /CELL_84/a_844_110#                   |Net: BLB0
+    nfet_03v3/(1|3) = 1                      |  nfet_03v3/(1|3) = 16
+                                             |
+  Net: /CELL_84/a_160_568#                   |Net: BL1
+    nfet_03v3/2 = 1                          |  nfet_03v3/(1|3) = 16
+                                             |
+  Net: /CELL_84/a_688_888#                   |Net: BLB1
+    cap_nmos_03v3_b/1 = 1                    |  nfet_03v3/(1|3) = 16
+                                             |
+  Net: VSUBS                                 |Net: BL2
+    nfet_03v3/4 = 3                          |  nfet_03v3/(1|3) = 16
+                                             |
+  (no matching net)                          |Net: BLB2
+                                             |  nfet_03v3/(1|3) = 16
+                                             |

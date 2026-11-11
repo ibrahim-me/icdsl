@@ -1,0 +1,37 @@
+{
+ "task": "ota_miller",
+ "pdk": "freepdk45",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/ota_miller.freepdk45/a4/ota_miller.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/ota_miller.freepdk45/a4/ota_miller.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "238 violation(s): 136 x Diffusion overlap of diffusion contact < 5nm in one direction (CONTACT.4); 100 x Metal1 spacing < 65nm (METAL1.2); 2 x Metal1 width < 65nm (METAL1.1)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 86 violation(s): 53 x METAL1.2: METAL1.2 : Minimum spacing of metal1 : 65nm; 20 x CONTACT.2: CONTACT.2 : Minimum spacing of contact : 75nm; 9 x CONTACT.6: CONTACT.6 : Minimum spacing of contact and poly : 35nm; 4 x METAL1.1: METAL1.1 : Minimum width of metal1 : 65nm"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Netlists do not match.  (devices layout/ref 18/10; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/ota_miller.freepdk45/a4/judge/ota_miller.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "not confirmed (LVS failed)"
+  },
+  {
+   "check": "area",
+   "ok": false,
+   "detail": "56.00 x 44.60 = 2497.6 um2, budget 760, reference 379.92"
+  }
+ ],
+ "area_um2": 2497.6,
+ "area_vs_reference": 6.574,
+ "solved": false,
+ "detail": "DRC (magic drc(full)): 238 violation(s), boxes in um\n   136 x Diffusion overlap of diffusion contact < 5nm in one direction (CONTACT.4)   e.g. at (2.575 10.030 2.640 10.035)  (2.570 9.965 2.575 10.030)  (2.575 9.960 2.640 9.965)\n   100 x Metal1 spacing < 65nm (METAL1.2)   e.g. at (4.290 8.005 4.350 8.025)  (4.290 7.970 4.350 8.005)  (6.360 8.005 6.365 8.025)\n     2 x Metal1 width < 65nm (METAL1.1)   e.g. at (6.295 7.975 6.300 8.035)  (4.795 1.975 4.800 2.035)\nDRC2 (foundry KLayout deck): 86 violation(s), boxes in um\n    53 x METAL1.2: METAL1.2 : Minimum spacing of metal1 : 65nm   e.g. at (15.920 1.960 16.015 2.020)  (3.221 1.960 3.355 1.970)  (13.165 1.960 13.210 2.020)\n    20 x CONTACT.2: CONTACT.2 : Minimum spacing of contact : 75nm   e.g. at (16.010 3.035 16.050 3.100)  (16.010 2.755 16.050 2.820)  (16.010 2.475 16.050 2.540)\n     9 x CONTACT.6: CONTACT.6 : Minimum spacing of contact and poly : 35nm   e.g. at (4.765 1.927 4.795 1.958)  (4.761 1.940 4.800 1.945)  (15.591 1.940 15.725 1.945)\n     4 x METAL1.1: METAL1.1 : Minimum width of metal1 : 65nm   e.g. at (4.795 1.970 4.865 1.975)  (4.800 1.960 4.860 1.995)  (6.295 7.970 6.365 7.975)\nLVS: Netlists do not match.   devices layout/ref 18/10, nets layout/ref 38/10\n  pmos (12->9)                               |pmos (12->3) **Mismatch**\n  nmos (26->9)                               |nmos (27->7) **Mismatch**\n  Number of devices: 18 **Mismatch**         |Number of devices: 10 **Mismatch**\n  Number of nets: 38 **Mismatch**            |Number of nets: 10 **Mismatch**\n  ---------------------------------------------------------------------------------------\n  NET mismatches: Class fragments follow (with fanout counts):\n  Circuit 1: ota_miller                      |Circuit 2: ota_miller\n  ---------------------------------------------------------------------------------------\n  Net: INN                                   |Net: INN\n    nmos/(drain|source) = 1                  |  nmos/gate = 1\n                                             |\n  Net: a_2504_1600#                          |Net: INP\n    pmos/(drain|source) = 2                  |  nmos/gate = 1\n                                             |\n  Net: a_2376_1600#                          |Net: IB\n    pmos/(drain|source) = 2                  |  nmos/(drain|source) = 1\n                                             |  nmos/gate = 3\n                                             |\n  Net: a_2632_1600#                          |Net: d1\n    pmos/(drain|source) = 2                  |  nmos/(drain|source) = 1\n                                             |  pmos/(drain|source) = 1\n                                             |  pmos/gate = 2\n                                             |\n  Net: a_2120_1600#                          |Net: d2\n    pmos/(drain|source) = 2                  |  nmos/(drain|source) = 2\n                                             |  pmos/(drain|source) = 1\n                                             |  pmos/gate = 1\n                                             |\n  Net: a_2248_1600#                          |Net: tail\n    pmos/(drain|source) = 2                  |  nmos/(drain|source) = 3\n                                             |\n  Net: a_6610_400#                           |Net: OUT\n    nmos/(drain|source) = 2                  |  nmos/(drain|source) = 1\n                                             |  nmos/gate = 1\n                                             |  pmos/(drain|source) = 1\n                                             |\n  Net: a_6382_400#                           |Net: x\n    nmos/(drain|source) = 2                  |  nmos/(drain|source) = 3\n                                             |\n  Net: a_6154_400#                           |Net: VDD"
+}

@@ -1,0 +1,52 @@
+{
+ "task": "spiral",
+ "pdk": "sky130A",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_183435_v6/canvas/spiral.sky130A/a1/spiral.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_183435_v6/canvas/spiral.sky130A/a1/spiral.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "9 violation(s): 5 x Metal4 width < 0.3um (met4.1); 4 x Only 45 and 90 degree angles permitted on metal5 (x.3a)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 7 violation(s): 6 x m4.1: m4.1 : min. m4 width : 0.3um; 1 x m5.2: m5.2 : min. m5 spacing : 1.6um"
+  },
+  {
+   "check": "one coil, no closed loop",
+   "ok": true,
+   "detail": "2 polygon(s) on m5, largest has 0 hole(s) and 100% of the metal"
+  },
+  {
+   "check": "edges Manhattan or 45 degrees, some at 45",
+   "ok": false,
+   "detail": "25 at 45 degrees, 4 at other angles"
+  },
+  {
+   "check": "trace width >= 4.0 um",
+   "ok": true,
+   "detail": "no narrow part in the trace on m5"
+  },
+  {
+   "check": "at least 3 turns around the centre",
+   "ok": true,
+   "detail": "3 turn(s) around (-84.1, -47.9)"
+  },
+  {
+   "check": "underpass from the inner end to outside the coil",
+   "ok": false,
+   "detail": "no via4 cut on the coil joins a m4 wire that leaves the coil"
+  },
+  {
+   "check": "area",
+   "ok": false,
+   "detail": "556.71 x 601.97 = 335125.7 um2, budget 10465, reference 5232.32"
+  }
+ ],
+ "area_um2": 335125.73,
+ "area_vs_reference": 64.049,
+ "solved": false,
+ "detail": "n\no\n \nv\ni\na\n4\n \nc\nu\nt\n \no\nn\n \nt\nh\ne\n \nc\no\ni\nl\n \nj\no\ni\nn\ns\n \na\n \nm\n4\n \nw\ni\nr\ne\n \nt\nh\na\nt\n \nl\ne\na\nv\ne\ns\n \nt\nh\ne\n \nc\no\ni\nl"
+}

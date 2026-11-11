@@ -1,0 +1,2 @@
+I'll design a 16×8 6T SRAM array with a hand-crafted stick cell placed in a word-line × bit-line grid, then route the global lines with the router. Let me first inspect the freepdk45 rule sheet to size the cell correctly.
+<|open|>argument key="command" type="string"<|sep|>bin/icl inspect sram.py --pdk freepdk45<|close|>argument<|sep|><|open|>argument key="argument" type="string"<|sep|>--pdk freepdk45<|close|>argument<|sep|><|close|>call<|sep|><|close|>tools<|sep|><|close|>message<|sep|>

@@ -1,0 +1,37 @@
+{
+ "task": "shreg16",
+ "pdk": "freepdk45",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/canvas/shreg16.freepdk45/a3/shreg16.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/canvas/shreg16.freepdk45/a3/shreg16.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "87 violation(s): 87 x Metal1 > 270nm and runlength > 300nm spacing to unrelated m1 < 270nm (METAL1.6)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 57 violation(s): 28 x METAL1.8: METAL1.8 : Minimum spacing of metal1 wider than 900 nm and longer than 2.7 um : ; 14 x METAL1.7: METAL1.7 : Minimum spacing of metal1 wider than 500 nm and longer than 1.8 um : ; 8 x WELL.4: WELL.4 : Minimum width of nwell/pwell : 200nm; 7 x METAL1.6: METAL1.6 : Minimum spacing of metal1 wider than 270 nm and longer than 900 nm : "
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Top level cell failed pin matching.  (devices layout/ref 2/352; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/canvas/shreg16.freepdk45/a3/judge/shreg16.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "top-level pin names differ from the task netlist"
+  },
+  {
+   "check": "area",
+   "ok": false,
+   "detail": "26.33 x 13.82 = 363.9 um2, budget 261, reference 130.23"
+  }
+ ],
+ "area_um2": 363.88,
+ "area_vs_reference": 2.794,
+ "solved": false,
+ "detail": "DRC (magic drc(full)): 87 violation(s), boxes in um\n    87 x Metal1 > 270nm and runlength > 300nm spacing to unrelated m1 < 270nm (METAL1.6)   e.g. at (0.190 6.320 0.780 6.380)  (0.190 6.275 0.780 6.320)  (11.230 6.320 11.790 6.380)\nDRC2 (foundry KLayout deck): 57 violation(s), boxes in um\n    28 x METAL1.8: METAL1.8 : Minimum spacing of metal1 wider than 900 nm and longer than 2.7 um : 900nm   e.g. at (7.691 6.503 8.088 13.021)  (6.112 6.503 6.508 13.021)  (6.112 5.696 6.508 7.189)\n    14 x METAL1.7: METAL1.7 : Minimum spacing of metal1 wider than 500 nm and longer than 1.8 um : 500nm   e.g. at (10.851 6.503 11.248 12.164)  (1.371 -0.181 1.768 5.524)  (6.112 -0.181 6.508 5.524)\n     8 x WELL.4: WELL.4 : Minimum width of nwell/pwell : 200nm   e.g. at (0.955 6.435 1.330 6.585)  (8.855 6.435 9.230 6.585)  (4.115 6.435 4.490 6.585)\n     7 x METAL1.6: METAL1.6 : Minimum spacing of metal1 wider than 270 nm and longer than 900 nm : 270nm   e.g. at (11.229 6.381 12.451 6.504)  (9.649 6.381 10.871 6.504)  (8.069 6.381 9.291 6.504)\nLVS: Top level cell failed pin matching.   devices layout/ref 2/352, nets layout/ref 5/212\n  pmos (11->1)                               |pmos (11) **Mismatch**\n  nmos (11->1)                               |nmos (11) **Mismatch**\n  Number of devices: 2 **Mismatch**          |Number of devices: 22 **Mismatch**\n  Number of nets: 5 **Mismatch**             |Number of nets: 17 **Mismatch**\n  ---------------------------------------------------------------------------------------\n  NET mismatches: Class fragments follow (with fanout counts):\n  Circuit 1: dff                             |Circuit 2: dff\n  ---------------------------------------------------------------------------------------\n  Net: a_206_237#                            |Net: VSS\n    pmos/gate = 1                            |  nmos/(drain|source) = 7\n                                             |  nmos/bulk = 11\n                                             |\n  Net: w_173_237#                            |Net: VDD\n    pmos/bulk = 1                            |  pmos/(drain|source) = 7\n                                             |  pmos/bulk = 11\n                                             |\n  Net: a_78_1229#                            |Net: CK\n    nmos/gate = 1                            |  nmos/gate = 3\n                                             |  pmos/gate = 3\n                                             |\n  Net: w_n1073741817_n1073741817#            |Net: CKB\n    nmos/bulk = 1                            |  nmos/(drain|source) = 1\n                                             |  nmos/gate = 2\n                                             |  pmos/(drain|source) = 1\n                                             |  pmos/gate = 2\n                                             |\n  (no matching net)                          |Net: mb\n                                             |  nmos/gate = 2\n                                             |  nmos/(drain|source) = 1\n                                             |  pmos/gate = 2\n                                             |  pmos/(drain|source) = 1\n                                             |\n  (no matching net)                          |Net: m\n                                             |  nmos/(drain|source) = 2\n                                             |  nmos/gate = 1\n                                             |  pmos/(drain|source) = 2\n                                             |  pmos/gate = 1\n                                             |\n  (no matching net)                          |Net: s\n                                             |  nmos/(drain|source) = 2"
+}

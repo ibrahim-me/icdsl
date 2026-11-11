@@ -1,0 +1,3 @@
+- Your device order is right (gates n1, B, A; n row X|VGND|n2|n1, p row X|VPWR|n1|VPWR).
+- The X strap `yx` on the left runs 0.045 um from n1's gate-contact li `nn` (needs 0.17), and the n1 route cannot land on `nn` there. Shift ALL THREE gate contacts right by 0.13: `cx=(gn.cx + 0.13)`, `cx=(gb.cx + 0.13)`, `cx=(ga.cx + 0.13)` (your pitch of 0.59 keeps the pads 0.21 apart).
+- n1 must join three pieces: sn1l (n row, right end), spnl (p row, between B and A) and the gate contact nn. Keep `route n1 layers=m1,m2` and do not put any met1 pin of your own on n1.

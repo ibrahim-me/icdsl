@@ -1,0 +1,37 @@
+{
+ "task": "rca8",
+ "pdk": "freepdk45",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/rca8.freepdk45/a2/rca8.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/rca8.freepdk45/a2/rca8.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "1184 violation(s): 484 x Contact width < 65nm (CONTACT.1); 456 x Diffusion overlap of diffusion contact < 5nm in one direction (CONTACT.4); 228 x Contact spacing < 75nm (CONTACT.2); 8 x Metal1 > 270nm and runlength > 300nm spacing to unrelated m1 < 270nm (METAL1.6); 8 x Metal1 > 500nm and runlength > 1.8um spacing to unrelated m1 < 500nm (METAL1.7)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 56 violation(s): 56 x CONTACT.1: CONTACT.1 : Minimum/Maximum width of contact : 65nm"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Top level cell failed pin matching.  (devices layout/ref 2/224; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/rca8.freepdk45/a2/judge/rca8.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "top-level pin names differ from the task netlist"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "38.40 x 4.00 = 153.6 um2, budget 161, reference 80.02"
+  }
+ ],
+ "area_um2": 153.6,
+ "area_vs_reference": 1.92,
+ "solved": false,
+ "detail": "DRC (magic drc(full)): 1184 violation(s), boxes in um\n   484 x Contact width < 65nm (CONTACT.1)   e.g. at (0.216 2.126 0.256 2.178)  (0.268 2.126 0.308 2.178)  (0.456 2.126 0.496 2.178)\n   456 x Diffusion overlap of diffusion contact < 5nm in one direction (CONTACT.4)   e.g. at (0.216 2.178 0.256 2.182)  (0.216 2.122 0.256 2.126)  (0.456 2.178 0.496 2.182)\n   228 x Contact spacing < 75nm (CONTACT.2)   e.g. at (0.216 2.126 0.268 2.178)  (0.456 2.126 0.508 2.178)  (0.696 2.126 0.748 2.178)\n     8 x Metal1 > 270nm and runlength > 300nm spacing to unrelated m1 < 270nm (METAL1.6)   e.g. at (3.330 0.570 3.358 2.098)  (7.170 0.570 7.198 2.098)  (11.010 0.570 11.038 2.098)\n     8 x Metal1 > 500nm and runlength > 1.8um spacing to unrelated m1 < 500nm (METAL1.7)   e.g. at (3.330 0.570 3.388 2.098)  (7.170 0.570 7.228 2.098)  (11.010 0.570 11.068 2.098)\nDRC2 (foundry KLayout deck): 56 violation(s), boxes in um\n    56 x CONTACT.1: CONTACT.1 : Minimum/Maximum width of contact : 65nm   e.g. at (2.355 2.658 2.435 2.658)  (2.655 2.658 2.735 2.658)  (2.955 2.658 3.035 2.658)\nLVS: Top level cell failed pin matching.   devices layout/ref 2/224, nets layout/ref 5/131\n  pmos (28->1)                               |pmos (14) **Mismatch**\n  nmos (28->1)                               |nmos (14) **Mismatch**\n  Number of devices: 2 **Mismatch**          |Number of devices: 28 **Mismatch**\n  Number of nets: 5 **Mismatch**             |Number of nets: 19 **Mismatch**\n  ---------------------------------------------------------------------------------------\n  NET mismatches: Class fragments follow (with fanout counts):\n  Circuit 1: fa                              |Circuit 2: fa\n  ---------------------------------------------------------------------------------------\n  Net: B                                     |Net: B\n    pmos/(drain|source) = 2                  |  nmos/gate = 4\n    nmos/(drain|source) = 2                  |  pmos/gate = 4\n                                             |\n  Net: a_1308_1018#                          |Net: p3\n    pmos/gate = 1                            |  pmos/(drain|source) = 4\n                                             |\n  Net: w_58_1018#                            |Net: VSS\n    pmos/bulk = 1                            |  nmos/(drain|source) = 9\n                                             |  nmos/bulk = 14\n                                             |\n  Net: a_108_218#                            |Net: VDD\n    nmos/gate = 1                            |  pmos/(drain|source) = 9\n                                             |  pmos/bulk = 14\n                                             |\n  Net: w_n1073741817_n1073741817#            |Net: A\n    nmos/bulk = 1                            |  nmos/gate = 4\n                                             |  pmos/gate = 4\n                                             |\n  (no matching net)                          |Net: n3\n                                             |  nmos/(drain|source) = 4\n                                             |\n  (no matching net)                          |Net: CB\n                                             |  nmos/(drain|source) = 2\n                                             |  nmos/gate = 2\n                                             |  pmos/(drain|source) = 2\n                                             |  pmos/gate = 2\n                                             |\n  (no matching net)                          |Net: n1\n                                             |  nmos/(drain|source) = 3\n                                             |\n  (no matching net)                          |Net: p1"
+}

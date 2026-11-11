@@ -1,0 +1,1699 @@
+{
+ "source": "textbook analog blocks (current mirrors, differential pairs, OTAs, StrongARM latch); constraints checked on the drawn geometry by bench/l2_judge.py",
+ "sweep": [
+  {
+   "Lscale": 1.0,
+   "wscale": 1.0
+  },
+  {
+   "Lscale": 2.0,
+   "wscale": 1.0
+  },
+  {
+   "Lmin": true,
+   "wscale": 1.0
+  },
+  {
+   "Lscale": 1.0,
+   "wscale": 2.0
+  }
+ ],
+ "cells": [
+  {
+   "name": "cm_n",
+   "tier": 1,
+   "function": "1:1 NMOS current mirror (M1 diode-connected reference, M2 output)",
+   "params": {
+    "W": 1.0,
+    "L": 0.5
+   },
+   "ports": [
+    {
+     "name": "IREF",
+     "dir": "in",
+     "side": "left"
+    },
+    {
+     "name": "IOUT",
+     "dir": "out",
+     "side": "right"
+    },
+    {
+     "name": "VGND",
+     "dir": "ground",
+     "side": null
+    }
+   ],
+   "devices": [
+    {
+     "name": "M1",
+     "kind": "nmos",
+     "d": "IREF",
+     "g": "IREF",
+     "s": "VGND",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M2",
+     "kind": "nmos",
+     "d": "IOUT",
+     "g": "IREF",
+     "s": "VGND",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    }
+   ],
+   "constraints": [
+    {
+     "type": "interdigitated",
+     "devices": [
+      "M1",
+      "M2"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "cm_p12",
+   "tier": 1,
+   "function": "1:2 PMOS current mirror (M1 reference, M2 = 2x output)",
+   "params": {
+    "W": 1.0,
+    "L": 0.5
+   },
+   "ports": [
+    {
+     "name": "IREF",
+     "dir": "in",
+     "side": "left"
+    },
+    {
+     "name": "IOUT",
+     "dir": "out",
+     "side": "right"
+    },
+    {
+     "name": "VPWR",
+     "dir": "power",
+     "side": null
+    }
+   ],
+   "devices": [
+    {
+     "name": "M1",
+     "kind": "pmos",
+     "d": "IREF",
+     "g": "IREF",
+     "s": "VPWR",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M2",
+     "kind": "pmos",
+     "d": "IOUT",
+     "g": "IREF",
+     "s": "VPWR",
+     "nf": 4,
+     "w": "W",
+     "l": "L"
+    }
+   ],
+   "constraints": [
+    {
+     "type": "common_centroid",
+     "devices": [
+      "M1",
+      "M2"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "diffpair",
+   "tier": 1,
+   "function": "NMOS differential pair with tail current source",
+   "params": {
+    "W": 1.0,
+    "L": 0.5
+   },
+   "ports": [
+    {
+     "name": "INP",
+     "dir": "in",
+     "side": "left"
+    },
+    {
+     "name": "INN",
+     "dir": "in",
+     "side": "right"
+    },
+    {
+     "name": "VBN",
+     "dir": "in",
+     "side": "bottom"
+    },
+    {
+     "name": "OUTP",
+     "dir": "out",
+     "side": "top"
+    },
+    {
+     "name": "OUTN",
+     "dir": "out",
+     "side": "top"
+    },
+    {
+     "name": "VGND",
+     "dir": "ground",
+     "side": null
+    }
+   ],
+   "devices": [
+    {
+     "name": "M1",
+     "kind": "nmos",
+     "d": "OUTN",
+     "g": "INP",
+     "s": "tail",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M2",
+     "kind": "nmos",
+     "d": "OUTP",
+     "g": "INN",
+     "s": "tail",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "MT",
+     "kind": "nmos",
+     "d": "tail",
+     "g": "VBN",
+     "s": "VGND",
+     "nf": 4,
+     "w": "W",
+     "l": "L"
+    }
+   ],
+   "constraints": [
+    {
+     "type": "common_centroid",
+     "devices": [
+      "M1",
+      "M2"
+     ]
+    },
+    {
+     "type": "route_width",
+     "net": "tail",
+     "min": 0.3
+    }
+   ]
+  },
+  {
+   "name": "cascode_n",
+   "tier": 2,
+   "function": "NMOS cascode current mirror (M1/M2 bottom pair, M3/M4 cascodes)",
+   "params": {
+    "W": 1.0,
+    "L": 0.5
+   },
+   "ports": [
+    {
+     "name": "IREF",
+     "dir": "in",
+     "side": "left"
+    },
+    {
+     "name": "IOUT",
+     "dir": "out",
+     "side": "right"
+    },
+    {
+     "name": "VGND",
+     "dir": "ground",
+     "side": null
+    }
+   ],
+   "devices": [
+    {
+     "name": "M1",
+     "kind": "nmos",
+     "d": "n1",
+     "g": "n1",
+     "s": "VGND",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M2",
+     "kind": "nmos",
+     "d": "n2",
+     "g": "n1",
+     "s": "VGND",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M3",
+     "kind": "nmos",
+     "d": "IREF",
+     "g": "IREF",
+     "s": "n1",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M4",
+     "kind": "nmos",
+     "d": "IOUT",
+     "g": "IREF",
+     "s": "n2",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    }
+   ],
+   "constraints": [
+    {
+     "type": "interdigitated",
+     "devices": [
+      "M1",
+      "M2"
+     ]
+    },
+    {
+     "type": "interdigitated",
+     "devices": [
+      "M3",
+      "M4"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "ota5t",
+   "tier": 2,
+   "function": "5-transistor OTA: NMOS input pair, PMOS mirror load, NMOS tail",
+   "params": {
+    "W": 1.0,
+    "L": 0.5
+   },
+   "ports": [
+    {
+     "name": "INP",
+     "dir": "in",
+     "side": "left"
+    },
+    {
+     "name": "INN",
+     "dir": "in",
+     "side": "right"
+    },
+    {
+     "name": "VBN",
+     "dir": "in",
+     "side": "left"
+    },
+    {
+     "name": "OUT",
+     "dir": "out",
+     "side": "right"
+    },
+    {
+     "name": "VPWR",
+     "dir": "power",
+     "side": null
+    },
+    {
+     "name": "VGND",
+     "dir": "ground",
+     "side": null
+    }
+   ],
+   "devices": [
+    {
+     "name": "M1",
+     "kind": "nmos",
+     "d": "x",
+     "g": "INP",
+     "s": "tail",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M2",
+     "kind": "nmos",
+     "d": "OUT",
+     "g": "INN",
+     "s": "tail",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M3",
+     "kind": "pmos",
+     "d": "x",
+     "g": "x",
+     "s": "VPWR",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M4",
+     "kind": "pmos",
+     "d": "OUT",
+     "g": "x",
+     "s": "VPWR",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "MT",
+     "kind": "nmos",
+     "d": "tail",
+     "g": "VBN",
+     "s": "VGND",
+     "nf": 4,
+     "w": "W",
+     "l": "L"
+    }
+   ],
+   "constraints": [
+    {
+     "type": "interdigitated",
+     "devices": [
+      "M1",
+      "M2"
+     ]
+    },
+    {
+     "type": "common_centroid",
+     "devices": [
+      "M3",
+      "M4"
+     ]
+    },
+    {
+     "type": "spacing",
+     "nets": [
+      "OUT",
+      "INN"
+     ],
+     "min": 0.5
+    },
+    {
+     "type": "route_width",
+     "net": "tail",
+     "min": 0.4
+    }
+   ]
+  },
+  {
+   "name": "diff_stage",
+   "tier": 2,
+   "function": "fully differential stage: NMOS pair, PMOS current-source loads, NMOS tail - drawn mirror-symmetric with guard rings",
+   "params": {
+    "W": 1.0,
+    "L": 0.3
+   },
+   "ports": [
+    {
+     "name": "INP",
+     "dir": "in",
+     "side": "left"
+    },
+    {
+     "name": "INN",
+     "dir": "in",
+     "side": "right"
+    },
+    {
+     "name": "VBN",
+     "dir": "in",
+     "side": "bottom"
+    },
+    {
+     "name": "VBP",
+     "dir": "in",
+     "side": "top"
+    },
+    {
+     "name": "OUTP",
+     "dir": "out",
+     "side": null
+    },
+    {
+     "name": "OUTN",
+     "dir": "out",
+     "side": null
+    },
+    {
+     "name": "VPWR",
+     "dir": "power",
+     "side": null
+    },
+    {
+     "name": "VGND",
+     "dir": "ground",
+     "side": null
+    }
+   ],
+   "devices": [
+    {
+     "name": "M1",
+     "kind": "nmos",
+     "d": "OUTN",
+     "g": "INP",
+     "s": "tail",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M2",
+     "kind": "nmos",
+     "d": "OUTP",
+     "g": "INN",
+     "s": "tail",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M3",
+     "kind": "pmos",
+     "d": "OUTN",
+     "g": "VBP",
+     "s": "VPWR",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M4",
+     "kind": "pmos",
+     "d": "OUTP",
+     "g": "VBP",
+     "s": "VPWR",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "MT",
+     "kind": "nmos",
+     "d": "tail",
+     "g": "VBN",
+     "s": "VGND",
+     "nf": 4,
+     "w": "W",
+     "l": "L"
+    }
+   ],
+   "constraints": [
+    {
+     "type": "mirror_symmetric",
+     "pairs": [
+      [
+       "M1",
+       "M2"
+      ],
+      [
+       "M3",
+       "M4"
+      ]
+     ]
+    },
+    {
+     "type": "route_symmetric",
+     "nets": [
+      "OUTN",
+      "OUTP"
+     ]
+    },
+    {
+     "type": "guard_ring",
+     "devices": [
+      "M1",
+      "M2",
+      "MT"
+     ],
+     "kind": "ptap"
+    },
+    {
+     "type": "guard_ring",
+     "devices": [
+      "M3",
+      "M4"
+     ],
+     "kind": "ntap"
+    }
+   ]
+  },
+  {
+   "name": "bias3",
+   "tier": 3,
+   "function": "NMOS bias mirror: reference M0, outputs M1 (1x) and M2 (2x), all three on one common centroid",
+   "params": {
+    "W": 1.0,
+    "L": 1.0
+   },
+   "ports": [
+    {
+     "name": "IREF",
+     "dir": "in",
+     "side": "left"
+    },
+    {
+     "name": "I1",
+     "dir": "out",
+     "side": "right"
+    },
+    {
+     "name": "I2",
+     "dir": "out",
+     "side": "right"
+    },
+    {
+     "name": "VGND",
+     "dir": "ground",
+     "side": null
+    }
+   ],
+   "devices": [
+    {
+     "name": "M0",
+     "kind": "nmos",
+     "d": "IREF",
+     "g": "IREF",
+     "s": "VGND",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M1",
+     "kind": "nmos",
+     "d": "I1",
+     "g": "IREF",
+     "s": "VGND",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M2",
+     "kind": "nmos",
+     "d": "I2",
+     "g": "IREF",
+     "s": "VGND",
+     "nf": 4,
+     "w": "W",
+     "l": "L"
+    }
+   ],
+   "constraints": [
+    {
+     "type": "common_centroid",
+     "devices": [
+      "M0",
+      "M1",
+      "M2"
+     ]
+    }
+   ]
+  },
+  {
+   "name": "ota2s",
+   "tier": 3,
+   "function": "two-stage OTA (no compensation cap): 5T first stage + PMOS common-source second stage with NMOS current-source load",
+   "params": {
+    "W": 1.0,
+    "L": 0.5
+   },
+   "ports": [
+    {
+     "name": "INP",
+     "dir": "in",
+     "side": "left"
+    },
+    {
+     "name": "INN",
+     "dir": "in",
+     "side": "left"
+    },
+    {
+     "name": "VBN",
+     "dir": "in",
+     "side": "left"
+    },
+    {
+     "name": "OUT",
+     "dir": "out",
+     "side": "right"
+    },
+    {
+     "name": "VPWR",
+     "dir": "power",
+     "side": null
+    },
+    {
+     "name": "VGND",
+     "dir": "ground",
+     "side": null
+    }
+   ],
+   "devices": [
+    {
+     "name": "M1",
+     "kind": "nmos",
+     "d": "x",
+     "g": "INP",
+     "s": "tail",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M2",
+     "kind": "nmos",
+     "d": "o1",
+     "g": "INN",
+     "s": "tail",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M3",
+     "kind": "pmos",
+     "d": "x",
+     "g": "x",
+     "s": "VPWR",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M4",
+     "kind": "pmos",
+     "d": "o1",
+     "g": "x",
+     "s": "VPWR",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "MT",
+     "kind": "nmos",
+     "d": "tail",
+     "g": "VBN",
+     "s": "VGND",
+     "nf": 4,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M6",
+     "kind": "pmos",
+     "d": "OUT",
+     "g": "o1",
+     "s": "VPWR",
+     "nf": 4,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M7",
+     "kind": "nmos",
+     "d": "OUT",
+     "g": "VBN",
+     "s": "VGND",
+     "nf": 4,
+     "w": "W",
+     "l": "L"
+    }
+   ],
+   "constraints": [
+    {
+     "type": "common_centroid",
+     "devices": [
+      "M1",
+      "M2"
+     ]
+    },
+    {
+     "type": "common_centroid",
+     "devices": [
+      "M3",
+      "M4"
+     ]
+    },
+    {
+     "type": "route_width",
+     "net": "OUT",
+     "min": 0.3
+    },
+    {
+     "type": "spacing",
+     "nets": [
+      "OUT",
+      "INP"
+     ],
+     "min": 0.6
+    },
+    {
+     "type": "spacing",
+     "nets": [
+      "OUT",
+      "INN"
+     ],
+     "min": 0.6
+    }
+   ]
+  },
+  {
+   "name": "strongarm",
+   "tier": 3,
+   "function": "StrongARM latch comparator, drawn mirror-symmetric",
+   "params": {
+    "W": 1.0,
+    "L": 0.15
+   },
+   "ports": [
+    {
+     "name": "CLK",
+     "dir": "in",
+     "side": "bottom"
+    },
+    {
+     "name": "INP",
+     "dir": "in",
+     "side": "left"
+    },
+    {
+     "name": "INN",
+     "dir": "in",
+     "side": "right"
+    },
+    {
+     "name": "OUTP",
+     "dir": "out",
+     "side": "top"
+    },
+    {
+     "name": "OUTN",
+     "dir": "out",
+     "side": "top"
+    },
+    {
+     "name": "VPWR",
+     "dir": "power",
+     "side": null
+    },
+    {
+     "name": "VGND",
+     "dir": "ground",
+     "side": null
+    }
+   ],
+   "devices": [
+    {
+     "name": "M0",
+     "kind": "nmos",
+     "d": "tail",
+     "g": "CLK",
+     "s": "VGND",
+     "nf": 4,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M1",
+     "kind": "nmos",
+     "d": "P",
+     "g": "INP",
+     "s": "tail",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M2",
+     "kind": "nmos",
+     "d": "Q",
+     "g": "INN",
+     "s": "tail",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M3",
+     "kind": "nmos",
+     "d": "OUTN",
+     "g": "OUTP",
+     "s": "P",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M4",
+     "kind": "nmos",
+     "d": "OUTP",
+     "g": "OUTN",
+     "s": "Q",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M5",
+     "kind": "pmos",
+     "d": "OUTN",
+     "g": "OUTP",
+     "s": "VPWR",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M6",
+     "kind": "pmos",
+     "d": "OUTP",
+     "g": "OUTN",
+     "s": "VPWR",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M7",
+     "kind": "pmos",
+     "d": "OUTN",
+     "g": "CLK",
+     "s": "VPWR",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M8",
+     "kind": "pmos",
+     "d": "OUTP",
+     "g": "CLK",
+     "s": "VPWR",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M9",
+     "kind": "pmos",
+     "d": "P",
+     "g": "CLK",
+     "s": "VPWR",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M10",
+     "kind": "pmos",
+     "d": "Q",
+     "g": "CLK",
+     "s": "VPWR",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    }
+   ],
+   "constraints": [
+    {
+     "type": "mirror_symmetric",
+     "pairs": [
+      [
+       "M1",
+       "M2"
+      ],
+      [
+       "M3",
+       "M4"
+      ],
+      [
+       "M5",
+       "M6"
+      ],
+      [
+       "M7",
+       "M8"
+      ],
+      [
+       "M9",
+       "M10"
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "name": "mirror4",
+   "tier": 4,
+   "function": "4-way NMOS mirror bank (reference + 3 outputs) on one 2-D common centroid inside a ptap guard ring",
+   "params": {
+    "W": 1.0,
+    "L": 1.0
+   },
+   "ports": [
+    {
+     "name": "IREF",
+     "dir": "in",
+     "side": "left"
+    },
+    {
+     "name": "I1",
+     "dir": "out",
+     "side": "right"
+    },
+    {
+     "name": "I2",
+     "dir": "out",
+     "side": "right"
+    },
+    {
+     "name": "I3",
+     "dir": "out",
+     "side": "right"
+    },
+    {
+     "name": "VGND",
+     "dir": "ground",
+     "side": null
+    }
+   ],
+   "devices": [
+    {
+     "name": "M0",
+     "kind": "nmos",
+     "d": "IREF",
+     "g": "IREF",
+     "s": "VGND",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M1",
+     "kind": "nmos",
+     "d": "I1",
+     "g": "IREF",
+     "s": "VGND",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M2",
+     "kind": "nmos",
+     "d": "I2",
+     "g": "IREF",
+     "s": "VGND",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M3",
+     "kind": "nmos",
+     "d": "I3",
+     "g": "IREF",
+     "s": "VGND",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    }
+   ],
+   "constraints": [
+    {
+     "type": "common_centroid",
+     "devices": [
+      "M0",
+      "M1",
+      "M2",
+      "M3"
+     ]
+    },
+    {
+     "type": "guard_ring",
+     "devices": [
+      "M0",
+      "M1",
+      "M2",
+      "M3"
+     ],
+     "kind": "ptap"
+    }
+   ]
+  },
+  {
+   "name": "ota5t_small",
+   "tier": 4,
+   "function": "5-transistor OTA as ota5t, but inside an area budget",
+   "params": {
+    "W": 1.0,
+    "L": 0.5
+   },
+   "ports": [
+    {
+     "name": "INP",
+     "dir": "in",
+     "side": "left"
+    },
+    {
+     "name": "INN",
+     "dir": "in",
+     "side": "right"
+    },
+    {
+     "name": "VBN",
+     "dir": "in",
+     "side": "left"
+    },
+    {
+     "name": "OUT",
+     "dir": "out",
+     "side": "right"
+    },
+    {
+     "name": "VPWR",
+     "dir": "power",
+     "side": null
+    },
+    {
+     "name": "VGND",
+     "dir": "ground",
+     "side": null
+    }
+   ],
+   "devices": [
+    {
+     "name": "M1",
+     "kind": "nmos",
+     "d": "x",
+     "g": "INP",
+     "s": "tail",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M2",
+     "kind": "nmos",
+     "d": "OUT",
+     "g": "INN",
+     "s": "tail",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M3",
+     "kind": "pmos",
+     "d": "x",
+     "g": "x",
+     "s": "VPWR",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M4",
+     "kind": "pmos",
+     "d": "OUT",
+     "g": "x",
+     "s": "VPWR",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "MT",
+     "kind": "nmos",
+     "d": "tail",
+     "g": "VBN",
+     "s": "VGND",
+     "nf": 4,
+     "w": "W",
+     "l": "L"
+    }
+   ],
+   "constraints": [
+    {
+     "type": "interdigitated",
+     "devices": [
+      "M1",
+      "M2"
+     ]
+    },
+    {
+     "type": "interdigitated",
+     "devices": [
+      "M3",
+      "M4"
+     ]
+    },
+    {
+     "type": "area",
+     "max": {
+      "W=1.0,L=0.5": 86.0,
+      "W=1.0,L=1.0": 117.0,
+      "W=1.0,L=0.15": 55.0,
+      "W=2.0,L=0.5": 113.0
+     }
+    }
+   ]
+  },
+  {
+   "name": "folded_cascode",
+   "tier": 4,
+   "function": "folded-cascode OTA: PMOS input pair + PMOS tail, NMOS current sinks, NMOS cascodes, PMOS cascoded mirror load",
+   "params": {
+    "W": 1.0,
+    "L": 0.5
+   },
+   "ports": [
+    {
+     "name": "INP",
+     "dir": "in",
+     "side": "left"
+    },
+    {
+     "name": "INN",
+     "dir": "in",
+     "side": "right"
+    },
+    {
+     "name": "VBP",
+     "dir": "in",
+     "side": "top"
+    },
+    {
+     "name": "VBN",
+     "dir": "in",
+     "side": "bottom"
+    },
+    {
+     "name": "VCN",
+     "dir": "in",
+     "side": "left"
+    },
+    {
+     "name": "VCP",
+     "dir": "in",
+     "side": "left"
+    },
+    {
+     "name": "OUT",
+     "dir": "out",
+     "side": "right"
+    },
+    {
+     "name": "VPWR",
+     "dir": "power",
+     "side": null
+    },
+    {
+     "name": "VGND",
+     "dir": "ground",
+     "side": null
+    }
+   ],
+   "devices": [
+    {
+     "name": "MT",
+     "kind": "pmos",
+     "d": "tail",
+     "g": "VBP",
+     "s": "VPWR",
+     "nf": 4,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M1",
+     "kind": "pmos",
+     "d": "f1",
+     "g": "INP",
+     "s": "tail",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M2",
+     "kind": "pmos",
+     "d": "f2",
+     "g": "INN",
+     "s": "tail",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M3",
+     "kind": "nmos",
+     "d": "f1",
+     "g": "VBN",
+     "s": "VGND",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M4",
+     "kind": "nmos",
+     "d": "f2",
+     "g": "VBN",
+     "s": "VGND",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M5",
+     "kind": "nmos",
+     "d": "x",
+     "g": "VCN",
+     "s": "f1",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M6",
+     "kind": "nmos",
+     "d": "OUT",
+     "g": "VCN",
+     "s": "f2",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M7",
+     "kind": "pmos",
+     "d": "y",
+     "g": "x",
+     "s": "VPWR",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M8",
+     "kind": "pmos",
+     "d": "z",
+     "g": "x",
+     "s": "VPWR",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M9",
+     "kind": "pmos",
+     "d": "x",
+     "g": "VCP",
+     "s": "y",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M10",
+     "kind": "pmos",
+     "d": "OUT",
+     "g": "VCP",
+     "s": "z",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    }
+   ],
+   "constraints": [
+    {
+     "type": "common_centroid",
+     "devices": [
+      "M1",
+      "M2"
+     ]
+    },
+    {
+     "type": "interdigitated",
+     "devices": [
+      "M3",
+      "M4"
+     ]
+    },
+    {
+     "type": "interdigitated",
+     "devices": [
+      "M5",
+      "M6"
+     ]
+    },
+    {
+     "type": "interdigitated",
+     "devices": [
+      "M7",
+      "M8"
+     ]
+    },
+    {
+     "type": "interdigitated",
+     "devices": [
+      "M9",
+      "M10"
+     ]
+    },
+    {
+     "type": "spacing",
+     "nets": [
+      "OUT",
+      "INP"
+     ],
+     "min": 0.5
+    },
+    {
+     "type": "spacing",
+     "nets": [
+      "OUT",
+      "INN"
+     ],
+     "min": 0.5
+    }
+   ]
+  },
+  {
+   "name": "comp_latch",
+   "tier": 5,
+   "function": "StrongARM comparator with an SR (NAND2) output latch, drawn mirror-symmetric",
+   "params": {
+    "W": 1.0,
+    "L": 0.15
+   },
+   "ports": [
+    {
+     "name": "CLK",
+     "dir": "in",
+     "side": "bottom"
+    },
+    {
+     "name": "INP",
+     "dir": "in",
+     "side": "left"
+    },
+    {
+     "name": "INN",
+     "dir": "in",
+     "side": "right"
+    },
+    {
+     "name": "QP",
+     "dir": "out",
+     "side": "top"
+    },
+    {
+     "name": "QN",
+     "dir": "out",
+     "side": "top"
+    },
+    {
+     "name": "VPWR",
+     "dir": "power",
+     "side": null
+    },
+    {
+     "name": "VGND",
+     "dir": "ground",
+     "side": null
+    }
+   ],
+   "devices": [
+    {
+     "name": "M0",
+     "kind": "nmos",
+     "d": "tail",
+     "g": "CLK",
+     "s": "VGND",
+     "nf": 4,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M1",
+     "kind": "nmos",
+     "d": "P",
+     "g": "INP",
+     "s": "tail",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M2",
+     "kind": "nmos",
+     "d": "Q",
+     "g": "INN",
+     "s": "tail",
+     "nf": 2,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M3",
+     "kind": "nmos",
+     "d": "OUTN",
+     "g": "OUTP",
+     "s": "P",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M4",
+     "kind": "nmos",
+     "d": "OUTP",
+     "g": "OUTN",
+     "s": "Q",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M5",
+     "kind": "pmos",
+     "d": "OUTN",
+     "g": "OUTP",
+     "s": "VPWR",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M6",
+     "kind": "pmos",
+     "d": "OUTP",
+     "g": "OUTN",
+     "s": "VPWR",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M7",
+     "kind": "pmos",
+     "d": "OUTN",
+     "g": "CLK",
+     "s": "VPWR",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M8",
+     "kind": "pmos",
+     "d": "OUTP",
+     "g": "CLK",
+     "s": "VPWR",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M9",
+     "kind": "pmos",
+     "d": "P",
+     "g": "CLK",
+     "s": "VPWR",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "M10",
+     "kind": "pmos",
+     "d": "Q",
+     "g": "CLK",
+     "s": "VPWR",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "MN11",
+     "kind": "nmos",
+     "d": "QP",
+     "g": "OUTN",
+     "s": "m1",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "MN12",
+     "kind": "nmos",
+     "d": "m1",
+     "g": "QN",
+     "s": "VGND",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "MP11",
+     "kind": "pmos",
+     "d": "QP",
+     "g": "OUTN",
+     "s": "VPWR",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "MP12",
+     "kind": "pmos",
+     "d": "QP",
+     "g": "QN",
+     "s": "VPWR",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "MN21",
+     "kind": "nmos",
+     "d": "QN",
+     "g": "OUTP",
+     "s": "m2",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "MN22",
+     "kind": "nmos",
+     "d": "m2",
+     "g": "QP",
+     "s": "VGND",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "MP21",
+     "kind": "pmos",
+     "d": "QN",
+     "g": "OUTP",
+     "s": "VPWR",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    },
+    {
+     "name": "MP22",
+     "kind": "pmos",
+     "d": "QN",
+     "g": "QP",
+     "s": "VPWR",
+     "nf": 1,
+     "w": "W",
+     "l": "L"
+    }
+   ],
+   "constraints": [
+    {
+     "type": "mirror_symmetric",
+     "pairs": [
+      [
+       "M1",
+       "M2"
+      ],
+      [
+       "M3",
+       "M4"
+      ],
+      [
+       "M5",
+       "M6"
+      ],
+      [
+       "M7",
+       "M8"
+      ],
+      [
+       "M9",
+       "M10"
+      ],
+      [
+       "MN11",
+       "MN21"
+      ],
+      [
+       "MN12",
+       "MN22"
+      ],
+      [
+       "MP11",
+       "MP21"
+      ],
+      [
+       "MP12",
+       "MP22"
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

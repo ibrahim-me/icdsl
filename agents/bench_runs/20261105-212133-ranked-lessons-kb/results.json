@@ -1,0 +1,1093 @@
+{
+ "config": {
+  "model": "nvidia/nemotron-3.5-super-vl:free",
+  "cells": "",
+  "tiers": "1,2,3,4",
+  "attempts": 5,
+  "robust_rounds": 1,
+  "max_calls": 150,
+  "workers": 3,
+  "feedback": "ranked",
+  "images": "full",
+  "keep_best": true,
+  "lessons": "agents/lessons_stdcell.md",
+  "draft": false,
+  "examples": 0,
+  "tag": "ranked-lessons-kb",
+  "temperature": 0.2
+ },
+ "results": [
+  {
+   "cell": "nand2",
+   "tier": 1,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "strap: the two objects do not line up horizontally or vertically; give cx= or cy="
+    },
+    {
+     "k": 2,
+     "status": "CLEAN",
+     "drc": 0,
+     "lvs": true,
+     "score": 0,
+     "error": ""
+    }
+   ],
+   "nominal_clean": true,
+   "clean_at": 2,
+   "calls": 2,
+   "sweep": [
+    [
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       1.84,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.18,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       1.84,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.25,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       1.84,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.42,
+       "WP": 0.64
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       1.84,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 3.26,
+       "WN": 0.66,
+       "WP": 1.01
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       1.84,
+       3.26
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 4.08,
+       "WN": 0.93,
+       "WP": 1.42
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       1.84,
+       4.08
+      ]
+     }
+    ]
+   ],
+   "final": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-212133-ranked-lessons-kb/nand2/nand2_final.icl",
+   "sweep_best": 6
+  },
+  {
+   "cell": "inv",
+   "tier": 1,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "VIOLATIONS",
+     "drc": 22,
+     "lvs": false,
+     "score": 5022,
+     "error": ""
+    },
+    {
+     "k": 2,
+     "status": "VIOLATIONS",
+     "drc": 26,
+     "lvs": true,
+     "score": 26,
+     "error": ""
+    },
+    {
+     "k": 3,
+     "status": "VIOLATIONS",
+     "drc": 12,
+     "lvs": true,
+     "score": 12,
+     "error": ""
+    },
+    {
+     "k": 4,
+     "status": "VIOLATIONS",
+     "drc": 20,
+     "lvs": false,
+     "score": 5020,
+     "error": ""
+    },
+    {
+     "k": 5,
+     "status": "VIOLATIONS",
+     "drc": 10,
+     "lvs": true,
+     "score": 10,
+     "error": ""
+    }
+   ],
+   "nominal_clean": false,
+   "calls": 5
+  },
+  {
+   "cell": "buf",
+   "tier": 1,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "VIOLATIONS",
+     "drc": 6,
+     "lvs": false,
+     "score": 5006,
+     "error": ""
+    },
+    {
+     "k": 2,
+     "status": "VIOLATIONS",
+     "drc": 86,
+     "lvs": false,
+     "score": 5086,
+     "error": ""
+    },
+    {
+     "k": 3,
+     "status": "VIOLATIONS",
+     "drc": 86,
+     "lvs": false,
+     "score": 5086,
+     "error": ""
+    },
+    {
+     "k": 4,
+     "status": "VIOLATIONS",
+     "drc": 54,
+     "lvs": false,
+     "score": 5054,
+     "error": ""
+    },
+    {
+     "k": 5,
+     "status": "VIOLATIONS",
+     "drc": 54,
+     "lvs": false,
+     "score": 5054,
+     "error": ""
+    }
+   ],
+   "nominal_clean": false,
+   "calls": 5
+  },
+  {
+   "cell": "nor2",
+   "tier": 1,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "usage: <name> = array <cut> in=<obj> [dir=y|x] [space=min] [margin=min] [cx=|cy=]"
+    },
+    {
+     "k": 2,
+     "status": "VIOLATIONS",
+     "drc": 45,
+     "lvs": false,
+     "score": 5045,
+     "error": ""
+    },
+    {
+     "k": 3,
+     "status": "VIOLATIONS",
+     "drc": 28,
+     "lvs": true,
+     "score": 28,
+     "error": ""
+    },
+    {
+     "k": 4,
+     "status": "CLEAN",
+     "drc": 0,
+     "lvs": true,
+     "score": 0,
+     "error": ""
+    }
+   ],
+   "nominal_clean": true,
+   "clean_at": 4,
+   "calls": 4,
+   "sweep": [
+    [
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       1.84,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.18,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       1.84,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.25,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       1.84,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.42,
+       "WP": 0.64
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       1.84,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 3.26,
+       "WN": 0.66,
+       "WP": 1.01
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       1.84,
+       3.26
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 4.08,
+       "WN": 0.93,
+       "WP": 1.42
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       1.84,
+       4.08
+      ]
+     }
+    ]
+   ],
+   "final": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-212133-ranked-lessons-kb/nor2/nor2_final.icl",
+   "sweep_best": 6
+  },
+  {
+   "cell": "nand3",
+   "tier": 2,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "VIOLATIONS",
+     "drc": 0,
+     "lvs": false,
+     "score": 5000,
+     "error": ""
+    },
+    {
+     "k": 2,
+     "status": "VIOLATIONS",
+     "drc": 0,
+     "lvs": false,
+     "score": 5000,
+     "error": ""
+    },
+    {
+     "k": 3,
+     "status": "CLEAN",
+     "drc": 0,
+     "lvs": true,
+     "score": 0,
+     "error": ""
+    }
+   ],
+   "nominal_clean": true,
+   "clean_at": 3,
+   "calls": 3,
+   "sweep": [
+    [
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.18,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.25,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.42,
+       "WP": 0.64
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 3.26,
+       "WN": 0.66,
+       "WP": 1.01
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       3.26
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 4.08,
+       "WN": 0.93,
+       "WP": 1.42
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       4.08
+      ]
+     }
+    ]
+   ],
+   "final": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-212133-ranked-lessons-kb/nand3/nand3_final.icl",
+   "sweep_best": 6
+  },
+  {
+   "cell": "nor3",
+   "tier": 2,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "'gnd' already defined (line 30)"
+    },
+    {
+     "k": 2,
+     "status": "VIOLATIONS",
+     "drc": 22,
+     "lvs": true,
+     "score": 22,
+     "error": ""
+    },
+    {
+     "k": 3,
+     "status": "VIOLATIONS",
+     "drc": 216,
+     "lvs": false,
+     "score": 5216,
+     "error": ""
+    },
+    {
+     "k": 4,
+     "status": "VIOLATIONS",
+     "drc": 118,
+     "lvs": false,
+     "score": 5118,
+     "error": ""
+    },
+    {
+     "k": 5,
+     "status": "VIOLATIONS",
+     "drc": 74,
+     "lvs": false,
+     "score": 5074,
+     "error": ""
+    }
+   ],
+   "nominal_clean": false,
+   "calls": 5
+  },
+  {
+   "cell": "and2",
+   "tier": 2,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "array: unknown parameter 'between'"
+    },
+    {
+     "k": 2,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "stdcell and2: routing failed: net 'n1': pin nn+np has no legal access point (blocked by bp on m1: 0.055 < 0.140 um)"
+    },
+    {
+     "k": 3,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "stdcell and2: routing failed: net 'n1': pin nn+np has no legal access point"
+    },
+    {
+     "k": 4,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "strap: the two objects do not line up horizontally or vertically; give cx= or cy="
+    },
+    {
+     "k": 5,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "stdcell and2: routing failed: net 'n1': pin nn has no legal access point"
+    }
+   ],
+   "nominal_clean": false,
+   "calls": 5
+  },
+  {
+   "cell": "or2",
+   "tier": 2,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "strap: the two objects do not line up horizontally or vertically; give cx= or cy="
+    },
+    {
+     "k": 2,
+     "status": "VIOLATIONS",
+     "drc": 22,
+     "lvs": false,
+     "score": 5022,
+     "error": ""
+    },
+    {
+     "k": 3,
+     "status": "VIOLATIONS",
+     "drc": 17,
+     "lvs": false,
+     "score": 5017,
+     "error": ""
+    },
+    {
+     "k": 4,
+     "status": "VIOLATIONS",
+     "drc": 18,
+     "lvs": false,
+     "score": 5018,
+     "error": ""
+    },
+    {
+     "k": 5,
+     "status": "VIOLATIONS",
+     "drc": 17,
+     "lvs": false,
+     "score": 5017,
+     "error": ""
+    }
+   ],
+   "nominal_clean": false,
+   "calls": 5
+  },
+  {
+   "cell": "a21oi",
+   "tier": 3,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "'gnd' already defined (line 30)"
+    },
+    {
+     "k": 2,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "enclose: unknown parameter 'in'"
+    },
+    {
+     "k": 3,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "'s1l' already defined (line 30)"
+    },
+    {
+     "k": 4,
+     "status": "VIOLATIONS",
+     "drc": 2,
+     "lvs": false,
+     "score": 5002,
+     "error": ""
+    },
+    {
+     "k": 5,
+     "status": "CLEAN",
+     "drc": 0,
+     "lvs": true,
+     "score": 0,
+     "error": ""
+    }
+   ],
+   "nominal_clean": true,
+   "clean_at": 5,
+   "calls": 5,
+   "sweep": [
+    [
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.68,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.18,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.68,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.25,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.68,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.42,
+       "WP": 0.64
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.68,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 3.26,
+       "WN": 0.66,
+       "WP": 1.01
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.68,
+       3.26
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 4.08,
+       "WN": 0.93,
+       "WP": 1.42
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.68,
+       4.08
+      ]
+     }
+    ]
+   ],
+   "final": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-212133-ranked-lessons-kb/a21oi/a21oi_final.icl",
+   "sweep_best": 6
+  },
+  {
+   "cell": "o21ai",
+   "tier": 3,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "stdcell o21ai: routing failed: net 'A2': pin a2l has no legal access point (blocked by a1p on m1: 0.000 < 0.140 um); constraints on this net: layers m1 - likely"
+    },
+    {
+     "k": 2,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "stdcell o21ai: routing failed: net 'A1': pin a1nl has no legal access point (blocked by a2p on m1: 0.000 < 0.140 um)"
+    },
+    {
+     "k": 3,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "stdcell o21ai: routing failed: net 'A2': pin a2l has no legal access point (blocked by a1p on m1: 0.000 < 0.140 um)"
+    },
+    {
+     "k": 4,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "stdcell o21ai: routing failed: net 'A1': pin a1nl has no legal access point (blocked by a2p on m1: 0.000 < 0.140 um)"
+    },
+    {
+     "k": 5,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "stdcell o21ai: routing failed: net 'A1': pin a1nl has no legal access point (blocked by a2p on m1: 0.000 < 0.140 um)"
+    }
+   ],
+   "nominal_clean": false,
+   "calls": 5
+  },
+  {
+   "cell": "a22oi",
+   "tier": 3,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "VIOLATIONS",
+     "drc": 18,
+     "lvs": false,
+     "score": 5018,
+     "error": ""
+    },
+    {
+     "k": 2,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "array: only -1.230 um between gb2 and ga1; a licon column needs 0.280 um (0.055 + 0.17 + 0.055)"
+    },
+    {
+     "k": 3,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "array: only -0.690 um between gb2 and gb1; a licon column needs 0.280 um (0.055 + 0.17 + 0.055)"
+    },
+    {
+     "k": 4,
+     "status": "CLEAN",
+     "drc": 0,
+     "lvs": true,
+     "score": 0,
+     "error": ""
+    }
+   ],
+   "nominal_clean": true,
+   "clean_at": 4,
+   "calls": 4,
+   "sweep": [
+    [
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       4.6,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.18,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       4.6,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.25,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       4.6,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.42,
+       "WP": 0.64
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       4.6,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 3.26,
+       "WN": 0.66,
+       "WP": 1.01
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       4.6,
+       3.26
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 4.08,
+       "WN": 0.93,
+       "WP": 1.42
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       4.6,
+       4.08
+      ]
+     }
+    ]
+   ],
+   "final": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-212133-ranked-lessons-kb/a22oi/a22oi_final.icl",
+   "sweep_best": 6
+  },
+  {
+   "cell": "o22ai",
+   "tier": 3,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "'enclose' creates a shape: give it a name, e.g. 'x = enclose ...'"
+    },
+    {
+     "k": 2,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "stdcell o22ai: routing failed: net 'n3': pin nn1l has no legal access point (blocked by vgnd on m1: 0.075 < 0.140 um)"
+    },
+    {
+     "k": 3,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "stdcell o22ai: routing failed: net 'n3': pin nn1l has no legal access point; constraints on this net: layers m2,m3 - likely over-constrained here"
+    },
+    {
+     "k": 4,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "stdcell o22ai: routing failed: net 'n3': pin nn1l has no legal access point (blocked by vgnd on m1: 0.075 < 0.140 um); constraints on this net: layers m1,m2,m3 "
+    },
+    {
+     "k": 5,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "stdcell o22ai: routing failed: net 'Y': pin npl2+yn1+yap has no legal access point; constraints on this net: layers m2,m3 - likely over-constrained here"
+    }
+   ],
+   "nominal_clean": false,
+   "calls": 5
+  },
+  {
+   "cell": "xor2",
+   "tier": 4,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "strap: the two objects do not line up horizontally or vertically; give cx= or cy="
+    },
+    {
+     "k": 2,
+     "status": "VIOLATIONS",
+     "drc": 15,
+     "lvs": false,
+     "score": 5015,
+     "error": ""
+    },
+    {
+     "k": 3,
+     "status": "VIOLATIONS",
+     "drc": 0,
+     "lvs": false,
+     "score": 5000,
+     "error": ""
+    },
+    {
+     "k": 4,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "stdcell xor2: routing failed: net 'A': pin paa has no legal access point (blocked by bp on m1: 0.000 < 0.140 um)"
+    },
+    {
+     "k": 5,
+     "status": "VIOLATIONS",
+     "drc": 35,
+     "lvs": false,
+     "score": 5035,
+     "error": ""
+    }
+   ],
+   "nominal_clean": false,
+   "calls": 5
+  },
+  {
+   "cell": "mux2i",
+   "tier": 4,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "VIOLATIONS",
+     "drc": 13,
+     "lvs": false,
+     "score": 5013,
+     "error": ""
+    },
+    {
+     "k": 2,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "stdcell mux2i: routing failed: net 'n1': pin n1g has no legal access point (blocked by route:Y on m1: 0.000 < 0.140 um)"
+    },
+    {
+     "k": 3,
+     "status": "VIOLATIONS",
+     "drc": 24,
+     "lvs": false,
+     "score": 5024,
+     "error": ""
+    },
+    {
+     "k": 4,
+     "status": "VIOLATIONS",
+     "drc": 24,
+     "lvs": false,
+     "score": 5024,
+     "error": ""
+    },
+    {
+     "k": 5,
+     "status": "VIOLATIONS",
+     "drc": 24,
+     "lvs": false,
+     "score": 5024,
+     "error": ""
+    }
+   ],
+   "nominal_clean": false,
+   "calls": 5
+  }
+ ],
+ "api_calls": 63
+}

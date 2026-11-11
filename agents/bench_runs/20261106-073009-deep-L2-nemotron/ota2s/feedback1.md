@@ -1,0 +1,1 @@
+CLEAN at the nominal point {'W': 1.0, 'L': 0.5}: DRC 0, LVS match, all layout constraints met. Now call check_sweep on the same file.

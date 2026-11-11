@@ -1,0 +1,37 @@
+{
+ "task": "sram16x8",
+ "pdk": "freepdk45",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_162346_v3/canvas/sram16x8.freepdk45/a4/sram16x8.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_162346_v3/canvas/sram16x8.freepdk45/a4/sram16x8.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "2812 violation(s): 1400 x Nwell overlap of active < 55nm (ACTIVE.3/ACTIVE.4); 896 x Via1 spacing < 75nm (VIA1.2); 512 x Via2 spacing < 85nm (VIA2.2); 4 x Metal2 width < 70nm (METALINT.1)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 501 violation(s): 256 x VIA2.2: VIA2.2 : Minimum spacing of via2 : 85nm; 120 x WELL.1: WELL.1 : nwell/pwell must not overlap; 120 x IMPLANT.5: IMPLANT.5 : Nimplant and pimplant must not overlap; 3 x METAL2.1: METAL2.1 : Minimum width of  intermediate metal2 : 70nm; 2 x VIA1.2: VIA1.2 : Minimum spacing of via1 : 75nm"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Top level cell failed pin matching.  (devices layout/ref 2/128; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_162346_v3/canvas/sram16x8.freepdk45/a4/judge/sram16x8.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "not confirmed (LVS failed)"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "13.20 x 30.24 = 399.2 um2, budget 592, reference 295.8"
+  }
+ ],
+ "area_um2": 399.17,
+ "area_vs_reference": 1.349,
+ "solved": false,
+ "detail": "DRC (magic drc(full)): 2812 violation(s), boxes in um\n  1400 x Nwell overlap of active < 55nm (ACTIVE.3/ACTIVE.4)   e.g. at (0.100 10.430 0.255 10.435)  (0.255 10.430 0.305 10.435)  (0.305 10.430 0.535 10.435)\n   896 x Via1 spacing < 75nm (VIA1.2)   e.g. at (0.525 11.875 0.530 11.880)  (0.525 11.810 0.530 11.875)  (1.925 11.875 1.930 11.880)\n   512 x Via2 spacing < 85nm (VIA2.2)   e.g. at (0.665 11.250 0.735 11.265)  (2.065 11.250 2.135 11.265)  (3.465 11.250 3.535 11.265)\n     4 x Metal2 width < 70nm (METALINT.1)   e.g. at (-1.000 1.795 -0.535 1.800)  (-0.465 1.795 11.665 1.800)  (11.735 1.795 12.000 1.800)\nDRC2 (foundry KLayout deck): 501 violation(s), boxes in um\n   256 x VIA2.2: VIA2.2 : Minimum spacing of via2 : 85nm   e.g. at (6.265 25.160 6.335 25.230)  (6.265 21.630 6.335 21.700)  (6.265 25.300 6.335 25.370)\n   120 x WELL.1: WELL.1 : nwell/pwell must not overlap   e.g. at (5.545 24.605 7.055 24.810)  (5.545 5.190 7.055 5.395)  (5.545 12.250 7.055 12.455)\n   120 x IMPLANT.5: IMPLANT.5 : Nimplant and pimplant must not overlap   e.g. at (-0.035 14.035 1.435 14.200)  (4.165 19.330 5.635 19.495)  (4.165 14.035 5.635 14.200)\n     3 x METAL2.1: METAL2.1 : Minimum width of  intermediate metal2 : 70nm   e.g. at (-1.000 1.730 -0.535 1.795)  (-0.465 1.730 11.665 1.795)  (11.735 1.730 12.200 1.795)\n     2 x VIA1.2: VIA1.2 : Minimum spacing of via1 : 75nm   e.g. at (0.455 1.220 0.525 1.290)  (0.595 0.940 0.665 1.010)\nLVS: Top level cell failed pin matching.   devices layout/ref 2/128, nets layout/ref 3/34\n  Resolving symmetries by property value.\n  Resolving symmetries by pin name.\n  Netlists match uniquely.\n  Subcircuit pins:\n  Circuit 1: sram6t                          |Circuit 2: sram6t\n  -------------------------------------------|-------------------------------------------\n  BLB                                        |BLB\n  BL                                         |BL\n  WL                                         |WL\n  VDD                                        |VDD\n  VSS                                        |VSS\n  ---------------------------------------------------------------------------------------\n  Cell pin lists are equivalent.\n  Device classes sram6t and sram6t are equivalent.\n  Cell sram16x8 (0) disconnected node: VSS\n  Class sram16x8 (0):  Merged 126 parallel devices.\n  Cell sram16x8 (0) disconnected node: VSS\n  Subcircuit summary:\n  Circuit 1: sram16x8                        |Circuit 2: sram16x8\n  -------------------------------------------|-------------------------------------------\n  sram6t (128->2)                            |sram6t (128) **Mismatch**\n  Number of devices: 2 **Mismatch**          |Number of devices: 128 **Mismatch**\n  Number of nets: 3 **Mismatch**             |Number of nets: 34 **Mismatch**\n  ---------------------------------------------------------------------------------------\n  NET mismatches: Class fragments follow (with fanout counts):\n  Circuit 1: sram16x8                        |Circuit 2: sram16x8\n  ---------------------------------------------------------------------------------------\n  Net: sram6t_9/VSS                          |Net: VSS\n    sram6t/VSS = 2                           |  sram6t/VSS = 128\n    sram6t/VDD = 1                           |\n                                             |\n  Net: WL9                                   |Net: WL9\n    sram6t/WL = 2                            |  sram6t/WL = 8\n    sram6t/BLB = 2                           |\n    sram6t/BL = 2                            |\n                                             |\n  Net: sram6t_85/VDD                         |Net: BL0\n    sram6t/VDD = 1                           |  sram6t/BL = 16\n                                             |\n  (no matching net)                          |Net: BL1"
+}

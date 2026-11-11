@@ -1,0 +1,37 @@
+{
+ "task": "cdac6",
+ "pdk": "sky130A",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_162346_v3/canvas/cdac6.sky130A/a4/cdac6.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_162346_v3/canvas/cdac6.sky130A/a4/cdac6.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "2560 violation(s): 1536 x MiM cap spacing to unrelated metal3 < 1.34um (capm.11); 576 x Metal3 spacing < 0.3um (met3.2); 448 x Metal3 > 3um spacing to unrelated m3 < 0.4um (met3.3d)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 192 violation(s): 64 x capm.2b_a: capm.2b_a : min. spacing between met3_bot_plate and met3 : 1.2um; 64 x capm.11: capm.11 : Min spacing of capm and met3 not overlapping capm : 0.5um; 64 x m3.3cd: m3.3cd : min. 3um.m3 spacing m3 : 0.4um"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Top level cell failed pin matching.  (devices layout/ref 1/7; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_162346_v3/canvas/cdac6.sky130A/a4/judge/cdac6.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "not confirmed (LVS failed)"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "72.80 x 76.70 = 5583.8 um2, budget 8511, reference 4255.26"
+  }
+ ],
+ "area_um2": 5583.76,
+ "area_vs_reference": 1.312,
+ "solved": false,
+ "detail": "DRC (magic drc(full)): 2560 violation(s), boxes in um\n  1536 x MiM cap spacing to unrelated metal3 < 1.34um (capm.11)   e.g. at (0.000 57.960 1.435 58.200)  (0.000 57.640 0.240 57.960)  (0.240 57.640 0.560 57.960)\n   576 x Metal3 spacing < 0.3um (met3.2)   e.g. at (-0.140 58.075 0.395 58.340)  (0.095 58.075 0.395 58.340)  (7.460 58.075 7.995 58.340)\n   448 x Metal3 > 3um spacing to unrelated m3 < 0.4um (met3.3d)   e.g. at (-0.235 58.600 -0.210 58.740)  (-0.210 58.600 0.070 58.740)  (0.070 58.600 0.095 58.740)\nDRC2 (foundry KLayout deck): 192 violation(s), boxes in um\n    64 x capm.2b_a: capm.2b_a : min. spacing between met3_bot_plate and met3 : 1.2um   e.g. at (-0.235 58.340 1.294 58.375)  (52.965 50.740 54.494 50.775)  (45.365 50.740 46.894 50.775)\n    64 x capm.11: capm.11 : Min spacing of capm and met3 not overlapping capm : 0.5um   e.g. at (14.965 58.200 15.763 58.375)  (-0.235 58.200 0.563 58.375)  (52.965 50.600 53.763 50.775)\n    64 x m3.3cd: m3.3cd : min. 3um.m3 spacing m3 : 0.4um   e.g. at (52.965 58.340 53.693 58.375)  (37.765 58.340 38.493 58.375)  (30.165 58.340 30.893 58.375)\nLVS: Top level cell failed pin matching.   devices layout/ref 1/7, nets layout/ref 2/8\n  Number of devices: 1 **Mismatch**          |Number of devices: 7 **Mismatch**\n  Number of nets: 2 **Mismatch**             |Number of nets: 8 **Mismatch**\n  ---------------------------------------------------------------------------------------\n  NET mismatches: Class fragments follow (with fanout counts):\n  Circuit 1: cdac6                           |Circuit 2: cdac6\n  ---------------------------------------------------------------------------------------\n  Net: TOP                                   |Net: TOP\n    sky130_fd_pr__cap_mim_m3_1/1 = 1         |  sky130_fd_pr__cap_mim_m3_1/1 = 7\n                                             |\n  Net: m3_7572_10612#                        |Net: B5\n    sky130_fd_pr__cap_mim_m3_1/2 = 1         |  sky130_fd_pr__cap_mim_m3_1/2 = 1\n                                             |\n  (no matching net)                          |Net: B4\n                                             |  sky130_fd_pr__cap_mim_m3_1/2 = 1\n                                             |\n  (no matching net)                          |Net: B3\n                                             |  sky130_fd_pr__cap_mim_m3_1/2 = 1\n                                             |\n  (no matching net)                          |Net: B2\n                                             |  sky130_fd_pr__cap_mim_m3_1/2 = 1\n                                             |\n  (no matching net)                          |Net: B1\n                                             |  sky130_fd_pr__cap_mim_m3_1/2 = 1\n                                             |\n  (no matching net)                          |Net: B0\n                                             |  sky130_fd_pr__cap_mim_m3_1/2 = 1\n                                             |\n  (no matching net)                          |Net: VSS\n                                             |  sky130_fd_pr__cap_mim_m3_1/2 = 1\n  ---------------------------------------------------------------------------------------\n  DEVICE mismatches: Class fragments follow (with node fanout counts):\n  Circuit 1: cdac6                           |Circuit 2: cdac6\n  ---------------------------------------------------------------------------------------\n  Instance: sky130_fd_pr__cap_mim_m3_1:0     |Instance: sky130_fd_pr__cap_mim_m3_1:C0\n    1 = 1                                    |  1 = 7\n    2 = 1                                    |  2 = 1\n                                             |\n  (no matching instance)                     |Instance: sky130_fd_pr__cap_mim_m3_1:C1\n                                             |  1 = 7\n                                             |  2 = 1"
+}

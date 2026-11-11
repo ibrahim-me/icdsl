@@ -1,0 +1,4 @@
+The script did not build:
+ERROR stick sram6t: both strips need the same odd number of entries (net gate net gate ... net); got 12 and 12
+  hint: pad the shorter strip with '-' entries
+  sub.py, line 11: s6 = stick("sram6t",

@@ -1,0 +1,252 @@
+{
+ "config": {
+  "model": "nvidia/nemotron-3.5-super-vl:free",
+  "cells": "inv,nand2,nor2,nand3,nor3,a21oi,o21ai,xor2",
+  "tiers": "1,2,3,4",
+  "attempts": 3,
+  "robust_rounds": 1,
+  "max_calls": 150,
+  "workers": 3,
+  "feedback": "ranked",
+  "images": "full",
+  "keep_best": false,
+  "lessons": "agents/lessons_stdcell.md",
+  "draft": false,
+  "examples": 0,
+  "task": "compact",
+  "resume": "",
+  "coach_dir": "",
+  "tag": "compact",
+  "temperature": 0.2
+ },
+ "results": [
+  {
+   "cell": "nor2",
+   "tier": 1,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "ERROR",
+     "width": null
+    },
+    {
+     "k": 2,
+     "status": "VIOLATIONS",
+     "width": 1.38
+    },
+    {
+     "k": 3,
+     "status": "VIOLATIONS",
+     "width": 1.38
+    }
+   ],
+   "nominal_clean": false,
+   "draft_width": 2.3,
+   "draft_sweep": 6,
+   "hd_width": 1.38,
+   "best_width": 2.3,
+   "improved": false,
+   "calls": 3
+  },
+  {
+   "cell": "nand2",
+   "tier": 1,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "ERROR",
+     "width": null
+    },
+    {
+     "k": 2,
+     "status": "VIOLATIONS",
+     "width": 1.38
+    },
+    {
+     "k": 3,
+     "status": "VIOLATIONS",
+     "width": 1.38
+    }
+   ],
+   "nominal_clean": false,
+   "draft_width": 2.3,
+   "draft_sweep": 6,
+   "hd_width": 1.38,
+   "best_width": 2.3,
+   "improved": false,
+   "calls": 3
+  },
+  {
+   "cell": "inv",
+   "tier": 1,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "VIOLATIONS",
+     "width": 1.38
+    },
+    {
+     "k": 2,
+     "status": "VIOLATIONS",
+     "width": 1.38
+    },
+    {
+     "k": 3,
+     "status": "CLEAN",
+     "width": 1.38,
+     "sweep": 6
+    }
+   ],
+   "nominal_clean": false,
+   "draft_width": 1.84,
+   "draft_sweep": 6,
+   "hd_width": 1.38,
+   "best_width": 1.38,
+   "improved": true,
+   "calls": 3
+  },
+  {
+   "cell": "a21oi",
+   "tier": 3,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "VIOLATIONS",
+     "width": 2.3
+    },
+    {
+     "k": 2,
+     "status": "ERROR",
+     "width": null
+    },
+    {
+     "k": 3,
+     "status": "ERROR",
+     "width": null
+    }
+   ],
+   "nominal_clean": false,
+   "draft_width": 2.76,
+   "draft_sweep": 6,
+   "hd_width": 1.84,
+   "best_width": 2.76,
+   "improved": false,
+   "calls": 3
+  },
+  {
+   "cell": "nor3",
+   "tier": 2,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "ERROR",
+     "width": null
+    },
+    {
+     "k": 2,
+     "status": "ERROR",
+     "width": null
+    },
+    {
+     "k": 3,
+     "status": "VIOLATIONS",
+     "width": 2.3
+    }
+   ],
+   "nominal_clean": false,
+   "draft_width": 2.76,
+   "draft_sweep": 6,
+   "hd_width": 1.84,
+   "best_width": 2.76,
+   "improved": false,
+   "calls": 3
+  },
+  {
+   "cell": "nand3",
+   "tier": 2,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "ERROR",
+     "width": null
+    },
+    {
+     "k": 2,
+     "status": "CLEAN",
+     "width": 2.3,
+     "sweep": 6
+    },
+    {
+     "k": 3,
+     "status": "ERROR",
+     "width": null
+    }
+   ],
+   "nominal_clean": false,
+   "draft_width": 2.76,
+   "draft_sweep": 6,
+   "hd_width": 1.84,
+   "best_width": 2.3,
+   "improved": true,
+   "calls": 3
+  },
+  {
+   "cell": "xor2",
+   "tier": 4,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "ERROR",
+     "width": null
+    },
+    {
+     "k": 2,
+     "status": "VIOLATIONS",
+     "width": 3.68
+    },
+    {
+     "k": 3,
+     "status": "VIOLATIONS",
+     "width": 3.68
+    }
+   ],
+   "nominal_clean": false,
+   "draft_width": 4.6,
+   "draft_sweep": 6,
+   "hd_width": 3.22,
+   "best_width": 4.6,
+   "improved": false,
+   "calls": 3
+  },
+  {
+   "cell": "o21ai",
+   "tier": 3,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "ERROR",
+     "width": null
+    },
+    {
+     "k": 2,
+     "status": "VIOLATIONS",
+     "width": 2.76
+    },
+    {
+     "k": 3,
+     "status": "CLEAN",
+     "width": 2.76,
+     "sweep": 6
+    }
+   ],
+   "nominal_clean": false,
+   "draft_width": 3.22,
+   "draft_sweep": 6,
+   "hd_width": 1.84,
+   "best_width": 2.76,
+   "improved": true,
+   "calls": 3
+  }
+ ],
+ "api_calls": 24
+}

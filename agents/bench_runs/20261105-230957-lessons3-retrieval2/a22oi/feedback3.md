@@ -1,0 +1,7 @@
+Check result at {'L': 0.15, 'H': 2.72, 'WN': 0.49, 'WP': 0.75}: VIOLATIONS  (DRC 0 errors, LVS MISMATCH)
+CONNECTIVITY (fix these first - they are why LVS fails):
+  DEVICE M2 (pmos g=A1 d=VPWR s=n2) has no matching transistor in the layout - the pmos with gate A1 at x=1.57 has ?6 and Y on its sides; it needs VPWR and n2: the side labelled ?6 should be VPWR (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M5 (pmos g=B2 d=Y s=n2) has no matching transistor in the layout - the pmos with gate B2 at x=2.65 has ?8 and VPWR on its sides; it needs Y and n2: the side labelled ?8 should be Y (wrong net label on that contact column, or the gates are in the wrong order)
+    layout pmos at x=1.57 y=1.93: gate A1 [g2 (line 23), gp2 (line 61)], source/drain ?6 [pd (line 28)], Y [c3l (line 38), c4l (line 41), c8l (line 52), +3 more]  (?N = connected to no labelled net: a gate with no contact on it, or a diffusion piece with no contact - fine only for a series node)
+    layout pmos at x=2.65 y=1.93: gate B2 [g4 (line 25), gp4 (line 67)], source/drain ?8 [pd (line 28)], VPWR [c7l (line 49), c7s (line 50), c9l (line 54), +2 more]  (?N = connected to no labelled net: a gate with no contact on it, or a diffusion piece with no contact - fine only for a series node)
+Fix the first items first (the attached image is your layout, DRC errors boxed in red). Return the complete corrected file.

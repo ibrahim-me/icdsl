@@ -1,0 +1,52 @@
+{
+ "task": "spiral",
+ "pdk": "sky130A",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_165328_v4/canvas/spiral.sky130A/a3/spiral.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_165328_v4/canvas/spiral.sky130A/a3/spiral.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": true,
+   "detail": "clean"
+  },
+  {
+   "check": "DRC2",
+   "ok": true,
+   "detail": "foundry KLayout deck clean"
+  },
+  {
+   "check": "one coil, no closed loop",
+   "ok": true,
+   "detail": "1 polygon(s) on m5, largest has 0 hole(s) and 100% of the metal"
+  },
+  {
+   "check": "edges Manhattan or 45 degrees, some at 45",
+   "ok": true,
+   "detail": "25 at 45 degrees, 0 at other angles"
+  },
+  {
+   "check": "trace width >= 4.0 um",
+   "ok": false,
+   "detail": "3 narrow spot(s) on m5: 2.800 um wide at (-1.25, -2.00)..(2.84, 0.80); 1.600 um wide at (-1.25, -0.80)..(0.00, 0.80); 2.800 um wide at (-1.25, -0.80)..(2.84, 2.00) (every piece of the coil polygon counts, also pads and stubs at its ends)"
+  },
+  {
+   "check": "at least 3 turns around the centre",
+   "ok": true,
+   "detail": "3 turn(s) around (1.9, 2.9)"
+  },
+  {
+   "check": "underpass from the inner end to outside the coil",
+   "ok": true,
+   "detail": "m4 wire 299.8 x 4.0 um joined by via4"
+  },
+  {
+   "check": "area",
+   "ok": false,
+   "detail": "697.20 x 754.62 = 526117.6 um2, budget 10465, reference 5232.32"
+  }
+ ],
+ "area_um2": 526117.58,
+ "area_vs_reference": 100.551,
+ "solved": false,
+ "detail": "m\n4\n \nw\ni\nr\ne\n \n2\n9\n9\n.\n8\n \nx\n \n4\n.\n0\n \nu\nm\n \nj\no\ni\nn\ne\nd\n \nb\ny\n \nv\ni\na\n4"
+}

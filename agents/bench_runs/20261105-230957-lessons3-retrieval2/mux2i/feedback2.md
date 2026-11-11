@@ -1,0 +1,17 @@
+Check result at {'L': 0.15, 'H': 2.72, 'WN': 0.49, 'WP': 0.75}: VIOLATIONS  (DRC 0 errors, LVS MISMATCH)
+CONNECTIVITY (fix these first - they are why LVS fails):
+  SHORT VGND / n3 / n5: on li around (2.3, 0.37): shapes of VGND and n3 and n5 overlap/touch there (c1l (line 33), c1s (line 34), c4l (line 40), c4s (line 41), c5l (line 43), c5s (line 44))
+  OPEN net Y is 2 separate pieces: [c3l (line 38), nd (line 27)] | [c10l (line 56), pd (line 28), yp (line 82)] - join them (strap / shared metal / `route Y`)
+  DEVICE M1 (pmos g=S d=VPWR s=n2) has no matching transistor in the layout
+  DEVICE M2 (pmos g=A0 d=n2 s=Y) has no matching transistor in the layout - the pmos with gate A0 at x=2.03 has n1 and n2 on its sides; it needs n2 and Y: the side labelled n1 should be Y (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M3 (nmos g=S d=VGND s=n3) has no matching transistor in the layout - the nmos with gate S at x=1.49 has VGND+n3+n5 and n1 on its sides; it needs VGND and n3: the side labelled VGND+n3+n5 should be VGND (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M4 (pmos g=n1 d=n4 s=VPWR) has no matching transistor in the layout - the pmos with gate n1 at x=2.57 has n2 and n4 on its sides; it needs n4 and VPWR: the side labelled n2 should be VPWR (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M5 (nmos g=n1 d=n5 s=VGND) has no matching transistor in the layout - the nmos with gate n1 at x=2.57 has VGND+n3+n5 and Y on its sides; it needs n5 and VGND: the side labelled VGND+n3+n5 should be n5 (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M6 (nmos g=S d=n1 s=VGND) has no matching transistor in the layout - the nmos with gate S at x=1.49 has VGND+n3+n5 and n1 on its sides; it needs n1 and VGND: the side labelled VGND+n3+n5 should be VGND (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M8 (nmos g=A1 d=Y s=n3) has no matching transistor in the layout - the nmos with gate A1 at x=3.11 has VGND+n3+n5 and VGND+n3+n5 on its sides; it needs Y and n3: the side labelled VGND+n3+n5 should be Y (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M9 (nmos g=A0 d=n5 s=Y) has no matching transistor in the layout - the nmos with gate A0 at x=2.03 has Y and n1 on its sides; it needs n5 and Y: the side labelled n1 should be n5 (wrong net label on that contact column, or the gates are in the wrong order)
+    layout nmos at x=1.49 y=0.66: gate S [g1 (line 23), gp1 (line 59)], source/drain VGND+n3+n5 [c1l (line 33), c1s (line 34), c4l (line 40), +4 more], n1 [c2l (line 36), c7l (line 50), gl3 (line 66), +2 more]
+    layout nmos at x=2.03 y=0.66: gate A0 [g2 (line 24), gp2 (line 62)], source/drain Y [c3l (line 38), nd (line 27)], n1 [c2l (line 36), c7l (line 50), gl3 (line 66), +2 more]
+    layout nmos at x=2.57 y=0.66: gate n1 [g3 (line 25), gp3 (line 65)], source/drain VGND+n3+n5 [c1l (line 33), c1s (line 34), c4l (line 40), +4 more], Y [c3l (line 38), nd (line 27)]
+    layout nmos at x=3.11 y=0.66: gate A1 [g4 (line 26), gp4 (line 68)], source/drain VGND+n3+n5 [c1l (line 33), c1s (line 34), c4l (line 40), +4 more], VGND+n3+n5 [c1l (line 33), c1s (line 34), c4l (line 40), +4 more]
+Fix the first items first (the attached image is your layout, DRC errors boxed in red). Return the complete corrected file.

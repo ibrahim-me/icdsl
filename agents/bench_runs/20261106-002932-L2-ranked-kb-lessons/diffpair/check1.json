@@ -1,0 +1,204 @@
+{
+ "cell": "diffpair",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002932-L2-ranked-kb-lessons/diffpair/check1/diffpair.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002932-L2-ranked-kb-lessons/diffpair/check1/diffpair.reference.spice",
+ "size_um": [
+  5.52,
+  9.66
+ ],
+ "warnings": [],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 0,
+  "by_rule": [],
+  "all": []
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": true,
+  "result": "Circuits match uniquely.",
+  "devices_layout_vs_ref": [
+   3,
+   3
+  ],
+  "nets_layout_vs_ref": [
+   7,
+   7
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002932-L2-ranked-kb-lessons/diffpair/check1/diffpair.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002932-L2-ranked-kb-lessons/diffpair/check1/diffpair.lvs.txt",
+  "dummies_ignored": 4
+ },
+ "routes": {
+  "nets": {
+   "tail": {
+    "length_um": 6.44,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 8,
+    "width_um": {
+     "m1": 0.3,
+     "m2": 0.3
+    },
+    "res_ohm": 13.27
+   },
+   "VGND": {
+    "length_um": 17.94,
+    "layers": [
+     "m1"
+    ],
+    "cuts": 7,
+    "width_um": {
+     "m1": 0.14
+    },
+    "res_ohm": 11.09
+   },
+   "OUTP": {
+    "length_um": 12.42,
+    "layers": [
+     "m2"
+    ],
+    "cuts": 8,
+    "width_um": {
+     "m2": 0.14
+    },
+    "res_ohm": 19.27
+   },
+   "OUTN": {
+    "length_um": 18.4,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 8,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 27.05
+   },
+   "INN": {
+    "length_um": 4.6,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 3,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 8.61
+   },
+   "INP": {
+    "length_um": 12.88,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 5,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 25.0
+   },
+   "VBN": {
+    "length_um": 9.66,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 2,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 13.13
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [],
+ "constraint_violations": [],
+ "objects": {
+  "DP": {
+   "kind": "array",
+   "at_um": [
+    0.92,
+    4.14
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    0.67,
+    1.655,
+    4.85,
+    7.085
+   ],
+   "line": 16
+  },
+  "MT": {
+   "kind": "array",
+   "at_um": [
+    0.92,
+    8.74
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    0.67,
+    7.335,
+    4.85,
+    8.925
+   ],
+   "line": 18
+  },
+  "TP": {
+   "kind": "tap",
+   "at_um": [
+    2.76,
+    0.92
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    2.43,
+    0.65,
+    3.55,
+    1.19
+   ],
+   "line": 19
+  }
+ },
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002932-L2-ranked-kb-lessons/diffpair/check1/diffpair.png",
+ "route_failed": [],
+ "status": "CLEAN",
+ "seconds": 3.6,
+ "judge": {
+  "ok": true,
+  "results": [
+   {
+    "constraint": {
+     "type": "common_centroid",
+     "devices": [
+      "M1",
+      "M2"
+     ]
+    },
+    "ok": true,
+    "detail": "M1 centroid (2.760, 4.545), M2 centroid (2.760, 4.545); max offset 0.000 um (allowed 0.06)"
+   },
+   {
+    "constraint": {
+     "type": "route_width",
+     "net": "tail",
+     "min": 0.3
+    },
+    "ok": true,
+    "detail": "net tail routed {'m1': 0.3, 'm2': 0.3} um wide (need >= 0.3)"
+   }
+  ]
+ }
+}

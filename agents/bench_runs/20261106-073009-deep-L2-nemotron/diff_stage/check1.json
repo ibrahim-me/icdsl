@@ -1,0 +1,320 @@
+{
+ "cell": "diff_stage",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073009-deep-L2-nemotron/diff_stage/check1/diff_stage.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073009-deep-L2-nemotron/diff_stage/check1/diff_stage.reference.spice",
+ "size_um": [
+  8.28,
+  11.04
+ ],
+ "warnings": [
+  "diff_stage: guardring GR_N: made room by moving M3 (and what is placed relative to it) above by 0.92 um",
+  "diff_stage: guardring GR_P: made room by moving M3 (and what is placed relative to it) above by 1.38 um"
+ ],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 0,
+  "by_rule": [],
+  "all": []
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": true,
+  "result": "Circuits match uniquely.",
+  "devices_layout_vs_ref": [
+   5,
+   5
+  ],
+  "nets_layout_vs_ref": [
+   9,
+   9
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073009-deep-L2-nemotron/diff_stage/check1/diff_stage.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073009-deep-L2-nemotron/diff_stage/check1/diff_stage.lvs.txt",
+  "dummies_ignored": 0
+ },
+ "routes": {
+  "nets": {
+   "OUTP": {
+    "length_um": 3.68,
+    "layers": [
+     "m2"
+    ],
+    "cuts": 4,
+    "width_um": {
+     "m2": 0.2
+    },
+    "res_ohm": 11.79
+   },
+   "OUTN": {
+    "length_um": 3.68,
+    "layers": [
+     "m2"
+    ],
+    "cuts": 4,
+    "width_um": {
+     "m2": 0.2
+    },
+    "res_ohm": 11.79
+   },
+   "INP": {
+    "length_um": 1.38,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 2,
+    "width_um": {
+     "m1": 0.2,
+     "m2": 0.2
+    },
+    "res_ohm": 5.73
+   },
+   "INN": {
+    "length_um": 1.38,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 2,
+    "width_um": {
+     "m1": 0.2,
+     "m2": 0.2
+    },
+    "res_ohm": 5.73
+   },
+   "VBN": {
+    "length_um": 2.76,
+    "layers": [
+     "m2"
+    ],
+    "cuts": 2,
+    "width_um": {
+     "m2": 0.2
+    },
+    "res_ohm": 6.72
+   },
+   "VBP": {
+    "length_um": 2.3,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 3,
+    "width_um": {
+     "m1": 0.2,
+     "m2": 0.2
+    },
+    "res_ohm": 6.55
+   },
+   "VPWR": {
+    "length_um": 12.42,
+    "layers": [
+     "m1"
+    ],
+    "cuts": 4,
+    "width_um": {
+     "m1": 0.4
+    },
+    "res_ohm": 9.04
+   },
+   "VGND": {
+    "length_um": 12.88,
+    "layers": [
+     "m1"
+    ],
+    "cuts": 3,
+    "width_um": {
+     "m1": 0.4
+    },
+    "res_ohm": 10.27
+   },
+   "tail": {
+    "length_um": 7.82,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 12,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 22.93
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [],
+ "constraint_violations": [],
+ "objects": {
+  "MT": {
+   "kind": "array",
+   "at_um": [
+    2.3,
+    3.22
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    2.05,
+    1.815,
+    6.23,
+    3.405
+   ],
+   "line": 20
+  },
+  "M1": {
+   "kind": "array",
+   "at_um": [
+    1.84,
+    5.06
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    1.59,
+    3.655,
+    3.93,
+    5.245
+   ],
+   "line": 21
+  },
+  "M2": {
+   "kind": "array",
+   "at_um": [
+    6.44,
+    5.06
+   ],
+   "orient": "MY",
+   "bbox_um": [
+    4.35,
+    3.655,
+    6.69,
+    5.245
+   ],
+   "line": 21
+  },
+  "M3": {
+   "kind": "array",
+   "at_um": [
+    1.84,
+    9.2
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    1.59,
+    7.75,
+    3.93,
+    9.385
+   ],
+   "line": 22
+  },
+  "M4": {
+   "kind": "array",
+   "at_um": [
+    6.44,
+    9.2
+   ],
+   "orient": "MY",
+   "bbox_um": [
+    4.35,
+    7.75,
+    6.69,
+    9.385
+   ],
+   "line": 22
+  },
+  "GR_N": {
+   "kind": "ring",
+   "at_um": [
+    2.3,
+    3.22
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    0.59,
+    0.65,
+    7.69,
+    6.25
+   ],
+   "line": 24
+  },
+  "GR_P": {
+   "kind": "ring",
+   "at_um": [
+    2.3,
+    3.22
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    0.59,
+    6.63,
+    7.69,
+    10.39
+   ],
+   "line": 25
+  }
+ },
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073009-deep-L2-nemotron/diff_stage/check1/diff_stage.png",
+ "route_failed": [],
+ "status": "CLEAN",
+ "seconds": 3.5,
+ "judge": {
+  "ok": true,
+  "results": [
+   {
+    "constraint": {
+     "type": "mirror_symmetric",
+     "pairs": [
+      [
+       "M1",
+       "M2"
+      ],
+      [
+       "M3",
+       "M4"
+      ]
+     ]
+    },
+    "ok": true,
+    "detail": "M1/M2 axis x=4.140; M3/M4 axis x=4.140"
+   },
+   {
+    "constraint": {
+     "type": "route_symmetric",
+     "nets": [
+      "OUTN",
+      "OUTP"
+     ]
+    },
+    "ok": true,
+    "detail": "OUTP vs mirror image of OUTN: 100% overlap (need >= 90%)"
+   },
+   {
+    "constraint": {
+     "type": "guard_ring",
+     "devices": [
+      "M1",
+      "M2",
+      "MT"
+     ],
+     "kind": "ptap"
+    },
+    "ok": true,
+    "detail": "a closed ptap ring around M1, M2, MT"
+   },
+   {
+    "constraint": {
+     "type": "guard_ring",
+     "devices": [
+      "M3",
+      "M4"
+     ],
+     "kind": "ntap"
+    },
+    "ok": true,
+    "detail": "a closed ntap ring around M3, M4"
+   }
+  ]
+ }
+}

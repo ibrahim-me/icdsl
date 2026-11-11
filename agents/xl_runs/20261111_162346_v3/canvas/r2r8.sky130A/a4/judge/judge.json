@@ -1,0 +1,37 @@
+{
+ "task": "r2r8",
+ "pdk": "sky130A",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_162346_v3/canvas/r2r8.sky130A/a4/r2r8.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_162346_v3/canvas/r2r8.sky130A/a4/r2r8.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "189 violation(s): 105 x poly overlap of poly contact < 0.05um (licon.8); 43 x poly spacing to diffusion tap < 0.055um (poly.5); 22 x P-tap overlap of P-tap contact < 0.12um in one direction (licon.7); 11 x Poly resistor spacing to diffusion < 0.48um (poly.9); 2 x Poly resistor spacing to poly < 0.48um (poly.9); 2 x poly spacing < 0.21um (poly.2)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 415 violation(s): 114 x licon.1: licon.1: min/max. licon length : 0.17um; 102 x MR_licon.SP.1: MR_licon.SP.1: min. licon spacing in periphery : 0.17um; 94 x licon.17: licon.17 : Licons may not overlap both poly and (diff or tap); 68 x licon.13_a: licon.13_a:  licon on diff in periphery can't overlap npc; 27 x licon.1_c: licon.1_c : licon should be rectangle; 10 x licon.13: licon.13:  min. licon on diff spacing to npc in periphery : 0.09um"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Top level cell failed pin matching.  (devices layout/ref 1/16; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_162346_v3/canvas/r2r8.sky130A/a4/judge/r2r8.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "not confirmed (LVS failed)"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "71.75 x 15.25 = 1094.2 um2, budget 1630, reference 814.74"
+  }
+ ],
+ "area_um2": 1094.19,
+ "area_vs_reference": 1.343,
+ "solved": false,
+ "detail": "DRC (magic drc(full)): 189 violation(s), boxes in um\n   105 x poly overlap of poly contact < 0.05um (licon.8)   e.g. at (14.450 11.250 15.395 11.300)  (21.585 11.250 22.535 11.300)  (28.450 11.250 29.550 11.300)\n    43 x poly spacing to diffusion tap < 0.055um (poly.5)   e.g. at (15.345 10.565 15.555 10.620)  (21.445 10.565 21.635 10.620)  (22.485 10.565 22.555 10.620)\n    22 x P-tap overlap of P-tap contact < 0.12um in one direction (licon.7)   e.g. at (14.500 10.565 14.620 10.685)  (22.380 10.565 22.485 10.685)  (28.500 10.565 28.620 10.685)\n    11 x Poly resistor spacing to diffusion < 0.48um (poly.9)   e.g. at (14.020 10.565 14.500 11.045)  (28.020 10.565 28.500 11.045)  (42.020 10.565 42.500 11.045)\n     2 x Poly resistor spacing to poly < 0.48um (poly.9)   e.g. at (65.565 8.995 65.735 9.000)  (65.565 8.000 65.735 8.075)\n     2 x poly spacing < 0.21um (poly.2)   e.g. at (65.565 8.995 65.710 9.000)  (65.565 8.000 65.710 8.075)\n     1 x Diffusion contact spacing < 0.17um (licon.2)   e.g. at (65.565 9.000 65.735 9.165)\n     1 x poly contact spacing to diffusion < 0.19um (licon.14)   e.g. at (65.500 8.075 65.565 8.190)\n     1 x poly contact spacing to P-diffusion < 0.235um (licon.9 + psdm.5a)   e.g. at (65.500 8.075 65.565 8.235)\n     1 x P-tap contact width     < 0.17um (licon.1)   e.g. at (65.565 8.995 65.735 9.000)\nDRC2 (foundry KLayout deck): 415 violation(s), boxes in um\n   114 x licon.1: licon.1: min/max. licon length : 0.17um   e.g. at (65.905 3.385 66.000 3.385)  (66.075 3.215 66.075 3.255)  (66.000 3.045 66.000 3.085)\n   102 x MR_licon.SP.1: MR_licon.SP.1: min. licon spacing in periphery : 0.17um   e.g. at (66.170 3.402 66.245 3.578)  (66.170 3.062 66.245 3.238)  (66.170 2.722 66.245 2.898)\n    94 x licon.17: licon.17 : Licons may not overlap both poly and (diff or tap)   e.g. at (63.500 11.245 63.625 11.250)  (56.995 11.245 57.165 11.250)  (49.855 11.245 50.025 11.250)\n    68 x licon.13_a: licon.13_a:  licon on diff in periphery can't overlap npc   e.g. at (63.795 11.245 63.965 11.270)  (56.995 11.245 57.165 11.270)  (50.195 11.245 50.365 11.270)\n    27 x licon.1_c: licon.1_c : licon should be rectangle   e.g. at (65.905 2.535 66.170 2.745)  (65.905 2.875 66.170 3.085)  (65.905 3.215 66.170 3.425)\n    10 x licon.13: licon.13:  min. licon on diff spacing to npc in periphery : 0.09um   e.g. at (50.525 10.900 50.535 11.164)  (21.465 11.156 21.475 11.359)  (35.405 11.188 35.475 11.327)\nLVS: Top level cell failed pin matching.   devices layout/ref 1/16, nets layout/ref 1/17\n  Number of devices: 1 **Mismatch**          |Number of devices: 16 **Mismatch**\n  Number of nets: 1 **Mismatch**             |Number of nets: 17 **Mismatch**\n  ---------------------------------------------------------------------------------------\n  NET mismatches: Class fragments follow (with fanout counts):\n  Circuit 1: r2r8                            |Circuit 2: r2r8\n  ---------------------------------------------------------------------------------------\n  (no matching net)                          |Net: VSS\n                                             |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  (no matching net)                          |Net: B0\n                                             |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  (no matching net)                          |Net: B1\n                                             |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  (no matching net)                          |Net: B2\n                                             |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  (no matching net)                          |Net: B3\n                                             |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  (no matching net)                          |Net: B4\n                                             |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  (no matching net)                          |Net: B5\n                                             |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  (no matching net)                          |Net: B6\n                                             |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  (no matching net)                          |Net: B7\n                                             |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  (no matching net)                          |Net: n0\n                                             |  sky130_fd_pr__res_generic_po/(1|2) = 3\n                                             |\n  (no matching net)                          |Net: n1\n                                             |  sky130_fd_pr__res_generic_po/(1|2) = 3\n                                             |\n  (no matching net)                          |Net: n2"
+}

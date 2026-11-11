@@ -1,0 +1,239 @@
+{
+ "model": {
+  "id": "nvidia/nemotron-3.5-super-vl:free",
+  "context": 1000000,
+  "inputs": [
+   "text",
+   "image",
+   "video"
+  ]
+ },
+ "prompt_version": 2,
+ "nominal": {
+  "WN": 0.52,
+  "WP": 0.77,
+  "L": 0.15,
+  "H": 2.72
+ },
+ "sweep_points": [
+  {
+   "WN": 0.42,
+   "WP": 0.42,
+   "L": 0.15,
+   "H": 2.72
+  },
+  {
+   "WN": 0.42,
+   "WP": 0.42,
+   "L": 0.18,
+   "H": 2.72
+  },
+  {
+   "WN": 0.42,
+   "WP": 0.42,
+   "L": 0.25,
+   "H": 2.72
+  },
+  {
+   "WN": 0.42,
+   "WP": 0.64,
+   "L": 0.15,
+   "H": 2.72
+  },
+  {
+   "WN": 0.42,
+   "WP": 0.64,
+   "L": 0.18,
+   "H": 2.72
+  },
+  {
+   "WN": 0.42,
+   "WP": 0.64,
+   "L": 0.25,
+   "H": 2.72
+  },
+  {
+   "WN": 0.42,
+   "WP": 0.77,
+   "L": 0.15,
+   "H": 2.72
+  },
+  {
+   "WN": 0.42,
+   "WP": 0.77,
+   "L": 0.18,
+   "H": 2.72
+  },
+  {
+   "WN": 0.42,
+   "WP": 0.77,
+   "L": 0.25,
+   "H": 2.72
+  },
+  {
+   "WN": 0.52,
+   "WP": 0.42,
+   "L": 0.15,
+   "H": 2.72
+  },
+  {
+   "WN": 0.52,
+   "WP": 0.42,
+   "L": 0.18,
+   "H": 2.72
+  },
+  {
+   "WN": 0.52,
+   "WP": 0.42,
+   "L": 0.25,
+   "H": 2.72
+  },
+  {
+   "WN": 0.52,
+   "WP": 0.64,
+   "L": 0.15,
+   "H": 2.72
+  },
+  {
+   "WN": 0.52,
+   "WP": 0.64,
+   "L": 0.18,
+   "H": 2.72
+  },
+  {
+   "WN": 0.52,
+   "WP": 0.64,
+   "L": 0.25,
+   "H": 2.72
+  },
+  {
+   "WN": 0.52,
+   "WP": 0.77,
+   "L": 0.15,
+   "H": 2.72
+  },
+  {
+   "WN": 0.52,
+   "WP": 0.77,
+   "L": 0.18,
+   "H": 2.72
+  },
+  {
+   "WN": 0.52,
+   "WP": 0.77,
+   "L": 0.25,
+   "H": 2.72
+  },
+  {
+   "WN": 0.65,
+   "WP": 1.0,
+   "L": 0.15,
+   "H": 3.26
+  },
+  {
+   "WN": 0.84,
+   "WP": 1.26,
+   "L": 0.15,
+   "H": 3.8
+  },
+  {
+   "WN": 1.0,
+   "WP": 1.5,
+   "L": 0.15,
+   "H": 4.08
+  },
+  {
+   "WN": 0.65,
+   "WP": 1.0,
+   "L": 0.25,
+   "H": 3.26
+  }
+ ],
+ "cells": [
+  {
+   "cell": "buf",
+   "attempts": [
+    {
+     "attempt": 1,
+     "status": "VIOLATIONS",
+     "drc": 0,
+     "lvs": false,
+     "error": null
+    },
+    {
+     "attempt": 2,
+     "status": "VIOLATIONS",
+     "drc": 0,
+     "lvs": false,
+     "error": null
+    },
+    {
+     "attempt": 3,
+     "status": "VIOLATIONS",
+     "drc": 0,
+     "lvs": false,
+     "error": null
+    },
+    {
+     "attempt": 4,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "error": "stdcell buf: routing failed: net 'n1': no legal path to n1g+n1p; constraints on this net: layers m1 - likely over-constrained here"
+    },
+    {
+     "attempt": 5,
+     "status": "VIOLATIONS",
+     "drc": 20,
+     "lvs": false,
+     "error": null
+    }
+   ],
+   "nominal_clean": false,
+   "calls_so_far": 5
+  },
+  {
+   "cell": "aoi21",
+   "attempts": [
+    {
+     "attempt": 1,
+     "status": "VIOLATIONS",
+     "drc": 167,
+     "lvs": false,
+     "error": null
+    },
+    {
+     "attempt": 2,
+     "status": "VIOLATIONS",
+     "drc": 333,
+     "lvs": false,
+     "error": null
+    },
+    {
+     "attempt": 3,
+     "status": "VIOLATIONS",
+     "drc": 339,
+     "lvs": false,
+     "error": null
+    },
+    {
+     "attempt": 4,
+     "status": "VIOLATIONS",
+     "drc": 356,
+     "lvs": false,
+     "error": null
+    },
+    {
+     "attempt": 5,
+     "status": "VIOLATIONS",
+     "drc": 356,
+     "lvs": false,
+     "error": null
+    }
+   ],
+   "nominal_clean": false,
+   "calls_so_far": 10
+  }
+ ],
+ "api_calls": 10
+}

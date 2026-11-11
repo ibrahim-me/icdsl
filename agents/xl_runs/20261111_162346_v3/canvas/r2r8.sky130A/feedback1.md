@@ -1,0 +1,6 @@
+The script did not build:
+ERROR TypeError: resistor() got an unexpected keyword argument 'x0'
+  sub.py, line 30: res("Rsp%d" % i, i * PITCH, SPINE_Y, (i + 1) * PITCH, SPINE_Y,
+  sub.py, line 16: r = c.resistor("res_poly", w=W, l=L, x0=x0, x1=x1, y0=y0, y1=y1,
+  hint: the call is resistor(self, kind, w, l, at=(0, 0), nets=('A', 'B'), bulk=None, name=None, orient='h')
+        Strip resistor from a 'res' recipe (e.g. 'res_poly'): body w x l (um) with a contacted head at each end; at = lower-left of the body. Terminals: handle.a / handle.b (pads on the first conductor). The device is recorded for LVS with the PDK's model name.

@@ -1,0 +1,182 @@
+{
+ "cell": "cascode_n",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002932-L2-ranked-kb-lessons/cascode_n/check1/cascode_n.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002932-L2-ranked-kb-lessons/cascode_n/check1/cascode_n.reference.spice",
+ "size_um": [
+  9.2,
+  6.9
+ ],
+ "warnings": [],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 0,
+  "by_rule": [],
+  "all": []
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": true,
+  "result": "Circuits match uniquely.",
+  "devices_layout_vs_ref": [
+   4,
+   4
+  ],
+  "nets_layout_vs_ref": [
+   5,
+   5
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002932-L2-ranked-kb-lessons/cascode_n/check1/cascode_n.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002932-L2-ranked-kb-lessons/cascode_n/check1/cascode_n.lvs.txt",
+  "dummies_ignored": 0
+ },
+ "routes": {
+  "nets": {
+   "VGND": {
+    "length_um": 8.28,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 4,
+    "width_um": {
+     "m1": 0.4,
+     "m2": 0.4
+    },
+    "res_ohm": 16.13
+   },
+   "n1": {
+    "length_um": 8.74,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 7,
+    "width_um": {
+     "m1": 0.4,
+     "m2": 0.4
+    },
+    "res_ohm": 16.39
+   },
+   "n2": {
+    "length_um": 3.22,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 6,
+    "width_um": {
+     "m1": 0.4,
+     "m2": 0.4
+    },
+    "res_ohm": 11.05
+   },
+   "IREF": {
+    "length_um": 6.9,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 4,
+    "width_um": {
+     "m1": 0.4,
+     "m2": 0.4
+    },
+    "res_ohm": 10.25
+   },
+   "IOUT": {
+    "length_um": 4.14,
+    "layers": [
+     "m2"
+    ],
+    "cuts": 2,
+    "width_um": {
+     "m2": 0.4
+    },
+    "res_ohm": 7.4
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [],
+ "constraint_violations": [],
+ "objects": {
+  "P12": {
+   "kind": "array",
+   "at_um": [
+    2.76,
+    3.22
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    2.51,
+    1.815,
+    6.69,
+    3.405
+   ],
+   "line": 14
+  },
+  "P34": {
+   "kind": "array",
+   "at_um": [
+    1.84,
+    5.06
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    1.59,
+    3.655,
+    7.61,
+    5.245
+   ],
+   "line": 15
+  },
+  "GR": {
+   "kind": "ring",
+   "at_um": [
+    2.76,
+    3.22
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    0.59,
+    0.65,
+    8.61,
+    6.25
+   ],
+   "line": 18
+  }
+ },
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002932-L2-ranked-kb-lessons/cascode_n/check1/cascode_n.png",
+ "route_failed": [],
+ "status": "CLEAN",
+ "seconds": 2.2,
+ "judge": {
+  "ok": true,
+  "results": [
+   {
+    "constraint": {
+     "type": "interdigitated",
+     "devices": [
+      "M1",
+      "M2"
+     ]
+    },
+    "ok": true,
+    "detail": "order left to right ABBA (A=M1, B=M2); M1 centroid (4.600, 2.445), M2 centroid (4.600, 2.445)"
+   },
+   {
+    "constraint": {
+     "type": "interdigitated",
+     "devices": [
+      "M3",
+      "M4"
+     ]
+    },
+    "ok": true,
+    "detail": "order left to right ABBA (A=M3, B=M4); M3 centroid (4.600, 4.285), M4 centroid (4.600, 4.285)"
+   }
+  ]
+ }
+}

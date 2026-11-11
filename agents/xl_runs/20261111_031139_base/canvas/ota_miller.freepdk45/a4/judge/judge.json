@@ -1,0 +1,36 @@
+{
+ "task": "ota_miller",
+ "pdk": "freepdk45",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/canvas/ota_miller.freepdk45/a4/ota_miller.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/canvas/ota_miller.freepdk45/a4/ota_miller.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "30462 violation(s): 23564 x Diffusion overlap of diffusion contact < 5nm in one direction (CONTACT.4); 5707 x Contact spacing < 75nm (CONTACT.2); 633 x Contact width < 65nm (CONTACT.1); 349 x Poly width < 50nm (POLY.1); 207 x Nwell overlap of active < 55nm (ACTIVE.3/ACTIVE.4); 1 x Active spacing < 80nm (ACTIVE.2)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 7396 violation(s): 5353 x CONTACT.2: CONTACT.2 : Minimum spacing of contact : 75nm; 1426 x CONTACT.1: CONTACT.1 : Minimum/Maximum width of contact : 65nm; 532 x CONTACT.6: CONTACT.6 : Minimum spacing of contact and poly : 35nm; 74 x CONTACT.5: CONTACT.5 : Minimum enclosure of poly around contact : 5nm; 10 x IMPLANT.5: IMPLANT.5 : Nimplant and pimplant must not overlap; 1 x WELL.1: WELL.1 : nwell/pwell must not overlap"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Top level cell failed pin matching.  (devices layout/ref 3/10; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/canvas/ota_miller.freepdk45/a4/judge/ota_miller.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "top-level pin names differ from the task netlist"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "42.21 x 10.82 = 456.5 um2, budget 760, reference 379.92"
+  }
+ ],
+ "area_um2": 456.5,
+ "area_vs_reference": 1.202,
+ "solved": false
+}

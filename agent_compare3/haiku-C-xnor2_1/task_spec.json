@@ -1,0 +1,140 @@
+{
+ "name": "xnor2_1",
+ "hd_cell": "sky130_fd_sc_hd__xnor2_1",
+ "tier": 3,
+ "function": "Y = (!A&!B) | (A&B)",
+ "family": "xnor2",
+ "inputs": [
+  "A",
+  "B"
+ ],
+ "outputs": [
+  "Y"
+ ],
+ "devices": [
+  {
+   "name": "M0",
+   "kind": "pmos",
+   "d": "VPWR",
+   "g": "A",
+   "s": "n1",
+   "w_hd": 1.0,
+   "w": 1.0,
+   "l": 0.15,
+   "wparam": "WP"
+  },
+  {
+   "name": "M1",
+   "kind": "pmos",
+   "d": "n1",
+   "g": "B",
+   "s": "Y",
+   "w_hd": 1.0,
+   "w": 1.0,
+   "l": 0.15,
+   "wparam": "WP"
+  },
+  {
+   "name": "M2",
+   "kind": "pmos",
+   "d": "Y",
+   "g": "n2",
+   "s": "VPWR",
+   "w_hd": 1.0,
+   "w": 1.0,
+   "l": 0.15,
+   "wparam": "WP"
+  },
+  {
+   "name": "M3",
+   "kind": "nmos",
+   "d": "n3",
+   "g": "A",
+   "s": "VGND",
+   "w_hd": 0.65,
+   "w": 0.65,
+   "l": 0.15,
+   "wparam": "WN"
+  },
+  {
+   "name": "M4",
+   "kind": "nmos",
+   "d": "VGND",
+   "g": "B",
+   "s": "n4",
+   "w_hd": 0.65,
+   "w": 0.65,
+   "l": 0.15,
+   "wparam": "WN"
+  },
+  {
+   "name": "M5",
+   "kind": "nmos",
+   "d": "n2",
+   "g": "B",
+   "s": "n3",
+   "w_hd": 0.65,
+   "w": 0.65,
+   "l": 0.15,
+   "wparam": "WN"
+  },
+  {
+   "name": "M6",
+   "kind": "pmos",
+   "d": "VPWR",
+   "g": "B",
+   "s": "n2",
+   "w_hd": 1.0,
+   "w": 1.0,
+   "l": 0.15,
+   "wparam": "WP"
+  },
+  {
+   "name": "M7",
+   "kind": "pmos",
+   "d": "n2",
+   "g": "A",
+   "s": "VPWR",
+   "w_hd": 1.0,
+   "w": 1.0,
+   "l": 0.15,
+   "wparam": "WP"
+  },
+  {
+   "name": "M8",
+   "kind": "nmos",
+   "d": "VGND",
+   "g": "A",
+   "s": "n4",
+   "w_hd": 0.65,
+   "w": 0.65,
+   "l": 0.15,
+   "wparam": "WN"
+  },
+  {
+   "name": "M9",
+   "kind": "nmos",
+   "d": "n4",
+   "g": "n2",
+   "s": "Y",
+   "w_hd": 0.65,
+   "w": 0.65,
+   "l": 0.15,
+   "wparam": "WN"
+  }
+ ],
+ "params": {
+  "WN": 0.65,
+  "WP": 1.0
+ },
+ "hd_size_um": [
+  3.22,
+  2.72
+ ],
+ "internal_nets": [
+  "n1",
+  "n2",
+  "n3",
+  "n4"
+ ]
+}

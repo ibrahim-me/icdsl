@@ -1,0 +1,206 @@
+{
+ "cell": "diffpair",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-001510-L2-ranked-kb/diffpair/check1/diffpair.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-001510-L2-ranked-kb/diffpair/check1/diffpair.reference.spice",
+ "size_um": [
+  8.28,
+  11.5
+ ],
+ "warnings": [],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 0,
+  "by_rule": [],
+  "all": []
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": true,
+  "result": "Circuits match uniquely.",
+  "devices_layout_vs_ref": [
+   3,
+   3
+  ],
+  "nets_layout_vs_ref": [
+   7,
+   7
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-001510-L2-ranked-kb/diffpair/check1/diffpair.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-001510-L2-ranked-kb/diffpair/check1/diffpair.lvs.txt",
+  "dummies_ignored": 4
+ },
+ "routes": {
+  "nets": {
+   "tail": {
+    "length_um": 6.44,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 8,
+    "width_um": {
+     "m1": 0.3,
+     "m2": 0.3
+    },
+    "res_ohm": 13.27
+   },
+   "INN": {
+    "length_um": 4.14,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 3,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 8.2
+   },
+   "INP": {
+    "length_um": 10.12,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 3,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 11.07
+   },
+   "OUTP": {
+    "length_um": 11.5,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 7,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 22.95
+   },
+   "OUTN": {
+    "length_um": 12.88,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 6,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 15.16
+   },
+   "VGND": {
+    "length_um": 19.32,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 13,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 30.32
+   },
+   "VBN": {
+    "length_um": 8.74,
+    "layers": [
+     "m2"
+    ],
+    "cuts": 2,
+    "width_um": {
+     "m2": 0.14
+    },
+    "res_ohm": 12.3
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [],
+ "constraint_violations": [],
+ "objects": {
+  "DP": {
+   "kind": "array",
+   "at_um": [
+    2.3,
+    4.6
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    2.05,
+    2.115,
+    6.23,
+    7.545
+   ],
+   "line": 16
+  },
+  "MT": {
+   "kind": "array",
+   "at_um": [
+    2.3,
+    9.2
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    2.05,
+    7.795,
+    6.23,
+    9.385
+   ],
+   "line": 18
+  },
+  "G": {
+   "kind": "ring",
+   "at_um": [
+    2.3,
+    4.6
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    0.59,
+    0.65,
+    7.69,
+    10.85
+   ],
+   "line": 19
+  }
+ },
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-001510-L2-ranked-kb/diffpair/check1/diffpair.png",
+ "route_failed": [],
+ "status": "CLEAN",
+ "seconds": 3.5,
+ "judge": {
+  "ok": true,
+  "results": [
+   {
+    "constraint": {
+     "type": "common_centroid",
+     "devices": [
+      "M1",
+      "M2"
+     ]
+    },
+    "ok": true,
+    "detail": "M1 centroid (4.140, 5.005), M2 centroid (4.140, 5.005); max offset 0.000 um (allowed 0.06)"
+   },
+   {
+    "constraint": {
+     "type": "route_width",
+     "net": "tail",
+     "min": 0.3
+    },
+    "ok": true,
+    "detail": "net tail routed {'m1': 0.3, 'm2': 0.3} um wide (need >= 0.3)"
+   }
+  ]
+ }
+}

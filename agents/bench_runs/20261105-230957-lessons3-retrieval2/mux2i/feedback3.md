@@ -1,0 +1,16 @@
+Check result at {'L': 0.15, 'H': 2.72, 'WN': 0.49, 'WP': 0.75}: VIOLATIONS  (DRC 0 errors, LVS MISMATCH)
+CONNECTIVITY (fix these first - they are why LVS fails):
+  SHORT VGND / n5: on li around (2.3, 0.37): shapes of VGND and n5 overlap/touch there (c2l (line 36), c2s (line 37), c5l (line 43), c5s (line 44), c6l (line 46), c6s (line 47))
+  OPEN net S is 2 separate pieces: [g1 (line 23), gl1 (line 66), gp1 (line 65), sp (line 82)] | [g2 (line 24), gl2 (line 69), gp2 (line 68)] - join them (strap / shared metal / `route S`)
+  OPEN net Y is 2 separate pieces: [c4l (line 41), nd (line 28), yp (line 91)] | [c10l (line 57), pd (line 29)] - join them (strap / shared metal / `route Y`)
+  DEVICE M3 (nmos g=S d=VGND s=n3) has no matching transistor in the layout - the nmos with gate S at x=1.22 has VGND+n5 and n1 on its sides; it needs VGND and n3: the side labelled VGND+n5 should be VGND (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M5 (nmos g=n1 d=n5 s=VGND) has no matching transistor in the layout - the nmos with gate n1 at x=3.38 has VGND+n5 and Y on its sides; it needs n5 and VGND: the side labelled VGND+n5 should be n5 (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M6 (nmos g=S d=n1 s=VGND) has no matching transistor in the layout - the nmos with gate S at x=1.22 has VGND+n5 and n1 on its sides; it needs n1 and VGND: the side labelled VGND+n5 should be VGND (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M8 (nmos g=A1 d=Y s=n3) has no matching transistor in the layout - the nmos with gate A1 at x=2.84 has VGND+n5 and Y on its sides; it needs Y and n3: the side labelled VGND+n5 should be n3 (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M9 (nmos g=A0 d=n5 s=Y) has no matching transistor in the layout - the nmos with gate A0 at x=2.3 has VGND+n5 and n3 on its sides; it needs n5 and Y: the side labelled VGND+n5 should be n5 (wrong net label on that contact column, or the gates are in the wrong order)
+    layout nmos at x=1.22 y=0.66: gate S [g1 (line 23), gp1 (line 65)], source/drain VGND+n5 [c2l (line 36), c2s (line 37), c5l (line 43), +4 more], n1 [c1l (line 34), c7l (line 50), gl5 (line 78), +2 more]
+    layout nmos at x=1.76 y=0.66: gate S [g2 (line 24), gp2 (line 68)], source/drain VGND+n5 [c2l (line 36), c2s (line 37), c5l (line 43), +4 more], n3 [c3l (line 39), nd (line 28)]
+    layout nmos at x=2.3 y=0.66: gate A0 [g3 (line 25), gp3 (line 71)], source/drain VGND+n5 [c2l (line 36), c2s (line 37), c5l (line 43), +4 more], n3 [c3l (line 39), nd (line 28)]
+    layout nmos at x=2.84 y=0.66: gate A1 [g4 (line 26), gp4 (line 74)], source/drain VGND+n5 [c2l (line 36), c2s (line 37), c5l (line 43), +4 more], Y [c4l (line 41), nd (line 28)]
+    layout nmos at x=3.38 y=0.66: gate n1 [g5 (line 27), gp5 (line 77)], source/drain VGND+n5 [c2l (line 36), c2s (line 37), c5l (line 43), +4 more], Y [c4l (line 41), nd (line 28)]
+Fix the first items first (the attached image is your layout, DRC errors boxed in red). Return the complete corrected file.

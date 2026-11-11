@@ -1,0 +1,75 @@
+Judge:
+  FAIL DRC      19244 violation(s): 7424 x Metal2 overlap of Via1 < 0.03um in one direction (met2.5 - met2.4); 4144 x Metal1 spacing < 0.14um (met1.2); 2913 x N-well overlap of P-Diffusion < 0.18um (diff/tap.8); 1031 x N-well spacing < 1.27um (nwell.2a); 782 x Metal2 spacing < 0.14um (met2.2); 721 x N-well width < 0.84um (nwell.1)
+  FAIL DRC2     foundry KLayout deck: 543 violation(s): 251 x m1.2: m1.2 : min. m1 spacing : 0.14um; 95 x m2.4_a: m2.4_a : via in periphery must be enclosed by met2; 40 x licon.17: licon.17 : Licons may not overlap both poly and (diff or tap); 32 x via.1a_a: via.1a_a : min. width of via outside of moduleCut : 0.15um; 28 x via.2: via.2 : min. via spacing : 0.17um; 20 x MR_licon.SP.1: MR_licon.SP.1: min. licon spacing in periphery : 0.17um
+  FAIL LVS      Top level cell failed pin matching.  (devices layout/ref 18/352; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/shreg16.sky130A/a3/judge/shreg16.lvs.txt)
+  FAIL pins     not confirmed (LVS failed)
+  FAIL area     219.60 x 10.83 = 2378.3 um2, budget 1857, reference 928.02
+
+Tool report:
+DRC (magic drc(full)): 19244 violation(s), boxes in um
+  7424 x Metal2 overlap of Via1 < 0.03um in one direction (met2.5 - met2.4)   e.g. at (7.840 10.990 7.870 11.020)  (8.130 10.990 8.160 11.020)  (7.840 10.990 7.870 11.020)
+  4144 x Metal1 spacing < 0.14um (met1.2)   e.g. at (10.240 10.160 10.370 10.195)  (10.330 10.160 10.370 10.195)  (4.230 7.020 4.330 7.160)
+  2913 x N-well overlap of P-Diffusion < 0.18um (diff/tap.8)   e.g. at (2.845 3.290 3.025 3.710)  (3.175 3.290 3.355 3.710)  (3.645 3.290 3.825 3.710)
+  1031 x N-well spacing < 1.27um (nwell.2a)   e.g. at (3.845 8.900 4.755 10.100)  (5.045 8.900 5.955 10.100)  (6.245 8.900 7.155 10.100)
+   782 x Metal2 spacing < 0.14um (met2.2)   e.g. at (10.040 10.480 10.300 10.590)  (13.430 10.610 13.570 10.740)  (13.430 10.750 13.570 10.880)
+   721 x N-well width < 0.84um (nwell.1)   e.g. at (3.355 3.110 3.645 3.160)  (3.355 3.160 3.645 3.840)  (3.355 3.840 3.645 3.890)
+   642 x P-diff distance to N-tap must be < 15.0um (LU.3)   e.g. at (2.825 9.080 3.025 9.920)  (3.175 9.080 3.375 9.920)  (4.025 9.080 4.225 9.920)
+   640 x P-Diffusion overhang of pmos < 0.25um (poly.7)   e.g. at (2.775 9.080 2.825 9.920)  (3.375 9.080 3.425 9.920)  (3.975 9.080 4.025 9.920)
+   306 x All nwells must contain metal-connected N+ taps (nwell.4)   e.g. at (2.645 8.900 3.555 10.100)  (3.845 8.900 4.755 10.100)  (5.045 8.900 5.955 10.100)
+   256 x Metal2 minimum area < 0.0676um^2 (met2.6)   e.g. at (13.430 10.750 13.570 11.030)  (13.430 10.460 13.570 10.740)  (27.030 10.750 27.170 11.030)
+   176 x Diffusion spacing < 0.27um (diff/tap.3)   e.g. at (12.025 9.080 12.045 9.920)  (25.625 9.080 25.645 9.920)  (39.225 9.080 39.245 9.920)
+   128 x Via1 spacing < 0.06um (via.2 - 2 * via.4a)   e.g. at (10.040 10.620 10.300 10.650)  (4.240 4.930 4.430 4.950)  (5.310 4.630 5.500 4.650)
+DRC2 (foundry KLayout deck): 543 violation(s), boxes in um
+   251 x m1.2: m1.2 : min. m1 spacing : 0.14um   e.g. at (214.240 10.195 214.370 10.300)  (187.040 10.195 187.170 10.300)  (175.440 10.195 175.560 10.590)
+    95 x m2.4_a: m2.4_a : via in periphery must be enclosed by met2   e.g. at (198.325 2.035 198.475 2.185)  (21.525 2.035 21.675 2.185)  (157.525 10.815 157.675 10.965)
+    40 x licon.17: licon.17 : Licons may not overlap both poly and (diff or tap)   e.g. at (9.545 7.415 9.575 7.585)  (10.345 7.415 10.375 7.585)  (9.425 7.415 9.455 7.585)
+    32 x via.1a_a: via.1a_a : min. width of via outside of moduleCut : 0.15um   e.g. at (7.955 10.735 8.075 10.905)  (7.925 10.815 8.105 10.825)  (21.555 10.735 21.675 10.905)
+    28 x via.2: via.2 : min. via spacing : 0.17um   e.g. at (198.245 1.895 198.325 2.185)  (211.845 1.895 211.925 2.185)  (157.445 1.895 157.525 2.185)
+    20 x MR_licon.SP.1: MR_licon.SP.1: min. licon spacing in periphery : 0.17um   e.g. at (5.855 7.415 5.945 7.585)  (3.455 7.415 3.545 7.585)  (9.455 7.415 9.545 7.585)
+    16 x m1.7: m1.7 : min. m1 with holes area : 0.14um²   e.g. at (12.240 10.195 12.360 10.590)  (25.840 10.195 25.960 10.590)  (39.440 10.195 39.560 10.590)
+    16 x via.1a: via.1a : via outside of moduleCut should be rectangular   e.g. at (7.925 10.675 8.105 10.965)  (21.525 10.675 21.705 10.965)  (35.125 10.675 35.305 10.965)
+    16 x m2.6: m2.6 : min. m2 area : 0.0676um²   e.g. at (11.430 -0.030 11.570 0.250)  (11.430 8.750 11.570 9.030)  (11.430 3.060 11.570 3.340)
+    11 x difftap.3: difftap.3 : min. difftap spacing : 0.27um   e.g. at (8.575 1.290 8.825 1.710)  (6.975 1.290 7.225 1.710)  (6.175 1.290 6.425 1.710)
+     9 x m2.2: m2.2 : min. m2 spacing : 0.14um   e.g. at (11.430 4.840 11.570 4.860)  (11.430 3.940 11.570 3.960)  (11.430 3.640 11.570 3.660)
+     7 x nwell.2a: nwell.2a : min. nwell spacing (merged if less) : 1.27um   e.g. at (1.555 6.900 1.845 8.100)  (2.755 6.900 3.045 8.100)  (3.955 6.900 4.245 8.100)
+LVS: Top level cell failed pin matching.   devices layout/ref 18/352, nets layout/ref 72/212
+  sky130_fd_pr__pfet_01v8 (20)               |sky130_fd_pr__pfet_01v8 (11) **Mismatch**
+  (no matching element)                      |sky130_fd_pr__nfet_01v8 (11)
+  Number of devices: 20 **Mismatch**         |Number of devices: 22 **Mismatch**
+  Number of nets: 79 **Mismatch**            |Number of nets: 17 **Mismatch**
+  ---------------------------------------------------------------------------------------
+  NET mismatches: Class fragments follow (with fanout counts):
+  Circuit 1: dff                             |Circuit 2: dff
+  ---------------------------------------------------------------------------------------
+  Net: a_1515_258#                           |Net: n1
+    sky130_fd_pr__pfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/(1|3) = 2
+                                             |
+  Net: a_1445_258#                           |Net: n2
+    sky130_fd_pr__pfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/(1|3) = 2
+                                             |
+  Net: a_235_1416#                           |Net: n3
+    sky130_fd_pr__pfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/(1|3) = 2
+                                             |
+  Net: a_165_1416#                           |Net: n4
+    sky130_fd_pr__pfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/(1|3) = 2
+                                             |
+  Net: a_1195_1416#                          |Net: D
+    sky130_fd_pr__pfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/2 = 1
+                                             |  sky130_fd_pr__pfet_01v8/2 = 1
+                                             |
+  Net: a_1125_1416#                          |Net: p1
+    sky130_fd_pr__pfet_01v8/(1|3) = 1        |  sky130_fd_pr__pfet_01v8/(1|3) = 2
+                                             |
+  Net: a_555_258#                            |Net: p2
+    sky130_fd_pr__pfet_01v8/(1|3) = 1        |  sky130_fd_pr__pfet_01v8/(1|3) = 2
+                                             |
+  Net: a_485_258#                            |Net: p3
+    sky130_fd_pr__pfet_01v8/(1|3) = 1        |  sky130_fd_pr__pfet_01v8/(1|3) = 2
+                                             |
+  Net: a_1435_1416#                          |Net: p4
+    sky130_fd_pr__pfet_01v8/(1|3) = 1        |  sky130_fd_pr__pfet_01v8/(1|3) = 2
+                                             |
+  Net: a_1365_1416#                          |Net: VSS
+    sky130_fd_pr__pfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/(1|3) = 7
+                                             |  sky130_fd_pr__nfet_01v8/4 = 11
+                                             |

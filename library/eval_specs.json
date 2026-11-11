@@ -1,0 +1,1409 @@
+{
+ "source": "sky130_fd_sc_hd (open_pdks, ciel 792ef67)",
+ "width_scale": 1.0,
+ "taps": false,
+ "waive": "LU.2,LU.3,nwell.4",
+ "notes": "library conventions: tapless cells (bodies VNB/VPB, tied by the row's tap cells; the tap rules LU.2/LU.3/nwell.4 are waived), PDK widths, pfet_01v8_hvt -> pfet_01v8",
+ "sweep": [
+  {
+   "L": 0.15,
+   "wscale": 1.0,
+   "H": 2.72
+  },
+  {
+   "L": 0.18,
+   "wscale": 1.0,
+   "H": 2.72
+  },
+  {
+   "L": 0.25,
+   "wscale": 1.0,
+   "H": 2.72
+  },
+  {
+   "L": 0.15,
+   "wscale": 1.25,
+   "H": 3.26
+  },
+  {
+   "L": 0.15,
+   "wscale": 1.5,
+   "H": 3.8
+  }
+ ],
+ "cells": [
+  {
+   "name": "a21oi_1",
+   "hd_cell": "sky130_fd_sc_hd__a21oi_1",
+   "tier": 1,
+   "function": "Y = (!A1&!B1) | (!A2&!B1)",
+   "family": "a21oi",
+   "inputs": [
+    "A1",
+    "A2",
+    "B1"
+   ],
+   "outputs": [
+    "Y"
+   ],
+   "devices": [
+    {
+     "name": "M0",
+     "kind": "nmos",
+     "d": "n1",
+     "g": "A2",
+     "s": "VGND",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M1",
+     "kind": "pmos",
+     "d": "n2",
+     "g": "A1",
+     "s": "VPWR",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M2",
+     "kind": "pmos",
+     "d": "Y",
+     "g": "B1",
+     "s": "n2",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M3",
+     "kind": "nmos",
+     "d": "VGND",
+     "g": "B1",
+     "s": "Y",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M4",
+     "kind": "pmos",
+     "d": "VPWR",
+     "g": "A2",
+     "s": "n2",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M5",
+     "kind": "nmos",
+     "d": "Y",
+     "g": "A1",
+     "s": "n1",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    }
+   ],
+   "params": {
+    "WN": 0.65,
+    "WP": 1.0
+   },
+   "hd_size_um": [
+    1.84,
+    2.72
+   ],
+   "internal_nets": [
+    "n1",
+    "n2"
+   ]
+  },
+  {
+   "name": "o211ai_1",
+   "hd_cell": "sky130_fd_sc_hd__o211ai_1",
+   "tier": 2,
+   "function": "Y = (!A1&!A2) | (!B1) | (!C1)",
+   "family": "o211ai",
+   "inputs": [
+    "A1",
+    "A2",
+    "B1",
+    "C1"
+   ],
+   "outputs": [
+    "Y"
+   ],
+   "devices": [
+    {
+     "name": "M0",
+     "kind": "pmos",
+     "d": "n1",
+     "g": "A2",
+     "s": "Y",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M1",
+     "kind": "pmos",
+     "d": "VPWR",
+     "g": "A1",
+     "s": "n1",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M2",
+     "kind": "nmos",
+     "d": "n2",
+     "g": "A1",
+     "s": "VGND",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M3",
+     "kind": "nmos",
+     "d": "n3",
+     "g": "C1",
+     "s": "Y",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M4",
+     "kind": "pmos",
+     "d": "VPWR",
+     "g": "C1",
+     "s": "Y",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M5",
+     "kind": "nmos",
+     "d": "VGND",
+     "g": "A2",
+     "s": "n2",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M6",
+     "kind": "nmos",
+     "d": "n2",
+     "g": "B1",
+     "s": "n3",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M7",
+     "kind": "pmos",
+     "d": "Y",
+     "g": "B1",
+     "s": "VPWR",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    }
+   ],
+   "params": {
+    "WN": 0.65,
+    "WP": 1.0
+   },
+   "hd_size_um": [
+    2.76,
+    2.72
+   ],
+   "internal_nets": [
+    "n1",
+    "n2",
+    "n3"
+   ]
+  },
+  {
+   "name": "a31oi_1",
+   "hd_cell": "sky130_fd_sc_hd__a31oi_1",
+   "tier": 2,
+   "function": "Y = (!A1&!B1) | (!A2&!B1) | (!A3&!B1)",
+   "family": "a31oi",
+   "inputs": [
+    "A1",
+    "A2",
+    "A3",
+    "B1"
+   ],
+   "outputs": [
+    "Y"
+   ],
+   "devices": [
+    {
+     "name": "M0",
+     "kind": "pmos",
+     "d": "n1",
+     "g": "B1",
+     "s": "Y",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M1",
+     "kind": "nmos",
+     "d": "n2",
+     "g": "A1",
+     "s": "Y",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M2",
+     "kind": "pmos",
+     "d": "VPWR",
+     "g": "A1",
+     "s": "n1",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M3",
+     "kind": "nmos",
+     "d": "n3",
+     "g": "A2",
+     "s": "n2",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M4",
+     "kind": "nmos",
+     "d": "Y",
+     "g": "B1",
+     "s": "VGND",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M5",
+     "kind": "nmos",
+     "d": "VGND",
+     "g": "A3",
+     "s": "n3",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M6",
+     "kind": "pmos",
+     "d": "VPWR",
+     "g": "A3",
+     "s": "n1",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M7",
+     "kind": "pmos",
+     "d": "n1",
+     "g": "A2",
+     "s": "VPWR",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    }
+   ],
+   "params": {
+    "WN": 0.65,
+    "WP": 1.0
+   },
+   "hd_size_um": [
+    2.3,
+    2.72
+   ],
+   "internal_nets": [
+    "n1",
+    "n2",
+    "n3"
+   ]
+  },
+  {
+   "name": "nor4_1",
+   "hd_cell": "sky130_fd_sc_hd__nor4_1",
+   "tier": 2,
+   "function": "Y = (!A&!B&!C&!D)",
+   "family": "nor4",
+   "inputs": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ],
+   "outputs": [
+    "Y"
+   ],
+   "devices": [
+    {
+     "name": "M0",
+     "kind": "nmos",
+     "d": "VGND",
+     "g": "B",
+     "s": "Y",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M1",
+     "kind": "pmos",
+     "d": "n1",
+     "g": "B",
+     "s": "n2",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M2",
+     "kind": "pmos",
+     "d": "n2",
+     "g": "A",
+     "s": "VPWR",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M3",
+     "kind": "nmos",
+     "d": "Y",
+     "g": "C",
+     "s": "VGND",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M4",
+     "kind": "nmos",
+     "d": "VGND",
+     "g": "D",
+     "s": "Y",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M5",
+     "kind": "pmos",
+     "d": "n3",
+     "g": "C",
+     "s": "n1",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M6",
+     "kind": "pmos",
+     "d": "Y",
+     "g": "D",
+     "s": "n3",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M7",
+     "kind": "nmos",
+     "d": "Y",
+     "g": "A",
+     "s": "VGND",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    }
+   ],
+   "params": {
+    "WN": 0.65,
+    "WP": 1.0
+   },
+   "hd_size_um": [
+    2.3,
+    2.72
+   ],
+   "internal_nets": [
+    "n1",
+    "n2",
+    "n3"
+   ]
+  },
+  {
+   "name": "a22oi_1",
+   "hd_cell": "sky130_fd_sc_hd__a22oi_1",
+   "tier": 2,
+   "function": "Y = (!A1&!B1) | (!A1&!B2) | (!A2&!B1) | (!A2&!B2)",
+   "family": "a22oi",
+   "inputs": [
+    "A1",
+    "A2",
+    "B1",
+    "B2"
+   ],
+   "outputs": [
+    "Y"
+   ],
+   "devices": [
+    {
+     "name": "M0",
+     "kind": "nmos",
+     "d": "n1",
+     "g": "B1",
+     "s": "Y",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M1",
+     "kind": "pmos",
+     "d": "n2",
+     "g": "A2",
+     "s": "VPWR",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M2",
+     "kind": "pmos",
+     "d": "VPWR",
+     "g": "A1",
+     "s": "n2",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M3",
+     "kind": "nmos",
+     "d": "n3",
+     "g": "A2",
+     "s": "VGND",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M4",
+     "kind": "nmos",
+     "d": "VGND",
+     "g": "B2",
+     "s": "n1",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M5",
+     "kind": "pmos",
+     "d": "Y",
+     "g": "B2",
+     "s": "n2",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M6",
+     "kind": "nmos",
+     "d": "Y",
+     "g": "A1",
+     "s": "n3",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M7",
+     "kind": "pmos",
+     "d": "n2",
+     "g": "B1",
+     "s": "Y",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    }
+   ],
+   "params": {
+    "WN": 0.65,
+    "WP": 1.0
+   },
+   "hd_size_um": [
+    2.76,
+    2.72
+   ],
+   "internal_nets": [
+    "n1",
+    "n2",
+    "n3"
+   ]
+  },
+  {
+   "name": "xnor2_1",
+   "hd_cell": "sky130_fd_sc_hd__xnor2_1",
+   "tier": 3,
+   "function": "Y = (!A&!B) | (A&B)",
+   "family": "xnor2",
+   "inputs": [
+    "A",
+    "B"
+   ],
+   "outputs": [
+    "Y"
+   ],
+   "devices": [
+    {
+     "name": "M0",
+     "kind": "pmos",
+     "d": "VPWR",
+     "g": "A",
+     "s": "n1",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M1",
+     "kind": "pmos",
+     "d": "n1",
+     "g": "B",
+     "s": "Y",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M2",
+     "kind": "pmos",
+     "d": "Y",
+     "g": "n2",
+     "s": "VPWR",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M3",
+     "kind": "nmos",
+     "d": "n3",
+     "g": "A",
+     "s": "VGND",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M4",
+     "kind": "nmos",
+     "d": "VGND",
+     "g": "B",
+     "s": "n4",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M5",
+     "kind": "nmos",
+     "d": "n2",
+     "g": "B",
+     "s": "n3",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M6",
+     "kind": "pmos",
+     "d": "VPWR",
+     "g": "B",
+     "s": "n2",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M7",
+     "kind": "pmos",
+     "d": "n2",
+     "g": "A",
+     "s": "VPWR",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M8",
+     "kind": "nmos",
+     "d": "VGND",
+     "g": "A",
+     "s": "n4",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M9",
+     "kind": "nmos",
+     "d": "n4",
+     "g": "n2",
+     "s": "Y",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    }
+   ],
+   "params": {
+    "WN": 0.65,
+    "WP": 1.0
+   },
+   "hd_size_um": [
+    3.22,
+    2.72
+   ],
+   "internal_nets": [
+    "n1",
+    "n2",
+    "n3",
+    "n4"
+   ]
+  },
+  {
+   "name": "a2bb2oi_1",
+   "hd_cell": "sky130_fd_sc_hd__a2bb2oi_1",
+   "tier": 3,
+   "function": "Y = (A1_N&!B1) | (A1_N&!B2) | (A2_N&!B1) | (A2_N&!B2)",
+   "family": "a2bb2oi",
+   "inputs": [
+    "A1_N",
+    "A2_N",
+    "B1",
+    "B2"
+   ],
+   "outputs": [
+    "Y"
+   ],
+   "devices": [
+    {
+     "name": "M0",
+     "kind": "pmos",
+     "d": "n1",
+     "g": "A2_N",
+     "s": "n2",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M1",
+     "kind": "nmos",
+     "d": "n3",
+     "g": "B1",
+     "s": "VGND",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M2",
+     "kind": "nmos",
+     "d": "Y",
+     "g": "B2",
+     "s": "n3",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M3",
+     "kind": "pmos",
+     "d": "Y",
+     "g": "n2",
+     "s": "n4",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M4",
+     "kind": "pmos",
+     "d": "VPWR",
+     "g": "B1",
+     "s": "n4",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M5",
+     "kind": "pmos",
+     "d": "n4",
+     "g": "B2",
+     "s": "VPWR",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M6",
+     "kind": "nmos",
+     "d": "n2",
+     "g": "A2_N",
+     "s": "VGND",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M7",
+     "kind": "nmos",
+     "d": "VGND",
+     "g": "A1_N",
+     "s": "n2",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M8",
+     "kind": "pmos",
+     "d": "VPWR",
+     "g": "A1_N",
+     "s": "n1",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M9",
+     "kind": "nmos",
+     "d": "VGND",
+     "g": "n2",
+     "s": "Y",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    }
+   ],
+   "params": {
+    "WN": 0.65,
+    "WP": 1.0
+   },
+   "hd_size_um": [
+    3.22,
+    2.72
+   ],
+   "internal_nets": [
+    "n1",
+    "n2",
+    "n3",
+    "n4"
+   ]
+  },
+  {
+   "name": "mux2i_1",
+   "hd_cell": "sky130_fd_sc_hd__mux2i_1",
+   "tier": 3,
+   "function": "Y = (!A0&!S) | (!A1&S)",
+   "family": "mux2i",
+   "inputs": [
+    "A0",
+    "A1",
+    "S"
+   ],
+   "outputs": [
+    "Y"
+   ],
+   "devices": [
+    {
+     "name": "M0",
+     "kind": "pmos",
+     "d": "n1",
+     "g": "S",
+     "s": "VPWR",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M1",
+     "kind": "pmos",
+     "d": "VPWR",
+     "g": "S",
+     "s": "n2",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M2",
+     "kind": "pmos",
+     "d": "n2",
+     "g": "A0",
+     "s": "Y",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M3",
+     "kind": "nmos",
+     "d": "VGND",
+     "g": "S",
+     "s": "n3",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M4",
+     "kind": "pmos",
+     "d": "n4",
+     "g": "n1",
+     "s": "VPWR",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M5",
+     "kind": "nmos",
+     "d": "n5",
+     "g": "n1",
+     "s": "VGND",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M6",
+     "kind": "nmos",
+     "d": "n1",
+     "g": "S",
+     "s": "VGND",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M7",
+     "kind": "pmos",
+     "d": "Y",
+     "g": "A1",
+     "s": "n4",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M8",
+     "kind": "nmos",
+     "d": "Y",
+     "g": "A1",
+     "s": "n3",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M9",
+     "kind": "nmos",
+     "d": "n5",
+     "g": "A0",
+     "s": "Y",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    }
+   ],
+   "params": {
+    "WN": 0.65,
+    "WP": 1.0
+   },
+   "hd_size_um": [
+    3.68,
+    2.72
+   ],
+   "internal_nets": [
+    "n1",
+    "n2",
+    "n3",
+    "n4",
+    "n5"
+   ]
+  },
+  {
+   "name": "maj3_1",
+   "hd_cell": "sky130_fd_sc_hd__maj3_1",
+   "tier": 4,
+   "function": "X = (A&B) | (A&C) | (B&C)",
+   "family": "maj3",
+   "inputs": [
+    "A",
+    "B",
+    "C"
+   ],
+   "outputs": [
+    "X"
+   ],
+   "devices": [
+    {
+     "name": "M0",
+     "kind": "pmos",
+     "d": "n1",
+     "g": "A",
+     "s": "VPWR",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WP2"
+    },
+    {
+     "name": "M1",
+     "kind": "nmos",
+     "d": "n2",
+     "g": "B",
+     "s": "n3",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WN2"
+    },
+    {
+     "name": "M2",
+     "kind": "nmos",
+     "d": "n3",
+     "g": "B",
+     "s": "n4",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WN2"
+    },
+    {
+     "name": "M3",
+     "kind": "nmos",
+     "d": "VGND",
+     "g": "n3",
+     "s": "X",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M4",
+     "kind": "nmos",
+     "d": "VGND",
+     "g": "A",
+     "s": "n2",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WN2"
+    },
+    {
+     "name": "M5",
+     "kind": "nmos",
+     "d": "n5",
+     "g": "A",
+     "s": "VGND",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WN2"
+    },
+    {
+     "name": "M6",
+     "kind": "pmos",
+     "d": "n3",
+     "g": "B",
+     "s": "n6",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WP2"
+    },
+    {
+     "name": "M7",
+     "kind": "pmos",
+     "d": "n6",
+     "g": "C",
+     "s": "VPWR",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WP2"
+    },
+    {
+     "name": "M8",
+     "kind": "pmos",
+     "d": "VPWR",
+     "g": "n3",
+     "s": "X",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M9",
+     "kind": "nmos",
+     "d": "n4",
+     "g": "C",
+     "s": "VGND",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WN2"
+    },
+    {
+     "name": "M10",
+     "kind": "nmos",
+     "d": "n3",
+     "g": "C",
+     "s": "n5",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WN2"
+    },
+    {
+     "name": "M11",
+     "kind": "pmos",
+     "d": "n3",
+     "g": "C",
+     "s": "n1",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WP2"
+    },
+    {
+     "name": "M12",
+     "kind": "pmos",
+     "d": "VPWR",
+     "g": "A",
+     "s": "n7",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WP2"
+    },
+    {
+     "name": "M13",
+     "kind": "pmos",
+     "d": "n7",
+     "g": "B",
+     "s": "n3",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WP2"
+    }
+   ],
+   "params": {
+    "WN": 0.65,
+    "WN2": 0.42,
+    "WP": 1.0,
+    "WP2": 0.42
+   },
+   "hd_size_um": [
+    3.68,
+    2.72
+   ],
+   "internal_nets": [
+    "n1",
+    "n2",
+    "n3",
+    "n4",
+    "n5",
+    "n6",
+    "n7"
+   ]
+  },
+  {
+   "name": "ha_1",
+   "hd_cell": "sky130_fd_sc_hd__ha_1",
+   "tier": 4,
+   "function": "COUT = (A&B); SUM = (A&!B) | (!A&B)",
+   "family": "ha",
+   "inputs": [
+    "A",
+    "B"
+   ],
+   "outputs": [
+    "COUT",
+    "SUM"
+   ],
+   "devices": [
+    {
+     "name": "M0",
+     "kind": "nmos",
+     "d": "n1",
+     "g": "B",
+     "s": "n2",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WN2"
+    },
+    {
+     "name": "M1",
+     "kind": "nmos",
+     "d": "n3",
+     "g": "n1",
+     "s": "n4",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WN2"
+    },
+    {
+     "name": "M2",
+     "kind": "pmos",
+     "d": "n1",
+     "g": "A",
+     "s": "VPWR",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WP2"
+    },
+    {
+     "name": "M3",
+     "kind": "pmos",
+     "d": "VPWR",
+     "g": "n1",
+     "s": "COUT",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M4",
+     "kind": "nmos",
+     "d": "VGND",
+     "g": "A",
+     "s": "n4",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WN2"
+    },
+    {
+     "name": "M5",
+     "kind": "pmos",
+     "d": "n3",
+     "g": "B",
+     "s": "n5",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WP2"
+    },
+    {
+     "name": "M6",
+     "kind": "pmos",
+     "d": "n5",
+     "g": "A",
+     "s": "VPWR",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WP2"
+    },
+    {
+     "name": "M7",
+     "kind": "nmos",
+     "d": "SUM",
+     "g": "n3",
+     "s": "VGND",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M8",
+     "kind": "nmos",
+     "d": "n2",
+     "g": "A",
+     "s": "VGND",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WN2"
+    },
+    {
+     "name": "M9",
+     "kind": "pmos",
+     "d": "SUM",
+     "g": "n3",
+     "s": "VPWR",
+     "w_hd": 1.0,
+     "w": 1.0,
+     "l": 0.15,
+     "wparam": "WP"
+    },
+    {
+     "name": "M10",
+     "kind": "pmos",
+     "d": "VPWR",
+     "g": "n1",
+     "s": "n3",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WP2"
+    },
+    {
+     "name": "M11",
+     "kind": "nmos",
+     "d": "n4",
+     "g": "B",
+     "s": "VGND",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WN2"
+    },
+    {
+     "name": "M12",
+     "kind": "nmos",
+     "d": "VGND",
+     "g": "n1",
+     "s": "COUT",
+     "w_hd": 0.65,
+     "w": 0.65,
+     "l": 0.15,
+     "wparam": "WN"
+    },
+    {
+     "name": "M13",
+     "kind": "pmos",
+     "d": "VPWR",
+     "g": "B",
+     "s": "n1",
+     "w_hd": 0.42,
+     "w": 0.42,
+     "l": 0.15,
+     "wparam": "WP2"
+    }
+   ],
+   "params": {
+    "WN": 0.65,
+    "WN2": 0.42,
+    "WP": 1.0,
+    "WP2": 0.42
+   },
+   "hd_size_um": [
+    4.6,
+    2.72
+   ],
+   "internal_nets": [
+    "n1",
+    "n2",
+    "n3",
+    "n4",
+    "n5"
+   ]
+  }
+ ]
+}

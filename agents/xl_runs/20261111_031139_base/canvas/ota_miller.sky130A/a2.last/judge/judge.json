@@ -1,0 +1,37 @@
+{
+ "task": "ota_miller",
+ "pdk": "sky130A",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/canvas/ota_miller.sky130A/a2.last/ota_miller.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/canvas/ota_miller.sky130A/a2.last/ota_miller.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "211 violation(s): 100 x Diffusion contact to gate < 0.055um (licon.11); 31 x N-diff distance to P-tap must be < 15.0um (LU.2); 24 x No bends in transistors (poly.11); 17 x Diffusion contact spacing < 0.17um (licon.2); 10 x Local interconnect spacing < 0.17um (li.3); 10 x poly spacing < 0.21um (poly.2)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 63 violation(s): 24 x licon.17: licon.17 : Licons may not overlap both poly and (diff or tap); 20 x licon.1: licon.1: min/max. licon length : 0.17um; 11 x MR_licon.SP.1: MR_licon.SP.1: min. licon spacing in periphery : 0.17um; 4 x licon.1_c: licon.1_c : licon should be rectangle; 2 x poly.2: poly.2 : min. poly spacing : 0.21um; 1 x nsdm.1: nsdm.1 : min. nsdm spacing in periphery : 0.38um"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Top level cell failed pin matching.  (devices layout/ref 2/10; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/canvas/ota_miller.sky130A/a2.last/judge/ota_miller.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "not confirmed (LVS failed)"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "5.62 x 5.46 = 30.7 um2, budget 2648, reference 1323.89"
+  }
+ ],
+ "area_um2": 30.69,
+ "area_vs_reference": 0.023,
+ "solved": false,
+ "detail": "DRC (magic drc(full)): 211 violation(s), boxes in um\n   100 x Diffusion contact to gate < 0.055um (licon.11)   e.g. at (0.820 0.895 0.875 0.985)  (0.820 0.895 0.990 0.950)  (0.935 0.930 0.990 0.985)\n    31 x N-diff distance to P-tap must be < 15.0um (LU.2)   e.g. at (0.000 -1.200 0.265 4.000)  (0.765 0.930 1.045 4.000)  (1.545 0.930 1.810 4.000)\n    24 x No bends in transistors (poly.11)   e.g. at (0.765 0.925 0.770 0.930)  (0.760 0.930 0.765 0.935)  (1.045 0.930 1.050 0.935)\n    17 x Diffusion contact spacing < 0.17um (licon.2)   e.g. at (0.040 0.895 0.210 0.905)  (2.545 0.895 2.620 0.905)  (4.010 0.895 4.105 0.905)\n    10 x Local interconnect spacing < 0.17um (li.3)   e.g. at (1.600 0.895 1.660 0.985)  (1.600 0.815 1.660 0.895)  (1.600 0.895 1.660 0.985)\n    10 x poly spacing < 0.21um (poly.2)   e.g. at (2.675 0.735 2.755 0.800)  (2.675 0.930 2.755 1.105)  (2.675 0.895 2.755 0.930)\n     7 x Transistor width < 0.42um (diff/tap.2)   e.g. at (1.600 0.895 1.770 0.930)  (2.450 0.895 2.620 0.930)  (2.620 0.895 2.675 0.930)\n     4 x Core local interconnect spacing < 0.14um (li.c2)   e.g. at (1.600 0.895 1.630 0.955)  (1.600 0.895 1.630 0.955)  (1.460 -0.005 1.490 0.055)\n     4 x poly overhang of transistor < 0.13um (poly.8)   e.g. at (1.680 0.895 1.770 0.930)  (2.450 0.895 2.540 0.930)  (4.090 0.895 4.180 0.930)\n     3 x poly width < 0.15um (poly.1a)   e.g. at (1.320 -0.115 1.490 0.020)  (2.675 -0.115 2.770 0.020)  (3.880 -0.115 3.955 0.020)\n     1 x N-Diffusion overhang of nFET < 0.25um (poly.7)   e.g. at (1.810 0.930 1.850 1.180)\nDRC2 (foundry KLayout deck): 63 violation(s), boxes in um\n    24 x licon.17: licon.17 : Licons may not overlap both poly and (diff or tap)   e.g. at (3.230 0.895 3.400 0.930)  (1.600 0.895 1.770 0.930)  (0.820 0.895 0.990 0.930)\n    20 x licon.1: licon.1: min/max. licon length : 0.17um   e.g. at (3.880 0.565 4.010 0.565)  (4.050 0.725 4.050 0.735)  (4.010 0.215 4.010 0.225)\n    11 x MR_licon.SP.1: MR_licon.SP.1: min. licon spacing in periphery : 0.17um   e.g. at (1.490 0.555 1.600 0.735)  (0.040 0.735 0.210 0.895)  (1.490 0.215 1.600 0.395)\n     4 x licon.1_c: licon.1_c : licon should be rectangle   e.g. at (2.450 0.215 2.770 0.395)  (2.450 0.555 2.770 0.735)  (3.880 0.215 4.180 0.395)\n     2 x poly.2: poly.2 : min. poly spacing : 0.21um   e.g. at (2.545 -0.295 2.675 1.095)  (3.955 -0.277 4.105 1.077)\n     1 x nsdm.1: nsdm.1 : min. nsdm spacing in periphery : 0.38um   e.g. at (1.935 0.925 2.285 4.125)\n     1 x li.3: li.3 : min. li spacing outside or crossing areaid:ce : 0.17um   e.g. at (1.490 0.005 1.600 0.945)\nLVS: Top level cell failed pin matching.   devices layout/ref 2/10, nets layout/ref 7/10\n  sky130_fd_pr__nfet_01v8 (3->2)             |sky130_fd_pr__nfet_01v8 (18->5) **Mismatch\n  (no matching element)                      |sky130_fd_pr__pfet_01v8 (12->3)\n  (no matching element)                      |sky130_fd_pr__res_generic_po (1)\n  (no matching element)                      |sky130_fd_pr__cap_mim_m3_1 (1)\n  Number of devices: 2 **Mismatch**          |Number of devices: 10 **Mismatch**\n  Number of nets: 7 **Mismatch**             |Number of nets: 10 **Mismatch**\n  ---------------------------------------------------------------------------------------\n  NET mismatches: Class fragments follow (with fanout counts):\n  Circuit 1: ota_miller                      |Circuit 2: ota_miller\n  ---------------------------------------------------------------------------------------\n  Net: a_1021_n240#                          |Net: INN\n    sky130_fd_pr__nfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/2 = 1\n                                             |\n  Net: a_765_n240#                           |Net: INP\n    sky130_fd_pr__nfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/2 = 1\n                                             |\n  Net: a_153_186#                            |Net: IB\n    sky130_fd_pr__nfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/(1|3) = 1\n                                             |  sky130_fd_pr__nfet_01v8/2 = 3\n                                             |\n  Net: (no pins)                             |Net: d1\n    sky130_fd_pr__nfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/(1|3) = 1\n                                             |  sky130_fd_pr__pfet_01v8/(1|3) = 1\n                                             |  sky130_fd_pr__pfet_01v8/2 = 2\n                                             |\n  Net: a_821_n266#                           |Net: d2\n    sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/(1|3) = 1\n                                             |  sky130_fd_pr__pfet_01v8/(1|3) = 1\n                                             |  sky130_fd_pr__pfet_01v8/2 = 1\n                                             |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  Net: a_53_n266#                            |Net: VSS\n    sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/(1|3) = 3\n                                             |  sky130_fd_pr__nfet_01v8/4 = 5\n                                             |\n  (no matching net)                          |Net: tail\n                                             |  sky130_fd_pr__nfet_01v8/(1|3) = 3\n                                             |\n  (no matching net)                          |Net: OUT\n                                             |  sky130_fd_pr__nfet_01v8/(1|3) = 1"
+}

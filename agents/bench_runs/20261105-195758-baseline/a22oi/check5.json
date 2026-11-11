@@ -1,0 +1,1277 @@
+{
+ "cell": "a22oi",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-195758-baseline/a22oi/check5/a22oi.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-195758-baseline/a22oi/check5/a22oi.reference.spice",
+ "size_um": [
+  4.6,
+  2.72
+ ],
+ "warnings": [
+  "a22oi: port A1: no legal met1/met2 access point for a parent router (0.23 um grid); put the pin on met1 (contact mcon in=<li> + enclose ... m1 by=0.06) or keep met1 clear above it",
+  "a22oi: port B1: no legal met1/met2 access point for a parent router (0.23 um grid); put the pin on met1 (contact mcon in=<li> + enclose ... m1 by=0.06) or keep met1 clear above it",
+  "a22oi: fast pre-check found 11 rule issue(s): difftap.space at [2.2, 1.555, 2.4, 2.305] near nwell (line 79), pd1 (line 15), pd2 (line 16); licon.space at [1.77, 1.095, 1.83, 1.265] near gc1 (line 66), gc3 (line 67), gp1 (line 70); li.space at [1.77, 1.015, 1.83, 1.345] near nwell (line 79), nim (line 17), gc1 (line 66); mcon.space at [1.77, 1.095, 1.83, 1.265] near gc1 (line 66), gc3 (line 67), gp1 (line 70); licon.cover at [0.855, 1.675, 1.025, 1.845] near nwell (line 79), pim1 (line 18), cp0 (line 43); licon.cover at [2.2, 1.675, 2.315, 1.845] near nwell (line 79), pd1 (line 15), pim1 (line 18)"
+ ],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 39,
+  "by_rule": [
+   {
+    "rule": "Transistor width < 0.42um (diff/tap.2)",
+    "count": 9,
+    "examples": [
+     {
+      "box_um": [
+       2.52,
+       2.185,
+       2.82,
+       2.305
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd2": [
+        "diff"
+       ],
+       "pim2": [
+        "psdm"
+       ],
+       "gb2": [
+        "poly"
+       ],
+       "cp5": [
+        "licon"
+       ],
+       "cpl5": [
+        "li"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.52,
+       2.015,
+       2.575,
+       2.185
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd2": [
+        "diff"
+       ],
+       "pim2": [
+        "psdm"
+       ],
+       "gb2": [
+        "poly"
+       ],
+       "cp5": [
+        "licon"
+       ],
+       "cpl5": [
+        "li"
+       ],
+       "ys": [
+        "li"
+       ],
+       "ym": [
+        "mcon"
+       ],
+       "yp": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.575,
+       2.015,
+       2.745,
+       2.185
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd2": [
+        "diff"
+       ],
+       "pim2": [
+        "psdm"
+       ],
+       "cp5": [
+        "licon"
+       ],
+       "cpl5": [
+        "li"
+       ],
+       "ys": [
+        "li"
+       ],
+       "ym": [
+        "mcon"
+       ],
+       "yp": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.745,
+       2.015,
+       2.82,
+       2.185
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd2": [
+        "diff"
+       ],
+       "pim2": [
+        "psdm"
+       ],
+       "cp5": [
+        "licon"
+       ],
+       "cpl5": [
+        "li"
+       ],
+       "ys": [
+        "li"
+       ],
+       "ym": [
+        "mcon"
+       ],
+       "yp": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "count": 6,
+    "examples": [
+     {
+      "box_um": [
+       1.83,
+       1.015,
+       1.94,
+       1.095
+      ],
+      "objects": {
+       "nim": [
+        "nsdm"
+       ],
+       "gb1": [
+        "poly"
+       ],
+       "gc3": [
+        "licon"
+       ],
+       "gp1": [
+        "poly"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "b1": [
+        "li"
+       ],
+       "a1p": [
+        "m1"
+       ],
+       "b1m": [
+        "mcon"
+       ],
+       "b1p": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.83,
+       1.095,
+       1.94,
+       1.265
+      ],
+      "objects": {
+       "gb1": [
+        "poly"
+       ],
+       "gc3": [
+        "licon"
+       ],
+       "gp1": [
+        "poly"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "b1": [
+        "li"
+       ],
+       "a1p": [
+        "m1"
+       ],
+       "b1m": [
+        "mcon"
+       ],
+       "b1p": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.83,
+       1.265,
+       1.94,
+       1.345
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "gb1": [
+        "poly"
+       ],
+       "gc3": [
+        "licon"
+       ],
+       "gp1": [
+        "poly"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "b1": [
+        "li"
+       ],
+       "a1p": [
+        "m1"
+       ],
+       "b1m": [
+        "mcon"
+       ],
+       "b1p": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.66,
+       1.265,
+       1.77,
+       1.345
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "ga1": [
+        "poly"
+       ],
+       "gc1": [
+        "licon"
+       ],
+       "gp1": [
+        "poly"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "a1": [
+        "li"
+       ],
+       "a1m": [
+        "mcon"
+       ],
+       "a1p": [
+        "m1"
+       ],
+       "b1p": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "P-Diffusion overhang of pmos < 0.25um (poly.7)",
+    "count": 6,
+    "examples": [
+     {
+      "box_um": [
+       0.83,
+       1.555,
+       1.08,
+       2.305
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd1": [
+        "diff"
+       ],
+       "pim1": [
+        "psdm"
+       ],
+       "ga2": [
+        "poly"
+       ],
+       "cp0": [
+        "licon"
+       ],
+       "cpl0": [
+        "li"
+       ],
+       "pwrp": [
+        "li"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.2,
+       2.185,
+       2.34,
+       2.305
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd1": [
+        "diff"
+       ],
+       "pim1": [
+        "psdm"
+       ],
+       "pim2": [
+        "psdm"
+       ],
+       "cp4": [
+        "licon"
+       ],
+       "cpl4": [
+        "li"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.2,
+       2.015,
+       2.34,
+       2.185
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd1": [
+        "diff"
+       ],
+       "pim1": [
+        "psdm"
+       ],
+       "pim2": [
+        "psdm"
+       ],
+       "cp4": [
+        "licon"
+       ],
+       "cpl4": [
+        "li"
+       ],
+       "n2s": [
+        "li"
+       ],
+       "ys": [
+        "li"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.2,
+       1.845,
+       2.34,
+       2.015
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd1": [
+        "diff"
+       ],
+       "pim1": [
+        "psdm"
+       ],
+       "pim2": [
+        "psdm"
+       ],
+       "cp4": [
+        "licon"
+       ],
+       "cpl4": [
+        "li"
+       ],
+       "n2s": [
+        "li"
+       ],
+       "ys": [
+        "li"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "poly overhang of transistor < 0.13um (poly.8)",
+    "count": 6,
+    "examples": [
+     {
+      "box_um": [
+       2.27,
+       2.305,
+       2.37,
+       2.435
+      ],
+      "objects": {
+       "ntap_imp": [
+        "nsdm"
+       ],
+       "nwell": [
+        "nwell"
+       ],
+       "pim1": [
+        "psdm"
+       ],
+       "pim2": [
+        "psdm"
+       ],
+       "gb2": [
+        "poly"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       0.95,
+       1.425,
+       1.08,
+       2.435
+      ],
+      "objects": {
+       "ntap_imp": [
+        "nsdm"
+       ],
+       "nwell": [
+        "nwell"
+       ],
+       "pd1": [
+        "diff"
+       ],
+       "pim1": [
+        "psdm"
+       ],
+       "ga2": [
+        "poly"
+       ],
+       "cp0": [
+        "licon"
+       ],
+       "cpl0": [
+        "li"
+       ],
+       "pwrp": [
+        "li"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.27,
+       2.305,
+       2.37,
+       2.435
+      ],
+      "objects": {
+       "ntap_imp": [
+        "nsdm"
+       ],
+       "nwell": [
+        "nwell"
+       ],
+       "pim1": [
+        "psdm"
+       ],
+       "pim2": [
+        "psdm"
+       ],
+       "gb2": [
+        "poly"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.27,
+       1.555,
+       2.37,
+       2.305
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pim1": [
+        "psdm"
+       ],
+       "pim2": [
+        "psdm"
+       ],
+       "gb2": [
+        "poly"
+       ],
+       "cp4": [
+        "licon"
+       ],
+       "cpl4": [
+        "li"
+       ],
+       "n2s": [
+        "li"
+       ],
+       "ys": [
+        "li"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "Diffusion spacing < 0.27um (diff/tap.3)",
+    "count": 3,
+    "examples": [
+     {
+      "box_um": [
+       2.4,
+       1.555,
+       2.47,
+       1.675
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd2": [
+        "diff"
+       ],
+       "pim2": [
+        "psdm"
+       ],
+       "gb2": [
+        "poly"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.4,
+       1.845,
+       2.47,
+       2.015
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd2": [
+        "diff"
+       ],
+       "pim2": [
+        "psdm"
+       ],
+       "gb2": [
+        "poly"
+       ],
+       "ys": [
+        "li"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.4,
+       2.185,
+       2.47,
+       2.305
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd2": [
+        "diff"
+       ],
+       "pim2": [
+        "psdm"
+       ],
+       "gb2": [
+        "poly"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "mcon.spacing < 0.19um (mcon.2)",
+    "count": 2,
+    "examples": [
+     {
+      "box_um": [
+       1.83,
+       1.095,
+       1.96,
+       1.265
+      ],
+      "objects": {
+       "gb1": [
+        "poly"
+       ],
+       "gc3": [
+        "licon"
+       ],
+       "gp1": [
+        "poly"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "b1": [
+        "li"
+       ],
+       "a1p": [
+        "m1"
+       ],
+       "b1m": [
+        "mcon"
+       ],
+       "b1p": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.64,
+       1.095,
+       1.77,
+       1.265
+      ],
+      "objects": {
+       "ga1": [
+        "poly"
+       ],
+       "gc1": [
+        "licon"
+       ],
+       "gp1": [
+        "poly"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "a1": [
+        "li"
+       ],
+       "a1m": [
+        "mcon"
+       ],
+       "a1p": [
+        "m1"
+       ],
+       "b1p": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "P-diffusion contact width < 0.17um (licon.1)",
+    "count": 2,
+    "examples": [
+     {
+      "box_um": [
+       2.2,
+       2.015,
+       2.315,
+       2.185
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd1": [
+        "diff"
+       ],
+       "pim1": [
+        "psdm"
+       ],
+       "pim2": [
+        "psdm"
+       ],
+       "cp4": [
+        "licon"
+       ],
+       "cpl4": [
+        "li"
+       ],
+       "n2s": [
+        "li"
+       ],
+       "ys": [
+        "li"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.2,
+       1.675,
+       2.315,
+       1.845
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd1": [
+        "diff"
+       ],
+       "pim1": [
+        "psdm"
+       ],
+       "pim2": [
+        "psdm"
+       ],
+       "cp4": [
+        "licon"
+       ],
+       "cpl4": [
+        "li"
+       ],
+       "n2s": [
+        "li"
+       ],
+       "ys": [
+        "li"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "P-diffusion overlap of P-diffusion contact < 0.04um (licon.5a)",
+    "count": 2,
+    "examples": [
+     {
+      "box_um": [
+       2.16,
+       1.675,
+       2.2,
+       1.845
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd1": [
+        "diff"
+       ],
+       "pim1": [
+        "psdm"
+       ],
+       "cp4": [
+        "licon"
+       ],
+       "cpl4": [
+        "li"
+       ],
+       "n2s": [
+        "li"
+       ],
+       "ys": [
+        "li"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.16,
+       2.015,
+       2.2,
+       2.185
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd1": [
+        "diff"
+       ],
+       "pim1": [
+        "psdm"
+       ],
+       "cp4": [
+        "licon"
+       ],
+       "cpl4": [
+        "li"
+       ],
+       "n2s": [
+        "li"
+       ],
+       "ys": [
+        "li"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "Core local interconnect spacing < 0.14um (li.c2)",
+    "count": 2,
+    "examples": [
+     {
+      "box_um": [
+       1.83,
+       1.095,
+       1.91,
+       1.265
+      ],
+      "objects": {
+       "gc3": [
+        "licon"
+       ],
+       "gp1": [
+        "poly"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "b1": [
+        "li"
+       ],
+       "a1p": [
+        "m1"
+       ],
+       "b1m": [
+        "mcon"
+       ],
+       "b1p": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.69,
+       1.095,
+       1.77,
+       1.265
+      ],
+      "objects": {
+       "gc1": [
+        "licon"
+       ],
+       "gp1": [
+        "poly"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "a1": [
+        "li"
+       ],
+       "a1m": [
+        "mcon"
+       ],
+       "a1p": [
+        "m1"
+       ],
+       "b1p": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "Poly1 contact spacing < 0.17um (licon.2)",
+    "count": 1,
+    "examples": [
+     {
+      "box_um": [
+       1.83,
+       1.095,
+       1.94,
+       1.265
+      ],
+      "objects": {
+       "gb1": [
+        "poly"
+       ],
+       "gc3": [
+        "licon"
+       ],
+       "gp1": [
+        "poly"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "b1": [
+        "li"
+       ],
+       "a1p": [
+        "m1"
+       ],
+       "b1m": [
+        "mcon"
+       ],
+       "b1p": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": false,
+  "result": "Top level cell failed pin matching.",
+  "devices_layout_vs_ref": [
+   6,
+   8
+  ],
+  "nets_layout_vs_ref": [
+   6,
+   10
+  ],
+  "details": [
+   "sky130_fd_pr__pfet_01v8 (4->3)             |sky130_fd_pr__pfet_01v8 (4) **Mismatch**   ",
+   "sky130_fd_pr__nfet_01v8 (4->3)             |sky130_fd_pr__nfet_01v8 (4) **Mismatch**   ",
+   "Number of devices: 6 **Mismatch**          |Number of devices: 8 **Mismatch**          ",
+   "Number of nets: 6 **Mismatch**             |Number of nets: 10 **Mismatch**            ",
+   "---------------------------------------------------------------------------------------",
+   "NET mismatches: Class fragments follow (with fanout counts):",
+   "Circuit 1: a22oi                           |Circuit 2: a22oi                           ",
+   "---------------------------------------------------------------------------------------",
+   "Net: Y                                     |Net: Y                                     ",
+   "  sky130_fd_pr__pfet_01v8/4 = 3            |  sky130_fd_pr__nfet_01v8/(1|3) = 2        ",
+   "  sky130_fd_pr__pfet_01v8/(1|3) = 6        |  sky130_fd_pr__pfet_01v8/(1|3) = 2        ",
+   "                                           |                                           ",
+   "Net: A2                                    |Net: A2                                    ",
+   "  sky130_fd_pr__pfet_01v8/2 = 1            |  sky130_fd_pr__pfet_01v8/2 = 1            ",
+   "  sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/2 = 1            ",
+   "                                           |                                           ",
+   "Net: B1                                    |Net: B1                                    ",
+   "  sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/2 = 1            ",
+   "  sky130_fd_pr__pfet_01v8/2 = 1            |  sky130_fd_pr__pfet_01v8/2 = 1            ",
+   "                                           |                                           ",
+   "Net: B2                                    |Net: B2                                    ",
+   "  sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/2 = 1            ",
+   "  sky130_fd_pr__pfet_01v8/2 = 1            |  sky130_fd_pr__pfet_01v8/2 = 1            ",
+   "                                           |                                           ",
+   "Net: n3                                    |Net: n3                                    ",
+   "  sky130_fd_pr__nfet_01v8/(1|3) = 6        |  sky130_fd_pr__nfet_01v8/(1|3) = 2        ",
+   "                                           |                                           ",
+   "Net: VGND                                  |Net: VGND                                  ",
+   "  sky130_fd_pr__nfet_01v8/4 = 3            |  sky130_fd_pr__nfet_01v8/4 = 4            ",
+   "                                           |  sky130_fd_pr__nfet_01v8/(1|3) = 2        ",
+   "                                           |                                           ",
+   "(no matching net)                          |Net: n1                                    ",
+   "                                           |  sky130_fd_pr__nfet_01v8/(1|3) = 2        ",
+   "                                           |                                           ",
+   "(no matching net)                          |Net: VPWR                                  ",
+   "                                           |  sky130_fd_pr__pfet_01v8/(1|3) = 2        ",
+   "                                           |  sky130_fd_pr__pfet_01v8/4 = 4            ",
+   "                                           |                                           ",
+   "(no matching net)                          |Net: A1                                    ",
+   "                                           |  sky130_fd_pr__pfet_01v8/2 = 1            ",
+   "                                           |  sky130_fd_pr__nfet_01v8/2 = 1            ",
+   "                                           |                                           ",
+   "(no matching net)                          |Net: n2                                    ",
+   "                                           |  sky130_fd_pr__pfet_01v8/(1|3) = 4        ",
+   "---------------------------------------------------------------------------------------",
+   "DEVICE mismatches: Class fragments follow (with node fanout counts):",
+   "Circuit 1: a22oi                           |Circuit 2: a22oi                           ",
+   "---------------------------------------------------------------------------------------",
+   "Instance: sky130_fd_pr__pfet_01v8:0        |Instance: sky130_fd_pr__pfet_01v8:M1       ",
+   "  (1,3) = (9,9)                            |  (1,3) = (6,4)                            ",
+   "  2 = 2                                    |  2 = 2                                    ",
+   "  4 = 9                                    |  4 = 6                                    ",
+   "                                           |                                           ",
+   "Instance: sky130_fd_pr__pfet_01v8:1        |Instance: sky130_fd_pr__pfet_01v8:M2       ",
+   "  (1,3) = (9,9)                            |  (1,3) = (6,4)                            ",
+   "  2 = 2                                    |  2 = 2                                    ",
+   "  4 = 9                                    |  4 = 6                                    ",
+   "                                           |                                           ",
+   "Instance: sky130_fd_pr__pfet_01v8:6        |Instance: sky130_fd_pr__pfet_01v8:M5       ",
+   "  (1,3) = (9,9)                            |  (1,3) = (4,4)                            ",
+   "  2 = 2                                    |  2 = 2                                    "
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-195758-baseline/a22oi/check5/a22oi.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-195758-baseline/a22oi/check5/a22oi.lvs.txt"
+ },
+ "routes": {},
+ "precheck": [
+  {
+   "rule": "difftap.space",
+   "msg": "diff/tap spacing < 0.270 um",
+   "objects": [
+    "nwell (line 79)",
+    "pd1 (line 15)",
+    "pd2 (line 16)",
+    "pim1 (line 18)",
+    "pim2 (line 19)",
+    "gb2 (line 25)"
+   ],
+   "box_um": [
+    2.2,
+    1.555,
+    2.4,
+    2.305
+   ]
+  },
+  {
+   "rule": "licon.space",
+   "msg": "licon spacing < 0.170 um",
+   "objects": [
+    "gc1 (line 66)",
+    "gc3 (line 67)",
+    "gp1 (line 70)",
+    "gp3 (line 71)",
+    "gn (line 73)",
+    "a1 (line 75)"
+   ],
+   "box_um": [
+    1.77,
+    1.095,
+    1.83,
+    1.265
+   ]
+  },
+  {
+   "rule": "li.space",
+   "msg": "li spacing < 0.170 um",
+   "objects": [
+    "nwell (line 79)",
+    "nim (line 17)",
+    "gc1 (line 66)",
+    "gc3 (line 67)",
+    "gp1 (line 70)",
+    "gp3 (line 71)"
+   ],
+   "box_um": [
+    1.77,
+    1.015,
+    1.83,
+    1.345
+   ]
+  },
+  {
+   "rule": "mcon.space",
+   "msg": "mcon spacing < 0.190 um",
+   "objects": [
+    "gc1 (line 66)",
+    "gc3 (line 67)",
+    "gp1 (line 70)",
+    "gp3 (line 71)",
+    "gn (line 73)",
+    "a1 (line 75)"
+   ],
+   "box_um": [
+    1.77,
+    1.095,
+    1.83,
+    1.265
+   ]
+  },
+  {
+   "rule": "licon.cover",
+   "msg": "licon not on diff, tap or poly",
+   "objects": [
+    "nwell (line 79)",
+    "pim1 (line 18)",
+    "cp0 (line 43)",
+    "cpl0 (line 46)",
+    "pwrp (line 58)",
+    "boundary"
+   ],
+   "box_um": [
+    0.855,
+    1.675,
+    1.025,
+    1.845
+   ]
+  },
+  {
+   "rule": "licon.cover",
+   "msg": "licon not on diff, tap or poly",
+   "objects": [
+    "nwell (line 79)",
+    "pd1 (line 15)",
+    "pim1 (line 18)",
+    "pim2 (line 19)",
+    "cp4 (line 52)",
+    "cpl4 (line 55)"
+   ],
+   "box_um": [
+    2.2,
+    1.675,
+    2.315,
+    1.845
+   ]
+  },
+  {
+   "rule": "licon.cover",
+   "msg": "licon not on diff, tap or poly",
+   "objects": [
+    "nwell (line 79)",
+    "pim1 (line 18)",
+    "cp0 (line 43)",
+    "cpl0 (line 46)",
+    "pwrp (line 58)",
+    "boundary"
+   ],
+   "box_um": [
+    0.855,
+    2.015,
+    1.025,
+    2.185
+   ]
+  },
+  {
+   "rule": "licon.cover",
+   "msg": "licon not on diff, tap or poly",
+   "objects": [
+    "nwell (line 79)",
+    "pd1 (line 15)",
+    "pim1 (line 18)",
+    "pim2 (line 19)",
+    "cp4 (line 52)",
+    "cpl4 (line 55)"
+   ],
+   "box_um": [
+    2.2,
+    2.015,
+    2.315,
+    2.185
+   ]
+  },
+  {
+   "rule": "poly.7",
+   "msg": "diffusion extends less than 0.250 um past the gate",
+   "objects": [
+    "nwell (line 79)",
+    "pd1 (line 15)",
+    "pim1 (line 18)",
+    "ga2 (line 22)",
+    "cp0 (line 43)",
+    "cpl0 (line 46)"
+   ],
+   "box_um": [
+    0.83,
+    1.555,
+    1.08,
+    2.305
+   ]
+  },
+  {
+   "rule": "poly.7",
+   "msg": "diffusion extends less than 0.250 um past the gate",
+   "objects": [
+    "nwell (line 79)",
+    "pd1 (line 15)",
+    "pim1 (line 18)",
+    "pim2 (line 19)",
+    "gb1 (line 24)",
+    "cp4 (line 52)"
+   ],
+   "box_um": [
+    2.09,
+    1.555,
+    2.34,
+    2.305
+   ]
+  },
+  {
+   "rule": "poly.7",
+   "msg": "diffusion extends less than 0.250 um past the gate",
+   "objects": [
+    "nwell (line 79)",
+    "pd1 (line 15)",
+    "pd2 (line 16)",
+    "pim1 (line 18)",
+    "pim2 (line 19)",
+    "gb2 (line 25)"
+   ],
+   "box_um": [
+    2.15,
+    1.555,
+    2.4,
+    2.305
+   ]
+  }
+ ],
+ "constraint_violations": [],
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-195758-baseline/a22oi/check5/a22oi.png",
+ "status": "VIOLATIONS",
+ "seconds": 3.7
+}

@@ -1,0 +1,11 @@
+Check result at {'L': 0.15, 'H': 2.72, 'WN': 0.49, 'WP': 0.75}: VIOLATIONS  (DRC 0 errors, LVS MISMATCH)
+CONNECTIVITY (fix these first - they are why LVS fails):
+  DEVICE M2 (pmos g=A1 d=VPWR s=n2) has no matching transistor in the layout - the pmos with gate A1 at x=2.42 has Y and n2 on its sides; it needs VPWR and n2: the side labelled Y should be VPWR (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M4 (nmos g=B2 d=VGND s=n1) has no matching transistor in the layout - the nmos with gate B2 at x=1.34 has n1 and n3 on its sides; it needs VGND and n1: the side labelled n3 should be VGND (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M5 (pmos g=B2 d=Y s=n2) has no matching transistor in the layout - the pmos with gate B2 at x=1.34 has ?7 and VPWR on its sides; it needs Y and n2: the side labelled ?7 should be Y (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M6 (nmos g=A1 d=Y s=n3) has no matching transistor in the layout - the nmos with gate A1 at x=2.42 has Y and Y on its sides; it needs Y and n3: the side labelled Y should be n3 (wrong net label on that contact column, or the gates are in the wrong order)
+    layout nmos at x=1.34 y=0.66: gate B2 [g2 (line 22), gp2 (line 54)], source/drain n1 [c3l (line 35), nd1 (line 25)], n3 [c2l (line 33), nd1 (line 25)]
+    layout nmos at x=2.42 y=0.66: gate A1 [g4 (line 24), gp4 (line 60)], source/drain Y [c4l (line 37), c5l (line 39), c9l (line 48), +2 more], Y [c4l (line 37), c5l (line 39), c9l (line 48), +2 more]
+    layout pmos at x=1.34 y=1.93: gate B2 [g2 (line 22), gp2 (line 54)], source/drain ?7 [pd1 (line 26)], VPWR [c7l (line 43), c7s (line 44), pd1 (line 26)]  (?N = connected to no labelled net: a gate with no contact on it, or a diffusion piece with no contact - fine only for a series node)
+    layout pmos at x=2.42 y=1.93: gate A1 [g4 (line 24), gp4 (line 60)], source/drain Y [c4l (line 37), c5l (line 39), c9l (line 48), +2 more], n2 [c6l (line 41), c8l (line 46), pd1 (line 26)]
+Fix the first items first (the attached image is your layout, DRC errors boxed in red). Return the complete corrected file.

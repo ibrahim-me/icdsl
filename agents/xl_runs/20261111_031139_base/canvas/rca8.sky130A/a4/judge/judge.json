@@ -1,0 +1,37 @@
+{
+ "task": "rca8",
+ "pdk": "sky130A",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/canvas/rca8.sky130A/a4/rca8.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/canvas/rca8.sky130A/a4/rca8.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "15279 violation(s): 2611 x Diffusion spacing < 0.27um (diff/tap.3); 2176 x poly overlap of poly contact < 0.05um (licon.8); 1664 x poly spacing to diffusion tap < 0.055um (poly.5); 1456 x Diffusion contact to gate < 0.055um (licon.11); 1120 x P-Diffusion overhang of pmos < 0.25um (poly.7); 866 x N-well overlap of P-Diffusion < 0.18um (diff/tap.8)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 137 violation(s): 54 x difftap.3: difftap.3 : min. difftap spacing : 0.27um; 52 x licon.17: licon.17 : Licons may not overlap both poly and (diff or tap); 16 x li.3: li.3 : min. li spacing outside or crossing areaid:ce : 0.17um; 15 x psdm.1: psdm.1 : min. psdm spacing in periphery : 0.38um"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Top level cell failed pin matching.  (devices layout/ref 194/224; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/canvas/rca8.sky130A/a4/judge/rca8.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "not confirmed (LVS failed)"
+  },
+  {
+   "check": "area",
+   "ok": false,
+   "detail": "196.24 x 8.72 = 1711.2 um2, budget 1147, reference 573.12"
+  }
+ ],
+ "area_um2": 1711.21,
+ "area_vs_reference": 2.986,
+ "solved": false,
+ "detail": "DRC (magic drc(full)): 15279 violation(s), boxes in um\n  2611 x Diffusion spacing < 0.27um (diff/tap.3)   e.g. at (0.900 5.600 0.950 5.765)  (0.900 5.765 0.940 5.935)  (0.940 5.765 0.950 5.935)\n  2176 x poly overlap of poly contact < 0.05um (licon.8)   e.g. at (0.245 5.245 0.385 5.295)  (1.235 5.245 1.335 5.295)  (2.045 5.245 2.085 5.295)\n  1664 x poly spacing to diffusion tap < 0.055um (poly.5)   e.g. at (0.190 5.295 0.245 5.340)  (0.190 5.285 0.245 5.295)  (0.190 5.295 0.245 5.340)\n  1456 x Diffusion contact to gate < 0.055um (licon.11)   e.g. at (0.245 6.105 0.265 6.330)  (0.245 5.765 0.265 5.990)  (0.415 6.275 0.435 6.330)\n  1120 x P-Diffusion overhang of pmos < 0.25um (poly.7)   e.g. at (-0.005 5.600 0.000 5.765)  (-0.005 5.765 0.000 5.935)  (-0.005 5.935 0.000 6.105)\n   866 x N-well overlap of P-Diffusion < 0.18um (diff/tap.8)   e.g. at (0.000 5.600 0.245 5.650)  (0.435 5.600 0.680 5.650)  (0.900 5.600 1.145 5.650)\n   800 x P-tap overlap of P-tap contact < 0.12um in one direction (licon.7)   e.g. at (0.245 5.175 0.365 5.295)  (0.265 5.175 0.385 5.295)  (0.265 5.175 0.385 5.295)\n   672 x N-Diffusion overhang of nFET < 0.25um (poly.7)   e.g. at (-0.005 0.000 0.000 0.125)  (-0.005 0.125 0.000 0.295)  (-0.005 0.295 0.000 0.420)\n   624 x N-tap overlap of N-tap contact < 0.12um in one direction (licon.7)   e.g. at (0.245 1.035 0.365 1.155)  (0.245 0.645 0.365 0.765)  (0.245 0.645 0.365 1.155)\n   587 x N-well overlap of N-tap < 0.18um (diff/tap.10)   e.g. at (-0.300 0.645 -0.125 0.730)  (-0.125 0.645 0.245 0.730)  (-0.300 0.600 0.245 0.645)\n   441 x N-Diffusion spacing to N-well < 0.34um (diff/tap.9)   e.g. at (-0.340 0.550 0.245 0.760)  (-0.340 0.420 -0.130 0.550)  (0.245 0.550 0.435 0.760)\n   441 x P-tap spacing to N-well < 0.13um (diff/tap.11)   e.g. at (0.065 5.420 0.245 5.470)  (0.305 5.420 0.615 5.470)  (0.965 5.420 1.145 5.470)\nDRC2 (foundry KLayout deck): 137 violation(s), boxes in um\n    54 x difftap.3: difftap.3 : min. difftap spacing : 0.27um   e.g. at (11.480 5.600 11.700 6.440)  (10.580 5.600 10.800 6.440)  (8.780 5.600 9.000 6.440)\n    52 x licon.17: licon.17 : Licons may not overlap both poly and (diff or tap)   e.g. at (9.395 5.125 9.435 5.295)  (5.655 5.125 5.825 5.295)  (4.745 5.125 4.805 5.295)\n    16 x li.3: li.3 : min. li spacing outside or crossing areaid:ce : 0.17um   e.g. at (109.940 3.870 110.050 4.320)  (134.410 -0.085 134.520 2.070)  (134.410 3.870 134.520 4.320)\n    15 x psdm.1: psdm.1 : min. psdm spacing in periphery : 0.38um   e.g. at (10.295 5.465 11.905 5.475)  (-0.425 5.465 1.185 5.475)  (0.395 5.465 2.085 5.475)\nLVS: Top level cell failed pin matching.   devices layout/ref 194/224, nets layout/ref 105/131\n  sky130_fd_pr__pfet_01v8 (14->2)            |sky130_fd_pr__pfet_01v8 (14) **Mismatch**\n  sky130_fd_pr__cap_var_lvt (13->12)         |(no matching element)\n  sky130_fd_pr__nfet_01v8 (14->12)           |sky130_fd_pr__nfet_01v8 (14) **Mismatch**\n  Number of devices: 26 **Mismatch**         |Number of devices: 28 **Mismatch**\n  Number of nets: 14 **Mismatch**            |Number of nets: 19 **Mismatch**\n  ---------------------------------------------------------------------------------------\n  NET mismatches: Class fragments follow (with fanout counts):\n  Circuit 1: fa                              |Circuit 2: fa\n  ---------------------------------------------------------------------------------------\n  Net: VSS                                   |Net: VSS\n    sky130_fd_pr__nfet_01v8/(1|3) = 24       |  sky130_fd_pr__nfet_01v8/(1|3) = 9\n    sky130_fd_pr__nfet_01v8/4 = 12           |  sky130_fd_pr__nfet_01v8/4 = 14\n    sky130_fd_pr__cap_var_lvt/(1|3) = 13     |\n    sky130_fd_pr__pfet_01v8/(1|3) = 4        |\n    sky130_fd_pr__nfet_01v8/2 = 1            |\n    sky130_fd_pr__cap_var_lvt/2 = 12         |\n    sky130_fd_pr__pfet_01v8/2 = 1            |\n                                             |\n  Net: a_1309_1068#                          |Net: n5\n    sky130_fd_pr__pfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/(1|3) = 2\n                                             |\n  Net: w_n36_1094#                           |Net: n4\n    sky130_fd_pr__pfet_01v8/4 = 2            |  sky130_fd_pr__nfet_01v8/(1|3) = 2\n                                             |\n  Net: a_1849_n26#                           |Net: COUT\n    sky130_fd_pr__cap_var_lvt/(1|3) = 1      |  sky130_fd_pr__nfet_01v8/(1|3) = 1\n    sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__pfet_01v8/(1|3) = 1\n                                             |\n  Net: a_1669_n26#                           |Net: SUM\n    sky130_fd_pr__cap_var_lvt/(1|3) = 1      |  sky130_fd_pr__nfet_01v8/(1|3) = 1\n    sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__pfet_01v8/(1|3) = 1\n                                             |\n  Net: CIN                                   |Net: CIN\n    sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/2 = 3\n    sky130_fd_pr__cap_var_lvt/(1|3) = 1      |  sky130_fd_pr__pfet_01v8/2 = 3\n                                             |\n  Net: B                                     |Net: B\n    sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/2 = 4\n    sky130_fd_pr__cap_var_lvt/(1|3) = 1      |  sky130_fd_pr__pfet_01v8/2 = 4\n                                             |"
+}

@@ -1,0 +1,130 @@
+{
+ "cell": "cm_p12",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002932-L2-ranked-kb-lessons/cm_p12/check1/cm_p12.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002932-L2-ranked-kb-lessons/cm_p12/check1/cm_p12.reference.spice",
+ "size_um": [
+  9.2,
+  4.14
+ ],
+ "warnings": [],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 0,
+  "by_rule": [],
+  "all": []
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": true,
+  "result": "Circuits match uniquely.",
+  "devices_layout_vs_ref": [
+   2,
+   2
+  ],
+  "nets_layout_vs_ref": [
+   3,
+   3
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002932-L2-ranked-kb-lessons/cm_p12/check1/cm_p12.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002932-L2-ranked-kb-lessons/cm_p12/check1/cm_p12.lvs.txt",
+  "dummies_ignored": 2
+ },
+ "routes": {
+  "nets": {
+   "IREF": {
+    "length_um": 11.96,
+    "layers": [
+     "m1"
+    ],
+    "cuts": 6,
+    "width_um": {
+     "m1": 0.4
+    },
+    "res_ohm": 11.98
+   },
+   "IOUT": {
+    "length_um": 7.82,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 3,
+    "width_um": {
+     "m1": 0.4,
+     "m2": 0.4
+    },
+    "res_ohm": 8.11
+   },
+   "VPWR": {
+    "length_um": 9.66,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 9,
+    "width_um": {
+     "m1": 0.4,
+     "m2": 0.4
+    },
+    "res_ohm": 15.98
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [],
+ "constraint_violations": [],
+ "objects": {
+  "CM": {
+   "kind": "array",
+   "at_um": [
+    0.92,
+    2.76
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    0.67,
+    0.735,
+    8.53,
+    2.945
+   ],
+   "line": 12
+  },
+  "T": {
+   "kind": "tap",
+   "at_um": [
+    4.6,
+    3.22
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    4.27,
+    2.95,
+    5.39,
+    3.49
+   ],
+   "line": 14
+  }
+ },
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002932-L2-ranked-kb-lessons/cm_p12/check1/cm_p12.png",
+ "route_failed": [],
+ "status": "CLEAN",
+ "seconds": 3.4,
+ "judge": {
+  "ok": true,
+  "results": [
+   {
+    "constraint": {
+     "type": "common_centroid",
+     "devices": [
+      "M1",
+      "M2"
+     ]
+    },
+    "ok": true,
+    "detail": "M1 centroid (4.600, 1.940), M2 centroid (4.600, 1.940); max offset 0.000 um (allowed 0.06)"
+   }
+  ]
+ }
+}

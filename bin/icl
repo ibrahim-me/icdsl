@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# icl - ICL layout DSL driver (uses the project venv + locally built magic/netgen)
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+export PYTHONPATH="$HERE${PYTHONPATH:+:$PYTHONPATH}"
+exec "$HERE/.venv/bin/python" -m icdsl "$@"

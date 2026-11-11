@@ -1,0 +1,5 @@
+The script did not build:
+ERROR TypeError: stick() missing 1 required positional argument: 'p'
+  sub.py, line 36: ncell = stick("nrow", n=nstrip, ports="INN INP IB tail d1 d2 OUT VSS", ntracks=4, wn=2.0, wp=0.0, l=1.0)
+  hint: the call is stick(name, n, p, ports, wn=None, wp=None, l=None, ntracks=None, power=None, ground=None, tracks=None, kinds=('nmos', 'pmos'), tech=None)
+        Build a stick cell (see the module text). wn / wp: transistor widths (um); l: gate length; ntracks: minimum number of tracks (cells of one row need the same height: same wn, wp, ntracks); tracks={net: index} fixes track positions. Returns the Cell; cell.stick has the grid: P (column pitch), H, W, track_y {net: y}, pitch (track pitch), ntracks - all in um.

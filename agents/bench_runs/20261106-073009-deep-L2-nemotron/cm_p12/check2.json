@@ -1,0 +1,128 @@
+{
+ "cell": "cm_p12",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073009-deep-L2-nemotron/cm_p12/check2/cm_p12.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073009-deep-L2-nemotron/cm_p12/check2/cm_p12.reference.spice",
+ "size_um": [
+  7.36,
+  3.68
+ ],
+ "warnings": [],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 0,
+  "by_rule": [],
+  "all": []
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": true,
+  "result": "Circuits match uniquely.",
+  "devices_layout_vs_ref": [
+   2,
+   2
+  ],
+  "nets_layout_vs_ref": [
+   3,
+   3
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073009-deep-L2-nemotron/cm_p12/check2/cm_p12.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073009-deep-L2-nemotron/cm_p12/check2/cm_p12.lvs.txt",
+  "dummies_ignored": 0
+ },
+ "routes": {
+  "nets": {
+   "IREF": {
+    "length_um": 9.66,
+    "layers": [
+     "m1"
+    ],
+    "cuts": 4,
+    "width_um": {
+     "m1": 0.4
+    },
+    "res_ohm": 10.04
+   },
+   "IOUT": {
+    "length_um": 4.6,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 4,
+    "width_um": {
+     "m1": 0.4,
+     "m2": 0.4
+    },
+    "res_ohm": 10.64
+   },
+   "VPWR": {
+    "length_um": 4.6,
+    "layers": [
+     "m2"
+    ],
+    "cuts": 7,
+    "width_um": {
+     "m2": 0.4
+    },
+    "res_ohm": 12.29
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [],
+ "constraint_violations": [],
+ "objects": {
+  "CM": {
+   "kind": "array",
+   "at_um": [
+    0.92,
+    2.3
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    0.67,
+    0.85,
+    6.69,
+    2.485
+   ],
+   "line": 12
+  },
+  "T": {
+   "kind": "tap",
+   "at_um": [
+    2.76,
+    2.76
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    2.43,
+    2.49,
+    5.39,
+    3.03
+   ],
+   "line": 15
+  }
+ },
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073009-deep-L2-nemotron/cm_p12/check2/cm_p12.png",
+ "route_failed": [],
+ "status": "CLEAN",
+ "seconds": 2.2,
+ "judge": {
+  "ok": true,
+  "results": [
+   {
+    "constraint": {
+     "type": "common_centroid",
+     "devices": [
+      "M1",
+      "M2"
+     ]
+    },
+    "ok": true,
+    "detail": "M1 centroid (3.680, 1.480), M2 centroid (3.680, 1.480); max offset 0.000 um (allowed 0.06)"
+   }
+  ]
+ }
+}

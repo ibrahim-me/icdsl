@@ -1,0 +1,3 @@
+- Your n row is in the wrong order. With ga on the left, the n row reads [sn | A | cn | n1 | dn]. M2 (g=A) needs n1 and VGND on its two sides and M0 (g=n1) needs VGND and X, so sn must be n1 and dn must be X: `snl = enclose sn li net=n1` and `dnl = enclose dn li net=X`. The p row is already right.
+- The two gate pads are only 0.10 apart (need 0.21): push them apart, `gca = contact licon cx=(ga.cx - 0.11) bottom=cb` and `gcn = contact licon cx=(gn1.cx + 0.11) bottom=cb`.
+- Keep `route n1` and `route X`; keep everything else.

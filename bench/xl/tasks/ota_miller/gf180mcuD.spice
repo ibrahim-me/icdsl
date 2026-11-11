@@ -1,0 +1,36 @@
+* reference netlist written by icl canvas for ota_miller (gf180mcuD)
+.subckt ota_miller INP INN OUT IB VDD VSS
+XM8_0 IB IB VSS VSS nfet_03v3 w=2u l=1u
+XM8_1 VSS IB IB VSS nfet_03v3 w=2u l=1u
+XM5_0 tail IB VSS VSS nfet_03v3 w=2u l=1u
+XM5_1 VSS IB tail VSS nfet_03v3 w=2u l=1u
+XM5_2 tail IB VSS VSS nfet_03v3 w=2u l=1u
+XM5_3 VSS IB tail VSS nfet_03v3 w=2u l=1u
+XM7_0 OUT IB VSS VSS nfet_03v3 w=2u l=1u
+XM7_1 VSS IB OUT VSS nfet_03v3 w=2u l=1u
+XM7_2 OUT IB VSS VSS nfet_03v3 w=2u l=1u
+XM7_3 VSS IB OUT VSS nfet_03v3 w=2u l=1u
+XM7_4 OUT IB VSS VSS nfet_03v3 w=2u l=1u
+XM7_5 VSS IB OUT VSS nfet_03v3 w=2u l=1u
+XM7_6 OUT IB VSS VSS nfet_03v3 w=2u l=1u
+XM7_7 VSS IB OUT VSS nfet_03v3 w=2u l=1u
+XM1_0 d1 INN tail VSS nfet_03v3 w=4u l=0.5u
+XM1_1 tail INN d1 VSS nfet_03v3 w=4u l=0.5u
+XM2_0 d2 INP tail VSS nfet_03v3 w=4u l=0.5u
+XM2_1 tail INP d2 VSS nfet_03v3 w=4u l=0.5u
+XM3_0 d1 d1 VDD VDD pfet_03v3 w=4u l=1u
+XM3_1 VDD d1 d1 VDD pfet_03v3 w=4u l=1u
+XM4_0 d2 d1 VDD VDD pfet_03v3 w=4u l=1u
+XM4_1 VDD d1 d2 VDD pfet_03v3 w=4u l=1u
+XM6_0 OUT d2 VDD VDD pfet_03v3 w=4u l=0.5u
+XM6_1 VDD d2 OUT VDD pfet_03v3 w=4u l=0.5u
+XM6_2 OUT d2 VDD VDD pfet_03v3 w=4u l=0.5u
+XM6_3 VDD d2 OUT VDD pfet_03v3 w=4u l=0.5u
+XM6_4 OUT d2 VDD VDD pfet_03v3 w=4u l=0.5u
+XM6_5 VDD d2 OUT VDD pfet_03v3 w=4u l=0.5u
+XM6_6 OUT d2 VDD VDD pfet_03v3 w=4u l=0.5u
+XM6_7 VDD d2 OUT VDD pfet_03v3 w=4u l=0.5u
+XRZ d2 x VSS ppolyf_u r_width=1u r_length=8u
+XCC x OUT cap_mim_2f0_m4m5_noshield c_width=20u c_length=20u
+.ends
+.end

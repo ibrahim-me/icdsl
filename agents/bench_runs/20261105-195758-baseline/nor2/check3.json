@@ -1,0 +1,372 @@
+{
+ "cell": "nor2",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-195758-baseline/nor2/check3/nor2.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-195758-baseline/nor2/check3/nor2.reference.spice",
+ "size_um": [
+  1.84,
+  2.72
+ ],
+ "warnings": [
+  "nor2: fast pre-check found 4 rule issue(s): li.space at [0.41, 0.825, 0.685, 0.955] near nd (line 11), nim (line 13), ga (line 15); li.space at [1.155, 0.825, 1.43, 0.955] near nd (line 11), nim (line 13), gb (line 16); licon.14 at [0.381, 0.905, 0.829, 1.035] near nd (line 11), nim (line 13), ga (line 15); licon.14 at [1.011, 0.905, 1.459, 1.035] near nd (line 11), nim (line 13), gb (line 16)"
+ ],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 12,
+  "by_rule": [
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "count": 8,
+    "examples": [
+     {
+      "box_um": [
+       0.405,
+       0.785,
+       0.52,
+       0.825
+      ],
+      "objects": {
+       "nd": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "snl": [
+        "li"
+       ],
+       "gnd": [
+        "li"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       0.405,
+       0.785,
+       0.575,
+       0.825
+      ],
+      "objects": {
+       "nd": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "snl": [
+        "li"
+       ],
+       "gnd": [
+        "li"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.265,
+       0.785,
+       1.435,
+       0.825
+      ],
+      "objects": {
+       "nd": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "dnl": [
+        "li"
+       ],
+       "gnd2": [
+        "li"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.32,
+       0.785,
+       1.435,
+       0.825
+      ],
+      "objects": {
+       "nd": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "dnl": [
+        "li"
+       ],
+       "gnd2": [
+        "li"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "poly contact spacing to diffusion < 0.19um (licon.14)",
+    "count": 4,
+    "examples": [
+     {
+      "box_um": [
+       0.52,
+       1.035,
+       0.63,
+       1.095
+      ],
+      "objects": {
+       "nim": [
+        "nsdm"
+       ],
+       "ga": [
+        "poly"
+       ],
+       "gca": [
+        "licon"
+       ],
+       "gpa": [
+        "poly"
+       ],
+       "gna": [
+        "npc"
+       ],
+       "a": [
+        "li"
+       ],
+       "am": [
+        "mcon"
+       ],
+       "ap": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       0.63,
+       1.035,
+       0.69,
+       1.095
+      ],
+      "objects": {
+       "nim": [
+        "nsdm"
+       ],
+       "ga": [
+        "poly"
+       ],
+       "gca": [
+        "licon"
+       ],
+       "gpa": [
+        "poly"
+       ],
+       "gna": [
+        "npc"
+       ],
+       "a": [
+        "li"
+       ],
+       "am": [
+        "mcon"
+       ],
+       "ap": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.15,
+       1.035,
+       1.21,
+       1.095
+      ],
+      "objects": {
+       "nim": [
+        "nsdm"
+       ],
+       "gb": [
+        "poly"
+       ],
+       "gcb": [
+        "licon"
+       ],
+       "gpb": [
+        "poly"
+       ],
+       "gna": [
+        "npc"
+       ],
+       "b": [
+        "li"
+       ],
+       "bm": [
+        "mcon"
+       ],
+       "bp": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.21,
+       1.035,
+       1.32,
+       1.095
+      ],
+      "objects": {
+       "nim": [
+        "nsdm"
+       ],
+       "gb": [
+        "poly"
+       ],
+       "gcb": [
+        "licon"
+       ],
+       "gpb": [
+        "poly"
+       ],
+       "gna": [
+        "npc"
+       ],
+       "b": [
+        "li"
+       ],
+       "bm": [
+        "mcon"
+       ],
+       "bp": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": false,
+  "result": "Netlists do not match.",
+  "devices_layout_vs_ref": [
+   4,
+   4
+  ],
+  "nets_layout_vs_ref": [
+   7,
+   6
+  ],
+  "details": [
+   "Number of nets: 7 **Mismatch**             |Number of nets: 6 **Mismatch**             ",
+   "---------------------------------------------------------------------------------------",
+   "NET mismatches: Class fragments follow (with fanout counts):",
+   "Circuit 1: nor2                            |Circuit 2: nor2                            ",
+   "---------------------------------------------------------------------------------------",
+   "Net: Y                                     |Net: Y                                     ",
+   "  sky130_fd_pr__pfet_01v8/(1|3) = 1        |  sky130_fd_pr__pfet_01v8/(1|3) = 1        ",
+   "                                           |  sky130_fd_pr__nfet_01v8/(1|3) = 2        ",
+   "                                           |                                           ",
+   "Net: a_156_83#                             |(no matching net)                          ",
+   "  sky130_fd_pr__nfet_01v8/(1|3) = 2        |                                           ",
+   "---------------------------------------------------------------------------------------",
+   "Netlists do not match.",
+   "Port matching may fail to disambiguate symmetries.",
+   "Subcircuit pins:",
+   "Circuit 1: nor2                            |Circuit 2: nor2                            ",
+   "-------------------------------------------|-------------------------------------------",
+   "Cell pin lists are equivalent.",
+   "Device classes nor2 and nor2 are equivalent.",
+   "Final result: Netlists do not match.",
+   "Port matching may fail to disambiguate symmetries."
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-195758-baseline/nor2/check3/nor2.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-195758-baseline/nor2/check3/nor2.lvs.txt"
+ },
+ "routes": {},
+ "precheck": [
+  {
+   "rule": "li.space",
+   "msg": "li spacing < 0.170 um",
+   "objects": [
+    "nd (line 11)",
+    "nim (line 13)",
+    "ga (line 15)",
+    "snl (line 22)",
+    "gnd (line 27)",
+    "gna (line 38)"
+   ],
+   "box_um": [
+    0.41,
+    0.825,
+    0.685,
+    0.955
+   ]
+  },
+  {
+   "rule": "li.space",
+   "msg": "li spacing < 0.170 um",
+   "objects": [
+    "nd (line 11)",
+    "nim (line 13)",
+    "gb (line 16)",
+    "dnl (line 23)",
+    "gnd2 (line 28)",
+    "gna (line 38)"
+   ],
+   "box_um": [
+    1.155,
+    0.825,
+    1.43,
+    0.955
+   ]
+  },
+  {
+   "rule": "licon.14",
+   "msg": "poly contact closer than 0.190 um to diff",
+   "objects": [
+    "nd (line 11)",
+    "nim (line 13)",
+    "ga (line 15)",
+    "gca (line 34)",
+    "gpa (line 36)",
+    "gna (line 38)"
+   ],
+   "box_um": [
+    0.381,
+    0.905,
+    0.829,
+    1.035
+   ]
+  },
+  {
+   "rule": "licon.14",
+   "msg": "poly contact closer than 0.190 um to diff",
+   "objects": [
+    "nd (line 11)",
+    "nim (line 13)",
+    "gb (line 16)",
+    "gcb (line 35)",
+    "gpb (line 37)",
+    "gna (line 38)"
+   ],
+   "box_um": [
+    1.011,
+    0.905,
+    1.459,
+    1.035
+   ]
+  }
+ ],
+ "constraint_violations": [],
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-195758-baseline/nor2/check3/nor2.png",
+ "status": "VIOLATIONS",
+ "seconds": 4.3
+}

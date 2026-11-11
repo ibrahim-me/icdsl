@@ -1,0 +1,669 @@
+{
+ "cell": "nand3",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-223524-lessons2-noimg/nand3/check2/nand3.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-223524-lessons2-noimg/nand3/check2/nand3.reference.spice",
+ "size_um": [
+  3.68,
+  2.72
+ ],
+ "warnings": [
+  "nand3: fast pre-check found 1 rule issue(s): via.space at [2.03, 1.88, 2.11, 2.03] near nwell (line 51), pd (line 15), pim (line 17)"
+ ],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 0,
+  "by_rule": [],
+  "all": []
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": true,
+  "result": "Circuits match uniquely.",
+  "devices_layout_vs_ref": [
+   6,
+   6
+  ],
+  "nets_layout_vs_ref": [
+   8,
+   8
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-223524-lessons2-noimg/nand3/check2/nand3.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-223524-lessons2-noimg/nand3/check2/nand3.lvs.txt"
+ },
+ "routes": {
+  "nets": {
+   "Y": {
+    "length_um": 2.42,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 6,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 20.16
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [
+  {
+   "rule": "via.space",
+   "msg": "via spacing < 0.170 um",
+   "objects": [
+    "nwell (line 51)",
+    "pd (line 15)",
+    "pim (line 17)",
+    "cp1 (line 31)",
+    "cp1l (line 35)",
+    "pwr1 (line 38)"
+   ],
+   "box_um": [
+    2.03,
+    1.88,
+    2.11,
+    2.03
+   ]
+  }
+ ],
+ "constraint_violations": [],
+ "objects": {
+  "vgnd": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    -0.24,
+    3.68,
+    0.24
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vpwr": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    2.48,
+    3.68,
+    2.96
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ptap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    -0.145,
+    3.5,
+    0.145
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    -0.085,
+    3.075,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    -0.085,
+    3.535,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vgnd_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    -0.085,
+    3.68,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_imp": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.0,
+    -0.27,
+    3.68,
+    0.27
+   ],
+   "net": null,
+   "line": 0
+  },
+  "ntap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    2.575,
+    3.5,
+    2.865
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    2.635,
+    3.075,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    2.635,
+    3.535,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "vpwr_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    2.635,
+    3.68,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_imp": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.0,
+    2.45,
+    3.68,
+    2.99
+   ],
+   "net": null,
+   "line": 0
+  },
+  "nwell": {
+   "layer": "nwell",
+   "bbox_um": [
+    0.0,
+    1.31,
+    3.68,
+    3.045
+   ],
+   "net": null,
+   "line": 51
+  },
+  "nd": {
+   "layer": "diff",
+   "bbox_um": [
+    0.95,
+    0.415,
+    2.73,
+    0.905
+   ],
+   "net": null,
+   "line": 14
+  },
+  "pd": {
+   "layer": "diff",
+   "bbox_um": [
+    0.95,
+    1.555,
+    2.73,
+    2.305
+   ],
+   "net": null,
+   "line": 15
+  },
+  "nim": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.825,
+    0.29,
+    2.855,
+    1.03
+   ],
+   "net": null,
+   "line": 16
+  },
+  "pim": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.825,
+    1.43,
+    2.855,
+    2.43
+   ],
+   "net": null,
+   "line": 17
+  },
+  "ga": {
+   "layer": "poly",
+   "bbox_um": [
+    1.215,
+    0.285,
+    1.365,
+    2.435
+   ],
+   "net": null,
+   "line": 19
+  },
+  "gb": {
+   "layer": "poly",
+   "bbox_um": [
+    1.765,
+    0.285,
+    1.915,
+    2.435
+   ],
+   "net": null,
+   "line": 20
+  },
+  "gc": {
+   "layer": "poly",
+   "bbox_um": [
+    2.315,
+    0.285,
+    2.465,
+    2.435
+   ],
+   "net": null,
+   "line": 21
+  },
+  "cn": {
+   "layer": "licon",
+   "bbox_um": [
+    0.99,
+    0.575,
+    1.16,
+    0.745
+   ],
+   "net": null,
+   "line": 23
+  },
+  "cg": {
+   "layer": "licon",
+   "bbox_um": [
+    2.52,
+    0.575,
+    2.69,
+    0.745
+   ],
+   "net": null,
+   "line": 24
+  },
+  "cnl": {
+   "layer": "li",
+   "bbox_um": [
+    0.99,
+    0.495,
+    1.16,
+    0.825
+   ],
+   "net": "Y",
+   "line": 25
+  },
+  "cgl": {
+   "layer": "li",
+   "bbox_um": [
+    2.52,
+    0.495,
+    2.69,
+    0.825
+   ],
+   "net": "VGND",
+   "line": 26
+  },
+  "gnd": {
+   "layer": "li",
+   "bbox_um": [
+    2.52,
+    -0.085,
+    2.69,
+    0.825
+   ],
+   "net": null,
+   "line": 27
+  },
+  "cp0": {
+   "layer": "licon",
+   "bbox_um": [
+    0.99,
+    1.675,
+    1.16,
+    2.185
+   ],
+   "net": null,
+   "line": 29
+  },
+  "cy1": {
+   "layer": "licon",
+   "bbox_um": [
+    1.48,
+    1.675,
+    1.65,
+    2.185
+   ],
+   "net": null,
+   "line": 30
+  },
+  "cp1": {
+   "layer": "licon",
+   "bbox_um": [
+    2.03,
+    1.675,
+    2.2,
+    2.185
+   ],
+   "net": null,
+   "line": 31
+  },
+  "cy2": {
+   "layer": "licon",
+   "bbox_um": [
+    2.52,
+    1.675,
+    2.69,
+    2.185
+   ],
+   "net": null,
+   "line": 32
+  },
+  "cp0l": {
+   "layer": "li",
+   "bbox_um": [
+    0.99,
+    1.595,
+    1.16,
+    2.265
+   ],
+   "net": "VPWR",
+   "line": 33
+  },
+  "cy1l": {
+   "layer": "li",
+   "bbox_um": [
+    1.48,
+    1.595,
+    1.65,
+    2.265
+   ],
+   "net": "Y",
+   "line": 34
+  },
+  "cp1l": {
+   "layer": "li",
+   "bbox_um": [
+    2.03,
+    1.595,
+    2.2,
+    2.265
+   ],
+   "net": "VPWR",
+   "line": 35
+  },
+  "cy2l": {
+   "layer": "li",
+   "bbox_um": [
+    2.52,
+    1.595,
+    2.69,
+    2.265
+   ],
+   "net": "Y",
+   "line": 36
+  },
+  "pwr0": {
+   "layer": "li",
+   "bbox_um": [
+    0.99,
+    1.595,
+    1.16,
+    2.805
+   ],
+   "net": null,
+   "line": 37
+  },
+  "pwr1": {
+   "layer": "li",
+   "bbox_um": [
+    2.03,
+    1.595,
+    2.2,
+    2.805
+   ],
+   "net": null,
+   "line": 38
+  },
+  "gca": {
+   "layer": "licon",
+   "bbox_um": [
+    1.205,
+    1.095,
+    1.375,
+    1.265
+   ],
+   "net": null,
+   "line": 41
+  },
+  "gcb": {
+   "layer": "licon",
+   "bbox_um": [
+    1.755,
+    1.095,
+    1.925,
+    1.265
+   ],
+   "net": null,
+   "line": 42
+  },
+  "gcc": {
+   "layer": "licon",
+   "bbox_um": [
+    2.305,
+    1.095,
+    2.475,
+    1.265
+   ],
+   "net": null,
+   "line": 43
+  },
+  "gpa": {
+   "layer": "poly",
+   "bbox_um": [
+    1.125,
+    1.045,
+    1.455,
+    1.315
+   ],
+   "net": null,
+   "line": 44
+  },
+  "gpb": {
+   "layer": "poly",
+   "bbox_um": [
+    1.675,
+    1.045,
+    2.005,
+    1.315
+   ],
+   "net": null,
+   "line": 45
+  },
+  "gpc": {
+   "layer": "poly",
+   "bbox_um": [
+    2.225,
+    1.045,
+    2.555,
+    1.315
+   ],
+   "net": null,
+   "line": 46
+  },
+  "gn": {
+   "layer": "npc",
+   "bbox_um": [
+    1.105,
+    0.995,
+    2.575,
+    1.365
+   ],
+   "net": null,
+   "line": 47
+  },
+  "aa": {
+   "layer": "li",
+   "bbox_um": [
+    1.205,
+    1.015,
+    1.375,
+    1.345
+   ],
+   "net": "A",
+   "line": 48
+  },
+  "bb": {
+   "layer": "li",
+   "bbox_um": [
+    1.755,
+    1.015,
+    1.925,
+    1.345
+   ],
+   "net": "B",
+   "line": 49
+  },
+  "cc": {
+   "layer": "li",
+   "bbox_um": [
+    2.305,
+    1.015,
+    2.475,
+    1.345
+   ],
+   "net": "C",
+   "line": 50
+  },
+  "am": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.205,
+    1.095,
+    1.375,
+    1.265
+   ],
+   "net": null,
+   "line": 55
+  },
+  "ap": {
+   "layer": "m1",
+   "bbox_um": [
+    1.145,
+    1.035,
+    1.435,
+    1.325
+   ],
+   "net": "A",
+   "line": 56
+  },
+  "bm": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.755,
+    1.095,
+    1.925,
+    1.265
+   ],
+   "net": null,
+   "line": 57
+  },
+  "bp": {
+   "layer": "m1",
+   "bbox_um": [
+    1.695,
+    1.035,
+    1.985,
+    1.325
+   ],
+   "net": "B",
+   "line": 58
+  },
+  "cm": {
+   "layer": "mcon",
+   "bbox_um": [
+    2.305,
+    1.095,
+    2.475,
+    1.265
+   ],
+   "net": null,
+   "line": 59
+  },
+  "cp": {
+   "layer": "m1",
+   "bbox_um": [
+    2.245,
+    1.035,
+    2.535,
+    1.325
+   ],
+   "net": "C",
+   "line": 60
+  },
+  "ym": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.48,
+    1.845,
+    1.65,
+    2.015
+   ],
+   "net": null,
+   "line": 61
+  },
+  "yp": {
+   "layer": "m1",
+   "bbox_um": [
+    1.42,
+    1.785,
+    1.71,
+    2.075
+   ],
+   "net": "Y",
+   "line": 62
+  }
+ },
+ "connectivity": [
+  "DEVICE M2 (nmos g=C d=VGND s=n1) has no matching transistor in the layout - the nmos with gate C at x=2.39 has ?2 and VGND on its sides; it needs VGND and n1: the side labelled ?2 should be n1 (wrong net label on that contact column, or the gates are in the wrong order)",
+  "DEVICE M3 (nmos g=A d=n2 s=Y) has no matching transistor in the layout - the nmos with gate A at x=1.29 has ?1 and Y on its sides; it needs n2 and Y: the side labelled ?1 should be n2 (wrong net label on that contact column, or the gates are in the wrong order)",
+  "  layout nmos at x=1.29 y=0.66: gate A [ga (line 19), gpa (line 44)], source/drain ?1 [nd (line 14)], Y [cnl (line 25), cy1l (line 34), cy2l (line 36), +2 more]  (?N = connected to no labelled net: a gate with no contact on it, or a diffusion piece with no contact - fine only for a series node)",
+  "  layout nmos at x=2.39 y=0.66: gate C [gc (line 21), gpc (line 46)], source/drain ?2 [nd (line 14)], VGND [cgl (line 26), gnd (line 27), nd (line 14)]  (?N = connected to no labelled net: a gate with no contact on it, or a diffusion piece with no contact - fine only for a series node)"
+ ],
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-223524-lessons2-noimg/nand3/check2/nand3.png",
+ "route_failed": [],
+ "status": "CLEAN",
+ "seconds": 2.8
+}

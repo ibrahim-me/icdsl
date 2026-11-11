@@ -1,0 +1,838 @@
+{
+ "cell": "nand3",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-224654-lessons2-retrieval2/nand3/check2/nand3.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-224654-lessons2-retrieval2/nand3/check2/nand3.reference.spice",
+ "size_um": [
+  3.68,
+  2.72
+ ],
+ "warnings": [
+  "nand3: fast pre-check found 4 rule issue(s): licon.size at [1.43, 1.675, 1.71, 1.845] near nwell (line 57), pA (line 27), pB (line 28); licon.size at [1.97, 1.675, 2.25, 1.845] near nwell (line 57), pB (line 28), pC (line 29); licon.size at [1.43, 2.015, 1.71, 2.185] near nwell (line 57), pA (line 27), pB (line 28); licon.size at [1.97, 2.015, 2.25, 2.185] near nwell (line 57), pB (line 28), pC (line 29)"
+ ],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 0,
+  "by_rule": [],
+  "all": []
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": false,
+  "result": "Top level cell failed pin matching.",
+  "devices_layout_vs_ref": [
+   6,
+   6
+  ],
+  "nets_layout_vs_ref": [
+   7,
+   8
+  ],
+  "details": [
+   "Number of nets: 7 **Mismatch**             |Number of nets: 8 **Mismatch**             ",
+   "---------------------------------------------------------------------------------------",
+   "NET mismatches: Class fragments follow (with fanout counts):",
+   "Circuit 1: nand3                           |Circuit 2: nand3                           ",
+   "---------------------------------------------------------------------------------------",
+   "Net: Y                                     |Net: Y                                     ",
+   "  sky130_fd_pr__pfet_01v8/(1|3) = 6        |  sky130_fd_pr__pfet_01v8/(1|3) = 3        ",
+   "  sky130_fd_pr__nfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/(1|3) = 1        ",
+   "  sky130_fd_pr__pfet_01v8/4 = 3            |                                           ",
+   "                                           |                                           ",
+   "(no matching net)                          |Net: VPWR                                  ",
+   "                                           |  sky130_fd_pr__pfet_01v8/(1|3) = 3        ",
+   "                                           |  sky130_fd_pr__pfet_01v8/4 = 3            ",
+   "---------------------------------------------------------------------------------------",
+   "Netlists do not match.",
+   "Port matching may fail to disambiguate symmetries.",
+   "Subcircuit pins:",
+   "Circuit 1: nand3                           |Circuit 2: nand3                           ",
+   "-------------------------------------------|-------------------------------------------",
+   "Y                                          |Y                                          ",
+   "VGND                                       |VGND                                       ",
+   "B                                          |B                                          ",
+   "C                                          |C                                          ",
+   "A                                          |A                                          ",
+   "(no pin, node is Y)                        |VPWR                                       ",
+   "---------------------------------------------------------------------------------------",
+   "Cell pin lists for nand3 and nand3 altered to match.",
+   "Device classes nand3 and nand3 are equivalent.",
+   "Final result: Top level cell failed pin matching."
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-224654-lessons2-retrieval2/nand3/check2/nand3.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-224654-lessons2-retrieval2/nand3/check2/nand3.lvs.txt"
+ },
+ "routes": {
+  "nets": {
+   "Y": {
+    "length_um": 2.53,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 7,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 11.05
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [
+  {
+   "rule": "licon.size",
+   "msg": "licon must be exactly 0.17 x 0.17 um",
+   "objects": [
+    "nwell (line 57)",
+    "pA (line 27)",
+    "pB (line 28)",
+    "pim (line 30)",
+    "cpAY (line 34)",
+    "cpAYl (line 35)"
+   ],
+   "box_um": [
+    1.43,
+    1.675,
+    1.71,
+    1.845
+   ]
+  },
+  {
+   "rule": "licon.size",
+   "msg": "licon must be exactly 0.17 x 0.17 um",
+   "objects": [
+    "nwell (line 57)",
+    "pB (line 28)",
+    "pC (line 29)",
+    "pim (line 30)",
+    "cpBY (line 39)",
+    "cpByl (line 40)"
+   ],
+   "box_um": [
+    1.97,
+    1.675,
+    2.25,
+    1.845
+   ]
+  },
+  {
+   "rule": "licon.size",
+   "msg": "licon must be exactly 0.17 x 0.17 um",
+   "objects": [
+    "nwell (line 57)",
+    "pA (line 27)",
+    "pB (line 28)",
+    "pim (line 30)",
+    "cpAY (line 34)",
+    "cpAYl (line 35)"
+   ],
+   "box_um": [
+    1.43,
+    2.015,
+    1.71,
+    2.185
+   ]
+  },
+  {
+   "rule": "licon.size",
+   "msg": "licon must be exactly 0.17 x 0.17 um",
+   "objects": [
+    "nwell (line 57)",
+    "pB (line 28)",
+    "pC (line 29)",
+    "pim (line 30)",
+    "cpBY (line 39)",
+    "cpByl (line 40)"
+   ],
+   "box_um": [
+    1.97,
+    2.015,
+    2.25,
+    2.185
+   ]
+  }
+ ],
+ "constraint_violations": [],
+ "objects": {
+  "vgnd": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    -0.24,
+    3.68,
+    0.24
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vpwr": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    2.48,
+    3.68,
+    2.96
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ptap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    -0.145,
+    3.5,
+    0.145
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    -0.085,
+    3.075,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    -0.085,
+    3.535,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vgnd_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    -0.085,
+    3.68,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_imp": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.0,
+    -0.27,
+    3.68,
+    0.27
+   ],
+   "net": null,
+   "line": 0
+  },
+  "ntap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    2.575,
+    3.5,
+    2.865
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    2.635,
+    3.075,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    2.635,
+    3.535,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "vpwr_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    2.635,
+    3.68,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_imp": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.0,
+    2.45,
+    3.68,
+    2.99
+   ],
+   "net": null,
+   "line": 0
+  },
+  "nwell": {
+   "layer": "nwell",
+   "bbox_um": [
+    0.0,
+    1.31,
+    3.68,
+    3.045
+   ],
+   "net": null,
+   "line": 57
+  },
+  "gA": {
+   "layer": "poly",
+   "bbox_um": [
+    1.225,
+    0.285,
+    1.375,
+    2.435
+   ],
+   "net": null,
+   "line": 17
+  },
+  "gB": {
+   "layer": "poly",
+   "bbox_um": [
+    1.765,
+    0.285,
+    1.915,
+    2.435
+   ],
+   "net": null,
+   "line": 18
+  },
+  "gC": {
+   "layer": "poly",
+   "bbox_um": [
+    2.305,
+    0.285,
+    2.455,
+    2.435
+   ],
+   "net": null,
+   "line": 19
+  },
+  "nd": {
+   "layer": "diff",
+   "bbox_um": [
+    0.96,
+    0.415,
+    2.72,
+    0.905
+   ],
+   "net": null,
+   "line": 20
+  },
+  "nim": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.835,
+    0.29,
+    2.845,
+    1.03
+   ],
+   "net": null,
+   "line": 21
+  },
+  "cnY": {
+   "layer": "licon",
+   "bbox_um": [
+    1.0,
+    0.575,
+    1.17,
+    0.745
+   ],
+   "net": null,
+   "line": 22
+  },
+  "cnYl": {
+   "layer": "li",
+   "bbox_um": [
+    1.0,
+    0.495,
+    1.17,
+    0.825
+   ],
+   "net": "Y",
+   "line": 23
+  },
+  "cnG": {
+   "layer": "licon",
+   "bbox_um": [
+    2.51,
+    0.575,
+    2.68,
+    0.745
+   ],
+   "net": null,
+   "line": 24
+  },
+  "cnGl": {
+   "layer": "li",
+   "bbox_um": [
+    2.51,
+    0.495,
+    2.68,
+    0.825
+   ],
+   "net": "VGND",
+   "line": 25
+  },
+  "cnGs": {
+   "layer": "li",
+   "bbox_um": [
+    2.51,
+    -0.085,
+    2.68,
+    0.825
+   ],
+   "net": null,
+   "line": 26
+  },
+  "pA": {
+   "layer": "diff",
+   "bbox_um": [
+    0.96,
+    1.555,
+    1.64,
+    2.305
+   ],
+   "net": null,
+   "line": 27
+  },
+  "pB": {
+   "layer": "diff",
+   "bbox_um": [
+    1.5,
+    1.555,
+    2.18,
+    2.305
+   ],
+   "net": null,
+   "line": 28
+  },
+  "pC": {
+   "layer": "diff",
+   "bbox_um": [
+    2.04,
+    1.555,
+    2.72,
+    2.305
+   ],
+   "net": null,
+   "line": 29
+  },
+  "pim": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.835,
+    1.43,
+    2.845,
+    2.43
+   ],
+   "net": null,
+   "line": 30
+  },
+  "cpA": {
+   "layer": "licon",
+   "bbox_um": [
+    1.0,
+    1.675,
+    1.17,
+    2.185
+   ],
+   "net": null,
+   "line": 31
+  },
+  "cpAl": {
+   "layer": "li",
+   "bbox_um": [
+    1.0,
+    1.595,
+    1.17,
+    2.265
+   ],
+   "net": "VPWR",
+   "line": 32
+  },
+  "cpAs": {
+   "layer": "li",
+   "bbox_um": [
+    1.0,
+    1.595,
+    1.17,
+    2.805
+   ],
+   "net": null,
+   "line": 33
+  },
+  "cpAY": {
+   "layer": "licon",
+   "bbox_um": [
+    1.43,
+    1.675,
+    1.6,
+    2.185
+   ],
+   "net": null,
+   "line": 34
+  },
+  "cpAYl": {
+   "layer": "li",
+   "bbox_um": [
+    1.43,
+    1.595,
+    1.6,
+    2.265
+   ],
+   "net": "Y",
+   "line": 35
+  },
+  "cpB": {
+   "layer": "licon",
+   "bbox_um": [
+    1.54,
+    1.675,
+    1.71,
+    2.185
+   ],
+   "net": null,
+   "line": 36
+  },
+  "cpBl": {
+   "layer": "li",
+   "bbox_um": [
+    1.54,
+    1.595,
+    1.71,
+    2.265
+   ],
+   "net": "VPWR",
+   "line": 37
+  },
+  "cpBs": {
+   "layer": "li",
+   "bbox_um": [
+    1.54,
+    1.595,
+    1.71,
+    2.805
+   ],
+   "net": null,
+   "line": 38
+  },
+  "cpBY": {
+   "layer": "licon",
+   "bbox_um": [
+    1.97,
+    1.675,
+    2.14,
+    2.185
+   ],
+   "net": null,
+   "line": 39
+  },
+  "cpByl": {
+   "layer": "li",
+   "bbox_um": [
+    1.97,
+    1.595,
+    2.14,
+    2.265
+   ],
+   "net": "Y",
+   "line": 40
+  },
+  "cpC": {
+   "layer": "licon",
+   "bbox_um": [
+    2.08,
+    1.675,
+    2.25,
+    2.185
+   ],
+   "net": null,
+   "line": 41
+  },
+  "cpCl": {
+   "layer": "li",
+   "bbox_um": [
+    2.08,
+    1.595,
+    2.25,
+    2.265
+   ],
+   "net": "VPWR",
+   "line": 42
+  },
+  "cpCs": {
+   "layer": "li",
+   "bbox_um": [
+    2.08,
+    1.595,
+    2.25,
+    2.805
+   ],
+   "net": null,
+   "line": 43
+  },
+  "cpCY": {
+   "layer": "licon",
+   "bbox_um": [
+    2.51,
+    1.675,
+    2.68,
+    2.185
+   ],
+   "net": null,
+   "line": 44
+  },
+  "cpCyl": {
+   "layer": "li",
+   "bbox_um": [
+    2.51,
+    1.595,
+    2.68,
+    2.265
+   ],
+   "net": "Y",
+   "line": 45
+  },
+  "gcA": {
+   "layer": "licon",
+   "bbox_um": [
+    1.215,
+    1.095,
+    1.385,
+    1.265
+   ],
+   "net": null,
+   "line": 47
+  },
+  "gpA": {
+   "layer": "poly",
+   "bbox_um": [
+    1.135,
+    1.045,
+    1.465,
+    1.315
+   ],
+   "net": null,
+   "line": 48
+  },
+  "gcB": {
+   "layer": "licon",
+   "bbox_um": [
+    1.755,
+    1.095,
+    1.925,
+    1.265
+   ],
+   "net": null,
+   "line": 49
+  },
+  "gpB": {
+   "layer": "poly",
+   "bbox_um": [
+    1.675,
+    1.045,
+    2.005,
+    1.315
+   ],
+   "net": null,
+   "line": 50
+  },
+  "gcC": {
+   "layer": "licon",
+   "bbox_um": [
+    2.295,
+    1.095,
+    2.465,
+    1.265
+   ],
+   "net": null,
+   "line": 51
+  },
+  "gpC": {
+   "layer": "poly",
+   "bbox_um": [
+    2.215,
+    1.045,
+    2.545,
+    1.315
+   ],
+   "net": null,
+   "line": 52
+  },
+  "gn": {
+   "layer": "npc",
+   "bbox_um": [
+    1.115,
+    0.995,
+    2.565,
+    1.365
+   ],
+   "net": null,
+   "line": 53
+  },
+  "la": {
+   "layer": "li",
+   "bbox_um": [
+    1.215,
+    1.015,
+    1.385,
+    1.345
+   ],
+   "net": "A",
+   "line": 54
+  },
+  "lb": {
+   "layer": "li",
+   "bbox_um": [
+    1.755,
+    1.015,
+    1.925,
+    1.345
+   ],
+   "net": "B",
+   "line": 55
+  },
+  "lc": {
+   "layer": "li",
+   "bbox_um": [
+    2.295,
+    1.015,
+    2.465,
+    1.345
+   ],
+   "net": "C",
+   "line": 56
+  },
+  "ym": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.0,
+    0.575,
+    1.17,
+    0.745
+   ],
+   "net": null,
+   "line": 58
+  },
+  "yp": {
+   "layer": "m1",
+   "bbox_um": [
+    0.94,
+    0.515,
+    1.23,
+    0.805
+   ],
+   "net": "Y",
+   "line": 59
+  },
+  "am": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.215,
+    1.095,
+    1.385,
+    1.265
+   ],
+   "net": null,
+   "line": 61
+  },
+  "ap": {
+   "layer": "m1",
+   "bbox_um": [
+    1.155,
+    1.035,
+    1.445,
+    1.325
+   ],
+   "net": "A",
+   "line": 62
+  },
+  "bm": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.755,
+    1.095,
+    1.925,
+    1.265
+   ],
+   "net": null,
+   "line": 63
+  },
+  "bp": {
+   "layer": "m1",
+   "bbox_um": [
+    1.695,
+    1.035,
+    1.985,
+    1.325
+   ],
+   "net": "B",
+   "line": 64
+  },
+  "cm": {
+   "layer": "mcon",
+   "bbox_um": [
+    2.295,
+    1.095,
+    2.465,
+    1.265
+   ],
+   "net": null,
+   "line": 65
+  },
+  "cp": {
+   "layer": "m1",
+   "bbox_um": [
+    2.235,
+    1.035,
+    2.525,
+    1.325
+   ],
+   "net": "C",
+   "line": 66
+  }
+ },
+ "connectivity": [
+  "SHORT VPWR / Y: on li around (1.84, 2.2): shapes of VPWR and Y overlap/touch there (cpAYl (line 35), cpAl (line 32), cpAs (line 33), cpBl (line 37), cpBs (line 38), cpByl (line 40), +2 more)",
+  "DEVICE M0 (pmos g=A d=VPWR s=Y) has no matching transistor in the layout - the pmos with gate A at x=1.3 has VPWR+Y and VPWR+Y on its sides; it needs VPWR and Y: the side labelled VPWR+Y should be VPWR (wrong net label on that contact column, or the gates are in the wrong order)",
+  "DEVICE M2 (nmos g=C d=VGND s=n1) has no matching transistor in the layout - the nmos with gate C at x=2.38 has ?2 and VGND on its sides; it needs VGND and n1: the side labelled ?2 should be n1 (wrong net label on that contact column, or the gates are in the wrong order)",
+  "DEVICE M3 (nmos g=A d=n2 s=Y) has no matching transistor in the layout - the nmos with gate A at x=1.3 has ?1 and VPWR+Y on its sides; it needs n2 and Y: the side labelled ?1 should be n2 (wrong net label on that contact column, or the gates are in the wrong order)",
+  "DEVICE M4 (pmos g=C d=VPWR s=Y) has no matching transistor in the layout - the pmos with gate C at x=2.38 has VPWR+Y and VPWR+Y on its sides; it needs VPWR and Y: the side labelled VPWR+Y should be VPWR (wrong net label on that contact column, or the gates are in the wrong order)",
+  "DEVICE M5 (pmos g=B d=Y s=VPWR) has no matching transistor in the layout - the pmos with gate B at x=1.84 has VPWR+Y and VPWR+Y on its sides; it needs Y and VPWR: the side labelled VPWR+Y should be Y (wrong net label on that contact column, or the gates are in the wrong order)",
+  "  layout nmos at x=1.3 y=0.66: gate A [gA (line 17), gpA (line 48)], source/drain ?1 [nd (line 20)], VPWR+Y [cnYl (line 23), cpAYl (line 35), cpAl (line 32), +11 more]  (?N = connected to no labelled net: a gate with no contact on it, or a diffusion piece with no contact - fine only for a series node)",
+  "  layout nmos at x=2.38 y=0.66: gate C [gC (line 19), gpC (line 52)], source/drain ?2 [nd (line 20)], VGND [cnGl (line 25), cnGs (line 26), nd (line 20)]  (?N = connected to no labelled net: a gate with no contact on it, or a diffusion piece with no contact - fine only for a series node)",
+  "  layout pmos at x=1.3 y=1.93: gate A [gA (line 17), gpA (line 48)], source/drain VPWR+Y [cnYl (line 23), cpAYl (line 35), cpAl (line 32), +11 more], VPWR+Y [cnYl (line 23), cpAYl (line 35), cpAl (line 32), +11 more]",
+  "  layout pmos at x=1.84 y=1.93: gate B [gB (line 18), gpB (line 50)], source/drain VPWR+Y [cnYl (line 23), cpAYl (line 35), cpAl (line 32), +11 more], VPWR+Y [cnYl (line 23), cpAYl (line 35), cpAl (line 32), +11 more]",
+  "  layout pmos at x=2.38 y=1.93: gate C [gC (line 19), gpC (line 52)], source/drain VPWR+Y [cnYl (line 23), cpAYl (line 35), cpAl (line 32), +11 more], VPWR+Y [cnYl (line 23), cpAYl (line 35), cpAl (line 32), +11 more]"
+ ],
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-224654-lessons2-retrieval2/nand3/check2/nand3.png",
+ "route_failed": [],
+ "status": "VIOLATIONS",
+ "seconds": 4.6
+}

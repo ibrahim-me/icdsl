@@ -1,0 +1,37 @@
+{
+ "task": "cdac6",
+ "pdk": "gf180mcuD",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/cdac6.gf180mcuD/a1/cdac6.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/cdac6.gf180mcuD/a1/cdac6.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "magic DRC did not finish in 180 s (a layout with very many errors or shorts takes this long; a correct layout of this size takes seconds)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 515 violation(s): 256 x V4.1: V4.1 : Min/max via4 size . : 0.26\u00b5m; 72 x MIMTM.3: MIMTM.3 : Minimum MiM bottom plate overlap of Top plate.; 64 x MIMTM.7: MIMTM.7 : Min FuseTop enclosure by CAP_MK: 0um.; 64 x MIMTM.8b: MIMTM.8b : Maximum single MIM Cap area (Use multiple MIM caps in\n               ; 57 x MSLOT4.1: MSLOT4.1 : Maximum metal width without slotting: 30\u00b5m; 1 x MIMTM.11: MIMTM.11 : Bottom plate of multiple MIM caps can be shared (for common nodes)\n  "
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "magic extraction did not finish in 180 s (a layout with very many errors or shorts takes this long; a correct layout of this size takes seconds)  (devices layout/ref ?/?; report -)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "not confirmed (LVS failed)"
+  },
+  {
+   "check": "area",
+   "ok": false,
+   "detail": "121000.00 x 62360.00 = 7545560000.0 um2, budget 10578, reference 5288.9"
+  }
+ ],
+ "area_um2": 7545560000.0,
+ "area_vs_reference": 1426678.515,
+ "solved": false,
+ "detail": "DRC2 (foundry KLayout deck): 515 violation(s), boxes in um\n   256 x V4.1: V4.1 : Min/max via4 size . : 0.26\u00b5m   e.g. at (52630.000 31370.000 52630.000 31630.000)  (52370.000 31370.000 52630.000 31370.000)  (52370.000 31630.000 52630.000 31630.000)\n    72 x MIMTM.3: MIMTM.3 : Minimum MiM bottom plate overlap of Top plate.   e.g. at (52359.399 399.999 52640.601 400.001)  (38359.399 399.999 38640.601 400.001)  (31359.399 399.999 31640.601 400.001)\n    64 x MIMTM.7: MIMTM.7 : Min FuseTop enclosure by CAP_MK: 0um.   e.g. at (400.000 400.000 6600.000 6600.000)  (7400.000 400.000 13600.000 6600.000)  (14400.000 400.000 20600.000 6600.000)\n    64 x MIMTM.8b: MIMTM.8b : Maximum single MIM Cap area (Use multiple MIM caps in\n                       parallel connection if bigger capacitors are require   e.g. at (400.000 400.000 6600.000 6600.000)  (7400.000 400.000 13600.000 6600.000)  (14400.000 400.000 20600.000 6600.000)\n    57 x MSLOT4.1: MSLOT4.1 : Maximum metal width without slotting: 30\u00b5m   e.g. at (3360.000 6605.000 3640.000 7395.000)  (10360.000 6605.000 10640.000 7395.000)  (17360.000 6605.000 17640.000 7395.000)\n     1 x MIMTM.11: MIMTM.11 : Bottom plate of multiple MIM caps can be shared (for common nodes)\n                     as long as total MIM area with that singl   e.g. at (400.000 400.000 119000.000 59140.000)\n     1 x MSLOT5.1: MSLOT5.1 : Maximum metal width without slotting: 30\u00b5m   e.g. at (-2000.000 -3220.000 58000.000 56000.000)\nLVS: magic extraction did not finish in 180 s (a layout with very many errors or shorts takes this long; a correct layout of this size takes seconds)   devices layout/ref ?/?, nets layout/ref ?/?"
+}

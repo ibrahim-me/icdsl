@@ -1,0 +1,37 @@
+{
+ "task": "r2r8",
+ "pdk": "gf180mcuD",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/r2r8.gf180mcuD/a1/r2r8.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/r2r8.gf180mcuD/a1/r2r8.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "209 violation(s): 104 x N-well overlap of P-Diffusion < 0.43um (DF.7); 52 x P-Diffusion overhang of pmos < 0.23um (DF.6); 52 x Poly overhang of transistor < 0.22um (PL.4); 1 x Metal1 spacing < 0.23um (M1.2a)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 27 violation(s): 26 x DF.12: DF.12 : COMP not covered by Nplus or Pplus is forbidden (except those COMP under ma; 1 x M1.2a: M1.2a : min. metal1 spacing : 0.23\u00b5m"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Verify:  cell /home/ibrahim/claude-workspace/icdsl/bench/xl/tasks/r2r8/gf180mcuD.spice has no elements and/or nodes.  Not checked.  (devices layout/ref ?/?; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/r2r8.gf180mcuD/a1/judge/r2r8.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "not confirmed (LVS failed)"
+  },
+  {
+   "check": "area",
+   "ok": false,
+   "detail": "391.00 x 24.00 = 9384.0 um2, budget 1705, reference 852.06"
+  }
+ ],
+ "area_um2": 9384.0,
+ "area_vs_reference": 11.013,
+ "solved": false,
+ "detail": "DRC (magic drc(full)): 209 violation(s), boxes in um\n   104 x N-well overlap of P-Diffusion < 0.43um (DF.7)   e.g. at (3.500 6.380 4.500 6.500)  (18.500 6.380 19.500 6.500)  (33.500 6.380 34.500 6.500)\n    52 x P-Diffusion overhang of pmos < 0.23um (DF.6)   e.g. at (3.270 5.500 3.500 6.500)  (4.500 5.500 4.730 6.500)  (18.270 5.500 18.500 6.500)\n    52 x Poly overhang of transistor < 0.22um (PL.4)   e.g. at (3.280 5.280 3.500 6.720)  (4.500 5.280 4.720 6.720)  (18.280 5.280 18.500 6.720)\n     1 x Metal1 spacing < 0.23um (M1.2a)   e.g. at (0.800 5.800 0.830 6.430)\nDRC2 (foundry KLayout deck): 27 violation(s), boxes in um\n    26 x DF.12: DF.12 : COMP not covered by Nplus or Pplus is forbidden (except those COMP under marking).   e.g. at (1.000 5.500 7.000 6.500)  (16.000 5.500 22.000 6.500)  (31.000 5.500 37.000 6.500)\n     1 x M1.2a: M1.2a : min. metal1 spacing : 0.23\u00b5m   e.g. at (0.600 5.686 0.800 6.314)\nLVS: Verify:  cell /home/ibrahim/claude-workspace/icdsl/bench/xl/tasks/r2r8/gf180mcuD.spice has no elements and/or nodes.  Not checked.   devices layout/ref ?/?, nets layout/ref ?/?"
+}

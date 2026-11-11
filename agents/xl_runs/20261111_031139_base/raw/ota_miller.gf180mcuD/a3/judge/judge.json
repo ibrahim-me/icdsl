@@ -1,0 +1,36 @@
+{
+ "task": "ota_miller",
+ "pdk": "gf180mcuD",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/ota_miller.gf180mcuD/a3/ota_miller.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/ota_miller.gf180mcuD/a3/ota_miller.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "546 violation(s): 165 x N-Diffusion overlap of contact < 0.065um (CO.4); 150 x Diffusion contact spacing to poly < 0.145um (CO.7 - 2 * CO.6); 108 x P-Diffusion overlap of contact < 0.065um (CO.4); 93 x Metal1 spacing < 0.23um (M1.2a); 8 x Poly overlap of contact < 0.065um (CO.3); 7 x Metal1 minimum area < 0.1444um^2 (M1.3)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 586 violation(s): 72 x NP.5b: NP.5b : Extension beyond COMP for the COMP\n                  (1) inside LVPWELL (2); 69 x M1.2a: M1.2a : min. metal1 spacing : 0.23\u00b5m; 60 x CO.4: CO.4 : COMP overlap of contact. : 0.07\u00b5m; 60 x CO.7: CO.7 : Space from COMP contact to Poly2 : 0.15\u00b5m; 60 x DF.6_LV: DF.6_LV : Min. COMP extend beyond gate (it also means source/drain overhang). : 0; 48 x PP.5b: PP.5b : Extension beyond COMP for COMP\n                 (1) Inside NWELL (2) outsid"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Netlists do not match.  (devices layout/ref 9/10; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/ota_miller.gf180mcuD/a3/judge/ota_miller.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "not confirmed (LVS failed)"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "90.20 x 21.19 = 1911.3 um2, budget 2901, reference 1450.07"
+  }
+ ],
+ "area_um2": 1911.34,
+ "area_vs_reference": 1.318,
+ "solved": false
+}

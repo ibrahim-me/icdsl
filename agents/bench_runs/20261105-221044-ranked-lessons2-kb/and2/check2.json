@@ -1,0 +1,869 @@
+{
+ "cell": "and2",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-221044-ranked-lessons2-kb/and2/check2/and2.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-221044-ranked-lessons2-kb/and2/check2/and2.reference.spice",
+ "size_um": [
+  4.6,
+  2.72
+ ],
+ "warnings": [
+  "and2: fast pre-check found 1 rule issue(s): poly.space at [1.36, 0.922, 1.53, 1.438] near nwell (line 59), nim (line 16), pim (line 17)"
+ ],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 4,
+  "by_rule": [
+   {
+    "rule": "poly spacing < 0.21um (poly.2)",
+    "count": 4,
+    "examples": [
+     {
+      "box_um": [
+       1.32,
+       1.315,
+       1.36,
+       1.525
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "ga": [
+        "poly"
+       ],
+       "gpa": [
+        "poly"
+       ],
+       "gnall": [
+        "npc"
+       ],
+       "ap": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.53,
+       1.045,
+       1.57,
+       1.095
+      ],
+      "objects": {
+       "nim": [
+        "nsdm"
+       ],
+       "gpb": [
+        "poly"
+       ],
+       "gnall": [
+        "npc"
+       ],
+       "bp": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.53,
+       1.095,
+       1.57,
+       1.265
+      ],
+      "objects": {
+       "gpb": [
+        "poly"
+       ],
+       "gnall": [
+        "npc"
+       ],
+       "bp": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.53,
+       1.265,
+       1.57,
+       1.315
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "gpb": [
+        "poly"
+       ],
+       "gnall": [
+        "npc"
+       ],
+       "bp": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "all": [
+   {
+    "rule": "poly spacing < 0.21um (poly.2)",
+    "box_um": [
+     1.32,
+     1.315,
+     1.36,
+     1.525
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "pim": [
+      "psdm"
+     ],
+     "ga": [
+      "poly"
+     ],
+     "gpa": [
+      "poly"
+     ],
+     "gnall": [
+      "npc"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "poly spacing < 0.21um (poly.2)",
+    "box_um": [
+     1.53,
+     1.045,
+     1.57,
+     1.095
+    ],
+    "objects": {
+     "nim": [
+      "nsdm"
+     ],
+     "gpb": [
+      "poly"
+     ],
+     "gnall": [
+      "npc"
+     ],
+     "bp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "poly spacing < 0.21um (poly.2)",
+    "box_um": [
+     1.53,
+     1.095,
+     1.57,
+     1.265
+    ],
+    "objects": {
+     "gpb": [
+      "poly"
+     ],
+     "gnall": [
+      "npc"
+     ],
+     "bp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "poly spacing < 0.21um (poly.2)",
+    "box_um": [
+     1.53,
+     1.265,
+     1.57,
+     1.315
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "gpb": [
+      "poly"
+     ],
+     "gnall": [
+      "npc"
+     ],
+     "bp": [
+      "m1"
+     ]
+    }
+   }
+  ]
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": true,
+  "result": "Circuits match uniquely.",
+  "devices_layout_vs_ref": [
+   6,
+   6
+  ],
+  "nets_layout_vs_ref": [
+   7,
+   7
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-221044-ranked-lessons2-kb/and2/check2/and2.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-221044-ranked-lessons2-kb/and2/check2/and2.lvs.txt"
+ },
+ "routes": {
+  "nets": {
+   "n1": {
+    "length_um": 2.76,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 5,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 11.05
+   },
+   "X": {
+    "length_um": 1.38,
+    "layers": [
+     "m1"
+    ],
+    "cuts": 2,
+    "width_um": {
+     "m1": 0.14
+    },
+    "res_ohm": 1.23
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [
+  {
+   "rule": "poly.space",
+   "msg": "poly spacing < 0.210 um",
+   "objects": [
+    "nwell (line 59)",
+    "nim (line 16)",
+    "pim (line 17)",
+    "ga (line 19)",
+    "gpb (line 52)",
+    "gnall (line 54)"
+   ],
+   "box_um": [
+    1.36,
+    0.922,
+    1.53,
+    1.438
+   ]
+  }
+ ],
+ "constraint_violations": [],
+ "objects": {
+  "vgnd": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    -0.24,
+    4.6,
+    0.24
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vpwr": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    2.48,
+    4.6,
+    2.96
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ptap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    -0.145,
+    4.42,
+    0.145
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    -0.085,
+    3.995,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    -0.085,
+    4.455,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vgnd_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    -0.085,
+    4.6,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_imp": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.0,
+    -0.27,
+    4.6,
+    0.27
+   ],
+   "net": null,
+   "line": 0
+  },
+  "ntap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    2.575,
+    4.42,
+    2.865
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    2.635,
+    3.995,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    2.635,
+    4.455,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "vpwr_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    2.635,
+    4.6,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_imp": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.0,
+    2.45,
+    4.6,
+    2.99
+   ],
+   "net": null,
+   "line": 0
+  },
+  "nwell": {
+   "layer": "nwell",
+   "bbox_um": [
+    0.0,
+    1.31,
+    4.6,
+    3.045
+   ],
+   "net": null,
+   "line": 59
+  },
+  "nd": {
+   "layer": "diff",
+   "bbox_um": [
+    0.945,
+    0.415,
+    3.655,
+    0.905
+   ],
+   "net": null,
+   "line": 14
+  },
+  "pd": {
+   "layer": "diff",
+   "bbox_um": [
+    0.945,
+    1.555,
+    3.655,
+    2.305
+   ],
+   "net": null,
+   "line": 15
+  },
+  "nim": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.82,
+    0.29,
+    3.78,
+    1.03
+   ],
+   "net": null,
+   "line": 16
+  },
+  "pim": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.82,
+    1.43,
+    3.78,
+    2.43
+   ],
+   "net": null,
+   "line": 17
+  },
+  "ga": {
+   "layer": "poly",
+   "bbox_um": [
+    1.21,
+    0.285,
+    1.36,
+    2.435
+   ],
+   "net": null,
+   "line": 19
+  },
+  "gb": {
+   "layer": "poly",
+   "bbox_um": [
+    1.75,
+    0.285,
+    1.9,
+    2.435
+   ],
+   "net": null,
+   "line": 20
+  },
+  "gn": {
+   "layer": "poly",
+   "bbox_um": [
+    2.44,
+    0.285,
+    2.59,
+    2.435
+   ],
+   "net": null,
+   "line": 21
+  },
+  "cn1": {
+   "layer": "licon",
+   "bbox_um": [
+    0.985,
+    0.575,
+    1.155,
+    0.745
+   ],
+   "net": null,
+   "line": 24
+  },
+  "cn2": {
+   "layer": "licon",
+   "bbox_um": [
+    1.47,
+    0.575,
+    1.64,
+    0.745
+   ],
+   "net": null,
+   "line": 25
+  },
+  "cv": {
+   "layer": "licon",
+   "bbox_um": [
+    2.085,
+    0.575,
+    2.255,
+    0.745
+   ],
+   "net": null,
+   "line": 26
+  },
+  "cx": {
+   "layer": "licon",
+   "bbox_um": [
+    2.645,
+    0.575,
+    2.815,
+    0.745
+   ],
+   "net": null,
+   "line": 27
+  },
+  "cn1l": {
+   "layer": "li",
+   "bbox_um": [
+    0.985,
+    0.495,
+    1.155,
+    0.825
+   ],
+   "net": "n1",
+   "line": 28
+  },
+  "cn2l": {
+   "layer": "li",
+   "bbox_um": [
+    1.47,
+    0.495,
+    1.64,
+    0.825
+   ],
+   "net": null,
+   "line": 29
+  },
+  "cvl": {
+   "layer": "li",
+   "bbox_um": [
+    2.085,
+    0.495,
+    2.255,
+    0.825
+   ],
+   "net": null,
+   "line": 30
+  },
+  "cxl": {
+   "layer": "li",
+   "bbox_um": [
+    2.645,
+    0.495,
+    2.815,
+    0.825
+   ],
+   "net": "X",
+   "line": 31
+  },
+  "gndn": {
+   "layer": "li",
+   "bbox_um": [
+    2.085,
+    -0.085,
+    2.255,
+    0.825
+   ],
+   "net": null,
+   "line": 32
+  },
+  "cp1": {
+   "layer": "licon",
+   "bbox_um": [
+    0.985,
+    1.675,
+    1.155,
+    2.185
+   ],
+   "net": null,
+   "line": 35
+  },
+  "cpn": {
+   "layer": "licon",
+   "bbox_um": [
+    1.47,
+    1.675,
+    1.64,
+    2.185
+   ],
+   "net": null,
+   "line": 36
+  },
+  "cp2": {
+   "layer": "licon",
+   "bbox_um": [
+    2.085,
+    1.675,
+    2.255,
+    2.185
+   ],
+   "net": null,
+   "line": 37
+  },
+  "cpx": {
+   "layer": "licon",
+   "bbox_um": [
+    2.645,
+    1.675,
+    2.815,
+    2.185
+   ],
+   "net": null,
+   "line": 38
+  },
+  "cp1l": {
+   "layer": "li",
+   "bbox_um": [
+    0.985,
+    1.595,
+    1.155,
+    2.265
+   ],
+   "net": "VPWR",
+   "line": 39
+  },
+  "cpnl": {
+   "layer": "li",
+   "bbox_um": [
+    1.47,
+    1.595,
+    1.64,
+    2.265
+   ],
+   "net": "n1",
+   "line": 40
+  },
+  "cp2l": {
+   "layer": "li",
+   "bbox_um": [
+    2.085,
+    1.595,
+    2.255,
+    2.265
+   ],
+   "net": "VPWR",
+   "line": 41
+  },
+  "cpxl": {
+   "layer": "li",
+   "bbox_um": [
+    2.645,
+    1.595,
+    2.815,
+    2.265
+   ],
+   "net": "X",
+   "line": 42
+  },
+  "pwr1": {
+   "layer": "li",
+   "bbox_um": [
+    0.985,
+    1.595,
+    1.155,
+    2.805
+   ],
+   "net": null,
+   "line": 43
+  },
+  "pwr2": {
+   "layer": "li",
+   "bbox_um": [
+    2.085,
+    1.595,
+    2.255,
+    2.805
+   ],
+   "net": null,
+   "line": 44
+  },
+  "gca": {
+   "layer": "licon",
+   "bbox_um": [
+    1.07,
+    1.095,
+    1.24,
+    1.265
+   ],
+   "net": null,
+   "line": 48
+  },
+  "gcb": {
+   "layer": "licon",
+   "bbox_um": [
+    1.61,
+    1.095,
+    1.78,
+    1.265
+   ],
+   "net": null,
+   "line": 49
+  },
+  "gcn": {
+   "layer": "licon",
+   "bbox_um": [
+    2.56,
+    1.095,
+    2.73,
+    1.265
+   ],
+   "net": null,
+   "line": 50
+  },
+  "gpa": {
+   "layer": "poly",
+   "bbox_um": [
+    0.99,
+    1.045,
+    1.32,
+    1.315
+   ],
+   "net": null,
+   "line": 51
+  },
+  "gpb": {
+   "layer": "poly",
+   "bbox_um": [
+    1.53,
+    1.045,
+    1.86,
+    1.315
+   ],
+   "net": null,
+   "line": 52
+  },
+  "gpn": {
+   "layer": "poly",
+   "bbox_um": [
+    2.48,
+    1.045,
+    2.81,
+    1.315
+   ],
+   "net": null,
+   "line": 53
+  },
+  "gnall": {
+   "layer": "npc",
+   "bbox_um": [
+    0.97,
+    0.995,
+    2.83,
+    1.365
+   ],
+   "net": null,
+   "line": 54
+  },
+  "al": {
+   "layer": "li",
+   "bbox_um": [
+    1.07,
+    1.015,
+    1.24,
+    1.345
+   ],
+   "net": "A",
+   "line": 55
+  },
+  "bl": {
+   "layer": "li",
+   "bbox_um": [
+    1.61,
+    1.015,
+    1.78,
+    1.345
+   ],
+   "net": "B",
+   "line": 56
+  },
+  "nl": {
+   "layer": "li",
+   "bbox_um": [
+    2.56,
+    1.015,
+    2.73,
+    1.345
+   ],
+   "net": "n1",
+   "line": 57
+  },
+  "am": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.07,
+    1.095,
+    1.24,
+    1.265
+   ],
+   "net": null,
+   "line": 68
+  },
+  "ap": {
+   "layer": "m1",
+   "bbox_um": [
+    1.01,
+    1.035,
+    1.3,
+    1.325
+   ],
+   "net": "A",
+   "line": 69
+  },
+  "bm": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.61,
+    1.095,
+    1.78,
+    1.265
+   ],
+   "net": null,
+   "line": 70
+  },
+  "bp": {
+   "layer": "m1",
+   "bbox_um": [
+    1.55,
+    1.035,
+    1.84,
+    1.325
+   ],
+   "net": "B",
+   "line": 71
+  }
+ },
+ "connectivity": [],
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-221044-ranked-lessons2-kb/and2/check2/and2.png",
+ "route_failed": [],
+ "status": "VIOLATIONS",
+ "seconds": 2.9
+}

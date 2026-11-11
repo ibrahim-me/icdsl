@@ -1,0 +1,3 @@
+- LVS already matches. All 10 DRC errors are one problem: the A gate-contact li (`a`) sits 0.045 um from the Y strap `y` (needs 0.17).
+- Move the gate contact left, away from the Y strap: `gc = contact licon cx=(g.cx - 0.13) bottom=cb`. Its poly pad still overlaps the gate, and the left side of the gap between the rows is empty.
+- Keep the A pin (ap) and Y pin (yp) met1 at least 0.14 apart; nothing else needs to change.

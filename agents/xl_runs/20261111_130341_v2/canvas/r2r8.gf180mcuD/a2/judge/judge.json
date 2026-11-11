@@ -1,0 +1,37 @@
+{
+ "task": "r2r8",
+ "pdk": "gf180mcuD",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/r2r8.gf180mcuD/a2/r2r8.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/r2r8.gf180mcuD/a2/r2r8.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": true,
+   "detail": "clean"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 22 violation(s): 22 x PP.2: PP.2 : min. pplus spacing : 0.4\u00b5m"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Top level cell failed pin matching.  (devices layout/ref 9/16; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/r2r8.gf180mcuD/a2/judge/r2r8.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "not confirmed (LVS failed)"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "79.62 x 13.60 = 1082.8 um2, budget 1705, reference 852.06"
+  }
+ ],
+ "area_um2": 1082.83,
+ "area_vs_reference": 1.271,
+ "solved": false,
+ "detail": "DRC2 (foundry KLayout deck): 22 violation(s), boxes in um\n    22 x PP.2: PP.2 : min. pplus spacing : 0.4\u00b5m   e.g. at (7.810 9.700 8.190 11.300)  (71.810 3.700 72.190 5.300)  (47.810 3.700 48.190 5.300)\nLVS: Top level cell failed pin matching.   devices layout/ref 9/16, nets layout/ref 7/17\n  ppolyf_u (25->9)                           |ppolyf_u (25->16) **Mismatch**\n  Number of devices: 9 **Mismatch**          |Number of devices: 16 **Mismatch**\n  Number of nets: 7 **Mismatch**             |Number of nets: 17 **Mismatch**\n  ---------------------------------------------------------------------------------------\n  NET mismatches: Class fragments follow (with fanout counts):\n  Circuit 1: r2r8                            |Circuit 2: r2r8\n  ---------------------------------------------------------------------------------------\n  Net: B6                                    |Net: B6\n    ppolyf_u/(1|2) = 4                       |  ppolyf_u/(1|2) = 1\n                                             |\n  Net: B0                                    |Net: B0\n    ppolyf_u/(1|2) = 4                       |  ppolyf_u/(1|2) = 1\n                                             |\n  Net: B1                                    |Net: B1\n    ppolyf_u/(1|2) = 4                       |  ppolyf_u/(1|2) = 1\n                                             |\n  Net: VSUBS                                 |Net: n3\n    ppolyf_u/3 = 9                           |  ppolyf_u/(1|2) = 3\n                                             |\n  Net: VSS                                   |Net: VSS\n    ppolyf_u/(1|2) = 1                       |  ppolyf_u/(1|2) = 1\n                                             |  ppolyf_u/3 = 16\n                                             |\n  (no matching net)                          |Net: n5\n                                             |  ppolyf_u/(1|2) = 3\n                                             |\n  (no matching net)                          |Net: n1\n                                             |  ppolyf_u/(1|2) = 3\n                                             |\n  (no matching net)                          |Net: n2\n                                             |  ppolyf_u/(1|2) = 3\n                                             |\n  (no matching net)                          |Net: B2\n                                             |  ppolyf_u/(1|2) = 1\n                                             |\n  (no matching net)                          |Net: B3\n                                             |  ppolyf_u/(1|2) = 1\n                                             |\n  (no matching net)                          |Net: B4\n                                             |  ppolyf_u/(1|2) = 1"
+}

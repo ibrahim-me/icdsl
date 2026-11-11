@@ -1,0 +1,3 @@
+- Your device order and net labels are right.
+- Delete the strap `n2st`: dn2nl and dn2pl are not above each other, so that horizontal strap runs along the n row into the VGND column (SHORT VGND/n2). `route n2 layers=m1,m2` already joins the n2 pieces.
+- The X strap `xst` on the left runs 0.045 um from n2's gate-contact li `an2` (needs 0.17). Shift ALL THREE gate contacts right by 0.13: `cx=(gn2.cx + 0.13)`, `cx=(ga.cx + 0.13)`, `cx=(gb.cx + 0.13)` (pitch 0.60 keeps the pads apart).

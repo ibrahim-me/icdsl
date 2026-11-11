@@ -1,0 +1,37 @@
+{
+ "task": "r2r8",
+ "pdk": "gf180mcuD",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_165328_v4/canvas/r2r8.gf180mcuD/a3/r2r8.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_165328_v4/canvas/r2r8.gf180mcuD/a3/r2r8.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "237 violation(s): 144 x Poly overlap of contact < 0.065um (CO.3); 38 x Unsalicided resistor spacing to poly contact must be 0.22um (PRES/LRES/HRES.7); 36 x rpp spacing to Cont < 0.215um (PRES.7 - CO.6); 18 x ppolyres minimum width < 0.8um (PRES.1); 1 x Metal1 spacing < 0.23um (M1.2a)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 119 violation(s): 36 x PRES.7: PRES.7 : Minimum space from salicide block to contact on Poly2 resistor: 0.22.um; 36 x SB.4: SB.4 : Space from salicide block to contact: 0.15 um; 36 x SB.8: SB.8 : Non-salicided contacts are forbidden.; 7 x PP.2: PP.2 : min. pplus spacing : 0.4\u00b5m; 2 x CO.2a: CO.2a : min. contact spacing : 0.25\u00b5m; 1 x M1.2a: M1.2a : min. metal1 spacing : 0.23\u00b5m"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Top level cell failed pin matching.  (devices layout/ref 9/16; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_165328_v4/canvas/r2r8.gf180mcuD/a3/judge/r2r8.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "not confirmed (LVS failed)"
+  },
+  {
+   "check": "area",
+   "ok": false,
+   "detail": "75.16 x 25.08 = 1885.0 um2, budget 1705, reference 852.06"
+  }
+ ],
+ "area_um2": 1885.01,
+ "area_vs_reference": 2.212,
+ "solved": false,
+ "detail": "DRC (magic drc(full)): 237 violation(s), boxes in um\n   144 x Poly overlap of contact < 0.065um (CO.3)   e.g. at (0.085 12.445 0.915 12.510)  (0.085 12.445 0.150 12.510)  (0.085 12.215 0.150 12.445)\n    38 x Unsalicided resistor spacing to poly contact must be 0.22um (PRES/LRES/HRES.7)   e.g. at (0.155 12.220 0.375 12.440)  (0.625 12.220 0.845 12.440)  (8.155 12.220 8.375 12.440)\n    36 x rpp spacing to Cont < 0.215um (PRES.7 - CO.6)   e.g. at (0.850 12.445 1.000 12.660)  (0.850 12.215 1.000 12.445)  (8.850 12.445 9.000 12.660)\n    18 x ppolyres minimum width < 0.8um (PRES.1)   e.g. at (0.150 12.215 0.800 12.445)  (0.150 11.555 0.800 11.785)  (8.150 12.215 8.800 12.445)\n     1 x Metal1 spacing < 0.23um (M1.2a)   e.g. at (3.555 0.850 3.675 0.905)\nDRC2 (foundry KLayout deck): 119 violation(s), boxes in um\n    36 x PRES.7: PRES.7 : Minimum space from salicide block to contact on Poly2 resistor: 0.22.um   e.g. at (32.155 12.220 32.375 12.440)  (16.155 12.220 16.375 12.440)  (8.625 12.220 8.845 12.440)\n    36 x SB.4: SB.4 : Space from salicide block to contact: 0.15 um   e.g. at (-3.440 0.155 -3.220 0.375)  (-2.780 0.155 -2.560 0.375)  (-3.440 0.625 -3.220 0.845)\n    36 x SB.8: SB.8 : Non-salicided contacts are forbidden.   e.g. at (-3.440 0.155 -3.220 0.375)  (-2.780 0.155 -2.560 0.375)  (-3.440 0.625 -3.220 0.845)\n     7 x PP.2: PP.2 : min. pplus spacing : 0.4\u00b5m   e.g. at (42.810 -0.300 43.190 1.300)  (34.810 -0.300 35.190 1.300)  (26.810 -0.300 27.190 1.300)\n     2 x CO.2a: CO.2a : min. contact spacing : 0.25\u00b5m   e.g. at (3.440 0.155 3.560 0.375)  (3.440 0.625 3.560 0.845)\n     1 x M1.2a: M1.2a : min. metal1 spacing : 0.23\u00b5m   e.g. at (3.445 0.600 3.555 0.905)\n     1 x PRES.3: PRES.3 : Minimum space from Poly2 resistor to COMP: 0.6.um   e.g. at (58.509 -0.347 59.001 1.347)\nLVS: Top level cell failed pin matching.   devices layout/ref 9/16, nets layout/ref 17/17\n  ppolyf_u (16->9)                           |ppolyf_u (25->16) **Mismatch**\n  Number of devices: 9 **Mismatch**          |Number of devices: 16 **Mismatch**\n  Number of nets: 17                         |Number of nets: 17\n  ---------------------------------------------------------------------------------------\n  NET mismatches: Class fragments follow (with fanout counts):\n  Circuit 1: r2r8                            |Circuit 2: r2r8\n  ---------------------------------------------------------------------------------------\n  Net: B0                                    |Net: B0\n    ppolyf_u/(1|2) = 1                       |  ppolyf_u/(1|2) = 1\n                                             |\n  Net: B1                                    |Net: B1\n    ppolyf_u/(1|2) = 1                       |  ppolyf_u/(1|2) = 1\n                                             |\n  Net: B2                                    |Net: B2\n    ppolyf_u/(1|2) = 1                       |  ppolyf_u/(1|2) = 1\n                                             |\n  Net: B3                                    |Net: B3\n    ppolyf_u/(1|2) = 1                       |  ppolyf_u/(1|2) = 1\n                                             |\n  Net: B4                                    |Net: B4\n    ppolyf_u/(1|2) = 1                       |  ppolyf_u/(1|2) = 1\n                                             |\n  Net: B5                                    |Net: B5\n    ppolyf_u/(1|2) = 1                       |  ppolyf_u/(1|2) = 1\n                                             |\n  Net: B6                                    |Net: B6\n    ppolyf_u/(1|2) = 1                       |  ppolyf_u/(1|2) = 1\n                                             |\n  Net: B7                                    |Net: B7\n    ppolyf_u/(1|2) = 1                       |  ppolyf_u/(1|2) = 1\n                                             |\n  Net: VSS                                   |Net: VSS\n    ppolyf_u/(1|2) = 2                       |  ppolyf_u/(1|2) = 1\n    ppolyf_u/3 = 9                           |  ppolyf_u/3 = 16\n                                             |\n  Net: a_3230_2443#                          |Net: n0\n    ppolyf_u/(1|2) = 1                       |  ppolyf_u/(1|2) = 3\n                                             |\n  Net: a_1630_2443#                          |Net: n1\n    ppolyf_u/(1|2) = 1                       |  ppolyf_u/(1|2) = 3"
+}

@@ -1,0 +1,442 @@
+# LLM standard-cell experiments (free model: nvidia/nemotron-3.5-super-vl:free)
+
+## Benchmark (2026-11-05): `bench/` + `agents/bench_harness.py`
+
+`bench/cells.json` - 14 cells taken from **sky130_fd_sc_hd** (the open SkyWater library): the
+transistor netlists are the library's own (`libs.ref/sky130_fd_sc_hd/spice`), widths x0.75 because
+our cells carry their own taps, bodies tied to the rails. Tiers: inv buf nand2 nor2 | nand3 nor3
+and2 or2 | a21oi o21ai a22oi o22ai | xor2 mux2i. Every cell is checked at the nominal point (magic DRC
++ netgen LVS against an independent reference netlist) and then over a 6-point sweep
+(L 0.15/0.18/0.25, widths x0.85/x1.35/x1.9, cell height 2.72/3.26/4.08).
+
+Tasks (`--task`):
+
+| task | what the model gets | what counts |
+|---|---|---|
+| `scratch` | function, ports, the fixed `device` lines | clean at nominal, then over the sweep |
+| `repair` | a verified cell with ONE injected bug (deleted supply strap / route, gate contacts pushed into the p row, gate gap too small, diffusion end too short) + its check report | clean again |
+| `compact` | the verified generator draft + the hd cell width | narrower than the draft, still sweep-clean |
+
+Techniques (flags): `--feedback basic|ranked` (ranked = root causes by statement and line,
+measured gap vs rule, a concrete edit, connectivity opens/shorts/unmatched transistors, failed
+routes), `--images none|full`, `--keep-best`, `--lessons FILE` (coach notes in the system prompt),
+`--examples K` (K most similar verified cells, leave-one-out), `--resume RUN --coach-dir DIR`
+(continue from an earlier run's best attempt with per-cell notes from a reviewer).
+
+`python bench/compare.py agents/bench_runs/*` - one line per run; `python bench/score.py <run>` -
+per-cell trail. `python agents/eval_drafts.py` - the algorithmic generator (`agents/sticks.py`)
+on all 14 cells.
+
+### Results (2026-11-05, nvidia/nemotron-3.5-super-vl:free, 5 attempts per cell, all calls $0)
+
+| run | task | techniques | solved | sweep-clean | calls |
+|---|---|---|---|---|---|
+| baseline | scratch | basic feedback + image | 3/14 | 3/14 | 65 |
+| R1 | scratch | ranked feedback, keep-best, lessons v1 | 5/14 | 5/14 | 63 |
+| R3 | scratch | ranked, keep-best, **lessons v2** | **10/14** | **10/14** | 46 |
+| R5 | scratch | R3 without images | 9/14 | 8/14 | 50 |
+| R4 | scratch | R3 + 2 retrieved verified cells | 10/14 (incl. mux2i) | 9/14 | 47 |
+| R8 | scratch | ranked, keep-best, lessons v3 | 8/14 | 6/14 | 55 |
+| **R7** | scratch | ranked, keep-best, **lessons v3 + 2 retrieved verified cells** | **11/14** (incl. xor2) | **11/14** | 38 |
+| repair | repair | ranked, keep-best, lessons v1 (3 attempts) | **12/14** (10 at attempt 1) | 12/14 | 23 |
+| coach | scratch, resume R1's 9 failures | + per-cell notes from a reviewer | 3/9 | 3/9 | 22 |
+| control | scratch, resume R1's 9 failures | no notes, same attempts | 4/9 | 4/9 | 24 |
+| compact | compact (8 cells) | ranked, lessons v1 (3 attempts) | 3/8 narrower | inv 1.84 -> **1.38 um (= hd inv_1)**, nand3 2.76 -> 2.30, o21ai 3.22 -> 2.76 | 24 |
+
+What moved the needle:
+* **Feedback that names the statement to change** (ranked mode) and a **connectivity check that
+  speaks in object names** (`SHORT A / VPWR on li at (0.69, 2.2): a (line 28), pwr (line 22)`,
+  `OPEN net n1 is 3 pieces`, `the nmos with gate S has VGND and n5 on its sides; it needs n3`).
+  netgen alone only says "nets differ".
+* **General lessons distilled from reviewing failed attempts** (lessons v1 -> v2: 5/14 -> 10/14).
+  The same insights given as per-cell coach notes were no better than simply more attempts with
+  the improved tools (3/9 vs 4/9) - coaching pays off once it is written as reusable rules.
+* **Tool fixes the runs exposed**: unroutable nets no longer abort the build (the model gets the
+  whole report + image instead of one line), pin-access-first routing in standard cells,
+  `array ... between=[g1, g2]`, an x position on an array means a column, unnamed shapes are
+  auto-named, a notch-fill explosion in the router (35 000 shapes, hung checks) fixed.
+* Images: about neutral (R3 10/14 vs R5 9/14 without) - the text carries the information.
+* Retrieval of similar verified cells: neutral on the count, but it solved the two-stage cells
+  (buf, and2) and the first tier-4 cell (mux2i) - it changes *which* cells pass.
+* Lessons v3 (two-stage cells, label-swap hint) alone did not beat v2 (8/14 vs 10/14); together with
+  retrieval it gave the best run, R7: 11/14 sweep-clean in 38 calls, including xor2.
+* Run-to-run variance is about +-1-2 cells; every one of the 14 cells has been solved from scratch
+  in at least one run. The algorithmic generator (`agents/sticks.py`) solves all 14 - usable as a
+  fallback or as the starting point (`repair`/`compact` tasks start from it).
+
+
+
+`agents/nemotron_stdcells.py` lets a free OpenRouter model write ICL level-1 (`stdcell`)
+cells, checks them with magic DRC + netgen LVS (LVS against an **independent** reference
+netlist generated by the harness, so the model cannot pass by changing the circuit), feeds the
+report back (text + rendered PNG), and finally sweeps the cell's parameters locally:
+
+* nominal WN=0.52 WP=0.77 L=0.15 H=2.72 (sky130 hd height)
+* 18 points at H=2.72: WN ∈ {0.42, 0.52} × WP ∈ {0.42, 0.64, 0.77} × L ∈ {0.15, 0.18, 0.25}
+* 4 taller cells: (0.65, 1.0, 0.15, 3.26), (0.84, 1.26, 0.15, 3.80), (1.0, 1.5, 0.15, 4.08), (0.65, 1.0, 0.25, 3.26)
+
+The harness refuses any model that is not zero-priced, caps API calls, backs off on 429s and
+never writes the key to disk. `python agents/summarize.py agents/runs/<stamp>` prints a run.
+
+## Results (2026-11-04: 39 calls in the four runs + 1 aborted + 1 probe = 41 calls, $0)
+
+| run | prompt | cell | outcome |
+|---|---|---|---|
+| 1 | reference + 1 example (inverter) | nand2 | 3 compile errors, then 106 DRC / LVS fail |
+| 1 | | nor2 | never clean (157 DRC, then compile errors) |
+| 1 | | buf | 76–120 DRC, LVS fail ×4 |
+| 1 | | aoi21 | compile errors / 46 DRC |
+| 2 | + standard-cell method, 2nd example (nand2), mistakes list, pre-check + LVS hints | **nor2** | **clean on attempt 1; sweep 22/22 clean** |
+| 2 | | buf | 10 → 36 → 26 DRC (LVS match on attempt 3) → routing error |
+| 2 | | aoi21 | 201 DRC, stuck |
+| 3 | v2, 5 attempts | buf | DRC 0 ×3 but LVS fail: inverters left in series (uncontacted shared column) |
+| 3 | | aoi21 | diverged 167 → 356 DRC |
+| 4 | v2 + series-node LVS hint | buf | compile/routing errors, then 101 DRC |
+
+Reference cells written by hand in the same language (`examples/l1_param_inv.icl`,
+`examples/l1_param_nand2.icl`) pass **22/22** sweep points each.
+
+## What the model got wrong, and what changed in ICL because of it
+
+* Invented syntax: local variables (`nd_w = 2*L + 0.72`), `x=`/`gap=` keywords, `strap` with two `to=`.
+  → ICL now accepts `name = <expression>` bindings and `gap=` as an alias of `space=` in stdcells;
+  errors list the allowed keywords.
+* Topology: p-diffusion beside the n-diffusion, gate contacts not touching their gate, its own
+  n-well drawn over the n-devices, shared supply columns left uncontacted (series devices).
+  → the v2 prompt states the standard-cell method; the feedback explains extra LVS nets and
+  unnamed series nodes in plain words. This is what took nor2 from failing to first-try clean.
+* `cross ... yspan=` was silently ignored → `cross` now rejects position keys on its crossing axis.
+
+## Bugs the sweeps found in ICL itself (fixed)
+
+* Template n-well split fixed at 1.305 µm whatever the cell height → now 0.48·H by default and
+  `well y=<expr>` to set it from the diffusions.
+* A route starting on a met1 pin could hang 0.04 µm past the pad (met1 width violation at some
+  W values) → strict pin access now requires a full wire width inside the pin.
+* Gate-contact placement in my own inverter violated li spacing at W=0.42 → fixed with
+  `bottom=max(nd.top + 0.19, snl.top + 0.25, ...)`, now part of the worked example.
+
+## Takeaways
+
+The free 3.5-super-vl model can produce a correct, fully parametric cell when the language
+carries the rules (`min`, relative placement) and the prompt carries the method; one of four new
+cells reached that bar (nor2, robust across W, L and height). Multi-stage and complex cells (buf,
+aoi21) did not converge in 4–5 feedback rounds; results vary a lot between runs. Better levers
+than more attempts: more worked examples close to the target topology, and checks that point at
+the exact statement to change (the DSL-side improvements above).
+
+## Level-2 benchmark (2026-11-06): `bench/l2_cells.json` + `agents/bench_l2.py`
+
+12 analog blocks assembled from PCells: current mirrors (1:1, 1:2, cascode, 3-way, 4-way bank),
+differential pair, 5T OTA (+ an area-budget variant), symmetric differential stage, two-stage
+OTA, StrongARM latch, folded-cascode OTA. Each fixes the transistors and lists layout
+constraints that `bench/l2_judge.py` measures on the drawn geometry (fingers found as poly x diff
+and assigned to devices by their nets): interdigitated / common-centroid matching, mirror
+symmetry about one axis, closed guard rings, route width, wire-to-wire spacing outside the pin
+escape zones, mirror-image routing, area budget. LVS runs against an independent reference with
+matching dummies stripped. Sweep: L x2, minimum L, widths x2. Hand-written references for all 12
+(`bench/l2_ref/`, `python bench/l2_eval_refs.py`) are clean at every point.
+
+| run | techniques | solved | sweep-clean | calls |
+|---|---|---|---|---|
+| first 9 cells, basic feedback | | 6/9 | 6/9 | 24 |
+| first 9 cells, ranked feedback + keep-best | | 7/9 | 7/9 | 17 |
+| 12 cells, ranked + keep-best (tool fixes below) | | 11/12 | 10/12 | 22 |
+| 12 cells, + `lessons_l2.md` | | 12/12 | 10/12 | 17 |
+| 12 cells, + `lessons_l2.md` (repeat) | | **12/12** | **12/12** | 19 |
+| 12 cells, + `lessons_l2.md` + 2 retrieved references | | 12/12 | 12/12 | 17 |
+
+Level 2 is much easier for the model than level 1: the PCells, patterns, `gap=min` placement and
+the router carry the design rules, so most cells are clean at the first attempt. The model's own
+layouts (lessons run) total 946 um2 against 1234 um2 for my references; with retrieval it copies
+the references' style and gets bigger (1564 um2).
+
+Tool changes the level-2 runs drove: automatic diffusion breaks in patterns (interdigitating
+devices with no common net, any letter order), wide wires neck down at their own pins, guard
+rings push the placements anchored to their contents out of the way (reported as a warning),
+`pair` can mirror an already placed object, n-wells closer than 2.8 um merge, every n-well island
+is checked for a tap, power/ground ports only when needed, LVS without dummies against an
+independent reference.
+
+## Agentic harness (2026-11-06): `agents/deep_harness.py` (LangGraph deepagents)
+
+The chat-only harnesses above send the model one message per attempt and run the checks themselves.
+`deep_harness.py` instead gives the free model an agent loop with tools: deepagents' file tools
+(read/write/edit/ls/grep on a per-cell workspace holding TASK.md, AGENTS.md, examples, lessons),
+`write_todos`, sub-agents (`task`), plus `check_layout` (DRC + LVS (+ judge) with the ranked feedback),
+`check_sweep` and `inspect_layout`; the shell is disabled. Budgets: model calls and check calls per
+cell; the harness re-checks the deliverable (nominal + sweep) itself afterwards. Two harness features
+turned out to matter: **continuation nudges** (a weak model often ends its turn without a tool call -
+"Let me analyze the netlist..." - which ends a deep agent; the harness tells it what is still failing
+and continues, up to 3 times) and **retrieved verified examples** in the workspace.
+
+    python agents/deep_harness.py --level 1 --examples 2 --nudges 3      # standard cells
+    python agents/deep_harness.py --level 2                               # analog assembly
+    python agents/deep_harness.py --level 1 --task repair|compact
+
+| benchmark | chat-only best | agentic | model calls chat / agentic |
+|---|---|---|---|
+| L1 scratch, 14 cells | 11/14 sweep-clean (lessons v3 + retrieval) | **12/14** (lessons v3 + retrieval + nudges); 6/14 without nudges/retrieval | 38 / 241 |
+| L1 repair, 14 cells | 12/14 | 12/14 (o22ai, xor2 missed) | 23 / 182 |
+| L1 compact, 8 cells | 3/8 narrower, total 21.16 um | **6/8** narrower (best verified version), total 19.78 um | 24 / 154 |
+| L2, 12 cells | 12/12 (lessons) | 12/12 (lessons) | 19 / 122 |
+
+Same success as the best chat-only setups on scratch / repair / L2 (+1 cell on scratch, within run-to-run
+variance), clearly better on compaction (the agent can try a narrower version, sweep it, and back off),
+at about 6x the requests (reading docs, self-checks, sweeps). The agent's last file is not always its
+best (4 compaction agents ended on a broken narrower try): the harness now falls back to the last
+version the agent checked clean (harness-side keep-best).
+
+
+## Reference library (2026-11-07): `library/`, `agents/libsearch.py`
+
+The `sky130_fd_sc_hd` cells converted to ICL (`icdsl/lift.py`) and signed off over a sweep; see
+`library/README.md`. In `deep_harness.py`:
+
+    # library conventions (tapless, PDK widths); A = no library, B = retrieval + tools, C = edit the nearest
+    python agents/deep_harness.py --bench library/eval_specs.json --tag libA
+    python agents/deep_harness.py --bench library/eval_specs.json --library hd --examples 2 --tag libB
+    python agents/deep_harness.py --bench library/eval_specs.json --library hd --examples 2 --task edit --tag libC
+
+`--bench FILE` picks the spec file (`library/lib_specs.json` / `eval_specs.json` hold the tapless library
+conventions: `taps=no`, bodies VNB/VPB, DRC with the tap rules waived via `ICL_WAIVE`). `--library hd`
+puts the 2 most similar library cells into `/examples/` and adds `search_library` / `get_library_cell`;
+the task's own function family is never visible. `--task edit` starts `/<cell>.icl` from the nearest
+library cell (`libsearch.start_file`). Results: `library/RESULTS.md`.
+
+## XL benchmark, three interfaces (2026-11-11): `bench/xl` + `agents/xl_harness.py`
+
+The question: with the same model and the same feedback loop, how far does it get on the 22 XL cases
+(8 tasks, sky130A / gf180mcuD / freepdk45) when it writes
+
+- `canvas`: a canvas script (system prompt = CANVAS.md + two example scripts + the PDK rule sheet),
+- `raw`: plain Python that builds the GDS with `klayout.db` (system prompt = a skeleton + the PDK data file),
+- `icl`: an ICL file (AGENTS.md + one example; sky130A logic tasks only, the language has no other PDK or device).
+
+```
+.venv/bin/python agents/xl_harness.py --iface canvas,raw,icl --attempts 4 --workers 3 --tag base
+.venv/bin/python agents/xl_harness.py --resume agents/xl_runs/<run>      # continue an interrupted run
+.venv/bin/python agents/xl_harness.py --summary agents/xl_runs/<run>     # table from the stored results
+.venv/bin/python agents/xl_harness.py --rejudge-last agents/xl_runs/<run>   # see "A harness error found after v4"
+options: --pdks a,b  --tasks a,b  --model ID (free models only)  --max-total-calls N
+         --level-hint   canvas, netlist tasks: after a failed attempt that did not call from_spice, the
+                        feedback adds that the task has a netlist and that from_spice builds from it
+```
+
+Each case is one conversation: task text + netlist, then up to `--attempts` replies. Every reply is
+built and judged by `bench/xl/judge.py` (magic DRC, the PDK's KLayout deck, netgen LVS against the task
+netlist, pins, area budget, geometry checks); the judge table and the tool report go back to the model.
+Of a reply, the last code block that is a whole file is judged. A reply without code costs the
+attempt; the feedback then says that there are no tools in this conversation. Model code runs only
+inside a bubblewrap sandbox (no network, project read-only, one writable directory). Each signoff tool run is limited to 180 s (`ICL_SIGNOFF_TIMEOUT`); the references need 1 to
+10 s, broken layouts made magic's extraction run for up to 52 minutes.
+
+### Baseline (`xl_runs/20261111_031139_base`, nvidia/nemotron-3.5-super-vl:free, 4 attempts, 188 calls, $0)
+
+| interface | solved | built a GDS | calls |
+|---|---|---|---|
+| canvas | 1 / 22 (cdac6 gf180mcuD, attempt 3) | 18 / 22 | 87 |
+| raw klayout.db | 0 / 22 | 21 / 22 | 88 |
+| icl | 2 / 4 (rca8 attempt 1, shreg16 attempt 4) | 2 / 4 | 13 |
+
+The per-case table is `SUMMARY.md` in the run directory. The run was interrupted twice (the 2 h limit
+of a background command, then a judge that did not return on a GDS drawn 1000 times too large; fixed)
+and continued with `--resume`; the first 20 cases ran before the 180 s tool limit existed.
+
+What it shows:
+
+- Raw GDS does not work for this model at this size: almost every script runs, none is close (hundreds
+  to tens of thousands of DRC errors, no LVS match). Near misses exist only on the canvas (two spirals
+  failed one check: a via pad narrower than the trace at the inner end).
+- ICL solved logic tasks because there the model writes only the device list and `row`: placement and
+  wiring are the tool's work. On the canvas the same model placed single transistors and wired them
+  by hand, although `stick`, `rows` and `Router` were documented: the prompt's only example was a
+  hand-drawn inverter.
+- So the level of the interface decides, not its freedom. A free canvas needs the high level too.
+- 60 of the 87 canvas replies did not build, and most of those stopped on a guessed API detail:
+  swapped rectangle edges (7), a number where a point was expected (3), `via` between two names of
+  the same layer (3), `ntracks` too small (3), keywords and attributes that do not exist (about 10).
+
+### What changed because of it
+
+- **Netlist level in the canvas** (`icdsl/canvas/synth.py`, CANVAS.md section 8): `from_spice(netlist)`
+  turns a SPICE hierarchy into stick cells (`stick_auto`: n/p pairing, column order and orientation for
+  the fewest diffusion breaks), rows and routed nets, on any described PDK. The four logic tasks build
+  from their task netlists on all three PDKs and are judged solved, with no task-specific code
+  (`bench/xl/from_netlist.py`; area 0.93 to 1.36 times the hand-written references).
+- Script errors: only the script's own lines, and for a wrong attribute / keyword / name the ones that
+  exist (`icdsl/cli.py`); clearer messages for points, empty rectangles, `ntracks`, same-layer `via`.
+- Judge: the spiral width check says where and how wide the narrow spot is.
+- Prompt: a second example (`tests/canvas/pcells.py`, every PCell once); the netlist is also a file
+  next to the script.
+- **Device rows for everything else** (`icdsl/canvas/analog.py`, `from_spice(..., style="rows")`, chosen
+  automatically when the netlist does not fit stick cells): the hierarchy is flattened, fingers are
+  merged into multi-finger strips with drain / source / gate bars (`mos_strip`, also exported for
+  hand use), n strips go into substrate rings and p strips into n-well rings, resistors beside them
+  (inside a ring when they have a bulk terminal), MIM capacitors into a grid with its own router on
+  the two metals under the plates. With it the three analog netlist tasks build from their task
+  netlists too: **19 of the 22 cases are solved by `TOP = from_spice(netlist)`**, at 0.55 to 1.36
+  times the reference area (`bench/xl/from_netlist.py`, part of `tests/run_canvas.sh`). Only `spiral`
+  has no netlist.
+- CANVAS.md starts with "Choose the level first" (netlist -> `from_spice`, schematic -> stick cells /
+  strips / router, shape -> polygons).
+
+### After the changes (same model, same loop, canvas interface only, $0)
+
+| run | cases | solved | built | calls | library / prompt state |
+|---|---|---|---|---|---|
+| base `20261111_031139_base` | 22 | 1 | 18 | 87 | hand-drawn inverter as the only example |
+| v2 `20261111_130341_v2` | 22 | 12 | 21 | 54 | netlist level for logic, new error messages |
+| v3 `20261111_162346_v3` | 10 (the four tasks v2 had failures in, without spiral) | 4 | 8 | 28 | plus device rows and the rewritten section 8 |
+| v4 `20261111_165328_v4` | 22 | 16 as run, 18 with the reply's final file judged (below) | 21 | 44 | plus "Choose the level first" and a `mos_strip` example in CANVAS.md |
+| v5 `20261111_173708_v5` | 22 | 15 as run, 16 under the revised spiral width rule (below) | 19 | 46 | as v4, with the corrected harness (the reply's final file is judged) |
+| v6 `20261111_183435_v6` | 22 | 20 | 22 | 33 | as v5, plus the feedback changes and the revised spiral width rule (section v6 below) |
+
+v2: all nine rca8 / dec4to16 / shreg16 cases at the first attempt with scripts of 4 to 12 lines
+(`from_spice("netlist.spice")`), sram16x8 on two PDKs at the first attempt, spiral on sky130A at the
+third. Not solved: the analog netlist tasks (no netlist path for them yet), sram16x8 on gf180mcuD
+(the model placed the transistors by hand: 21,152 DRC errors), spiral on gf180mcuD (clean, but 2.4
+times the area budget) and on freepdk45 (no underpass in any attempt). The library changed while v2 ran:
+the shorter script errors went live after the first cdac6 attempt, and device rows near the end (it
+can have affected the last r2r8 attempt on sky130A and the prompts of the three sram16x8 cases).
+
+v3: ota_miller on all three PDKs at the first attempt, with
+`from_spice("netlist.spice", top="ota_miller", style="rows")`, and sram16x8 on gf180mcuD. Not solved:
+r2r8 and cdac6 on both PDKs. The model never called `from_spice` there; it drew the resistors and
+capacitors by hand and spent its attempts repairing that script. sram16x8 on freepdk45 and sky130A,
+solved in v2, failed here because the model wrote stick cells by hand this time.
+
+v4: the full set with the finished library and CANVAS.md. Solved at the first attempt, each with a
+`from_spice` script of 4 to 15 lines: all twelve rca8 / dec4to16 / shreg16 / ota_miller cases, cdac6 on
+gf180mcuD, sram16x8 on freepdk45. sram16x8 on gf180mcuD at the second attempt (a 192-line hand script
+first, then four lines), spiral on sky130A at the fourth. Not solved as run: r2r8 on both PDKs (see the
+harness error below), cdac6 and sram16x8 on sky130A (the first reply had no code: the model announced
+that it would "first inspect the PDK", as if it had tools, and then drew by hand), spiral on freepdk45
+(edges that are not at 45 degrees, a narrow spot, no underpass) and on gf180mcuD (edges not at 45
+degrees and the deck's acute-angle rule).
+
+### A harness error found after v4: the longest code block was judged, not the last
+
+`code_block()` took the longest code block of a reply. This model thinks aloud: it often writes a
+draft, corrects itself and ends with the file it means. Where that final file was shorter than a
+draft, the draft was judged, and the draft went back to the model as "its" script. 29 of the 316
+replies of the four runs are affected (base 15: 11 canvas and 4 raw; v2 5; v3 5; v4 4).
+
+`xl_harness.py --rejudge-last RUN` judges the final file of each such reply afterwards (same
+sandbox, same judge, `REJUDGE.md` in the run directory; the stored results stay as run):
+
+- base, v2, v3: no case changes. All 25 final files fail as well (18 do not build either, 3 build
+  where the draft did not, 4 fail checks like the draft).
+- v4: the first replies for r2r8 on sky130A and on gf180mcuD ended with
+  `TOP = from_spice("netlist.spice", style="rows")` (7 and 3 lines) after hand-drawn drafts of 67 and
+  79 lines. The drafts were judged, the model was told to repair them, and both cases were lost.
+  Judged on the final file, both are solved at the first attempt: **18 of 22** for what the model
+  answered. The other two v4 replies fail either way.
+
+What the re-judging cannot show: in the affected cases the later attempts answered feedback on a
+draft, so how those conversations would have gone is unknown. The harness now takes the last block
+that is a whole file (it has the interface's import or cell line), else the longest block.
+
+### v5: v4 repeated with the corrected harness
+
+Same library, same CANVAS.md, same options as v4: 15 of 22. Solved at the first attempt with a
+`from_spice` script: all twelve rca8 / dec4to16 / shreg16 / ota_miller cases and sram16x8 on gf180mcuD.
+cdac6 on sky130A at the second attempt (the first script called `from_spice` and then edited the
+result through attributes that do not exist), cdac6 on gf180mcuD at the third (two hand-drawn scripts,
+then `from_spice`). Not solved:
+
+- r2r8 on both PDKs: drawn by hand in every attempt (on gf180mcuD the first reply had no code);
+- sram16x8 on freepdk45: drawn by hand, 35,016 DRC errors at the end;
+- sram16x8 on sky130A: three replies were tool calls written as text (`bin/icl inspect ...`) with no
+  code, the fourth wrote stick cells and did not build;
+- spiral on sky130A: clean, 1.9 times the area budget; on freepdk45: edges that are not at 45 degrees,
+  then a coil that is not one closed trace; on gf180mcuD: all checks passed except the trace width,
+  and the narrow spot was the pad of the via at the inner end (next section).
+
+v4 and v5 differ by the harness correction and by chance only, and they end at 16 to 18 and 15 to 16
+of 22. Differences of two or three cases between two runs of this model are therefore not evidence
+for or against a change; the step from 1 to 12 and from 12 to about 16 is.
+
+### The spiral width check was wrong about via pads (judge changed after v5)
+
+The task says "trace width at least 4.0 um everywhere". The judge measured every narrower spot of
+the coil polygon, so a via pad that sticks out of the end of the trace (1 to 2 um wide, drawn on the
+same metal by `c.via`) counted as a narrow trace, and so did the short last segment of a trace
+before a 45 degree bend. That is a wrong verdict, and it sent the model after a width error that
+the trace did not have: the check failed in 28 of the 45 spiral layouts stored by the five runs.
+
+`bench/xl/judge.py` now shrinks the coil by half the width. The rest must be one piece (a neck cuts
+it, a place where two parts only meet at a corner cuts it, a trace that is too thin everywhere leaves
+nothing), and what the shrinking removes for good may only be a dead end of at most 4 um2. The
+regression has a case for each side (`tests/run_canvas.sh`: via pad accepted; thin tail, corner
+contact and meander rejected). The task text states the dead-end exception since then.
+
+All stored spiral layouts were judged again with this rule. The width check now fails in 9 of the 45
+(8 from the raw interface, thin traces and segments that meet at corners, and one canvas layout whose
+lead meets the coil only at a corner). 4 verdicts change, in 2 cases:
+
+| run | as run | revised width rule | the case |
+|---|---|---|---|
+| base, canvas | 1 / 22 | 2 / 22 | spiral on sky130A, attempts 2 to 4 |
+| v5 | 15 / 22 | 16 / 22 | spiral on gf180mcuD, attempt 4 |
+
+v2, v3, v4 and the raw run keep their counts. Both layouts are three-turn octagonal spirals with an
+underpass, clean in both DRC decks (looked at as images). This is a change of the judge made after
+seeing results; the "as run" numbers are the ones measured under the rule the model was given, and
+in the cases concerned the model spent attempts on a width error it did not have.
+
+### v6: feedback that names the netlist level, and the revised spiral rule
+
+Changed against v5, all at once:
+
+- `--level-hint`: when a netlist task is answered without `from_spice`, the feedback ends with a note
+  that the task comes with a netlist and that `TOP = from_spice("netlist.spice")` builds it;
+- a reply without code is answered with "there are no tools in this conversation; reply with the
+  complete file";
+- a segment that is neither Manhattan nor at 45 degrees gives a `note:` line in the check report
+  (statement, segment, angle), so the model sees it before a DRC deck does;
+- the router's "pin too short for a via" message says where the tracks are and how long the pin has
+  to be;
+- the revised spiral width rule and its task text (previous section).
+
+20 of 22, all 22 built, 33 calls. 17 of the 19 netlist cases were solved at the first attempt with a
+`from_spice` script, among them both r2r8 cases, which no earlier run had solved as run. The other
+two took the hand route first and changed after the note:
+
+- cdac6 on gf180mcuD: a hand-drawn script that did not build, then `from_spice` (attempt 2);
+- sram16x8 on freepdk45: a reply without code, a hand-drawn script, then `from_spice` (attempt 3).
+
+The note was sent three times (those two cases), the no-tools answer once.
+
+spiral, the one task without a netlist: solved on gf180mcuD at the third attempt (a wrong keyword,
+then 10 edges off the 45 degree grid, which the report named, then clean). Not solved on sky130A
+(off-angle edges and metal5 spacing in every attempt, 13 DRC errors at the end) and on freepdk45
+(the turns touch and close loops, no underpass in any attempt).
+
+How to read it: several things changed together, and two runs of this model differ by two or three
+cases without any change (v4 / v5). The 20 is therefore not a measured effect of one of the items.
+What the run does show is the mechanism: every netlist case that started by hand was brought back by
+the note, where v5 lost four such cases (r2r8 twice, sram16x8 twice).
+
+What it shows:
+
+- The solved count follows the level the model picks. Counted on the judged scripts of the netlist
+  tasks in v2, v3 and v4 (19 + 10 + 19 cases): the first submission called `from_spice` in 31 cases
+  and 29 of those were solved by it; the other two were ota_miller in v2, before device rows existed
+  (the call was an error, the model went back to drawing by hand and did not finish). Where the first
+  submission drew devices or stick cells by hand, or the first reply had no code, 17 cases, one was
+  solved, at the second attempt, by switching to `from_spice`. (The two r2r8 cases of v4 count among
+  the 17 here, as run.) No attempt that drew a netlist task by hand passed in v2 to v4.
+- The pick is not stable: the same model on the same task used the netlist level in one run and not
+  in another (sram16x8, cdac6). A prompt can raise the rate (13 of 19 first submissions in v2, 14 of
+  19 in v4, 16 of 19 with the final files); it does not make it certain.
+- The model sometimes replies as if it had tools ("let me inspect the PDK first") and sends no code.
+  A loop with tools, like `deep_harness.py`, would use that; this loop loses an attempt.
+- Saying it in the feedback works better than saying it in the document: in v6 the two netlist cases
+  that began by hand were told "this task comes with a netlist" and both switched and were solved.
+- Once the netlist level exists, 19 of the 22 cases no longer test drawing. They test whether the
+  model takes the three-line path. What still tests free drawing is `spiral`: solved in one of
+  the three cases per run at best (sky130A in v2 and v4 and, under the revised rule, in the baseline;
+  gf180mcuD in v6 and, under the revised rule, in v5), never on freepdk45. The benchmark needs tasks in which the netlist alone is not the
+  answer (pin sides, symmetry and matching that are judged, a tighter area budget): see
+  `bench/xl/README.md`.

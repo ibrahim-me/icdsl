@@ -1,0 +1,415 @@
+{
+ "cell": "buf",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/runs/20261104-074631/buf/check5/buf.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/runs/20261104-074631/buf/check5/buf.reference.spice",
+ "size_um": [
+  2.76,
+  2.72
+ ],
+ "warnings": [
+  "buf: fast pre-check found 5 rule issue(s): poly.space at [1.24, 0.986, 1.43, 1.434] near nwell (line 41), nim (line 13), pim (line 14); m1.space at [1.258, 0.82, 1.562, 0.955] near nd (line 11), nim (line 13), gn1 (line 16); m1.space at [1.21, 0.955, 1.295, 1.355] near nwell (line 41), nim (line 13), ga (line 15); m1.space at [1.628, 0.82, 1.917, 0.955] near nd (line 11), nim (line 13), gn1 (line 16); m1.4 at [1.48, 1.295, 1.71, 1.295] near gn1 (line 16), gcn (line 35), gpn (line 37)"
+ ],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 20,
+  "by_rule": [
+   {
+    "rule": "Metal1 spacing < 0.14um (met1.2)",
+    "count": 15,
+    "examples": [
+     {
+      "box_um": [
+       1.155,
+       1.295,
+       1.21,
+       1.355
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "ga": [
+        "poly"
+       ],
+       "gca": [
+        "licon"
+       ],
+       "gpa": [
+        "poly"
+       ],
+       "a": [
+        "li"
+       ],
+       "am": [
+        "mcon"
+       ],
+       "ap": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.295,
+       0.955,
+       1.35,
+       1.065
+      ],
+      "objects": {
+       "nd": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "n1p": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.295,
+       0.955,
+       1.35,
+       1.125
+      ],
+      "objects": {
+       "nd": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "n1p": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.295,
+       1.125,
+       1.35,
+       1.295
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "n1p": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "poly spacing < 0.21um (poly.2)",
+    "count": 4,
+    "examples": [
+     {
+      "box_um": [
+       1.22,
+       1.345,
+       1.24,
+       1.535
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd": [
+        "diff"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "ga": [
+        "poly"
+       ],
+       "gpa": [
+        "poly"
+       ],
+       "ap": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.43,
+       1.075,
+       1.45,
+       1.125
+      ],
+      "objects": {
+       "nim": [
+        "nsdm"
+       ],
+       "gpn": [
+        "poly"
+       ],
+       "gnn": [
+        "npc"
+       ],
+       "n1p": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.43,
+       1.125,
+       1.45,
+       1.295
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "gpn": [
+        "poly"
+       ],
+       "gnn": [
+        "npc"
+       ],
+       "n1p": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.43,
+       1.295,
+       1.45,
+       1.345
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "gpn": [
+        "poly"
+       ],
+       "gnn": [
+        "npc"
+       ],
+       "n1p": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "Metal1 overlap of local interconnect contact < 0.03um (met1.4)",
+    "count": 1,
+    "examples": [
+     {
+      "box_um": [
+       1.51,
+       1.265,
+       1.68,
+       1.295
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "gn1": [
+        "poly"
+       ],
+       "gcn": [
+        "licon"
+       ],
+       "gpn": [
+        "poly"
+       ],
+       "gnn": [
+        "npc"
+       ],
+       "n1g": [
+        "li"
+       ],
+       "n1m": [
+        "mcon"
+       ],
+       "n1p": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": false,
+  "result": "Netlists do not match.",
+  "devices_layout_vs_ref": [
+   4,
+   4
+  ],
+  "nets_layout_vs_ref": [
+   7,
+   5
+  ],
+  "details": [
+   "Number of nets: 7 **Mismatch**             |Number of nets: 5 **Mismatch**             ",
+   "---------------------------------------------------------------------------------------",
+   "NET mismatches: Class fragments follow (with fanout counts):",
+   "Circuit 1: buf                             |Circuit 2: buf                             ",
+   "---------------------------------------------------------------------------------------",
+   "Net: n1                                    |Net: n1                                    ",
+   "  sky130_fd_pr__nfet_01v8/(1|3) = 2        |  sky130_fd_pr__nfet_01v8/(1|3) = 1        ",
+   "                                           |  sky130_fd_pr__pfet_01v8/(1|3) = 1        ",
+   "                                           |  sky130_fd_pr__nfet_01v8/2 = 1            ",
+   "                                           |  sky130_fd_pr__pfet_01v8/2 = 1            ",
+   "                                           |                                           ",
+   "Net: VGND                                  |Net: VGND                                  ",
+   "  sky130_fd_pr__nfet_01v8/4 = 2            |  sky130_fd_pr__nfet_01v8/4 = 2            ",
+   "  sky130_fd_pr__nfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/(1|3) = 2        ",
+   "                                           |                                           ",
+   "Net: VPWR                                  |Net: VPWR                                  ",
+   "  sky130_fd_pr__pfet_01v8/(1|3) = 1        |  sky130_fd_pr__pfet_01v8/(1|3) = 2        ",
+   "  sky130_fd_pr__pfet_01v8/4 = 2            |  sky130_fd_pr__pfet_01v8/4 = 2            ",
+   "                                           |                                           ",
+   "Net: a_286_215#                            |(no matching net)                          ",
+   "  sky130_fd_pr__nfet_01v8/2 = 1            |                                           ",
+   "  sky130_fd_pr__pfet_01v8/2 = 1            |                                           ",
+   "                                           |                                           ",
+   "Net: a_248_307#                            |(no matching net)                          ",
+   "  sky130_fd_pr__pfet_01v8/(1|3) = 2        |                                           ",
+   "---------------------------------------------------------------------------------------",
+   "Netlists do not match.",
+   "Port matching may fail to disambiguate symmetries.",
+   "Subcircuit pins:",
+   "Circuit 1: buf                             |Circuit 2: buf                             ",
+   "-------------------------------------------|-------------------------------------------",
+   "Cell pin lists are equivalent.",
+   "Device classes buf and buf are equivalent.",
+   "Final result: Netlists do not match.",
+   "Port matching may fail to disambiguate symmetries."
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/runs/20261104-074631/buf/check5/buf.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/runs/20261104-074631/buf/check5/buf.lvs.txt"
+ },
+ "routes": {
+  "nets": {
+   "X": {
+    "length_um": 1.96,
+    "layers": [
+     "m1"
+    ],
+    "cuts": 0,
+    "width_um": {
+     "m1": 0.14
+    },
+    "res_ohm": 1.75
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [
+  {
+   "rule": "poly.space",
+   "msg": "poly spacing < 0.210 um",
+   "objects": [
+    "nwell (line 41)",
+    "nim (line 13)",
+    "pim (line 14)",
+    "ga (line 15)",
+    "gpa (line 36)",
+    "gpn (line 37)"
+   ],
+   "box_um": [
+    1.24,
+    0.986,
+    1.43,
+    1.434
+   ]
+  },
+  {
+   "rule": "m1.space",
+   "msg": "m1 spacing < 0.140 um",
+   "objects": [
+    "nd (line 11)",
+    "nim (line 13)",
+    "gn1 (line 16)",
+    "mn1l (line 25)",
+    "mn1p (line 44)",
+    "n1p (line 48)"
+   ],
+   "box_um": [
+    1.258,
+    0.82,
+    1.562,
+    0.955
+   ]
+  },
+  {
+   "rule": "m1.space",
+   "msg": "m1 spacing < 0.140 um",
+   "objects": [
+    "nwell (line 41)",
+    "nim (line 13)",
+    "ga (line 15)",
+    "gpa (line 36)",
+    "n1p (line 48)",
+    "ap (line 57)"
+   ],
+   "box_um": [
+    1.21,
+    0.955,
+    1.295,
+    1.355
+   ]
+  },
+  {
+   "rule": "m1.space",
+   "msg": "m1 spacing < 0.140 um",
+   "objects": [
+    "nd (line 11)",
+    "nim (line 13)",
+    "gn1 (line 16)",
+    "sxnl (line 26)",
+    "n1p (line 48)",
+    "xnp (line 51)"
+   ],
+   "box_um": [
+    1.628,
+    0.82,
+    1.917,
+    0.955
+   ]
+  },
+  {
+   "rule": "m1.4",
+   "msg": "met1 enclosure of mcon < 0.030 um",
+   "objects": [
+    "gn1 (line 16)",
+    "gcn (line 35)",
+    "gpn (line 37)",
+    "gnn (line 38)",
+    "n1g (line 40)",
+    "n1m (line 47)"
+   ],
+   "box_um": [
+    1.48,
+    1.295,
+    1.71,
+    1.295
+   ]
+  }
+ ],
+ "constraint_violations": [],
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/runs/20261104-074631/buf/check5/buf.png",
+ "status": "VIOLATIONS",
+ "seconds": 4.0
+}

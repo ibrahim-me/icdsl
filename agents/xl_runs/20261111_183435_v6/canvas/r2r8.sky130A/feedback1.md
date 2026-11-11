@@ -1,0 +1,6 @@
+Judge:
+  ok   DRC      clean
+  ok   DRC2     foundry KLayout deck clean
+  ok   LVS      Circuits match uniquely.  (devices layout/ref 16/16; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_183435_v6/canvas/r2r8.sky130A/a1/judge/r2r8.lvs.txt)
+  ok   pins     pin lists equivalent
+  ok   area     61.32 x 7.30 = 447.6 um2, budget 1630, reference 814.74

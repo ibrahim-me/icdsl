@@ -1,0 +1,2532 @@
+{
+ "cell": "buf",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-213529-repair-ranked/buf/check1/buf.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-213529-repair-ranked/buf/check1/buf.reference.spice",
+ "size_um": [
+  2.3,
+  2.72
+ ],
+ "warnings": [
+  "buf: fast pre-check found 5 rule issue(s): li.space at [0.75, 0.796, 0.795, 1.454] near nwell (line 46), g1 (line 17), nd1 (line 19); li.space at [1.505, 0.796, 1.55, 1.454] near nwell (line 46), g2 (line 18), nd1 (line 19); mcon.space at [1.505, 1.045, 1.55, 1.395] near nwell (line 46), g2 (line 18), gc2 (line 42); mcon.space at [1.361, 1.21, 1.694, 1.23] near g2 (line 18), gc2 (line 42), gp2 (line 43); m1.cover at [1.55, 1.23, 1.72, 1.4] near nwell (line 46), gp2 (line 43), gn (line 45)"
+ ],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 44,
+  "by_rule": [
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "count": 24,
+    "examples": [
+     {
+      "box_um": [
+       0.625,
+       1.4,
+       0.75,
+       1.46
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "xs": [
+        "li"
+       ],
+       "xm": [
+        "mcon"
+       ],
+       "xp": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       0.625,
+       1.29,
+       0.75,
+       1.4
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "xs": [
+        "li"
+       ],
+       "xm": [
+        "mcon"
+       ],
+       "xp": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.55,
+       1.4,
+       1.675,
+       1.46
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "ns": [
+        "li"
+       ],
+       "nm": [
+        "mcon"
+       ],
+       "np": [
+        "m2"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.55,
+       1.29,
+       1.675,
+       1.4
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "ns": [
+        "li"
+       ],
+       "nm": [
+        "mcon"
+       ],
+       "np": [
+        "m2"
+       ],
+       "ap": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "Core local interconnect spacing < 0.14um (li.c2)",
+    "count": 10,
+    "examples": [
+     {
+      "box_um": [
+       0.655,
+       1.29,
+       0.75,
+       1.4
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "xs": [
+        "li"
+       ],
+       "xm": [
+        "mcon"
+       ],
+       "xp": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.55,
+       1.29,
+       1.645,
+       1.4
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "ns": [
+        "li"
+       ],
+       "nm": [
+        "mcon"
+       ],
+       "np": [
+        "m2"
+       ],
+       "ap": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       0.795,
+       1.04,
+       0.89,
+       1.21
+      ],
+      "objects": {
+       "g1": [
+        "poly"
+       ],
+       "gc1": [
+        "licon"
+       ],
+       "gp1": [
+        "poly"
+       ],
+       "gl1": [
+        "li"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "xp": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       0.795,
+       1.23,
+       0.89,
+       1.29
+      ],
+      "objects": {
+       "g1": [
+        "poly"
+       ],
+       "gc1": [
+        "licon"
+       ],
+       "gp1": [
+        "poly"
+       ],
+       "gl1": [
+        "li"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "xp": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "Metal1 overlap of local interconnect contact < 0.03um (met1.4)",
+    "count": 6,
+    "examples": [
+     {
+      "box_um": [
+       1.55,
+       1.37,
+       1.72,
+       1.4
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "ns": [
+        "li"
+       ],
+       "nm": [
+        "mcon"
+       ],
+       "np": [
+        "m2"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.55,
+       1.24,
+       1.58,
+       1.27
+      ],
+      "objects": {
+       "gp2": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "ns": [
+        "li"
+       ],
+       "nm": [
+        "mcon"
+       ],
+       "np": [
+        "m2"
+       ],
+       "ap": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.55,
+       1.24,
+       1.58,
+       1.4
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "gp2": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "ns": [
+        "li"
+       ],
+       "nm": [
+        "mcon"
+       ],
+       "np": [
+        "m2"
+       ],
+       "ap": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.55,
+       1.23,
+       1.72,
+       1.26
+      ],
+      "objects": {
+       "gp2": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "ns": [
+        "li"
+       ],
+       "nm": [
+        "mcon"
+       ],
+       "np": [
+        "m2"
+       ],
+       "ap": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "mcon.spacing < 0.19um (mcon.2)",
+    "count": 4,
+    "examples": [
+     {
+      "box_um": [
+       1.36,
+       1.04,
+       1.505,
+       1.21
+      ],
+      "objects": {
+       "g2": [
+        "poly"
+       ],
+       "gc2": [
+        "licon"
+       ],
+       "gp2": [
+        "poly"
+       ],
+       "gl2": [
+        "li"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "np": [
+        "m2"
+       ],
+       "aj": [
+        "li"
+       ],
+       "am": [
+        "mcon"
+       ],
+       "ap": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.36,
+       1.04,
+       1.505,
+       1.21
+      ],
+      "objects": {
+       "g2": [
+        "poly"
+       ],
+       "gc2": [
+        "licon"
+       ],
+       "gp2": [
+        "poly"
+       ],
+       "gl2": [
+        "li"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "np": [
+        "m2"
+       ],
+       "aj": [
+        "li"
+       ],
+       "am": [
+        "mcon"
+       ],
+       "ap": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.55,
+       1.23,
+       1.695,
+       1.4
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "gp2": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "ns": [
+        "li"
+       ],
+       "nm": [
+        "mcon"
+       ],
+       "np": [
+        "m2"
+       ],
+       "ap": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.55,
+       1.23,
+       1.695,
+       1.4
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "gp2": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "ns": [
+        "li"
+       ],
+       "nm": [
+        "mcon"
+       ],
+       "np": [
+        "m2"
+       ],
+       "ap": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "all": [
+   {
+    "rule": "mcon.spacing < 0.19um (mcon.2)",
+    "box_um": [
+     1.36,
+     1.04,
+     1.505,
+     1.21
+    ],
+    "objects": {
+     "g2": [
+      "poly"
+     ],
+     "gc2": [
+      "licon"
+     ],
+     "gp2": [
+      "poly"
+     ],
+     "gl2": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "np": [
+      "m2"
+     ],
+     "aj": [
+      "li"
+     ],
+     "am": [
+      "mcon"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "mcon.spacing < 0.19um (mcon.2)",
+    "box_um": [
+     1.36,
+     1.04,
+     1.505,
+     1.21
+    ],
+    "objects": {
+     "g2": [
+      "poly"
+     ],
+     "gc2": [
+      "licon"
+     ],
+     "gp2": [
+      "poly"
+     ],
+     "gl2": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "np": [
+      "m2"
+     ],
+     "aj": [
+      "li"
+     ],
+     "am": [
+      "mcon"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "mcon.spacing < 0.19um (mcon.2)",
+    "box_um": [
+     1.55,
+     1.23,
+     1.695,
+     1.4
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "gp2": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "ns": [
+      "li"
+     ],
+     "nm": [
+      "mcon"
+     ],
+     "np": [
+      "m2"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "mcon.spacing < 0.19um (mcon.2)",
+    "box_um": [
+     1.55,
+     1.23,
+     1.695,
+     1.4
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "gp2": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "ns": [
+      "li"
+     ],
+     "nm": [
+      "mcon"
+     ],
+     "np": [
+      "m2"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     0.625,
+     1.4,
+     0.75,
+     1.46
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "xs": [
+      "li"
+     ],
+     "xm": [
+      "mcon"
+     ],
+     "xp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     0.625,
+     1.29,
+     0.75,
+     1.4
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "xs": [
+      "li"
+     ],
+     "xm": [
+      "mcon"
+     ],
+     "xp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     1.55,
+     1.4,
+     1.675,
+     1.46
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "ns": [
+      "li"
+     ],
+     "nm": [
+      "mcon"
+     ],
+     "np": [
+      "m2"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     1.55,
+     1.29,
+     1.675,
+     1.4
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "ns": [
+      "li"
+     ],
+     "nm": [
+      "mcon"
+     ],
+     "np": [
+      "m2"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     0.795,
+     1.21,
+     0.92,
+     1.23
+    ],
+    "objects": {
+     "g1": [
+      "poly"
+     ],
+     "gc1": [
+      "licon"
+     ],
+     "gp1": [
+      "poly"
+     ],
+     "gl1": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "xp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     0.795,
+     1.04,
+     0.92,
+     1.21
+    ],
+    "objects": {
+     "g1": [
+      "poly"
+     ],
+     "gc1": [
+      "licon"
+     ],
+     "gp1": [
+      "poly"
+     ],
+     "gl1": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "xp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     0.795,
+     0.96,
+     0.92,
+     1.04
+    ],
+    "objects": {
+     "g1": [
+      "poly"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "gc1": [
+      "licon"
+     ],
+     "gp1": [
+      "poly"
+     ],
+     "gl1": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     0.795,
+     1.23,
+     0.92,
+     1.29
+    ],
+    "objects": {
+     "g1": [
+      "poly"
+     ],
+     "gc1": [
+      "licon"
+     ],
+     "gp1": [
+      "poly"
+     ],
+     "gl1": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "xp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     0.625,
+     1.4,
+     0.75,
+     1.46
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "xs": [
+      "li"
+     ],
+     "xm": [
+      "mcon"
+     ],
+     "xp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     0.625,
+     1.23,
+     0.75,
+     1.4
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "gp1": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "xs": [
+      "li"
+     ],
+     "xm": [
+      "mcon"
+     ],
+     "xp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     0.625,
+     1.21,
+     0.75,
+     1.23
+    ],
+    "objects": {
+     "gp1": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "xs": [
+      "li"
+     ],
+     "xm": [
+      "mcon"
+     ],
+     "xp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     0.625,
+     1.04,
+     0.75,
+     1.21
+    ],
+    "objects": {
+     "gp1": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "xs": [
+      "li"
+     ],
+     "xm": [
+      "mcon"
+     ],
+     "xp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     0.625,
+     0.79,
+     0.75,
+     1.04
+    ],
+    "objects": {
+     "nd1": [
+      "diff"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "c1l": [
+      "li"
+     ],
+     "gp1": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "xs": [
+      "li"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     0.625,
+     0.79,
+     0.75,
+     0.96
+    ],
+    "objects": {
+     "nd1": [
+      "diff"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "c1l": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "xs": [
+      "li"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     1.55,
+     0.79,
+     1.675,
+     0.96
+    ],
+    "objects": {
+     "nd1": [
+      "diff"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "c3l": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "ns": [
+      "li"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     1.55,
+     0.79,
+     1.675,
+     1.04
+    ],
+    "objects": {
+     "nd1": [
+      "diff"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "c3l": [
+      "li"
+     ],
+     "gp2": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "ns": [
+      "li"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     1.55,
+     1.04,
+     1.675,
+     1.21
+    ],
+    "objects": {
+     "gp2": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "ns": [
+      "li"
+     ],
+     "nm": [
+      "mcon"
+     ],
+     "np": [
+      "m2"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     1.55,
+     1.4,
+     1.675,
+     1.46
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "ns": [
+      "li"
+     ],
+     "nm": [
+      "mcon"
+     ],
+     "np": [
+      "m2"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     1.55,
+     1.23,
+     1.675,
+     1.4
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "gp2": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "ns": [
+      "li"
+     ],
+     "nm": [
+      "mcon"
+     ],
+     "np": [
+      "m2"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     1.55,
+     1.21,
+     1.675,
+     1.23
+    ],
+    "objects": {
+     "gp2": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "ns": [
+      "li"
+     ],
+     "nm": [
+      "mcon"
+     ],
+     "np": [
+      "m2"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     1.38,
+     1.23,
+     1.505,
+     1.29
+    ],
+    "objects": {
+     "g2": [
+      "poly"
+     ],
+     "gc2": [
+      "licon"
+     ],
+     "gp2": [
+      "poly"
+     ],
+     "gl2": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "np": [
+      "m2"
+     ],
+     "aj": [
+      "li"
+     ],
+     "am": [
+      "mcon"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     1.38,
+     1.21,
+     1.505,
+     1.23
+    ],
+    "objects": {
+     "g2": [
+      "poly"
+     ],
+     "gc2": [
+      "licon"
+     ],
+     "gp2": [
+      "poly"
+     ],
+     "gl2": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "np": [
+      "m2"
+     ],
+     "aj": [
+      "li"
+     ],
+     "am": [
+      "mcon"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     1.38,
+     1.04,
+     1.505,
+     1.21
+    ],
+    "objects": {
+     "g2": [
+      "poly"
+     ],
+     "gc2": [
+      "licon"
+     ],
+     "gp2": [
+      "poly"
+     ],
+     "gl2": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "np": [
+      "m2"
+     ],
+     "aj": [
+      "li"
+     ],
+     "am": [
+      "mcon"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     1.38,
+     0.96,
+     1.505,
+     1.04
+    ],
+    "objects": {
+     "g2": [
+      "poly"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "gc2": [
+      "licon"
+     ],
+     "gp2": [
+      "poly"
+     ],
+     "gl2": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "aj": [
+      "li"
+     ],
+     "am": [
+      "mcon"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Metal1 overlap of local interconnect contact < 0.03um (met1.4)",
+    "box_um": [
+     1.55,
+     1.37,
+     1.72,
+     1.4
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "ns": [
+      "li"
+     ],
+     "nm": [
+      "mcon"
+     ],
+     "np": [
+      "m2"
+     ]
+    }
+   },
+   {
+    "rule": "Metal1 overlap of local interconnect contact < 0.03um (met1.4)",
+    "box_um": [
+     1.55,
+     1.24,
+     1.58,
+     1.27
+    ],
+    "objects": {
+     "gp2": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "ns": [
+      "li"
+     ],
+     "nm": [
+      "mcon"
+     ],
+     "np": [
+      "m2"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Metal1 overlap of local interconnect contact < 0.03um (met1.4)",
+    "box_um": [
+     1.55,
+     1.24,
+     1.58,
+     1.4
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "gp2": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "ns": [
+      "li"
+     ],
+     "nm": [
+      "mcon"
+     ],
+     "np": [
+      "m2"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Metal1 overlap of local interconnect contact < 0.03um (met1.4)",
+    "box_um": [
+     1.55,
+     1.23,
+     1.72,
+     1.26
+    ],
+    "objects": {
+     "gp2": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "ns": [
+      "li"
+     ],
+     "nm": [
+      "mcon"
+     ],
+     "np": [
+      "m2"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Metal1 overlap of local interconnect contact < 0.03um (met1.4)",
+    "box_um": [
+     1.69,
+     1.23,
+     1.72,
+     1.4
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "ns": [
+      "li"
+     ],
+     "nm": [
+      "mcon"
+     ],
+     "np": [
+      "m2"
+     ]
+    }
+   },
+   {
+    "rule": "Metal1 overlap of local interconnect contact < 0.03um (met1.4)",
+    "box_um": [
+     1.55,
+     1.23,
+     1.565,
+     1.26
+    ],
+    "objects": {
+     "gp2": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "ns": [
+      "li"
+     ],
+     "nm": [
+      "mcon"
+     ],
+     "np": [
+      "m2"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Core local interconnect spacing < 0.14um (li.c2)",
+    "box_um": [
+     0.655,
+     1.29,
+     0.75,
+     1.4
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "xs": [
+      "li"
+     ],
+     "xm": [
+      "mcon"
+     ],
+     "xp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Core local interconnect spacing < 0.14um (li.c2)",
+    "box_um": [
+     1.55,
+     1.29,
+     1.645,
+     1.4
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "ns": [
+      "li"
+     ],
+     "nm": [
+      "mcon"
+     ],
+     "np": [
+      "m2"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Core local interconnect spacing < 0.14um (li.c2)",
+    "box_um": [
+     0.795,
+     1.04,
+     0.89,
+     1.21
+    ],
+    "objects": {
+     "g1": [
+      "poly"
+     ],
+     "gc1": [
+      "licon"
+     ],
+     "gp1": [
+      "poly"
+     ],
+     "gl1": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "xp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Core local interconnect spacing < 0.14um (li.c2)",
+    "box_um": [
+     0.795,
+     1.23,
+     0.89,
+     1.29
+    ],
+    "objects": {
+     "g1": [
+      "poly"
+     ],
+     "gc1": [
+      "licon"
+     ],
+     "gp1": [
+      "poly"
+     ],
+     "gl1": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "xp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Core local interconnect spacing < 0.14um (li.c2)",
+    "box_um": [
+     0.655,
+     1.23,
+     0.75,
+     1.4
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "gp1": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "xs": [
+      "li"
+     ],
+     "xm": [
+      "mcon"
+     ],
+     "xp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Core local interconnect spacing < 0.14um (li.c2)",
+    "box_um": [
+     0.655,
+     1.04,
+     0.75,
+     1.21
+    ],
+    "objects": {
+     "gp1": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "xs": [
+      "li"
+     ],
+     "xm": [
+      "mcon"
+     ],
+     "xp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Core local interconnect spacing < 0.14um (li.c2)",
+    "box_um": [
+     1.55,
+     1.04,
+     1.645,
+     1.21
+    ],
+    "objects": {
+     "gp2": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "ns": [
+      "li"
+     ],
+     "nm": [
+      "mcon"
+     ],
+     "np": [
+      "m2"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Core local interconnect spacing < 0.14um (li.c2)",
+    "box_um": [
+     1.55,
+     1.23,
+     1.645,
+     1.4
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "gp2": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "ns": [
+      "li"
+     ],
+     "nm": [
+      "mcon"
+     ],
+     "np": [
+      "m2"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Core local interconnect spacing < 0.14um (li.c2)",
+    "box_um": [
+     1.41,
+     1.23,
+     1.505,
+     1.29
+    ],
+    "objects": {
+     "g2": [
+      "poly"
+     ],
+     "gc2": [
+      "licon"
+     ],
+     "gp2": [
+      "poly"
+     ],
+     "gl2": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "np": [
+      "m2"
+     ],
+     "aj": [
+      "li"
+     ],
+     "am": [
+      "mcon"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Core local interconnect spacing < 0.14um (li.c2)",
+    "box_um": [
+     1.41,
+     1.04,
+     1.505,
+     1.21
+    ],
+    "objects": {
+     "g2": [
+      "poly"
+     ],
+     "gc2": [
+      "licon"
+     ],
+     "gp2": [
+      "poly"
+     ],
+     "gl2": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "np": [
+      "m2"
+     ],
+     "aj": [
+      "li"
+     ],
+     "am": [
+      "mcon"
+     ],
+     "ap": [
+      "m1"
+     ]
+    }
+   }
+  ]
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": false,
+  "result": "Top level cell failed pin matching.",
+  "devices_layout_vs_ref": [
+   4,
+   4
+  ],
+  "nets_layout_vs_ref": [
+   5,
+   5
+  ],
+  "details": [
+   "NET mismatches: Class fragments follow (with fanout counts):",
+   "Circuit 1: buf                             |Circuit 2: buf                             ",
+   "---------------------------------------------------------------------------------------",
+   "Net: a_143_198#                            |Net: A                                     ",
+   "  sky130_fd_pr__pfet_01v8/2 = 1            |  sky130_fd_pr__pfet_01v8/2 = 1            ",
+   "  sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/2 = 1            ",
+   "                                           |                                           ",
+   "Net: X                                     |Net: X                                     ",
+   "  sky130_fd_pr__pfet_01v8/(1|3) = 1        |  sky130_fd_pr__pfet_01v8/(1|3) = 1        ",
+   "  sky130_fd_pr__nfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/(1|3) = 1        ",
+   "---------------------------------------------------------------------------------------",
+   "---------------------------------------------------------------------------------------",
+   "Net: VPWR                                  |Net: VPWR                                  ",
+   "  sky130_fd_pr__pfet_01v8/(1|3) = 2        |  sky130_fd_pr__pfet_01v8/(1|3) = 2        ",
+   "  sky130_fd_pr__pfet_01v8/4 = 2            |  sky130_fd_pr__pfet_01v8/4 = 2            ",
+   "                                           |                                           ",
+   "Net: A                                     |Net: n1                                    ",
+   "  sky130_fd_pr__pfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/2 = 1            ",
+   "  sky130_fd_pr__pfet_01v8/2 = 1            |  sky130_fd_pr__pfet_01v8/(1|3) = 1        ",
+   "  sky130_fd_pr__nfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/(1|3) = 1        ",
+   "  sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__pfet_01v8/2 = 1            ",
+   "                                           |                                           ",
+   "Net: VGND                                  |Net: VGND                                  ",
+   "  sky130_fd_pr__nfet_01v8/(1|3) = 2        |  sky130_fd_pr__nfet_01v8/(1|3) = 2        ",
+   "  sky130_fd_pr__nfet_01v8/4 = 2            |  sky130_fd_pr__nfet_01v8/4 = 2            ",
+   "---------------------------------------------------------------------------------------",
+   "DEVICE mismatches: Class fragments follow (with node fanout counts):",
+   "Circuit 1: buf                             |Circuit 2: buf                             ",
+   "---------------------------------------------------------------------------------------",
+   "Instance: sky130_fd_pr__nfet_01v8:3        |Instance: sky130_fd_pr__nfet_01v8:M2       ",
+   "  (1,3) = (4,2)                            |  (1,3) = (4,4)                            ",
+   "  2 = 2                                    |  2 = 2                                    ",
+   "  4 = 4                                    |  4 = 4                                    ",
+   "                                           |                                           ",
+   "Instance: sky130_fd_pr__nfet_01v8:1        |Instance: sky130_fd_pr__nfet_01v8:M0       ",
+   "  (1,3) = (4,4)                            |  (1,3) = (4,2)                            ",
+   "  2 = 4                                    |  2 = 4                                    ",
+   "  4 = 4                                    |  4 = 4                                    ",
+   "---------------------------------------------------------------------------------------",
+   "---------------------------------------------------------------------------------------",
+   "Instance: sky130_fd_pr__pfet_01v8:2        |Instance: sky130_fd_pr__pfet_01v8:M3       ",
+   "  (1,3) = (4,2)                            |  (1,3) = (4,2)                            ",
+   "  2 = 2                                    |  2 = 4                                    ",
+   "  4 = 4                                    |  4 = 4                                    ",
+   "                                           |                                           ",
+   "Instance: sky130_fd_pr__pfet_01v8:0        |Instance: sky130_fd_pr__pfet_01v8:M1       ",
+   "  (1,3) = (4,4)                            |  (1,3) = (4,4)                            ",
+   "  2 = 4                                    |  2 = 2                                    ",
+   "  4 = 4                                    |  4 = 4                                    ",
+   "---------------------------------------------------------------------------------------",
+   "Netlists do not match.",
+   "Port matching may fail to disambiguate symmetries.",
+   "Subcircuit pins:",
+   "Circuit 1: buf                             |Circuit 2: buf                             ",
+   "-------------------------------------------|-------------------------------------------",
+   "X                                          |A **Mismatch**                             ",
+   "VGND                                       |VPWR **Mismatch**                          ",
+   "VPWR                                       |(no pin, node is n1)                       ",
+   "A                                          |VGND **Mismatch**                          ",
+   "(no pin, node is a_143_198#)               |X                                          ",
+   "---------------------------------------------------------------------------------------"
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-213529-repair-ranked/buf/check1/buf.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-213529-repair-ranked/buf/check1/buf.lvs.txt"
+ },
+ "routes": {},
+ "precheck": [
+  {
+   "rule": "li.space",
+   "msg": "li spacing < 0.170 um",
+   "objects": [
+    "nwell (line 46)",
+    "g1 (line 17)",
+    "nd1 (line 19)",
+    "nim (line 21)",
+    "c1l (line 24)",
+    "gc1 (line 39)"
+   ],
+   "box_um": [
+    0.75,
+    0.796,
+    0.795,
+    1.454
+   ]
+  },
+  {
+   "rule": "li.space",
+   "msg": "li spacing < 0.170 um",
+   "objects": [
+    "nwell (line 46)",
+    "g2 (line 18)",
+    "nd1 (line 19)",
+    "nim (line 21)",
+    "c3l (line 29)",
+    "gc2 (line 42)"
+   ],
+   "box_um": [
+    1.505,
+    0.796,
+    1.55,
+    1.454
+   ]
+  },
+  {
+   "rule": "mcon.space",
+   "msg": "mcon spacing < 0.190 um",
+   "objects": [
+    "nwell (line 46)",
+    "g2 (line 18)",
+    "gc2 (line 42)",
+    "gp2 (line 43)",
+    "gl2 (line 44)",
+    "gn (line 45)"
+   ],
+   "box_um": [
+    1.505,
+    1.045,
+    1.55,
+    1.395
+   ]
+  },
+  {
+   "rule": "mcon.space",
+   "msg": "mcon spacing < 0.190 um",
+   "objects": [
+    "g2 (line 18)",
+    "gc2 (line 42)",
+    "gp2 (line 43)",
+    "gl2 (line 44)",
+    "gn (line 45)",
+    "ns (line 53)"
+   ],
+   "box_um": [
+    1.361,
+    1.21,
+    1.694,
+    1.23
+   ]
+  },
+  {
+   "rule": "m1.cover",
+   "msg": "mcon not covered by met1",
+   "objects": [
+    "nwell (line 46)",
+    "gp2 (line 43)",
+    "gn (line 45)",
+    "ns (line 53)",
+    "nm (line 54)",
+    "np (line 55)"
+   ],
+   "box_um": [
+    1.55,
+    1.23,
+    1.72,
+    1.4
+   ]
+  }
+ ],
+ "constraint_violations": [],
+ "objects": {
+  "vgnd": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    -0.24,
+    2.3,
+    0.24
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vpwr": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    2.48,
+    2.3,
+    2.96
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ptap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    -0.145,
+    2.12,
+    0.145
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    -0.085,
+    1.695,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    -0.085,
+    2.155,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vgnd_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    -0.085,
+    2.3,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_imp": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.0,
+    -0.27,
+    2.3,
+    0.27
+   ],
+   "net": null,
+   "line": 0
+  },
+  "ntap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    2.575,
+    2.12,
+    2.865
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    2.635,
+    1.695,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    2.635,
+    2.155,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "vpwr_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    2.635,
+    2.3,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_imp": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.0,
+    2.45,
+    2.3,
+    2.99
+   ],
+   "net": null,
+   "line": 0
+  },
+  "nwell": {
+   "layer": "nwell",
+   "bbox_um": [
+    0.0,
+    1.355,
+    2.3,
+    3.045
+   ],
+   "net": null,
+   "line": 46
+  },
+  "g1": {
+   "layer": "poly",
+   "bbox_um": [
+    0.805,
+    0.285,
+    0.955,
+    2.435
+   ],
+   "net": null,
+   "line": 17
+  },
+  "g2": {
+   "layer": "poly",
+   "bbox_um": [
+    1.345,
+    0.285,
+    1.495,
+    2.435
+   ],
+   "net": null,
+   "line": 18
+  },
+  "nd1": {
+   "layer": "diff",
+   "bbox_um": [
+    0.54,
+    0.415,
+    1.76,
+    0.835
+   ],
+   "net": null,
+   "line": 19
+  },
+  "pd1": {
+   "layer": "diff",
+   "bbox_um": [
+    0.54,
+    1.715,
+    1.76,
+    2.305
+   ],
+   "net": null,
+   "line": 20
+  },
+  "nim": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.415,
+    0.29,
+    1.885,
+    0.96
+   ],
+   "net": null,
+   "line": 21
+  },
+  "pim": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.415,
+    1.59,
+    1.885,
+    2.43
+   ],
+   "net": null,
+   "line": 22
+  },
+  "c1": {
+   "layer": "licon",
+   "bbox_um": [
+    0.58,
+    0.54,
+    0.75,
+    0.71
+   ],
+   "net": null,
+   "line": 23
+  },
+  "c1l": {
+   "layer": "li",
+   "bbox_um": [
+    0.58,
+    0.46,
+    0.75,
+    0.79
+   ],
+   "net": "X",
+   "line": 24
+  },
+  "c2": {
+   "layer": "licon",
+   "bbox_um": [
+    1.01,
+    0.54,
+    1.18,
+    0.71
+   ],
+   "net": null,
+   "line": 25
+  },
+  "c2l": {
+   "layer": "li",
+   "bbox_um": [
+    1.01,
+    0.46,
+    1.18,
+    0.79
+   ],
+   "net": "VGND",
+   "line": 26
+  },
+  "c2s": {
+   "layer": "li",
+   "bbox_um": [
+    1.01,
+    -0.085,
+    1.18,
+    0.79
+   ],
+   "net": null,
+   "line": 27
+  },
+  "c3": {
+   "layer": "licon",
+   "bbox_um": [
+    1.55,
+    0.54,
+    1.72,
+    0.71
+   ],
+   "net": null,
+   "line": 28
+  },
+  "c3l": {
+   "layer": "li",
+   "bbox_um": [
+    1.55,
+    0.46,
+    1.72,
+    0.79
+   ],
+   "net": "n1",
+   "line": 29
+  },
+  "c4": {
+   "layer": "licon",
+   "bbox_um": [
+    0.58,
+    1.925,
+    0.75,
+    2.095
+   ],
+   "net": null,
+   "line": 30
+  },
+  "c4l": {
+   "layer": "li",
+   "bbox_um": [
+    0.58,
+    1.845,
+    0.75,
+    2.175
+   ],
+   "net": "X",
+   "line": 31
+  },
+  "c5": {
+   "layer": "licon",
+   "bbox_um": [
+    1.01,
+    1.925,
+    1.18,
+    2.095
+   ],
+   "net": null,
+   "line": 32
+  },
+  "c5l": {
+   "layer": "li",
+   "bbox_um": [
+    1.01,
+    1.845,
+    1.18,
+    2.175
+   ],
+   "net": "VPWR",
+   "line": 33
+  },
+  "c5s": {
+   "layer": "li",
+   "bbox_um": [
+    1.01,
+    1.845,
+    1.18,
+    2.805
+   ],
+   "net": null,
+   "line": 34
+  },
+  "c6": {
+   "layer": "licon",
+   "bbox_um": [
+    1.55,
+    1.925,
+    1.72,
+    2.095
+   ],
+   "net": null,
+   "line": 35
+  },
+  "c6l": {
+   "layer": "li",
+   "bbox_um": [
+    1.55,
+    1.845,
+    1.72,
+    2.175
+   ],
+   "net": "n1",
+   "line": 36
+  },
+  "gc1": {
+   "layer": "licon",
+   "bbox_um": [
+    0.795,
+    1.04,
+    0.965,
+    1.21
+   ],
+   "net": null,
+   "line": 39
+  },
+  "gp1": {
+   "layer": "poly",
+   "bbox_um": [
+    0.715,
+    0.99,
+    1.045,
+    1.26
+   ],
+   "net": null,
+   "line": 40
+  },
+  "gl1": {
+   "layer": "li",
+   "bbox_um": [
+    0.795,
+    0.96,
+    0.965,
+    1.29
+   ],
+   "net": "n1",
+   "line": 41
+  },
+  "gc2": {
+   "layer": "licon",
+   "bbox_um": [
+    1.335,
+    1.04,
+    1.505,
+    1.21
+   ],
+   "net": null,
+   "line": 42
+  },
+  "gp2": {
+   "layer": "poly",
+   "bbox_um": [
+    1.255,
+    0.99,
+    1.585,
+    1.26
+   ],
+   "net": null,
+   "line": 43
+  },
+  "gl2": {
+   "layer": "li",
+   "bbox_um": [
+    1.335,
+    0.96,
+    1.505,
+    1.29
+   ],
+   "net": "A",
+   "line": 44
+  },
+  "gn": {
+   "layer": "npc",
+   "bbox_um": [
+    0.695,
+    0.94,
+    1.605,
+    1.31
+   ],
+   "net": null,
+   "line": 45
+  },
+  "xs": {
+   "layer": "li",
+   "bbox_um": [
+    0.58,
+    0.46,
+    0.75,
+    2.175
+   ],
+   "net": "X",
+   "line": 48
+  },
+  "xm": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.58,
+    1.23,
+    0.75,
+    1.4
+   ],
+   "net": null,
+   "line": 49
+  },
+  "xp": {
+   "layer": "m1",
+   "bbox_um": [
+    0.52,
+    1.17,
+    0.81,
+    1.46
+   ],
+   "net": "X",
+   "line": 50
+  },
+  "ns": {
+   "layer": "li",
+   "bbox_um": [
+    1.55,
+    0.46,
+    1.72,
+    2.175
+   ],
+   "net": "n1",
+   "line": 53
+  },
+  "nm": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.55,
+    1.23,
+    1.72,
+    1.4
+   ],
+   "net": null,
+   "line": 54
+  },
+  "np": {
+   "layer": "m2",
+   "bbox_um": [
+    1.49,
+    1.17,
+    1.78,
+    1.46
+   ],
+   "net": "n1",
+   "line": 55
+  },
+  "aj": {
+   "layer": "li",
+   "bbox_um": [
+    1.335,
+    0.96,
+    1.505,
+    1.29
+   ],
+   "net": "A",
+   "line": 57
+  },
+  "am": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.335,
+    1.04,
+    1.505,
+    1.21
+   ],
+   "net": null,
+   "line": 58
+  },
+  "ap": {
+   "layer": "m1",
+   "bbox_um": [
+    1.275,
+    0.98,
+    1.565,
+    1.27
+   ],
+   "net": "A",
+   "line": 59
+  }
+ },
+ "connectivity": [
+  "SHORT A / n1: joined through contacts/vias: A: aj (line 57), ap (line 59), gl2 (line 44); n1: c3l (line 29), c6l (line 36), ns (line 53)",
+  "OPEN net n1 is 3 separate pieces: [aj (line 57), ap (line 59), c3l (line 29), c6l (line 36), +6 more] | [g1 (line 17), gl1 (line 41), gp1 (line 40)] | [np (line 55)] - join them (strap / shared metal / `route n1`)",
+  "DEVICE M1 (pmos g=A d=n1 s=VPWR) has no matching transistor in the layout",
+  "DEVICE M2 (nmos g=A d=n1 s=VGND) has no matching transistor in the layout",
+  "  layout nmos at x=1.42 y=0.625: gate A+n1 [g2 (line 18), gp2 (line 43)], source/drain A+n1 [c2l (line 26), c2s (line 27), nd1 (line 19), template ptap/vgnd], VGND [aj (line 57), ap (line 59), c3l (line 29), +7 more]",
+  "  layout pmos at x=1.42 y=2.01: gate A+n1 [g2 (line 18), gp2 (line 43)], source/drain A+n1 [c5l (line 33), c5s (line 34), pd1 (line 20), template ntap/vpwr], VPWR [aj (line 57), ap (line 59), c3l (line 29), +7 more]"
+ ],
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-213529-repair-ranked/buf/check1/buf.png",
+ "status": "VIOLATIONS",
+ "seconds": 3.2
+}

@@ -1,0 +1,37 @@
+{
+ "task": "cdac6",
+ "pdk": "sky130A",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/cdac6.sky130A/a2/cdac6.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/cdac6.sky130A/a2/cdac6.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "896 violation(s): 512 x MiM cap spacing to via2 < 0.1um (capm.8 - via2.4); 256 x MiM cap contact width < 0.32um (via3.1 + 2 * via3.4); 128 x MiM cap spacing to via2 < 0.005um (capm.8 - via2.4)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 512 violation(s): 512 x via3.2: via3.2 : min. via3 spacing : 0.2um"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Top level cell failed pin matching.  (devices layout/ref 1/7; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/cdac6.sky130A/a2/judge/cdac6.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "not confirmed (LVS failed)"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "77.73 x 66.41 = 5161.7 um2, budget 8511, reference 4255.26"
+  }
+ ],
+ "area_um2": 5161.66,
+ "area_vs_reference": 1.213,
+ "solved": false,
+ "detail": "DRC (magic drc(full)): 896 violation(s), boxes in um\n   512 x MiM cap spacing to via2 < 0.1um (capm.8 - via2.4)   e.g. at (0.000 51.640 0.070 51.740)  (0.070 51.360 0.170 51.370)  (0.070 51.370 0.170 51.630)\n   256 x MiM cap contact width < 0.32um (via3.1 + 2 * via3.4)   e.g. at (2.360 51.660 2.640 51.960)  (2.360 51.660 2.640 51.960)  (2.040 51.360 2.340 51.640)\n   128 x MiM cap spacing to via2 < 0.005um (capm.8 - via2.4)   e.g. at (0.000 51.360 0.070 51.365)  (7.000 51.360 7.070 51.365)  (14.000 51.360 14.070 51.365)\nDRC2 (foundry KLayout deck): 512 violation(s), boxes in um\n   512 x via3.2: via3.2 : min. via3 spacing : 0.2um   e.g. at (44.600 30.527 44.700 30.773)  (44.527 30.600 44.773 30.700)  (44.600 30.227 44.700 30.473)\nLVS: Top level cell failed pin matching.   devices layout/ref 1/7, nets layout/ref 2/8\n  Number of devices: 1 **Mismatch**          |Number of devices: 7 **Mismatch**\n  Number of nets: 2 **Mismatch**             |Number of nets: 8 **Mismatch**\n  ---------------------------------------------------------------------------------------\n  NET mismatches: Class fragments follow (with fanout counts):\n  Circuit 1: cdac6                           |Circuit 2: cdac6\n  ---------------------------------------------------------------------------------------\n  Net: c1_7000_0#                            |Net: VSS\n    sky130_fd_pr__cap_mim_m3_1/1 = 1         |  sky130_fd_pr__cap_mim_m3_1/2 = 1\n                                             |\n  Net: TOP                                   |Net: TOP\n    sky130_fd_pr__cap_mim_m3_1/2 = 1         |  sky130_fd_pr__cap_mim_m3_1/1 = 7\n                                             |\n  (no matching net)                          |Net: B4\n                                             |  sky130_fd_pr__cap_mim_m3_1/2 = 1\n                                             |\n  (no matching net)                          |Net: B3\n                                             |  sky130_fd_pr__cap_mim_m3_1/2 = 1\n                                             |\n  (no matching net)                          |Net: B2\n                                             |  sky130_fd_pr__cap_mim_m3_1/2 = 1\n                                             |\n  (no matching net)                          |Net: B1\n                                             |  sky130_fd_pr__cap_mim_m3_1/2 = 1\n                                             |\n  (no matching net)                          |Net: B0\n                                             |  sky130_fd_pr__cap_mim_m3_1/2 = 1\n                                             |\n  (no matching net)                          |Net: B5\n                                             |  sky130_fd_pr__cap_mim_m3_1/2 = 1\n  ---------------------------------------------------------------------------------------\n  DEVICE mismatches: Class fragments follow (with node fanout counts):\n  Circuit 1: cdac6                           |Circuit 2: cdac6\n  ---------------------------------------------------------------------------------------\n  Instance: sky130_fd_pr__cap_mim_m3_1:0     |Instance: sky130_fd_pr__cap_mim_m3_1:C0\n    1 = 1                                    |  1 = 7\n    2 = 1                                    |  2 = 1\n                                             |\n  (no matching instance)                     |Instance: sky130_fd_pr__cap_mim_m3_1:C1\n                                             |  1 = 7\n                                             |  2 = 1"
+}

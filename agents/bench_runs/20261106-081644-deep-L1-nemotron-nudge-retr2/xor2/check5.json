@@ -1,0 +1,1081 @@
+{
+ "cell": "xor2",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-081644-deep-L1-nemotron-nudge-retr2/xor2/check5/xor2.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-081644-deep-L1-nemotron-nudge-retr2/xor2/check5/xor2.reference.spice",
+ "size_um": [
+  5.52,
+  2.72
+ ],
+ "warnings": [
+  "xor2: fast pre-check found 2 rule issue(s): licon.size at [1.195, 1.675, 1.475, 1.845] near nwell (line 106), pd1 (line 35), pd2 (line 36); licon.size at [1.195, 2.015, 1.475, 2.185] near nwell (line 106), pd1 (line 35), pd2 (line 36)"
+ ],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 0,
+  "by_rule": [],
+  "all": []
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": true,
+  "result": "Circuits match uniquely.",
+  "devices_layout_vs_ref": [
+   10,
+   10
+  ],
+  "nets_layout_vs_ref": [
+   9,
+   9
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-081644-deep-L1-nemotron-nudge-retr2/xor2/check5/xor2.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-081644-deep-L1-nemotron-nudge-retr2/xor2/check5/xor2.lvs.txt",
+  "dummies_ignored": 0
+ },
+ "routes": {
+  "nets": {
+   "X": {
+    "length_um": 1.26,
+    "layers": [
+     "m1"
+    ],
+    "cuts": 2,
+    "width_um": {
+     "m1": 0.14
+    },
+    "res_ohm": 1.13
+   },
+   "n1": {
+    "length_um": 3.33,
+    "layers": [
+     "m2"
+    ],
+    "cuts": 6,
+    "width_um": {
+     "m2": 0.14
+    },
+    "res_ohm": 11.98
+   },
+   "n2": {
+    "length_um": 2.07,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 5,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 10.85
+   },
+   "n3": {
+    "length_um": 1.26,
+    "layers": [
+     "m2"
+    ],
+    "cuts": 4,
+    "width_um": {
+     "m2": 0.14
+    },
+    "res_ohm": 10.13
+   },
+   "A": {
+    "length_um": 5.06,
+    "layers": [
+     "m2"
+    ],
+    "cuts": 3,
+    "width_um": {
+     "m2": 0.14
+    },
+    "res_ohm": 13.52
+   },
+   "B": {
+    "length_um": 8.62,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 3,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 16.7
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [
+  {
+   "rule": "licon.size",
+   "msg": "licon must be exactly 0.17 x 0.17 um",
+   "objects": [
+    "nwell (line 106)",
+    "pd1 (line 35)",
+    "pd2 (line 36)",
+    "pim (line 42)",
+    "c8 (line 64)",
+    "c8l (line 65)"
+   ],
+   "box_um": [
+    1.195,
+    1.675,
+    1.475,
+    1.845
+   ]
+  },
+  {
+   "rule": "licon.size",
+   "msg": "licon must be exactly 0.17 x 0.17 um",
+   "objects": [
+    "nwell (line 106)",
+    "pd1 (line 35)",
+    "pd2 (line 36)",
+    "pim (line 42)",
+    "c8 (line 64)",
+    "c8l (line 65)"
+   ],
+   "box_um": [
+    1.195,
+    2.015,
+    1.475,
+    2.185
+   ]
+  }
+ ],
+ "constraint_violations": [],
+ "objects": {
+  "vgnd": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    -0.24,
+    5.52,
+    0.24
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vpwr": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    2.48,
+    5.52,
+    2.96
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ptap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    -0.145,
+    5.34,
+    0.145
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    -0.085,
+    4.915,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    -0.085,
+    5.375,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vgnd_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    -0.085,
+    5.52,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_imp": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.0,
+    -0.27,
+    5.52,
+    0.27
+   ],
+   "net": null,
+   "line": 0
+  },
+  "ntap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    2.575,
+    5.34,
+    2.865
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    2.635,
+    4.915,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    2.635,
+    5.375,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "vpwr_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    2.635,
+    5.52,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_imp": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.0,
+    2.45,
+    5.52,
+    2.99
+   ],
+   "net": null,
+   "line": 0
+  },
+  "nwell": {
+   "layer": "nwell",
+   "bbox_um": [
+    0.0,
+    1.31,
+    5.52,
+    3.045
+   ],
+   "net": null,
+   "line": 106
+  },
+  "g1": {
+   "layer": "poly",
+   "bbox_um": [
+    0.99,
+    0.285,
+    1.14,
+    2.435
+   ],
+   "net": null,
+   "line": 25
+  },
+  "g2": {
+   "layer": "poly",
+   "bbox_um": [
+    1.53,
+    0.285,
+    1.68,
+    2.435
+   ],
+   "net": null,
+   "line": 26
+  },
+  "g3": {
+   "layer": "poly",
+   "bbox_um": [
+    2.48,
+    0.285,
+    2.63,
+    2.435
+   ],
+   "net": null,
+   "line": 27
+  },
+  "g4": {
+   "layer": "poly",
+   "bbox_um": [
+    3.43,
+    0.285,
+    3.58,
+    2.435
+   ],
+   "net": null,
+   "line": 28
+  },
+  "g5": {
+   "layer": "poly",
+   "bbox_um": [
+    4.38,
+    0.285,
+    4.53,
+    2.435
+   ],
+   "net": null,
+   "line": 29
+  },
+  "nd1": {
+   "layer": "diff",
+   "bbox_um": [
+    0.725,
+    0.415,
+    4.795,
+    0.905
+   ],
+   "net": null,
+   "line": 32
+  },
+  "pd1": {
+   "layer": "diff",
+   "bbox_um": [
+    0.725,
+    1.555,
+    1.405,
+    2.305
+   ],
+   "net": null,
+   "line": 35
+  },
+  "pd2": {
+   "layer": "diff",
+   "bbox_um": [
+    1.265,
+    1.555,
+    1.945,
+    2.305
+   ],
+   "net": null,
+   "line": 36
+  },
+  "pd3": {
+   "layer": "diff",
+   "bbox_um": [
+    2.215,
+    1.555,
+    2.895,
+    2.305
+   ],
+   "net": null,
+   "line": 37
+  },
+  "pd4": {
+   "layer": "diff",
+   "bbox_um": [
+    3.165,
+    1.555,
+    3.845,
+    2.305
+   ],
+   "net": null,
+   "line": 38
+  },
+  "pd5": {
+   "layer": "diff",
+   "bbox_um": [
+    4.115,
+    1.555,
+    4.795,
+    2.305
+   ],
+   "net": null,
+   "line": 39
+  },
+  "nim": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.6,
+    0.29,
+    4.92,
+    1.03
+   ],
+   "net": null,
+   "line": 41
+  },
+  "pim": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.6,
+    1.43,
+    4.92,
+    2.43
+   ],
+   "net": null,
+   "line": 42
+  },
+  "c1": {
+   "layer": "licon",
+   "bbox_um": [
+    0.765,
+    0.575,
+    0.935,
+    0.745
+   ],
+   "net": null,
+   "line": 45
+  },
+  "c1l": {
+   "layer": "li",
+   "bbox_um": [
+    0.765,
+    0.495,
+    0.935,
+    0.825
+   ],
+   "net": "VGND",
+   "line": 46
+  },
+  "c1s": {
+   "layer": "li",
+   "bbox_um": [
+    0.765,
+    -0.085,
+    0.935,
+    0.825
+   ],
+   "net": null,
+   "line": 47
+  },
+  "c2": {
+   "layer": "licon",
+   "bbox_um": [
+    1.195,
+    0.575,
+    1.365,
+    0.745
+   ],
+   "net": null,
+   "line": 48
+  },
+  "c2l": {
+   "layer": "li",
+   "bbox_um": [
+    1.195,
+    0.495,
+    1.365,
+    0.825
+   ],
+   "net": "n1",
+   "line": 49
+  },
+  "c3": {
+   "layer": "licon",
+   "bbox_um": [
+    1.735,
+    0.575,
+    1.905,
+    0.745
+   ],
+   "net": null,
+   "line": 50
+  },
+  "c3l": {
+   "layer": "li",
+   "bbox_um": [
+    1.735,
+    0.495,
+    1.905,
+    0.825
+   ],
+   "net": "VGND",
+   "line": 51
+  },
+  "c3s": {
+   "layer": "li",
+   "bbox_um": [
+    1.735,
+    -0.085,
+    1.905,
+    0.825
+   ],
+   "net": null,
+   "line": 52
+  },
+  "c4": {
+   "layer": "licon",
+   "bbox_um": [
+    2.685,
+    0.575,
+    2.855,
+    0.745
+   ],
+   "net": null,
+   "line": 53
+  },
+  "c4l": {
+   "layer": "li",
+   "bbox_um": [
+    2.685,
+    0.495,
+    2.855,
+    0.825
+   ],
+   "net": "X",
+   "line": 54
+  },
+  "c5": {
+   "layer": "licon",
+   "bbox_um": [
+    3.635,
+    0.575,
+    3.805,
+    0.745
+   ],
+   "net": null,
+   "line": 55
+  },
+  "c5l": {
+   "layer": "li",
+   "bbox_um": [
+    3.635,
+    0.495,
+    3.805,
+    0.825
+   ],
+   "net": "n4",
+   "line": 56
+  },
+  "c6": {
+   "layer": "licon",
+   "bbox_um": [
+    4.585,
+    0.575,
+    4.755,
+    0.745
+   ],
+   "net": null,
+   "line": 57
+  },
+  "c6l": {
+   "layer": "li",
+   "bbox_um": [
+    4.585,
+    0.495,
+    4.755,
+    0.825
+   ],
+   "net": "VGND",
+   "line": 58
+  },
+  "c6s": {
+   "layer": "li",
+   "bbox_um": [
+    4.585,
+    -0.085,
+    4.755,
+    0.825
+   ],
+   "net": null,
+   "line": 59
+  },
+  "c7": {
+   "layer": "licon",
+   "bbox_um": [
+    0.765,
+    1.675,
+    0.935,
+    2.185
+   ],
+   "net": null,
+   "line": 62
+  },
+  "c7l": {
+   "layer": "li",
+   "bbox_um": [
+    0.765,
+    1.595,
+    0.935,
+    2.265
+   ],
+   "net": "n2",
+   "line": 63
+  },
+  "c8": {
+   "layer": "licon",
+   "bbox_um": [
+    1.195,
+    1.675,
+    1.365,
+    2.185
+   ],
+   "net": null,
+   "line": 64
+  },
+  "c8l": {
+   "layer": "li",
+   "bbox_um": [
+    1.195,
+    1.595,
+    1.365,
+    2.265
+   ],
+   "net": "VPWR",
+   "line": 65
+  },
+  "c8s": {
+   "layer": "li",
+   "bbox_um": [
+    1.195,
+    1.595,
+    1.365,
+    2.805
+   ],
+   "net": null,
+   "line": 66
+  },
+  "c9": {
+   "layer": "licon",
+   "bbox_um": [
+    1.305,
+    1.675,
+    1.475,
+    2.185
+   ],
+   "net": null,
+   "line": 67
+  },
+  "c9l": {
+   "layer": "li",
+   "bbox_um": [
+    1.305,
+    1.595,
+    1.475,
+    2.265
+   ],
+   "net": "VPWR",
+   "line": 68
+  },
+  "c9s": {
+   "layer": "li",
+   "bbox_um": [
+    1.305,
+    1.595,
+    1.475,
+    2.805
+   ],
+   "net": null,
+   "line": 69
+  },
+  "c10": {
+   "layer": "licon",
+   "bbox_um": [
+    1.735,
+    1.675,
+    1.905,
+    2.185
+   ],
+   "net": null,
+   "line": 70
+  },
+  "c10l": {
+   "layer": "li",
+   "bbox_um": [
+    1.735,
+    1.595,
+    1.905,
+    2.265
+   ],
+   "net": "n2",
+   "line": 71
+  },
+  "c11": {
+   "layer": "licon",
+   "bbox_um": [
+    2.255,
+    1.675,
+    2.425,
+    2.185
+   ],
+   "net": null,
+   "line": 72
+  },
+  "c11l": {
+   "layer": "li",
+   "bbox_um": [
+    2.255,
+    1.595,
+    2.425,
+    2.265
+   ],
+   "net": "X",
+   "line": 73
+  },
+  "c12": {
+   "layer": "licon",
+   "bbox_um": [
+    2.685,
+    1.675,
+    2.855,
+    2.185
+   ],
+   "net": null,
+   "line": 74
+  },
+  "c12l": {
+   "layer": "li",
+   "bbox_um": [
+    2.685,
+    1.595,
+    2.855,
+    2.265
+   ],
+   "net": "n2",
+   "line": 75
+  },
+  "c13": {
+   "layer": "licon",
+   "bbox_um": [
+    3.205,
+    1.675,
+    3.375,
+    2.185
+   ],
+   "net": null,
+   "line": 76
+  },
+  "c13l": {
+   "layer": "li",
+   "bbox_um": [
+    3.205,
+    1.595,
+    3.375,
+    2.265
+   ],
+   "net": "n3",
+   "line": 77
+  },
+  "c14": {
+   "layer": "licon",
+   "bbox_um": [
+    3.635,
+    1.675,
+    3.805,
+    2.185
+   ],
+   "net": null,
+   "line": 78
+  },
+  "c14l": {
+   "layer": "li",
+   "bbox_um": [
+    3.635,
+    1.595,
+    3.805,
+    2.265
+   ],
+   "net": "n1",
+   "line": 79
+  },
+  "c15": {
+   "layer": "licon",
+   "bbox_um": [
+    4.155,
+    1.675,
+    4.325,
+    2.185
+   ],
+   "net": null,
+   "line": 80
+  },
+  "c15l": {
+   "layer": "li",
+   "bbox_um": [
+    4.155,
+    1.595,
+    4.325,
+    2.265
+   ],
+   "net": "VPWR",
+   "line": 81
+  },
+  "c15s": {
+   "layer": "li",
+   "bbox_um": [
+    4.155,
+    1.595,
+    4.325,
+    2.805
+   ],
+   "net": null,
+   "line": 82
+  },
+  "c16": {
+   "layer": "licon",
+   "bbox_um": [
+    4.585,
+    1.675,
+    4.755,
+    2.185
+   ],
+   "net": null,
+   "line": 83
+  },
+  "c16l": {
+   "layer": "li",
+   "bbox_um": [
+    4.585,
+    1.595,
+    4.755,
+    2.265
+   ],
+   "net": "n3",
+   "line": 84
+  },
+  "gc1": {
+   "layer": "licon",
+   "bbox_um": [
+    0.98,
+    1.095,
+    1.15,
+    1.265
+   ],
+   "net": null,
+   "line": 88
+  },
+  "gp1": {
+   "layer": "poly",
+   "bbox_um": [
+    0.9,
+    1.045,
+    1.23,
+    1.315
+   ],
+   "net": null,
+   "line": 89
+  },
+  "gl1": {
+   "layer": "li",
+   "bbox_um": [
+    0.98,
+    1.015,
+    1.15,
+    1.345
+   ],
+   "net": "A",
+   "line": 90
+  },
+  "gc2": {
+   "layer": "licon",
+   "bbox_um": [
+    1.52,
+    1.095,
+    1.69,
+    1.265
+   ],
+   "net": null,
+   "line": 91
+  },
+  "gp2": {
+   "layer": "poly",
+   "bbox_um": [
+    1.44,
+    1.045,
+    1.77,
+    1.315
+   ],
+   "net": null,
+   "line": 92
+  },
+  "gl2": {
+   "layer": "li",
+   "bbox_um": [
+    1.52,
+    1.015,
+    1.69,
+    1.345
+   ],
+   "net": "B",
+   "line": 93
+  },
+  "gc3": {
+   "layer": "licon",
+   "bbox_um": [
+    2.47,
+    1.095,
+    2.64,
+    1.265
+   ],
+   "net": null,
+   "line": 94
+  },
+  "gp3": {
+   "layer": "poly",
+   "bbox_um": [
+    2.39,
+    1.045,
+    2.72,
+    1.315
+   ],
+   "net": null,
+   "line": 95
+  },
+  "gl3": {
+   "layer": "li",
+   "bbox_um": [
+    2.47,
+    1.015,
+    2.64,
+    1.345
+   ],
+   "net": "n1",
+   "line": 96
+  },
+  "gc4": {
+   "layer": "licon",
+   "bbox_um": [
+    3.42,
+    1.095,
+    3.59,
+    1.265
+   ],
+   "net": null,
+   "line": 97
+  },
+  "gp4": {
+   "layer": "poly",
+   "bbox_um": [
+    3.34,
+    1.045,
+    3.67,
+    1.315
+   ],
+   "net": null,
+   "line": 98
+  },
+  "gl4": {
+   "layer": "li",
+   "bbox_um": [
+    3.42,
+    1.015,
+    3.59,
+    1.345
+   ],
+   "net": "B",
+   "line": 99
+  },
+  "gc5": {
+   "layer": "licon",
+   "bbox_um": [
+    4.37,
+    1.095,
+    4.54,
+    1.265
+   ],
+   "net": null,
+   "line": 100
+  },
+  "gp5": {
+   "layer": "poly",
+   "bbox_um": [
+    4.29,
+    1.045,
+    4.62,
+    1.315
+   ],
+   "net": null,
+   "line": 101
+  },
+  "gl5": {
+   "layer": "li",
+   "bbox_um": [
+    4.37,
+    1.015,
+    4.54,
+    1.345
+   ],
+   "net": "A",
+   "line": 102
+  },
+  "gn": {
+   "layer": "npc",
+   "bbox_um": [
+    0.88,
+    0.995,
+    4.64,
+    1.365
+   ],
+   "net": null,
+   "line": 103
+  },
+  "am": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.98,
+    1.095,
+    1.15,
+    1.265
+   ],
+   "net": null,
+   "line": 109
+  },
+  "ap": {
+   "layer": "m1",
+   "bbox_um": [
+    0.92,
+    1.035,
+    1.21,
+    1.325
+   ],
+   "net": "A",
+   "line": 110
+  },
+  "bm": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.52,
+    1.095,
+    1.69,
+    1.265
+   ],
+   "net": null,
+   "line": 112
+  },
+  "bp": {
+   "layer": "m1",
+   "bbox_um": [
+    1.46,
+    1.035,
+    1.75,
+    1.325
+   ],
+   "net": "B",
+   "line": 113
+  }
+ },
+ "connectivity": [],
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-081644-deep-L1-nemotron-nudge-retr2/xor2/check5/xor2.png",
+ "route_failed": [],
+ "status": "CLEAN",
+ "seconds": 2.5
+}

@@ -1,0 +1,1 @@
+CLEAN at the nominal point {'L': 0.15, 'H': 2.72, 'WN': 0.49, 'WP': 0.75}: DRC 0, LVS match. Now call check_sweep on the same file.

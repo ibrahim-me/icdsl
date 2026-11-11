@@ -1,0 +1,111 @@
+{
+ "cell": "buf",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/runs/20261104-074631/buf/check1/buf.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/runs/20261104-074631/buf/check1/buf.reference.spice",
+ "size_um": [
+  3.68,
+  2.72
+ ],
+ "warnings": [
+  "buf: port X: no legal met1/met2 access point for a parent router (0.23 um grid) (blocked by n1p on m1); put the pin on met1 (contact mcon in=<li> + enclose ... m1 by=0.06) or keep met1 clear above it",
+  "buf: fast pre-check found 2 rule issue(s): mcon.size at [2.31, 0.455, 2.48, 0.76] near nd (line 10), nim (line 12), dn1 (line 18); ct.4 at [2.31, 0.455, 2.48, 0.51] near nd (line 10), nim (line 12), dn1l (line 24)"
+ ],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 0,
+  "by_rule": []
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": false,
+  "result": "Netlists do not match.",
+  "devices_layout_vs_ref": [
+   4,
+   4
+  ],
+  "nets_layout_vs_ref": [
+   6,
+   5
+  ],
+  "details": [
+   "Number of nets: 6 **Mismatch**             |Number of nets: 5 **Mismatch**             ",
+   "---------------------------------------------------------------------------------------",
+   "NET mismatches: Class fragments follow (with fanout counts):",
+   "Circuit 1: buf                             |Circuit 2: buf                             ",
+   "---------------------------------------------------------------------------------------",
+   "Net: A                                     |Net: A                                     ",
+   "  sky130_fd_pr__pfet_01v8/2 = 1            |  sky130_fd_pr__pfet_01v8/2 = 1            ",
+   "  sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/2 = 1            ",
+   "                                           |                                           ",
+   "Net: X                                     |Net: X                                     ",
+   "  sky130_fd_pr__nfet_01v8/(1|3) = 2        |  sky130_fd_pr__nfet_01v8/(1|3) = 1        ",
+   "                                           |  sky130_fd_pr__pfet_01v8/(1|3) = 1        ",
+   "                                           |                                           ",
+   "Net: a_507_57#                             |Net: n1                                    ",
+   "  sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/(1|3) = 1        ",
+   "  sky130_fd_pr__pfet_01v8/2 = 1            |  sky130_fd_pr__pfet_01v8/(1|3) = 1        ",
+   "                                           |  sky130_fd_pr__nfet_01v8/2 = 1            ",
+   "                                           |  sky130_fd_pr__pfet_01v8/2 = 1            ",
+   "                                           |                                           ",
+   "Net: a_229_307#                            |(no matching net)                          ",
+   "  sky130_fd_pr__pfet_01v8/(1|3) = 2        |                                           ",
+   "---------------------------------------------------------------------------------------",
+   "Netlists do not match.",
+   "Port matching may fail to disambiguate symmetries.",
+   "Subcircuit pins:",
+   "Circuit 1: buf                             |Circuit 2: buf                             ",
+   "-------------------------------------------|-------------------------------------------",
+   "A                                          |X **Mismatch**                             ",
+   "Cell pin lists are equivalent.",
+   "Device classes buf and buf are equivalent.",
+   "Final result: Netlists do not match.",
+   "Port matching may fail to disambiguate symmetries."
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/runs/20261104-074631/buf/check1/buf.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/runs/20261104-074631/buf/check1/buf.lvs.txt"
+ },
+ "routes": {},
+ "precheck": [
+  {
+   "rule": "mcon.size",
+   "msg": "mcon must be exactly 0.17 x 0.17 um",
+   "objects": [
+    "nd (line 10)",
+    "nim (line 12)",
+    "dn1 (line 18)",
+    "dn1l (line 24)",
+    "n1m (line 44)",
+    "n1p (line 45)"
+   ],
+   "box_um": [
+    2.31,
+    0.455,
+    2.48,
+    0.76
+   ]
+  },
+  {
+   "rule": "ct.4",
+   "msg": "mcon not covered by li",
+   "objects": [
+    "nd (line 10)",
+    "nim (line 12)",
+    "dn1l (line 24)",
+    "xm (line 51)",
+    "xp (line 52)",
+    "boundary"
+   ],
+   "box_um": [
+    2.31,
+    0.455,
+    2.48,
+    0.51
+   ]
+  }
+ ],
+ "constraint_violations": [],
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/runs/20261104-074631/buf/check1/buf.png",
+ "status": "VIOLATIONS",
+ "seconds": 3.4
+}

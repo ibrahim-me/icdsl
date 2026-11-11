@@ -1,0 +1,12 @@
+Check result at {'L': 0.15, 'H': 2.72, 'WN': 0.42, 'WP': 0.59}: VIOLATIONS  (DRC 0 errors, LVS MISMATCH)
+CONNECTIVITY (fix these first - they are why LVS fails):
+  DEVICE M0 (nmos g=n1 d=VGND s=X) has no matching transistor in the layout - the nmos with gate n1 at x=1.11 has VGND and n1 on its sides; it needs VGND and X: the side labelled n1 should be X (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M1 (pmos g=A d=n1 s=VPWR) has no matching transistor in the layout - the pmos with gate A at x=1.65 has VPWR and X on its sides; it needs n1 and VPWR: the side labelled X should be n1 (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M2 (nmos g=A d=n1 s=VGND) has no matching transistor in the layout - the nmos with gate A at x=1.65 has VGND and X on its sides; it needs n1 and VGND: the side labelled X should be n1 (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M3 (pmos g=n1 d=VPWR s=X) has no matching transistor in the layout - the pmos with gate n1 at x=1.11 has VPWR and n1 on its sides; it needs VPWR and X: the side labelled n1 should be X (wrong net label on that contact column, or the gates are in the wrong order)
+    layout nmos at x=1.11 y=0.625: gate n1 [g1 (line 17), gp1 (line 45)], source/drain VGND [cmnl (line 31), cmns (line 32), nd (line 19)], n1 [cnl (line 26), cpl (line 28), gl1 (line 46), +2 more]
+    layout nmos at x=1.65 y=0.625: gate A [g2 (line 18), gp2 (line 48)], source/drain VGND [cmnl (line 31), cmns (line 32), nd (line 19)], X [cel (line 38), cepl (line 40), nd (line 19), +1 more]
+    layout pmos at x=1.11 y=2.01: gate n1 [g1 (line 17), gp1 (line 45)], source/drain VPWR [cmpl (line 34), cmps (line 35), pd (line 20)], n1 [cnl (line 26), cpl (line 28), gl1 (line 46), +2 more]
+    layout pmos at x=1.65 y=2.01: gate A [g2 (line 18), gp2 (line 48)], source/drain VPWR [cmpl (line 34), cmps (line 35), pd (line 20)], X [cel (line 38), cepl (line 40), nd (line 19), +1 more]
+Fix the first items first (the attached image is your layout, DRC errors boxed in red). Return the complete corrected file.
+NOTE: this version scores worse (5000) than your best so far (21); your best version is saved as /best.icl.

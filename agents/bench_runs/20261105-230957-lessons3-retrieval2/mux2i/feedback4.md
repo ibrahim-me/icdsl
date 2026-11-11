@@ -1,0 +1,15 @@
+Check result at {'L': 0.15, 'H': 2.72, 'WN': 0.49, 'WP': 0.75}: VIOLATIONS  (DRC 0 errors, LVS MISMATCH)
+CONNECTIVITY (fix these first - they are why LVS fails):
+  SHORT Y / n5: on li around (3.11, 0.66): shapes of Y and n5 overlap/touch there (c4l (line 63), c5l (line 65))
+  OPEN net S is 2 separate pieces: [g1 (line 24), gl1 (line 72), gp1 (line 71), sp (line 88)] | [g2 (line 25), gl2 (line 75), gp2 (line 74)] - join them (strap / shared metal / `route S`)
+  DEVICE M2 (pmos g=A0 d=n2 s=Y) has no matching transistor in the layout - the pmos with gate A0 at x=2.3 has Y+n5 and n2 on its sides; it needs n2 and Y: the side labelled Y+n5 should be Y (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M5 (nmos g=n1 d=n5 s=VGND) has no matching transistor in the layout - the nmos with gate n1 at x=3.38 has VGND and Y+n5 on its sides; it needs n5 and VGND: the side labelled Y+n5 should be n5 (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M7 (pmos g=A1 d=Y s=n4) has no matching transistor in the layout - the pmos with gate A1 at x=2.84 has Y+n5 and n4 on its sides; it needs Y and n4: the side labelled Y+n5 should be Y (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M8 (nmos g=A1 d=Y s=n3) has no matching transistor in the layout - the nmos with gate A1 at x=2.84 has ?3 and Y+n5 on its sides; it needs Y and n3: the side labelled ?3 should be Y (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M9 (nmos g=A0 d=n5 s=Y) has no matching transistor in the layout - the nmos with gate A0 at x=2.3 has ?3 and n3 on its sides; it needs n5 and Y: the side labelled ?3 should be n5 (wrong net label on that contact column, or the gates are in the wrong order)
+    layout nmos at x=2.3 y=0.66: gate A0 [g3 (line 26), gp3 (line 77)], source/drain ?3 [nd1 (line 34)], n3 [c3l (line 61), nd1 (line 34)]  (?N = connected to no labelled net: a gate with no contact on it, or a diffusion piece with no contact - fine only for a series node)
+    layout nmos at x=2.84 y=0.66: gate A1 [g4 (line 27), gp4 (line 80)], source/drain ?3 [nd1 (line 34)], Y+n5 [c10l (line 48), c4l (line 63), c5l (line 65), +3 more]  (?N = connected to no labelled net: a gate with no contact on it, or a diffusion piece with no contact - fine only for a series node)
+    layout nmos at x=3.38 y=0.66: gate n1 [g5 (line 28), gp5 (line 83)], source/drain VGND [c2l (line 58), c2s (line 59), c6l (line 67), +3 more], Y+n5 [c10l (line 48), c4l (line 63), c5l (line 65), +3 more]
+    layout pmos at x=2.3 y=1.93: gate A0 [g3 (line 26), gp3 (line 77)], source/drain Y+n5 [c10l (line 48), c4l (line 63), c5l (line 65), +3 more], n2 [c9l (line 46), pd1 (line 30)]
+    layout pmos at x=2.84 y=1.93: gate A1 [g4 (line 27), gp4 (line 80)], source/drain Y+n5 [c10l (line 48), c4l (line 63), c5l (line 65), +3 more], n4 [c11l (line 50), pd1 (line 30), pd2 (line 32)]
+Fix the first items first (the attached image is your layout, DRC errors boxed in red). Return the complete corrected file.

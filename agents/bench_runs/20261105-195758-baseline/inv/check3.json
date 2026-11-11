@@ -1,0 +1,590 @@
+{
+ "cell": "inv",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-195758-baseline/inv/check3/inv.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-195758-baseline/inv/check3/inv.reference.spice",
+ "size_um": [
+  1.38,
+  2.72
+ ],
+ "warnings": [
+  "inv: port A: no legal met1/met2 access point for a parent router (0.23 um grid); put the pin on met1 (contact mcon in=<li> + enclose ... m1 by=0.06) or keep met1 clear above it",
+  "inv: port Y: no legal met1/met2 access point for a parent router (0.23 um grid); put the pin on met1 (contact mcon in=<li> + enclose ... m1 by=0.06) or keep met1 clear above it",
+  "inv: fast pre-check found 5 rule issue(s): m1.width at [0.728, 1.235, 0.867, 1.325] near nwell (line 29), g (line 12), y (line 23); m1.width at [0.76, 1.207, 0.835, 1.353] near nwell (line 29), g (line 12), y (line 23); li.space at [0.775, 0.851, 0.82, 1.509] near nwell (line 29), nd (line 8), nim (line 10); mcon.space at [0.775, 1.11, 0.82, 1.45] near nwell (line 29), pim (line 11), g (line 12); mcon.space at [0.632, 1.265, 0.963, 1.295] near g (line 12), y (line 23), gc (line 25)"
+ ],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 22,
+  "by_rule": [
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "count": 12,
+    "examples": [
+     {
+      "box_um": [
+       0.82,
+       1.465,
+       0.945,
+       1.515
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "y": [
+        "li"
+       ],
+       "ym": [
+        "mcon"
+       ],
+       "yp": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       0.82,
+       1.345,
+       0.945,
+       1.465
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "y": [
+        "li"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "ap": [
+        "m1"
+       ],
+       "ym": [
+        "mcon"
+       ],
+       "yp": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       0.82,
+       0.845,
+       0.945,
+       1.015
+      ],
+      "objects": {
+       "nd": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "dnl": [
+        "li"
+       ],
+       "y": [
+        "li"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "ap": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       0.82,
+       0.845,
+       0.945,
+       1.095
+      ],
+      "objects": {
+       "nd": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "dnl": [
+        "li"
+       ],
+       "y": [
+        "li"
+       ],
+       "gp": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "ap": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "Core local interconnect spacing < 0.14um (li.c2)",
+    "count": 5,
+    "examples": [
+     {
+      "box_um": [
+       0.82,
+       1.345,
+       0.915,
+       1.465
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "y": [
+        "li"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "ap": [
+        "m1"
+       ],
+       "ym": [
+        "mcon"
+       ],
+       "yp": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       0.82,
+       1.095,
+       0.915,
+       1.265
+      ],
+      "objects": {
+       "y": [
+        "li"
+       ],
+       "gp": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "ap": [
+        "m1"
+       ],
+       "yp": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       0.82,
+       1.295,
+       0.915,
+       1.465
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "y": [
+        "li"
+       ],
+       "gp": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "ap": [
+        "m1"
+       ],
+       "ym": [
+        "mcon"
+       ],
+       "yp": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       0.68,
+       1.295,
+       0.775,
+       1.345
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "g": [
+        "poly"
+       ],
+       "gp": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "a": [
+        "li"
+       ],
+       "ap": [
+        "m1"
+       ],
+       "yp": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "mcon.spacing < 0.19um (mcon.2)",
+    "count": 4,
+    "examples": [
+     {
+      "box_um": [
+       0.63,
+       1.105,
+       0.775,
+       1.265
+      ],
+      "objects": {
+       "g": [
+        "poly"
+       ],
+       "gc": [
+        "licon"
+       ],
+       "gp": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "a": [
+        "li"
+       ],
+       "am": [
+        "mcon"
+       ],
+       "ap": [
+        "m1"
+       ],
+       "yp": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       0.63,
+       1.105,
+       0.775,
+       1.265
+      ],
+      "objects": {
+       "g": [
+        "poly"
+       ],
+       "gc": [
+        "licon"
+       ],
+       "gp": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "a": [
+        "li"
+       ],
+       "am": [
+        "mcon"
+       ],
+       "ap": [
+        "m1"
+       ],
+       "yp": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       0.82,
+       1.295,
+       0.965,
+       1.455
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "y": [
+        "li"
+       ],
+       "gp": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "ap": [
+        "m1"
+       ],
+       "ym": [
+        "mcon"
+       ],
+       "yp": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       0.82,
+       1.295,
+       0.965,
+       1.455
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "y": [
+        "li"
+       ],
+       "gp": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "ap": [
+        "m1"
+       ],
+       "ym": [
+        "mcon"
+       ],
+       "yp": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "Metal1 width < 0.14um (met1.1)",
+    "count": 1,
+    "examples": [
+     {
+      "box_um": [
+       0.695,
+       1.325,
+       0.76,
+       1.375
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "g": [
+        "poly"
+       ],
+       "gp": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "a": [
+        "li"
+       ],
+       "ap": [
+        "m1"
+       ],
+       "yp": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": false,
+  "result": "Top level cell failed pin matching.",
+  "devices_layout_vs_ref": [
+   2,
+   2
+  ],
+  "nets_layout_vs_ref": [
+   3,
+   4
+  ],
+  "details": [
+   "Number of nets: 3 **Mismatch**             |Number of nets: 4 **Mismatch**             ",
+   "---------------------------------------------------------------------------------------",
+   "NET mismatches: Class fragments follow (with fanout counts):",
+   "Circuit 1: inv                             |Circuit 2: inv                             ",
+   "---------------------------------------------------------------------------------------",
+   "Net: Y                                     |Net: Y                                     ",
+   "  sky130_fd_pr__nfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/(1|3) = 1        ",
+   "  sky130_fd_pr__pfet_01v8/(1|3) = 1        |  sky130_fd_pr__pfet_01v8/(1|3) = 1        ",
+   "  sky130_fd_pr__nfet_01v8/2 = 1            |                                           ",
+   "  sky130_fd_pr__pfet_01v8/2 = 1            |                                           ",
+   "                                           |                                           ",
+   "(no matching net)                          |Net: A                                     ",
+   "                                           |  sky130_fd_pr__nfet_01v8/2 = 1            ",
+   "                                           |  sky130_fd_pr__pfet_01v8/2 = 1            ",
+   "---------------------------------------------------------------------------------------",
+   "Netlists do not match.",
+   "Port matching may fail to disambiguate symmetries.",
+   "Subcircuit pins:",
+   "Circuit 1: inv                             |Circuit 2: inv                             ",
+   "-------------------------------------------|-------------------------------------------",
+   "Y                                          |A **Mismatch**                             ",
+   "VPWR                                       |VPWR                                       ",
+   "VGND                                       |VGND                                       ",
+   "(no pin, node is Y)                        |Y                                          ",
+   "---------------------------------------------------------------------------------------",
+   "Cell pin lists for inv and inv altered to match.",
+   "Device classes inv and inv are equivalent.",
+   "Final result: Top level cell failed pin matching."
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-195758-baseline/inv/check3/inv.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-195758-baseline/inv/check3/inv.lvs.txt"
+ },
+ "routes": {},
+ "precheck": [
+  {
+   "rule": "m1.width",
+   "msg": "m1 narrower than 0.140 um",
+   "objects": [
+    "nwell (line 29)",
+    "g (line 12)",
+    "y (line 23)",
+    "gc (line 25)",
+    "gp (line 26)",
+    "gn (line 27)"
+   ],
+   "box_um": [
+    0.728,
+    1.235,
+    0.867,
+    1.325
+   ]
+  },
+  {
+   "rule": "m1.width",
+   "msg": "m1 narrower than 0.140 um",
+   "objects": [
+    "nwell (line 29)",
+    "g (line 12)",
+    "y (line 23)",
+    "gc (line 25)",
+    "gp (line 26)",
+    "gn (line 27)"
+   ],
+   "box_um": [
+    0.76,
+    1.207,
+    0.835,
+    1.353
+   ]
+  },
+  {
+   "rule": "li.space",
+   "msg": "li spacing < 0.170 um",
+   "objects": [
+    "nwell (line 29)",
+    "nd (line 8)",
+    "nim (line 10)",
+    "pim (line 11)",
+    "g (line 12)",
+    "y (line 23)"
+   ],
+   "box_um": [
+    0.775,
+    0.851,
+    0.82,
+    1.509
+   ]
+  },
+  {
+   "rule": "mcon.space",
+   "msg": "mcon spacing < 0.190 um",
+   "objects": [
+    "nwell (line 29)",
+    "pim (line 11)",
+    "g (line 12)",
+    "y (line 23)",
+    "gc (line 25)",
+    "gp (line 26)"
+   ],
+   "box_um": [
+    0.775,
+    1.11,
+    0.82,
+    1.45
+   ]
+  },
+  {
+   "rule": "mcon.space",
+   "msg": "mcon spacing < 0.190 um",
+   "objects": [
+    "g (line 12)",
+    "y (line 23)",
+    "gc (line 25)",
+    "gp (line 26)",
+    "gn (line 27)",
+    "a (line 28)"
+   ],
+   "box_um": [
+    0.632,
+    1.265,
+    0.963,
+    1.295
+   ]
+  }
+ ],
+ "constraint_violations": [],
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-195758-baseline/inv/check3/inv.png",
+ "status": "VIOLATIONS",
+ "seconds": 2.7
+}

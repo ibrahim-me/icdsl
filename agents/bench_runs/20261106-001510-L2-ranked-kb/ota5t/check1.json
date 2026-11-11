@@ -1,0 +1,266 @@
+{
+ "cell": "ota5t",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-001510-L2-ranked-kb/ota5t/check1/ota5t.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-001510-L2-ranked-kb/ota5t/check1/ota5t.reference.spice",
+ "size_um": [
+  7.36,
+  14.72
+ ],
+ "warnings": [],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 0,
+  "by_rule": [],
+  "all": []
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": true,
+  "result": "Circuits match uniquely.",
+  "devices_layout_vs_ref": [
+   5,
+   5
+  ],
+  "nets_layout_vs_ref": [
+   8,
+   8
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-001510-L2-ranked-kb/ota5t/check1/ota5t.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-001510-L2-ranked-kb/ota5t/check1/ota5t.lvs.txt",
+  "dummies_ignored": 6
+ },
+ "routes": {
+  "nets": {
+   "tail": {
+    "length_um": 6.44,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 8,
+    "width_um": {
+     "m1": 0.4,
+     "m2": 0.4
+    },
+    "res_ohm": 14.75
+   },
+   "VGND": {
+    "length_um": 12.88,
+    "layers": [
+     "m1"
+    ],
+    "cuts": 5,
+    "width_um": {
+     "m1": 0.14
+    },
+    "res_ohm": 10.68
+   },
+   "VPWR": {
+    "length_um": 12.88,
+    "layers": [
+     "m1"
+    ],
+    "cuts": 6,
+    "width_um": {
+     "m1": 0.14
+    },
+    "res_ohm": 7.8
+   },
+   "x": {
+    "length_um": 18.86,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 13,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 24.61
+   },
+   "INN": {
+    "length_um": 2.3,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 2,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 6.55
+   },
+   "INP": {
+    "length_um": 1.38,
+    "layers": [
+     "m1"
+    ],
+    "cuts": 2,
+    "width_um": {
+     "m1": 0.14
+    },
+    "res_ohm": 5.73
+   },
+   "OUT": {
+    "length_um": 15.18,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 9,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 17.63
+   },
+   "VBN": {
+    "length_um": 1.38,
+    "layers": [
+     "m2"
+    ],
+    "cuts": 2,
+    "width_um": {
+     "m2": 0.14
+    },
+    "res_ohm": 5.73
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [],
+ "constraint_violations": [],
+ "objects": {
+  "DIFF": {
+   "kind": "array",
+   "at_um": [
+    0.92,
+    6.9
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    0.67,
+    4.415,
+    6.69,
+    7.085
+   ],
+   "line": 18
+  },
+  "LOAD": {
+   "kind": "array",
+   "at_um": [
+    1.84,
+    10.12
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    1.59,
+    8.095,
+    5.77,
+    12.605
+   ],
+   "line": 19
+  },
+  "MT": {
+   "kind": "array",
+   "at_um": [
+    1.84,
+    3.22
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    1.59,
+    1.815,
+    5.77,
+    3.405
+   ],
+   "line": 23
+  },
+  "TP": {
+   "kind": "tap",
+   "at_um": [
+    3.68,
+    0.92
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    3.35,
+    0.65,
+    4.47,
+    1.19
+   ],
+   "line": 25
+  },
+  "TN": {
+   "kind": "tap",
+   "at_um": [
+    3.68,
+    13.8
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    3.35,
+    13.53,
+    4.47,
+    14.07
+   ],
+   "line": 28
+  }
+ },
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-001510-L2-ranked-kb/ota5t/check1/ota5t.png",
+ "route_failed": [],
+ "status": "CLEAN",
+ "seconds": 2.9,
+ "judge": {
+  "ok": true,
+  "results": [
+   {
+    "constraint": {
+     "type": "interdigitated",
+     "devices": [
+      "M1",
+      "M2"
+     ]
+    },
+    "ok": true,
+    "detail": "order left to right ABBA (A=M1, B=M2); M1 centroid (3.680, 5.925), M2 centroid (3.680, 5.925)"
+   },
+   {
+    "constraint": {
+     "type": "common_centroid",
+     "devices": [
+      "M3",
+      "M4"
+     ]
+    },
+    "ok": true,
+    "detail": "M3 centroid (3.680, 10.450), M4 centroid (3.680, 10.450); max offset 0.000 um (allowed 0.06)"
+   },
+   {
+    "constraint": {
+     "type": "spacing",
+     "nets": [
+      "OUT",
+      "INN"
+     ],
+     "min": 0.5
+    },
+    "ok": true,
+    "detail": "closest wires of OUT and INN: 1.150 um on m2 near (5.52, 5.98) (need >= 0.5)"
+   },
+   {
+    "constraint": {
+     "type": "route_width",
+     "net": "tail",
+     "min": 0.4
+    },
+    "ok": true,
+    "detail": "net tail routed {'m1': 0.4, 'm2': 0.4} um wide (need >= 0.4)"
+   }
+  ]
+ }
+}

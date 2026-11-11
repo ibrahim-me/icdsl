@@ -1,0 +1,626 @@
+{
+ "cell": "buf",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/runs/20261104-073606/buf/check3/buf.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/runs/20261104-073606/buf/check3/buf.reference.spice",
+ "size_um": [
+  2.76,
+  2.72
+ ],
+ "warnings": [
+  "buf: fast pre-check found 9 rule issue(s): poly.space at [1.33, 0.986, 1.52, 1.164] near nim (line 13), gn (line 16), gcn (line 37); poly.space at [1.33, 1.075, 1.43, 1.345] near nwell (line 44), gpa (line 38), gpn (line 39); poly.space at [1.24, 0.986, 1.43, 1.164] near nim (line 13), ga (line 15), gca (line 36); poly.space at [1.24, 1.256, 1.43, 1.434] near nwell (line 44), pim (line 14), ga (line 15); poly.space at [1.33, 1.256, 1.52, 1.434] near nwell (line 44), pim (line 14), gn (line 16); li.space at [1.035, 0.881, 1.08, 1.539] near nwell (line 44), nd (line 11), pd (line 12)"
+ ],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 26,
+  "by_rule": [
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "count": 16,
+    "examples": [
+     {
+      "box_um": [
+       0.91,
+       1.375,
+       1.035,
+       1.545
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd": [
+        "diff"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "n1j": [
+        "li"
+       ],
+       "gna": [
+        "npc"
+       ],
+       "ap": [
+        "m1"
+       ],
+       "route:n1": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.725,
+       1.375,
+       1.85,
+       1.545
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd": [
+        "diff"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "xj": [
+        "li"
+       ],
+       "gnn": [
+        "npc"
+       ],
+       "np": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.08,
+       1.295,
+       1.205,
+       1.375
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "ga": [
+        "poly"
+       ],
+       "gca": [
+        "licon"
+       ],
+       "gpa": [
+        "poly"
+       ],
+       "gna": [
+        "npc"
+       ],
+       "al": [
+        "li"
+       ],
+       "am": [
+        "mcon"
+       ],
+       "ap": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.08,
+       1.125,
+       1.205,
+       1.295
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "ga": [
+        "poly"
+       ],
+       "gca": [
+        "licon"
+       ],
+       "gpa": [
+        "poly"
+       ],
+       "gna": [
+        "npc"
+       ],
+       "al": [
+        "li"
+       ],
+       "am": [
+        "mcon"
+       ],
+       "ap": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "poly spacing < 0.21um (poly.2)",
+    "count": 6,
+    "examples": [
+     {
+      "box_um": [
+       1.22,
+       1.345,
+       1.24,
+       1.535
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd": [
+        "diff"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "ga": [
+        "poly"
+       ],
+       "gpa": [
+        "poly"
+       ],
+       "gna": [
+        "npc"
+       ],
+       "al": [
+        "li"
+       ],
+       "ap": [
+        "m1"
+       ],
+       "route:n1": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.43,
+       1.075,
+       1.54,
+       1.125
+      ],
+      "objects": {
+       "nim": [
+        "nsdm"
+       ],
+       "gn": [
+        "poly"
+       ],
+       "gcn": [
+        "licon"
+       ],
+       "gpn": [
+        "poly"
+       ],
+       "gnn": [
+        "npc"
+       ],
+       "nl": [
+        "li"
+       ],
+       "nm": [
+        "mcon"
+       ],
+       "np": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.43,
+       1.125,
+       1.51,
+       1.295
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "gn": [
+        "poly"
+       ],
+       "gcn": [
+        "licon"
+       ],
+       "gpn": [
+        "poly"
+       ],
+       "gnn": [
+        "npc"
+       ],
+       "nl": [
+        "li"
+       ],
+       "nm": [
+        "mcon"
+       ],
+       "np": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.51,
+       1.125,
+       1.54,
+       1.295
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "gn": [
+        "poly"
+       ],
+       "gcn": [
+        "licon"
+       ],
+       "gpn": [
+        "poly"
+       ],
+       "gnn": [
+        "npc"
+       ],
+       "nl": [
+        "li"
+       ],
+       "nm": [
+        "mcon"
+       ],
+       "np": [
+        "m1"
+       ],
+       "route:n1": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "Core local interconnect spacing < 0.14um (li.c2)",
+    "count": 4,
+    "examples": [
+     {
+      "box_um": [
+       1.08,
+       1.125,
+       1.175,
+       1.295
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "ga": [
+        "poly"
+       ],
+       "gca": [
+        "licon"
+       ],
+       "gpa": [
+        "poly"
+       ],
+       "gna": [
+        "npc"
+       ],
+       "al": [
+        "li"
+       ],
+       "am": [
+        "mcon"
+       ],
+       "ap": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       0.94,
+       1.125,
+       1.035,
+       1.295
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "n1j": [
+        "li"
+       ],
+       "gpa": [
+        "poly"
+       ],
+       "gna": [
+        "npc"
+       ],
+       "ap": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.725,
+       1.125,
+       1.82,
+       1.295
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "xj": [
+        "li"
+       ],
+       "gpn": [
+        "poly"
+       ],
+       "gnn": [
+        "npc"
+       ],
+       "np": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.585,
+       1.125,
+       1.68,
+       1.295
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "gn": [
+        "poly"
+       ],
+       "gcn": [
+        "licon"
+       ],
+       "gpn": [
+        "poly"
+       ],
+       "gnn": [
+        "npc"
+       ],
+       "nl": [
+        "li"
+       ],
+       "nm": [
+        "mcon"
+       ],
+       "np": [
+        "m1"
+       ],
+       "route:n1": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": true,
+  "result": "Circuits match uniquely.",
+  "devices_layout_vs_ref": [
+   4,
+   4
+  ],
+  "nets_layout_vs_ref": [
+   5,
+   5
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/runs/20261104-073606/buf/check3/buf.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/runs/20261104-073606/buf/check3/buf.lvs.txt"
+ },
+ "routes": {
+  "nets": {
+   "n1": {
+    "length_um": 0.81,
+    "layers": [
+     "m1"
+    ],
+    "cuts": 1,
+    "width_um": {
+     "m1": 0.14
+    },
+    "res_ohm": 0.72
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [
+  {
+   "rule": "poly.space",
+   "msg": "poly spacing < 0.210 um",
+   "objects": [
+    "nim (line 13)",
+    "gn (line 16)",
+    "gcn (line 37)",
+    "gpa (line 38)",
+    "gpn (line 39)",
+    "gna (line 40)"
+   ],
+   "box_um": [
+    1.33,
+    0.986,
+    1.52,
+    1.164
+   ]
+  },
+  {
+   "rule": "poly.space",
+   "msg": "poly spacing < 0.210 um",
+   "objects": [
+    "nwell (line 44)",
+    "gpa (line 38)",
+    "gpn (line 39)",
+    "gna (line 40)",
+    "gnn (line 41)",
+    "boundary"
+   ],
+   "box_um": [
+    1.33,
+    1.075,
+    1.43,
+    1.345
+   ]
+  },
+  {
+   "rule": "poly.space",
+   "msg": "poly spacing < 0.210 um",
+   "objects": [
+    "nim (line 13)",
+    "ga (line 15)",
+    "gca (line 36)",
+    "gpa (line 38)",
+    "gpn (line 39)",
+    "gna (line 40)"
+   ],
+   "box_um": [
+    1.24,
+    0.986,
+    1.43,
+    1.164
+   ]
+  },
+  {
+   "rule": "poly.space",
+   "msg": "poly spacing < 0.210 um",
+   "objects": [
+    "nwell (line 44)",
+    "pim (line 14)",
+    "ga (line 15)",
+    "gca (line 36)",
+    "gpa (line 38)",
+    "gpn (line 39)"
+   ],
+   "box_um": [
+    1.24,
+    1.256,
+    1.43,
+    1.434
+   ]
+  },
+  {
+   "rule": "poly.space",
+   "msg": "poly spacing < 0.210 um",
+   "objects": [
+    "nwell (line 44)",
+    "pim (line 14)",
+    "gn (line 16)",
+    "gcn (line 37)",
+    "gpa (line 38)",
+    "gpn (line 39)"
+   ],
+   "box_um": [
+    1.33,
+    1.256,
+    1.52,
+    1.434
+   ]
+  },
+  {
+   "rule": "li.space",
+   "msg": "li spacing < 0.170 um",
+   "objects": [
+    "nwell (line 44)",
+    "nd (line 11)",
+    "pd (line 12)",
+    "nim (line 13)",
+    "pim (line 14)",
+    "ga (line 15)"
+   ],
+   "box_um": [
+    1.035,
+    0.881,
+    1.08,
+    1.539
+   ]
+  },
+  {
+   "rule": "li.space",
+   "msg": "li spacing < 0.170 um",
+   "objects": [
+    "nwell (line 44)",
+    "nd (line 11)",
+    "pd (line 12)",
+    "nim (line 13)",
+    "pim (line 14)",
+    "gn (line 16)"
+   ],
+   "box_um": [
+    1.68,
+    0.881,
+    1.725,
+    1.539
+   ]
+  },
+  {
+   "rule": "npc.space",
+   "msg": "npc spacing < 0.270 um",
+   "objects": [
+    "nwell (line 44)",
+    "nim (line 13)",
+    "gna (line 40)",
+    "gnn (line 41)",
+    "boundary"
+   ],
+   "box_um": [
+    1.35,
+    1.025,
+    1.41,
+    1.395
+   ]
+  },
+  {
+   "rule": "ct.4",
+   "msg": "mcon not covered by li",
+   "objects": [
+    "nd (line 11)",
+    "nim (line 13)",
+    "sxnl (line 28)",
+    "xj (line 33)",
+    "xm (line 50)",
+    "xp (line 51)"
+   ],
+   "box_um": [
+    1.725,
+    0.455,
+    1.895,
+    0.51
+   ]
+  }
+ ],
+ "constraint_violations": [],
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/runs/20261104-073606/buf/check3/buf.png",
+ "status": "VIOLATIONS",
+ "seconds": 2.9
+}

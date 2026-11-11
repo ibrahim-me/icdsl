@@ -1,0 +1,6 @@
+The script did not build:
+spiral centreline bbox: x [-49.8995,103.899] y [0,153.799]
+estimated drawing bbox: 173.799 x 173.799 um = 30206.1 um^2
+ERROR path folds back on itself
+  hint: remove the 180 degree turn
+  sub.py, line 97: under = c.path(bot, [(inner[0], uy), (ux, uy), (ux, oy), (ox, oy)],

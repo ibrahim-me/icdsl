@@ -1,0 +1,3 @@
+- LVS already matches. Two DRC problems remain.
+- Gate pitch: your gates are 0.43 um apart centre to centre, so the 0.33-wide poly pads are only 0.10 apart (poly.2 needs 0.21). Use gaps of max(0.28, 0.54 - L): `gb ... left=(ga.right + max(0.28, 0.54 - L))`, the same for gc, and `dw = 3*L + 0.53 + 2*max(0.28, 0.54 - L)`.
+- The Y strap on the right runs 0.045 um from C's gate-contact li (needs 0.17). Shift ALL THREE gate contacts left by 0.13: `cx=(ga.cx - 0.13)`, `cx=(gb.cx - 0.13)`, `cx=(gc.cx - 0.13)` - the pads still overlap their gates and keep 0.21 between them.

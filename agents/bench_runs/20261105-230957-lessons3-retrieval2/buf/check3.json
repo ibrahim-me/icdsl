@@ -1,0 +1,533 @@
+{
+ "cell": "buf",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-230957-lessons3-retrieval2/buf/check3/buf.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-230957-lessons3-retrieval2/buf/check3/buf.reference.spice",
+ "size_um": [
+  2.76,
+  2.72
+ ],
+ "warnings": [
+  "buf: port A: no legal met1/met2 access point for a parent router (0.23 um grid) (blocked by route:n1 on m1); put the pin on met1 (contact mcon in=<li> + enclose ... m1 by=0.06) or keep met1 clear above it"
+ ],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 0,
+  "by_rule": [],
+  "all": []
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": true,
+  "result": "Circuits match uniquely.",
+  "devices_layout_vs_ref": [
+   4,
+   4
+  ],
+  "nets_layout_vs_ref": [
+   5,
+   5
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-230957-lessons3-retrieval2/buf/check3/buf.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-230957-lessons3-retrieval2/buf/check3/buf.lvs.txt"
+ },
+ "routes": {
+  "nets": {
+   "n1": {
+    "length_um": 1.61,
+    "layers": [
+     "m1"
+    ],
+    "cuts": 3,
+    "width_um": {
+     "m1": 0.14
+    },
+    "res_ohm": 1.03
+   },
+   "X": {
+    "length_um": 1.5,
+    "layers": [
+     "m1"
+    ],
+    "cuts": 1,
+    "width_um": {
+     "m1": 0.14
+    },
+    "res_ohm": 1.33
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [],
+ "constraint_violations": [],
+ "objects": {
+  "vgnd": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    -0.24,
+    2.76,
+    0.24
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vpwr": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    2.48,
+    2.76,
+    2.96
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ptap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    -0.145,
+    2.58,
+    0.145
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    -0.085,
+    2.155,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    -0.085,
+    2.615,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vgnd_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    -0.085,
+    2.76,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_imp": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.0,
+    -0.27,
+    2.76,
+    0.27
+   ],
+   "net": null,
+   "line": 0
+  },
+  "ntap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    2.575,
+    2.58,
+    2.865
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    2.635,
+    2.155,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    2.635,
+    2.615,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "vpwr_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    2.635,
+    2.76,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_imp": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.0,
+    2.45,
+    2.76,
+    2.99
+   ],
+   "net": null,
+   "line": 0
+  },
+  "nwell": {
+   "layer": "nwell",
+   "bbox_um": [
+    0.0,
+    1.355,
+    2.76,
+    3.045
+   ],
+   "net": null,
+   "line": 46
+  },
+  "g1": {
+   "layer": "poly",
+   "bbox_um": [
+    1.035,
+    0.285,
+    1.185,
+    2.435
+   ],
+   "net": null,
+   "line": 15
+  },
+  "g2": {
+   "layer": "poly",
+   "bbox_um": [
+    1.575,
+    0.285,
+    1.725,
+    2.435
+   ],
+   "net": null,
+   "line": 16
+  },
+  "nd": {
+   "layer": "diff",
+   "bbox_um": [
+    0.77,
+    0.415,
+    1.99,
+    0.835
+   ],
+   "net": null,
+   "line": 17
+  },
+  "pd": {
+   "layer": "diff",
+   "bbox_um": [
+    0.77,
+    1.715,
+    1.99,
+    2.305
+   ],
+   "net": null,
+   "line": 18
+  },
+  "nim": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.645,
+    0.29,
+    2.115,
+    0.96
+   ],
+   "net": null,
+   "line": 19
+  },
+  "pim": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.645,
+    1.59,
+    2.115,
+    2.43
+   ],
+   "net": null,
+   "line": 20
+  },
+  "cn1": {
+   "layer": "licon",
+   "bbox_um": [
+    0.81,
+    0.54,
+    0.98,
+    0.71
+   ],
+   "net": null,
+   "line": 22
+  },
+  "cn1l": {
+   "layer": "li",
+   "bbox_um": [
+    0.81,
+    0.46,
+    0.98,
+    0.79
+   ],
+   "net": "X",
+   "line": 23
+  },
+  "cvn": {
+   "layer": "licon",
+   "bbox_um": [
+    1.295,
+    0.54,
+    1.465,
+    0.71
+   ],
+   "net": null,
+   "line": 24
+  },
+  "cvnl": {
+   "layer": "li",
+   "bbox_um": [
+    1.295,
+    0.46,
+    1.465,
+    0.79
+   ],
+   "net": "VGND",
+   "line": 25
+  },
+  "cvns": {
+   "layer": "li",
+   "bbox_um": [
+    1.295,
+    -0.085,
+    1.465,
+    0.79
+   ],
+   "net": null,
+   "line": 26
+  },
+  "cnn": {
+   "layer": "licon",
+   "bbox_um": [
+    1.78,
+    0.54,
+    1.95,
+    0.71
+   ],
+   "net": null,
+   "line": 27
+  },
+  "cnnl": {
+   "layer": "li",
+   "bbox_um": [
+    1.78,
+    0.46,
+    1.95,
+    0.79
+   ],
+   "net": "n1",
+   "line": 28
+  },
+  "cp1": {
+   "layer": "licon",
+   "bbox_um": [
+    0.81,
+    1.925,
+    0.98,
+    2.095
+   ],
+   "net": null,
+   "line": 30
+  },
+  "cp1l": {
+   "layer": "li",
+   "bbox_um": [
+    0.81,
+    1.845,
+    0.98,
+    2.175
+   ],
+   "net": "X",
+   "line": 31
+  },
+  "cvp": {
+   "layer": "licon",
+   "bbox_um": [
+    1.295,
+    1.925,
+    1.465,
+    2.095
+   ],
+   "net": null,
+   "line": 32
+  },
+  "cvpl": {
+   "layer": "li",
+   "bbox_um": [
+    1.295,
+    1.845,
+    1.465,
+    2.175
+   ],
+   "net": "VPWR",
+   "line": 33
+  },
+  "cvps": {
+   "layer": "li",
+   "bbox_um": [
+    1.295,
+    1.845,
+    1.465,
+    2.805
+   ],
+   "net": null,
+   "line": 34
+  },
+  "cpp": {
+   "layer": "licon",
+   "bbox_um": [
+    1.78,
+    1.925,
+    1.95,
+    2.095
+   ],
+   "net": null,
+   "line": 35
+  },
+  "cppl": {
+   "layer": "li",
+   "bbox_um": [
+    1.78,
+    1.845,
+    1.95,
+    2.175
+   ],
+   "net": "n1",
+   "line": 36
+  },
+  "gc1": {
+   "layer": "licon",
+   "bbox_um": [
+    1.025,
+    1.04,
+    1.195,
+    1.21
+   ],
+   "net": null,
+   "line": 39
+  },
+  "gp1": {
+   "layer": "poly",
+   "bbox_um": [
+    0.945,
+    0.99,
+    1.275,
+    1.26
+   ],
+   "net": null,
+   "line": 40
+  },
+  "gl1": {
+   "layer": "li",
+   "bbox_um": [
+    1.025,
+    0.96,
+    1.195,
+    1.29
+   ],
+   "net": "n1",
+   "line": 41
+  },
+  "gc2": {
+   "layer": "licon",
+   "bbox_um": [
+    1.565,
+    1.04,
+    1.735,
+    1.21
+   ],
+   "net": null,
+   "line": 42
+  },
+  "gp2": {
+   "layer": "poly",
+   "bbox_um": [
+    1.485,
+    0.99,
+    1.815,
+    1.26
+   ],
+   "net": null,
+   "line": 43
+  },
+  "gl2": {
+   "layer": "li",
+   "bbox_um": [
+    1.565,
+    0.96,
+    1.735,
+    1.29
+   ],
+   "net": "A",
+   "line": 44
+  },
+  "gn": {
+   "layer": "npc",
+   "bbox_um": [
+    0.925,
+    0.94,
+    1.835,
+    1.31
+   ],
+   "net": null,
+   "line": 45
+  },
+  "xm": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.81,
+    0.54,
+    0.98,
+    0.71
+   ],
+   "net": null,
+   "line": 51
+  },
+  "xp": {
+   "layer": "m1",
+   "bbox_um": [
+    0.75,
+    0.48,
+    1.04,
+    0.77
+   ],
+   "net": "X",
+   "line": 52
+  }
+ },
+ "connectivity": [],
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-230957-lessons3-retrieval2/buf/check3/buf.png",
+ "route_failed": [],
+ "status": "CLEAN",
+ "seconds": 2.9
+}

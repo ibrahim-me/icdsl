@@ -1,0 +1,95 @@
+{
+ "name": "a21oi_1",
+ "hd_cell": "sky130_fd_sc_hd__a21oi_1",
+ "tier": 1,
+ "function": "Y = (!A1&!B1) | (!A2&!B1)",
+ "family": "a21oi",
+ "inputs": [
+  "A1",
+  "A2",
+  "B1"
+ ],
+ "outputs": [
+  "Y"
+ ],
+ "devices": [
+  {
+   "name": "M0",
+   "kind": "nmos",
+   "d": "n1",
+   "g": "A2",
+   "s": "VGND",
+   "w_hd": 0.65,
+   "w": 0.65,
+   "l": 0.15,
+   "wparam": "WN"
+  },
+  {
+   "name": "M1",
+   "kind": "pmos",
+   "d": "n2",
+   "g": "A1",
+   "s": "VPWR",
+   "w_hd": 1.0,
+   "w": 1.0,
+   "l": 0.15,
+   "wparam": "WP"
+  },
+  {
+   "name": "M2",
+   "kind": "pmos",
+   "d": "Y",
+   "g": "B1",
+   "s": "n2",
+   "w_hd": 1.0,
+   "w": 1.0,
+   "l": 0.15,
+   "wparam": "WP"
+  },
+  {
+   "name": "M3",
+   "kind": "nmos",
+   "d": "VGND",
+   "g": "B1",
+   "s": "Y",
+   "w_hd": 0.65,
+   "w": 0.65,
+   "l": 0.15,
+   "wparam": "WN"
+  },
+  {
+   "name": "M4",
+   "kind": "pmos",
+   "d": "VPWR",
+   "g": "A2",
+   "s": "n2",
+   "w_hd": 1.0,
+   "w": 1.0,
+   "l": 0.15,
+   "wparam": "WP"
+  },
+  {
+   "name": "M5",
+   "kind": "nmos",
+   "d": "Y",
+   "g": "A1",
+   "s": "n1",
+   "w_hd": 0.65,
+   "w": 0.65,
+   "l": 0.15,
+   "wparam": "WN"
+  }
+ ],
+ "params": {
+  "WN": 0.65,
+  "WP": 1.0
+ },
+ "hd_size_um": [
+  1.84,
+  2.72
+ ],
+ "internal_nets": [
+  "n1",
+  "n2"
+ ]
+}

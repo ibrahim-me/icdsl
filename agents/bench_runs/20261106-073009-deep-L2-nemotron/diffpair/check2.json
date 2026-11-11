@@ -1,0 +1,202 @@
+{
+ "cell": "diffpair",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073009-deep-L2-nemotron/diffpair/check2/diffpair.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073009-deep-L2-nemotron/diffpair/check2/diffpair.reference.spice",
+ "size_um": [
+  7.36,
+  11.04
+ ],
+ "warnings": [],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 0,
+  "by_rule": [],
+  "all": []
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": true,
+  "result": "Circuits match uniquely.",
+  "devices_layout_vs_ref": [
+   3,
+   3
+  ],
+  "nets_layout_vs_ref": [
+   7,
+   7
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073009-deep-L2-nemotron/diffpair/check2/diffpair.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073009-deep-L2-nemotron/diffpair/check2/diffpair.lvs.txt",
+  "dummies_ignored": 0
+ },
+ "routes": {
+  "nets": {
+   "tail": {
+    "length_um": 6.9,
+    "layers": [
+     "m2"
+    ],
+    "cuts": 8,
+    "width_um": {
+     "m2": 0.3
+    },
+    "res_ohm": 13.46
+   },
+   "OUTP": {
+    "length_um": 7.82,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 3,
+    "width_um": {
+     "m1": 0.2,
+     "m2": 0.2
+    },
+    "res_ohm": 10.74
+   },
+   "OUTN": {
+    "length_um": 6.9,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 4,
+    "width_um": {
+     "m1": 0.2,
+     "m2": 0.2
+    },
+    "res_ohm": 12.49
+   },
+   "VBN": {
+    "length_um": 2.76,
+    "layers": [
+     "m2"
+    ],
+    "cuts": 2,
+    "width_um": {
+     "m2": 0.14
+    },
+    "res_ohm": 6.96
+   },
+   "INN": {
+    "length_um": 3.68,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 3,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 7.79
+   },
+   "INP": {
+    "length_um": 9.2,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 3,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 11.07
+   },
+   "VGND": {
+    "length_um": 15.18,
+    "layers": [
+     "m1"
+    ],
+    "cuts": 3,
+    "width_um": {
+     "m1": 0.14
+    },
+    "res_ohm": 12.73
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [],
+ "constraint_violations": [],
+ "objects": {
+  "DP": {
+   "kind": "array",
+   "at_um": [
+    2.76,
+    6.44
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    2.51,
+    3.955,
+    4.85,
+    9.385
+   ],
+   "line": 16
+  },
+  "MT": {
+   "kind": "array",
+   "at_um": [
+    1.84,
+    3.22
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    1.59,
+    1.815,
+    5.77,
+    3.405
+   ],
+   "line": 17
+  },
+  "G": {
+   "kind": "ring",
+   "at_um": [
+    1.84,
+    3.22
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    0.59,
+    0.65,
+    6.77,
+    10.39
+   ],
+   "line": 19
+  }
+ },
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073009-deep-L2-nemotron/diffpair/check2/diffpair.png",
+ "route_failed": [],
+ "status": "CLEAN",
+ "seconds": 2.5,
+ "judge": {
+  "ok": true,
+  "results": [
+   {
+    "constraint": {
+     "type": "common_centroid",
+     "devices": [
+      "M1",
+      "M2"
+     ]
+    },
+    "ok": true,
+    "detail": "M1 centroid (3.680, 6.845), M2 centroid (3.680, 6.845); max offset 0.000 um (allowed 0.06)"
+   },
+   {
+    "constraint": {
+     "type": "route_width",
+     "net": "tail",
+     "min": 0.3
+    },
+    "ok": true,
+    "detail": "net tail routed {'m2': 0.3} um wide (need >= 0.3)"
+   }
+  ]
+ }
+}

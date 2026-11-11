@@ -1,0 +1,132 @@
+{
+ "cell": "cm_n",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002933-L2-ranked-kb-v2tools/cm_n/check1/cm_n.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002933-L2-ranked-kb-v2tools/cm_n/check1/cm_n.reference.spice",
+ "size_um": [
+  9.2,
+  5.52
+ ],
+ "warnings": [],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 0,
+  "by_rule": [],
+  "all": []
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": true,
+  "result": "Circuits match uniquely.",
+  "devices_layout_vs_ref": [
+   2,
+   2
+  ],
+  "nets_layout_vs_ref": [
+   3,
+   3
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002933-L2-ranked-kb-v2tools/cm_n/check1/cm_n.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002933-L2-ranked-kb-v2tools/cm_n/check1/cm_n.lvs.txt",
+  "dummies_ignored": 2
+ },
+ "routes": {
+  "nets": {
+   "IREF": {
+    "length_um": 8.28,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 6,
+    "width_um": {
+     "m1": 0.2,
+     "m2": 0.2
+    },
+    "res_ohm": 11.89
+   },
+   "IOUT": {
+    "length_um": 4.14,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 2,
+    "width_um": {
+     "m1": 0.2,
+     "m2": 0.2
+    },
+    "res_ohm": 7.58
+   },
+   "VGND": {
+    "length_um": 8.28,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 6,
+    "width_um": {
+     "m1": 0.2,
+     "m2": 0.2
+    },
+    "res_ohm": 13.44
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [],
+ "constraint_violations": [],
+ "objects": {
+  "CM": {
+   "kind": "array",
+   "at_um": [
+    1.84,
+    3.68
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    1.59,
+    1.655,
+    7.61,
+    3.865
+   ],
+   "line": 12
+  },
+  "GR": {
+   "kind": "ring",
+   "at_um": [
+    1.84,
+    3.68
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    0.59,
+    0.65,
+    8.61,
+    4.87
+   ],
+   "line": 14
+  }
+ },
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002933-L2-ranked-kb-v2tools/cm_n/check1/cm_n.png",
+ "route_failed": [],
+ "status": "CLEAN",
+ "seconds": 2.9,
+ "judge": {
+  "ok": true,
+  "results": [
+   {
+    "constraint": {
+     "type": "interdigitated",
+     "devices": [
+      "M1",
+      "M2"
+     ]
+    },
+    "ok": true,
+    "detail": "order left to right ABBA (A=M1, B=M2); M1 centroid (4.600, 2.905), M2 centroid (4.600, 2.905)"
+   }
+  ]
+ }
+}

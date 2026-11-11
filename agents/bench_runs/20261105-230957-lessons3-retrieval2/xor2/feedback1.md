@@ -1,0 +1,15 @@
+Check result at {'L': 0.15, 'H': 2.72, 'WN': 0.49, 'WP': 0.75}: VIOLATIONS  (DRC 0 errors, LVS MISMATCH)
+CONNECTIVITY (fix these first - they are why LVS fails):
+  OPEN net A is 2 separate pieces: [ap (line 87), g1 (line 23), gl1 (line 71), gp1 (line 70)] | [g5 (line 27), gl5 (line 83), gp5 (line 82)] - join them (strap / shared metal / `route A`)
+  OPEN net B is 2 separate pieces: [bp (line 90), g2 (line 24), gl2 (line 74), gp2 (line 73)] | [g4 (line 26), gl4 (line 80), gp4 (line 79)] - join them (strap / shared metal / `route B`)
+  DEVICE M2 (nmos g=n1 d=X s=VGND) has no matching transistor in the layout - the nmos with gate n1 at x=2.965 has X and n4 on its sides; it needs X and VGND: the side labelled n4 should be VGND (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M5 (pmos g=B d=n1 s=n3) has no matching transistor in the layout - the pmos with gate B at x=3.505 has X and n2 on its sides; it needs n1 and n3: the side labelled X should be n1 (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M6 (pmos g=A d=n3 s=VPWR) has no matching transistor in the layout - the pmos with gate A at x=4.045 has VPWR and n2 on its sides; it needs n3 and VPWR: the side labelled n2 should be n3 (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M7 (nmos g=B d=n4 s=X) has no matching transistor in the layout - the nmos with gate B at x=3.505 has n4 and n4 on its sides; it needs n4 and X: the side labelled n4 should be X (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M8 (pmos g=n1 d=n2 s=X) has no matching transistor in the layout - the pmos with gate n1 at x=2.965 has VPWR and X on its sides; it needs n2 and X: the side labelled VPWR should be n2 (wrong net label on that contact column, or the gates are in the wrong order)
+    layout nmos at x=2.965 y=0.66: gate n1 [g3 (line 25), gp3 (line 76)], source/drain X [c11l (line 62), c4l (line 44), nd2 (line 29), +1 more], n4 [c5l (line 46), c6l (line 48), nd2 (line 29)]
+    layout nmos at x=3.505 y=0.66: gate B [g4 (line 26), gp4 (line 79)], source/drain n4 [c5l (line 46), c6l (line 48), nd2 (line 29)], n4 [c5l (line 46), c6l (line 48), nd2 (line 29)]
+    layout pmos at x=2.965 y=1.93: gate n1 [g3 (line 25), gp3 (line 76)], source/drain VPWR [c10l (line 59), c10s (line 60), c13l (line 66), +4 more], X [c11l (line 62), c4l (line 44), nd2 (line 29), +1 more]
+    layout pmos at x=3.505 y=1.93: gate B [g4 (line 26), gp4 (line 79)], source/drain X [c11l (line 62), c4l (line 44), nd2 (line 29), +1 more], n2 [c12l (line 64), c9l (line 57), pd1 (line 30)]
+    layout pmos at x=4.045 y=1.93: gate A [g5 (line 27), gp5 (line 82)], source/drain VPWR [c10l (line 59), c10s (line 60), c13l (line 66), +4 more], n2 [c12l (line 64), c9l (line 57), pd1 (line 30)]
+Fix the first items first (the attached image is your layout, DRC errors boxed in red). Return the complete corrected file.

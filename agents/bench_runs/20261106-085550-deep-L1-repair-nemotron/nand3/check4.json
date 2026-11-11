@@ -1,0 +1,1056 @@
+{
+ "cell": "nand3",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085550-deep-L1-repair-nemotron/nand3/check4/nand3.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085550-deep-L1-repair-nemotron/nand3/check4/nand3.reference.spice",
+ "size_um": [
+  2.76,
+  2.72
+ ],
+ "warnings": [
+  "nand3: fast pre-check found 2 rule issue(s): licon.cover at [0.54, 0.575, 0.585, 0.745] near nd1 (line 24), nim (line 25), c1 (line 32); poly.7 at [0.515, 0.415, 0.765, 0.905] near g1 (line 19), nd1 (line 24), nim (line 25)"
+ ],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 5,
+  "by_rule": [
+   {
+    "rule": "N-Diffusion overhang of nFET < 0.25um (poly.7)",
+    "count": 3,
+    "examples": [
+     {
+      "box_um": [
+       0.515,
+       0.415,
+       0.585,
+       0.575
+      ],
+      "objects": {
+       "nd1": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "c1": [
+        "licon"
+       ],
+       "c1l": [
+        "li"
+       ],
+       "ym": [
+        "mcon"
+       ],
+       "yp": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       0.515,
+       0.575,
+       0.585,
+       0.745
+      ],
+      "objects": {
+       "nd1": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "c1": [
+        "licon"
+       ],
+       "c1l": [
+        "li"
+       ],
+       "ym": [
+        "mcon"
+       ],
+       "yp": [
+        "m1"
+       ],
+       "route:Y": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       0.515,
+       0.745,
+       0.585,
+       0.905
+      ],
+      "objects": {
+       "nd1": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "c1": [
+        "licon"
+       ],
+       "c1l": [
+        "li"
+       ],
+       "ym": [
+        "mcon"
+       ],
+       "yp": [
+        "m1"
+       ],
+       "route:Y": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "N-diffusion contact width < 0.17um (licon.1)",
+    "count": 1,
+    "examples": [
+     {
+      "box_um": [
+       0.71,
+       0.575,
+       0.755,
+       0.745
+      ],
+      "objects": {
+       "g1": [
+        "poly"
+       ],
+       "nd1": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "c1": [
+        "licon"
+       ],
+       "c1l": [
+        "li"
+       ],
+       "ym": [
+        "mcon"
+       ],
+       "yp": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "N-diffusion overlap of N-diffusion contact < 0.04um (licon.5a)",
+    "count": 1,
+    "examples": [
+     {
+      "box_um": [
+       0.585,
+       0.575,
+       0.625,
+       0.745
+      ],
+      "objects": {
+       "nd1": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "c1": [
+        "licon"
+       ],
+       "c1l": [
+        "li"
+       ],
+       "ym": [
+        "mcon"
+       ],
+       "yp": [
+        "m1"
+       ],
+       "route:Y": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "all": [
+   {
+    "rule": "N-Diffusion overhang of nFET < 0.25um (poly.7)",
+    "box_um": [
+     0.515,
+     0.415,
+     0.585,
+     0.575
+    ],
+    "objects": {
+     "nd1": [
+      "diff"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "c1": [
+      "licon"
+     ],
+     "c1l": [
+      "li"
+     ],
+     "ym": [
+      "mcon"
+     ],
+     "yp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "N-Diffusion overhang of nFET < 0.25um (poly.7)",
+    "box_um": [
+     0.515,
+     0.575,
+     0.585,
+     0.745
+    ],
+    "objects": {
+     "nd1": [
+      "diff"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "c1": [
+      "licon"
+     ],
+     "c1l": [
+      "li"
+     ],
+     "ym": [
+      "mcon"
+     ],
+     "yp": [
+      "m1"
+     ],
+     "route:Y": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "N-Diffusion overhang of nFET < 0.25um (poly.7)",
+    "box_um": [
+     0.515,
+     0.745,
+     0.585,
+     0.905
+    ],
+    "objects": {
+     "nd1": [
+      "diff"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "c1": [
+      "licon"
+     ],
+     "c1l": [
+      "li"
+     ],
+     "ym": [
+      "mcon"
+     ],
+     "yp": [
+      "m1"
+     ],
+     "route:Y": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "N-diffusion contact width < 0.17um (licon.1)",
+    "box_um": [
+     0.71,
+     0.575,
+     0.755,
+     0.745
+    ],
+    "objects": {
+     "g1": [
+      "poly"
+     ],
+     "nd1": [
+      "diff"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "c1": [
+      "licon"
+     ],
+     "c1l": [
+      "li"
+     ],
+     "ym": [
+      "mcon"
+     ],
+     "yp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "N-diffusion overlap of N-diffusion contact < 0.04um (licon.5a)",
+    "box_um": [
+     0.585,
+     0.575,
+     0.625,
+     0.745
+    ],
+    "objects": {
+     "nd1": [
+      "diff"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "c1": [
+      "licon"
+     ],
+     "c1l": [
+      "li"
+     ],
+     "ym": [
+      "mcon"
+     ],
+     "yp": [
+      "m1"
+     ],
+     "route:Y": [
+      "m1"
+     ]
+    }
+   }
+  ]
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": true,
+  "result": "Circuits match uniquely.",
+  "devices_layout_vs_ref": [
+   6,
+   6
+  ],
+  "nets_layout_vs_ref": [
+   8,
+   8
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085550-deep-L1-repair-nemotron/nand3/check4/nand3.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085550-deep-L1-repair-nemotron/nand3/check4/nand3.lvs.txt",
+  "dummies_ignored": 0
+ },
+ "routes": {
+  "nets": {
+   "Y": {
+    "length_um": 2.19,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 4,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 10.95
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [
+  {
+   "rule": "licon.cover",
+   "msg": "licon not on diff, tap or poly",
+   "objects": [
+    "nd1 (line 24)",
+    "nim (line 25)",
+    "c1 (line 32)",
+    "c1l (line 33)",
+    "ym (line 87)",
+    "yp (line 88)"
+   ],
+   "box_um": [
+    0.54,
+    0.575,
+    0.585,
+    0.745
+   ]
+  },
+  {
+   "rule": "poly.7",
+   "msg": "diffusion extends less than 0.250 um past the gate",
+   "objects": [
+    "g1 (line 19)",
+    "nd1 (line 24)",
+    "nim (line 25)",
+    "c1 (line 32)",
+    "c1l (line 33)",
+    "ym (line 87)"
+   ],
+   "box_um": [
+    0.515,
+    0.415,
+    0.765,
+    0.905
+   ]
+  }
+ ],
+ "constraint_violations": [],
+ "objects": {
+  "vgnd": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    -0.24,
+    2.76,
+    0.24
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vpwr": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    2.48,
+    2.76,
+    2.96
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ptap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    -0.145,
+    2.58,
+    0.145
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    -0.085,
+    2.155,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    -0.085,
+    2.615,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vgnd_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    -0.085,
+    2.76,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_imp": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.0,
+    -0.27,
+    2.76,
+    0.27
+   ],
+   "net": null,
+   "line": 0
+  },
+  "ntap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    2.575,
+    2.58,
+    2.865
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    2.635,
+    2.155,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    2.635,
+    2.615,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "vpwr_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    2.635,
+    2.76,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_imp": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.0,
+    2.45,
+    2.76,
+    2.99
+   ],
+   "net": null,
+   "line": 0
+  },
+  "nwell": {
+   "layer": "nwell",
+   "bbox_um": [
+    0.0,
+    1.31,
+    2.76,
+    3.045
+   ],
+   "net": null,
+   "line": 76
+  },
+  "g1": {
+   "layer": "poly",
+   "bbox_um": [
+    0.765,
+    0.285,
+    0.915,
+    2.435
+   ],
+   "net": null,
+   "line": 19
+  },
+  "g2": {
+   "layer": "poly",
+   "bbox_um": [
+    1.305,
+    0.285,
+    1.455,
+    2.435
+   ],
+   "net": null,
+   "line": 20
+  },
+  "g3": {
+   "layer": "poly",
+   "bbox_um": [
+    1.845,
+    0.285,
+    1.995,
+    2.435
+   ],
+   "net": null,
+   "line": 21
+  },
+  "nd1": {
+   "layer": "diff",
+   "bbox_um": [
+    0.585,
+    0.415,
+    2.26,
+    0.905
+   ],
+   "net": null,
+   "line": 24
+  },
+  "nim": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.46,
+    0.29,
+    2.385,
+    1.03
+   ],
+   "net": null,
+   "line": 25
+  },
+  "pd1": {
+   "layer": "diff",
+   "bbox_um": [
+    0.5,
+    1.555,
+    2.26,
+    2.305
+   ],
+   "net": null,
+   "line": 28
+  },
+  "pim": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.375,
+    1.43,
+    2.385,
+    2.43
+   ],
+   "net": null,
+   "line": 29
+  },
+  "c1": {
+   "layer": "licon",
+   "bbox_um": [
+    0.54,
+    0.575,
+    0.71,
+    0.745
+   ],
+   "net": null,
+   "line": 32
+  },
+  "c1l": {
+   "layer": "li",
+   "bbox_um": [
+    0.54,
+    0.495,
+    0.71,
+    0.825
+   ],
+   "net": "Y",
+   "line": 33
+  },
+  "c2": {
+   "layer": "licon",
+   "bbox_um": [
+    2.05,
+    0.575,
+    2.22,
+    0.745
+   ],
+   "net": null,
+   "line": 34
+  },
+  "c2l": {
+   "layer": "li",
+   "bbox_um": [
+    2.05,
+    0.495,
+    2.22,
+    0.825
+   ],
+   "net": "VGND",
+   "line": 35
+  },
+  "c2s": {
+   "layer": "li",
+   "bbox_um": [
+    2.05,
+    -0.085,
+    2.22,
+    0.825
+   ],
+   "net": null,
+   "line": 36
+  },
+  "cn2": {
+   "layer": "licon",
+   "bbox_um": [
+    1.025,
+    0.575,
+    1.195,
+    0.745
+   ],
+   "net": null,
+   "line": 39
+  },
+  "cn2l": {
+   "layer": "li",
+   "bbox_um": [
+    1.025,
+    0.495,
+    1.195,
+    0.825
+   ],
+   "net": "n2",
+   "line": 40
+  },
+  "cn1": {
+   "layer": "licon",
+   "bbox_um": [
+    1.565,
+    0.575,
+    1.735,
+    0.745
+   ],
+   "net": null,
+   "line": 41
+  },
+  "cn1l": {
+   "layer": "li",
+   "bbox_um": [
+    1.565,
+    0.495,
+    1.735,
+    0.825
+   ],
+   "net": "n1",
+   "line": 42
+  },
+  "c3": {
+   "layer": "licon",
+   "bbox_um": [
+    0.54,
+    1.675,
+    0.71,
+    2.185
+   ],
+   "net": null,
+   "line": 45
+  },
+  "c3l": {
+   "layer": "li",
+   "bbox_um": [
+    0.54,
+    1.595,
+    0.71,
+    2.265
+   ],
+   "net": "Y",
+   "line": 46
+  },
+  "c4": {
+   "layer": "licon",
+   "bbox_um": [
+    0.97,
+    1.675,
+    1.14,
+    2.185
+   ],
+   "net": null,
+   "line": 47
+  },
+  "c4l": {
+   "layer": "li",
+   "bbox_um": [
+    0.97,
+    1.595,
+    1.14,
+    2.265
+   ],
+   "net": "VPWR",
+   "line": 48
+  },
+  "c4s": {
+   "layer": "li",
+   "bbox_um": [
+    0.97,
+    1.595,
+    1.14,
+    2.805
+   ],
+   "net": null,
+   "line": 49
+  },
+  "c5": {
+   "layer": "licon",
+   "bbox_um": [
+    1.51,
+    1.675,
+    1.68,
+    2.185
+   ],
+   "net": null,
+   "line": 50
+  },
+  "c5l": {
+   "layer": "li",
+   "bbox_um": [
+    1.51,
+    1.595,
+    1.68,
+    2.265
+   ],
+   "net": "Y",
+   "line": 51
+  },
+  "c6": {
+   "layer": "licon",
+   "bbox_um": [
+    2.05,
+    1.675,
+    2.22,
+    2.185
+   ],
+   "net": null,
+   "line": 52
+  },
+  "c6l": {
+   "layer": "li",
+   "bbox_um": [
+    2.05,
+    1.595,
+    2.22,
+    2.265
+   ],
+   "net": "VPWR",
+   "line": 53
+  },
+  "c6s": {
+   "layer": "li",
+   "bbox_um": [
+    2.05,
+    1.595,
+    2.22,
+    2.805
+   ],
+   "net": null,
+   "line": 54
+  },
+  "gc1": {
+   "layer": "licon",
+   "bbox_um": [
+    0.755,
+    1.095,
+    0.925,
+    1.265
+   ],
+   "net": null,
+   "line": 65
+  },
+  "gp1": {
+   "layer": "poly",
+   "bbox_um": [
+    0.675,
+    1.045,
+    1.005,
+    1.315
+   ],
+   "net": null,
+   "line": 66
+  },
+  "gl1": {
+   "layer": "li",
+   "bbox_um": [
+    0.755,
+    1.015,
+    0.925,
+    1.345
+   ],
+   "net": "A",
+   "line": 67
+  },
+  "gc2": {
+   "layer": "licon",
+   "bbox_um": [
+    1.295,
+    1.095,
+    1.465,
+    1.265
+   ],
+   "net": null,
+   "line": 68
+  },
+  "gp2": {
+   "layer": "poly",
+   "bbox_um": [
+    1.215,
+    1.045,
+    1.545,
+    1.315
+   ],
+   "net": null,
+   "line": 69
+  },
+  "gl2": {
+   "layer": "li",
+   "bbox_um": [
+    1.295,
+    1.015,
+    1.465,
+    1.345
+   ],
+   "net": "B",
+   "line": 70
+  },
+  "gc3": {
+   "layer": "licon",
+   "bbox_um": [
+    1.835,
+    1.095,
+    2.005,
+    1.265
+   ],
+   "net": null,
+   "line": 71
+  },
+  "gp3": {
+   "layer": "poly",
+   "bbox_um": [
+    1.755,
+    1.045,
+    2.085,
+    1.315
+   ],
+   "net": null,
+   "line": 72
+  },
+  "gl3": {
+   "layer": "li",
+   "bbox_um": [
+    1.835,
+    1.015,
+    2.005,
+    1.345
+   ],
+   "net": "C",
+   "line": 73
+  },
+  "gn": {
+   "layer": "npc",
+   "bbox_um": [
+    0.655,
+    0.995,
+    2.105,
+    1.365
+   ],
+   "net": null,
+   "line": 74
+  },
+  "am": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.755,
+    1.095,
+    0.925,
+    1.265
+   ],
+   "net": null,
+   "line": 78
+  },
+  "ap": {
+   "layer": "m1",
+   "bbox_um": [
+    0.695,
+    1.035,
+    0.985,
+    1.325
+   ],
+   "net": "A",
+   "line": 79
+  },
+  "bm": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.295,
+    1.095,
+    1.465,
+    1.265
+   ],
+   "net": null,
+   "line": 81
+  },
+  "bp": {
+   "layer": "m1",
+   "bbox_um": [
+    1.235,
+    1.035,
+    1.525,
+    1.325
+   ],
+   "net": "B",
+   "line": 82
+  },
+  "cm": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.835,
+    1.095,
+    2.005,
+    1.265
+   ],
+   "net": null,
+   "line": 84
+  },
+  "cp": {
+   "layer": "m1",
+   "bbox_um": [
+    1.775,
+    1.035,
+    2.065,
+    1.325
+   ],
+   "net": "C",
+   "line": 85
+  },
+  "ym": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.54,
+    0.575,
+    0.71,
+    0.745
+   ],
+   "net": null,
+   "line": 87
+  },
+  "yp": {
+   "layer": "m1",
+   "bbox_um": [
+    0.48,
+    0.515,
+    0.77,
+    0.805
+   ],
+   "net": "Y",
+   "line": 88
+  }
+ },
+ "connectivity": [],
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085550-deep-L1-repair-nemotron/nand3/check4/nand3.png",
+ "route_failed": [],
+ "status": "VIOLATIONS",
+ "seconds": 2.5
+}

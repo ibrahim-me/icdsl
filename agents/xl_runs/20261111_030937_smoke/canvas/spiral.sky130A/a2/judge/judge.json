@@ -1,0 +1,51 @@
+{
+ "task": "spiral",
+ "pdk": "sky130A",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_030937_smoke/canvas/spiral.sky130A/a2/spiral.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_030937_smoke/canvas/spiral.sky130A/a2/spiral.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": true,
+   "detail": "clean"
+  },
+  {
+   "check": "DRC2",
+   "ok": true,
+   "detail": "foundry KLayout deck clean"
+  },
+  {
+   "check": "one coil, no closed loop",
+   "ok": true,
+   "detail": "1 polygon(s) on m5, largest has 0 hole(s) and 100% of the metal"
+  },
+  {
+   "check": "edges Manhattan or 45 degrees, some at 45",
+   "ok": true,
+   "detail": "24 at 45 degrees, 0 at other angles"
+  },
+  {
+   "check": "trace width >= 4.0 um",
+   "ok": false,
+   "detail": "3 narrow spot(s)"
+  },
+  {
+   "check": "at least 3 turns around the centre",
+   "ok": true,
+   "detail": "3 turn(s) around (-0.8, 1.6)"
+  },
+  {
+   "check": "underpass from the inner end to outside the coil",
+   "ok": false,
+   "detail": "no via4 cut on the coil joins a m4 wire that leaves the coil"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "94.40 x 100.00 = 9440.0 um2, budget 10465, reference 5232.32"
+  }
+ ],
+ "area_um2": 9440.0,
+ "area_vs_reference": 1.804,
+ "solved": false
+}

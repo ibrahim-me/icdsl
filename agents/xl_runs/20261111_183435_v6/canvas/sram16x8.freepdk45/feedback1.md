@@ -1,0 +1,3 @@
+No code block found in the reply. There are no tools in this conversation: tool calls are not executed and nothing can be inspected from your side. Reply with the complete file in one code block; it is built and checked, and the report comes back to you.
+
+Note: this task comes with a netlist, and the script does not use it. `TOP = from_spice("netlist.spice")` builds the complete layout from the netlist (CANVAS.md, sections 0 and 8). Draw devices and wires yourself only for what that level cannot express.

@@ -1,0 +1,45 @@
+* reference netlist written by icl canvas for shreg16 (gf180mcuD)
+.subckt dff VSS VDD Q CK D
+XMn0_0 VSS CK CKB VSS nfet_03v3 w=0.36u l=0.28u
+XMn0_1 n1 D VSS VSS nfet_03v3 w=0.36u l=0.28u
+XMn0_2 m CKB n1 VSS nfet_03v3 w=0.36u l=0.28u
+XMn0_3 n2 CK m VSS nfet_03v3 w=0.36u l=0.28u
+XMn0_4 VSS mb n2 VSS nfet_03v3 w=0.36u l=0.28u
+XMn0_5 mb m VSS VSS nfet_03v3 w=0.36u l=0.28u
+XMn7_0 n3 Q VSS VSS nfet_03v3 w=0.36u l=0.28u
+XMn7_1 s CKB n3 VSS nfet_03v3 w=0.36u l=0.28u
+XMn7_2 n4 CK s VSS nfet_03v3 w=0.36u l=0.28u
+XMn7_3 VSS mb n4 VSS nfet_03v3 w=0.36u l=0.28u
+XMn7_4 Q s VSS VSS nfet_03v3 w=0.36u l=0.28u
+XMp0_0 VDD CK CKB VDD pfet_03v3 w=0.72u l=0.28u
+XMp0_1 p1 D VDD VDD pfet_03v3 w=0.72u l=0.28u
+XMp0_2 m CK p1 VDD pfet_03v3 w=0.72u l=0.28u
+XMp0_3 p2 CKB m VDD pfet_03v3 w=0.72u l=0.28u
+XMp0_4 VDD mb p2 VDD pfet_03v3 w=0.72u l=0.28u
+XMp0_5 mb m VDD VDD pfet_03v3 w=0.72u l=0.28u
+XMp7_0 p3 Q VDD VDD pfet_03v3 w=0.72u l=0.28u
+XMp7_1 s CK p3 VDD pfet_03v3 w=0.72u l=0.28u
+XMp7_2 p4 CKB s VDD pfet_03v3 w=0.72u l=0.28u
+XMp7_3 VDD mb p4 VDD pfet_03v3 w=0.72u l=0.28u
+XMp7_4 Q s VDD VDD pfet_03v3 w=0.72u l=0.28u
+.ends
+
+.subckt shreg16 VSS VDD D Q11 Q15 Q3 Q7 Q0 Q1 Q10 Q12 Q13 Q14 Q2 Q4 Q5 Q6 Q8 Q9 CK
+XFF0 VSS VDD Q0 CK D dff
+XFF1 VSS VDD Q1 CK Q0 dff
+XFF2 VSS VDD Q2 CK Q1 dff
+XFF3 VSS VDD Q3 CK Q2 dff
+XFF7 VSS VDD Q7 CK Q6 dff
+XFF6 VSS VDD Q6 CK Q5 dff
+XFF5 VSS VDD Q5 CK Q4 dff
+XFF4 VSS VDD Q4 CK Q3 dff
+XFF8 VSS VDD Q8 CK Q7 dff
+XFF9 VSS VDD Q9 CK Q8 dff
+XFF10 VSS VDD Q10 CK Q9 dff
+XFF11 VSS VDD Q11 CK Q10 dff
+XFF15 VSS VDD Q15 CK Q14 dff
+XFF14 VSS VDD Q14 CK Q13 dff
+XFF13 VSS VDD Q13 CK Q12 dff
+XFF12 VSS VDD Q12 CK Q11 dff
+.ends
+.end

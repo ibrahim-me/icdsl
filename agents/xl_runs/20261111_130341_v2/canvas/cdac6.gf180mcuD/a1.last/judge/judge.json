@@ -1,0 +1,37 @@
+{
+ "task": "cdac6",
+ "pdk": "gf180mcuD",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/cdac6.gf180mcuD/a1.last/cdac6.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/cdac6.gf180mcuD/a1.last/cdac6.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": true,
+   "detail": "clean"
+  },
+  {
+   "check": "DRC2",
+   "ok": true,
+   "detail": "foundry KLayout deck clean"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Top level cell failed pin matching.  (devices layout/ref 1/7; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/cdac6.gf180mcuD/a1.last/judge/cdac6.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "not confirmed (LVS failed)"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "48.80 x 47.80 = 2332.6 um2, budget 10578, reference 5288.9"
+  }
+ ],
+ "area_um2": 2332.64,
+ "area_vs_reference": 0.441,
+ "solved": false,
+ "detail": "LVS: Top level cell failed pin matching.   devices layout/ref 1/7, nets layout/ref 2/8\n  Number of devices: 1 **Mismatch**          |Number of devices: 7 **Mismatch**\n  Number of nets: 2 **Mismatch**             |Number of nets: 8 **Mismatch**\n  ---------------------------------------------------------------------------------------\n  NET mismatches: Class fragments follow (with fanout counts):\n  Circuit 1: cdac6                           |Circuit 2: cdac6\n  ---------------------------------------------------------------------------------------\n  Net: TOP                                   |Net: TOP\n    cap_mim_2f0_m4m5_noshield/1 = 1          |  cap_mim_2f0_m4m5_noshield/1 = 7\n                                             |\n  Net: m4_380_380#                           |Net: B5\n    cap_mim_2f0_m4m5_noshield/2 = 1          |  cap_mim_2f0_m4m5_noshield/2 = 1\n                                             |\n  (no matching net)                          |Net: B4\n                                             |  cap_mim_2f0_m4m5_noshield/2 = 1\n                                             |\n  (no matching net)                          |Net: B3\n                                             |  cap_mim_2f0_m4m5_noshield/2 = 1\n                                             |\n  (no matching net)                          |Net: B2\n                                             |  cap_mim_2f0_m4m5_noshield/2 = 1\n                                             |\n  (no matching net)                          |Net: B1\n                                             |  cap_mim_2f0_m4m5_noshield/2 = 1\n                                             |\n  (no matching net)                          |Net: B0\n                                             |  cap_mim_2f0_m4m5_noshield/2 = 1\n                                             |\n  (no matching net)                          |Net: VSS\n                                             |  cap_mim_2f0_m4m5_noshield/2 = 1\n  ---------------------------------------------------------------------------------------\n  DEVICE mismatches: Class fragments follow (with node fanout counts):\n  Circuit 1: cdac6                           |Circuit 2: cdac6\n  ---------------------------------------------------------------------------------------\n  Instance: cap_mim_2f0_m4m5_noshield:0      |Instance: cap_mim_2f0_m4m5_noshield:C0\n    1 = 1                                    |  1 = 7\n    2 = 1                                    |  2 = 1\n                                             |\n  (no matching instance)                     |Instance: cap_mim_2f0_m4m5_noshield:C1\n                                             |  1 = 7\n                                             |  2 = 1"
+}

@@ -1,0 +1,43 @@
+* reference netlist written by icl canvas for rca8 (sky130A)
+.subckt fa VSS VDD COUT SUM A B CIN
+XMn0_0 VSS A n1 VSS sky130_fd_pr__nfet_01v8 w=0.42 l=0.15
+XMn0_1 n1 B VSS VSS sky130_fd_pr__nfet_01v8 w=0.42 l=0.15
+XMn0_2 CB CIN n1 VSS sky130_fd_pr__nfet_01v8 w=0.42 l=0.15
+XMn0_3 n2 B CB VSS sky130_fd_pr__nfet_01v8 w=0.42 l=0.15
+XMn0_4 VSS A n2 VSS sky130_fd_pr__nfet_01v8 w=0.42 l=0.15
+XMn0_5 n3 A VSS VSS sky130_fd_pr__nfet_01v8 w=0.42 l=0.15
+XMn0_6 VSS B n3 VSS sky130_fd_pr__nfet_01v8 w=0.42 l=0.15
+XMn0_7 n3 CIN VSS VSS sky130_fd_pr__nfet_01v8 w=0.42 l=0.15
+XMn0_8 SB CB n3 VSS sky130_fd_pr__nfet_01v8 w=0.42 l=0.15
+XMn0_9 n5 CIN SB VSS sky130_fd_pr__nfet_01v8 w=0.42 l=0.15
+XMn0_10 n4 B n5 VSS sky130_fd_pr__nfet_01v8 w=0.42 l=0.15
+XMn0_11 VSS A n4 VSS sky130_fd_pr__nfet_01v8 w=0.42 l=0.15
+XMn0_12 COUT CB VSS VSS sky130_fd_pr__nfet_01v8 w=0.42 l=0.15
+XMn14 VSS SB SUM VSS sky130_fd_pr__nfet_01v8 w=0.42 l=0.15
+XMp0_0 VDD A p1 VDD sky130_fd_pr__pfet_01v8 w=0.84 l=0.15
+XMp0_1 p1 B VDD VDD sky130_fd_pr__pfet_01v8 w=0.84 l=0.15
+XMp0_2 CB CIN p1 VDD sky130_fd_pr__pfet_01v8 w=0.84 l=0.15
+XMp0_3 p2 B CB VDD sky130_fd_pr__pfet_01v8 w=0.84 l=0.15
+XMp0_4 VDD A p2 VDD sky130_fd_pr__pfet_01v8 w=0.84 l=0.15
+XMp0_5 p3 A VDD VDD sky130_fd_pr__pfet_01v8 w=0.84 l=0.15
+XMp0_6 VDD B p3 VDD sky130_fd_pr__pfet_01v8 w=0.84 l=0.15
+XMp0_7 p3 CIN VDD VDD sky130_fd_pr__pfet_01v8 w=0.84 l=0.15
+XMp0_8 SB CB p3 VDD sky130_fd_pr__pfet_01v8 w=0.84 l=0.15
+XMp0_9 p5 CIN SB VDD sky130_fd_pr__pfet_01v8 w=0.84 l=0.15
+XMp0_10 p4 B p5 VDD sky130_fd_pr__pfet_01v8 w=0.84 l=0.15
+XMp0_11 VDD A p4 VDD sky130_fd_pr__pfet_01v8 w=0.84 l=0.15
+XMp0_12 COUT CB VDD VDD sky130_fd_pr__pfet_01v8 w=0.84 l=0.15
+XMp14 VDD SB SUM VDD sky130_fd_pr__pfet_01v8 w=0.84 l=0.15
+.ends
+
+.subckt rca8 VSS VDD A0 A1 A2 A3 A4 A5 A6 A7 B0 B1 B2 B3 B4 B5 B6 B7 CIN COUT S0 S1 S2 S3 S4 S5 S6 S7
+XFA0 VSS VDD k1 S0 A0 B0 CIN fa
+XFA1 VSS VDD k2 S1 A1 B1 k1 fa
+XFA2 VSS VDD k3 S2 A2 B2 k2 fa
+XFA3 VSS VDD k4 S3 A3 B3 k3 fa
+XFA7 VSS VDD COUT S7 A7 B7 k7 fa
+XFA6 VSS VDD k7 S6 A6 B6 k6 fa
+XFA5 VSS VDD k6 S5 A5 B5 k5 fa
+XFA4 VSS VDD k5 S4 A4 B4 k4 fa
+.ends
+.end

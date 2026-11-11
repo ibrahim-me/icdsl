@@ -1,0 +1,146 @@
+{
+ "cell": "bias3",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002933-L2-ranked-kb-v2tools/bias3/check1/bias3.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002933-L2-ranked-kb-v2tools/bias3/check1/bias3.reference.spice",
+ "size_um": [
+  12.88,
+  7.82
+ ],
+ "warnings": [],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 0,
+  "by_rule": [],
+  "all": []
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": true,
+  "result": "Circuits match uniquely.",
+  "devices_layout_vs_ref": [
+   3,
+   3
+  ],
+  "nets_layout_vs_ref": [
+   4,
+   4
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002933-L2-ranked-kb-v2tools/bias3/check1/bias3.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002933-L2-ranked-kb-v2tools/bias3/check1/bias3.lvs.txt",
+  "dummies_ignored": 4
+ },
+ "routes": {
+  "nets": {
+   "IREF": {
+    "length_um": 11.04,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 7,
+    "width_um": {
+     "m1": 0.4,
+     "m2": 0.4
+    },
+    "res_ohm": 13.93
+   },
+   "I1": {
+    "length_um": 9.2,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 4,
+    "width_um": {
+     "m1": 0.4,
+     "m2": 0.4
+    },
+    "res_ohm": 12.29
+   },
+   "I2": {
+    "length_um": 17.02,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 4,
+    "width_um": {
+     "m1": 0.4,
+     "m2": 0.4
+    },
+    "res_ohm": 20.46
+   },
+   "VGND": {
+    "length_um": 27.6,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 16,
+    "width_um": {
+     "m1": 0.4,
+     "m2": 0.4
+    },
+    "res_ohm": 21.73
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [],
+ "constraint_violations": [],
+ "objects": {
+  "DP": {
+   "kind": "array",
+   "at_um": [
+    1.84,
+    3.68
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    1.59,
+    1.655,
+    11.29,
+    6.165
+   ],
+   "line": 14
+  },
+  "GR": {
+   "kind": "ring",
+   "at_um": [
+    1.84,
+    3.68
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    0.59,
+    0.65,
+    12.29,
+    7.17
+   ],
+   "line": 16
+  }
+ },
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-002933-L2-ranked-kb-v2tools/bias3/check1/bias3.png",
+ "route_failed": [],
+ "status": "CLEAN",
+ "seconds": 3.9,
+ "judge": {
+  "ok": true,
+  "results": [
+   {
+    "constraint": {
+     "type": "common_centroid",
+     "devices": [
+      "M0",
+      "M1",
+      "M2"
+     ]
+    },
+    "ok": true,
+    "detail": "M0 centroid (6.440, 4.055), M1 centroid (6.440, 4.055), M2 centroid (6.440, 4.055); max offset 0.000 um (allowed 0.06)"
+   }
+  ]
+ }
+}

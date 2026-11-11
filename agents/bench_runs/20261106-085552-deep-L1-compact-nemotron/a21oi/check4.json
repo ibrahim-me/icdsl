@@ -1,0 +1,1106 @@
+{
+ "cell": "a21oi",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085552-deep-L1-compact-nemotron/a21oi/check4/a21oi.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085552-deep-L1-compact-nemotron/a21oi/check4/a21oi.reference.spice",
+ "size_um": [
+  2.3,
+  2.72
+ ],
+ "warnings": [
+  "a21oi: fast pre-check found 6 rule issue(s): licon.5a at [1.99, 0.556, 2.025, 0.764] near nd1 (line 19), nim (line 21), sv (line 30); licon.5a at [0.275, 1.996, 0.31, 2.204] near nwell (line 62), pd1 (line 20), pim (line 22); licon.5a at [0.275, 1.656, 0.31, 1.864] near nwell (line 62), pd1 (line 20), pim (line 22); licon.5a at [0.275, 0.556, 0.31, 0.764] near nd1 (line 19), nim (line 21), sn (line 28); licon.5a at [1.99, 1.996, 2.025, 2.204] near nwell (line 62), pd1 (line 20), pim (line 22); licon.5a at [1.99, 1.656, 2.025, 1.864] near nwell (line 62), pd1 (line 20), pim (line 22)"
+ ],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 6,
+  "by_rule": [
+   {
+    "rule": "P-diffusion overlap of P-diffusion contact < 0.04um (licon.5a)",
+    "count": 4,
+    "examples": [
+     {
+      "box_um": [
+       0.31,
+       2.015,
+       0.315,
+       2.185
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd1": [
+        "diff"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "pn2l": [
+        "licon"
+       ],
+       "pn2ll": [
+        "li"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       0.31,
+       1.675,
+       0.315,
+       1.845
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd1": [
+        "diff"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "pn2l": [
+        "licon"
+       ],
+       "pn2ll": [
+        "li"
+       ],
+       "route:n2": [
+        "m1",
+        "mcon"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.985,
+       1.675,
+       1.99,
+       1.845
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd1": [
+        "diff"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "py": [
+        "licon"
+       ],
+       "pyl": [
+        "li"
+       ],
+       "route:Y": [
+        "m1",
+        "m2",
+        "mcon"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.985,
+       2.015,
+       1.99,
+       2.185
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd1": [
+        "diff"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "py": [
+        "licon"
+       ],
+       "pyl": [
+        "li"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "N-diffusion overlap of N-diffusion contact < 0.04um (licon.5a)",
+    "count": 2,
+    "examples": [
+     {
+      "box_um": [
+       0.31,
+       0.575,
+       0.315,
+       0.745
+      ],
+      "objects": {
+       "nd1": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "sn": [
+        "licon"
+       ],
+       "snl": [
+        "li"
+       ],
+       "gnd1": [
+        "li"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.985,
+       0.575,
+       1.99,
+       0.745
+      ],
+      "objects": {
+       "nd1": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "sv": [
+        "licon"
+       ],
+       "svl": [
+        "li"
+       ],
+       "gnd2": [
+        "li"
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "all": [
+   {
+    "rule": "P-diffusion overlap of P-diffusion contact < 0.04um (licon.5a)",
+    "box_um": [
+     0.31,
+     2.015,
+     0.315,
+     2.185
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "pd1": [
+      "diff"
+     ],
+     "pim": [
+      "psdm"
+     ],
+     "pn2l": [
+      "licon"
+     ],
+     "pn2ll": [
+      "li"
+     ]
+    }
+   },
+   {
+    "rule": "P-diffusion overlap of P-diffusion contact < 0.04um (licon.5a)",
+    "box_um": [
+     0.31,
+     1.675,
+     0.315,
+     1.845
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "pd1": [
+      "diff"
+     ],
+     "pim": [
+      "psdm"
+     ],
+     "pn2l": [
+      "licon"
+     ],
+     "pn2ll": [
+      "li"
+     ],
+     "route:n2": [
+      "m1",
+      "mcon"
+     ]
+    }
+   },
+   {
+    "rule": "P-diffusion overlap of P-diffusion contact < 0.04um (licon.5a)",
+    "box_um": [
+     1.985,
+     1.675,
+     1.99,
+     1.845
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "pd1": [
+      "diff"
+     ],
+     "pim": [
+      "psdm"
+     ],
+     "py": [
+      "licon"
+     ],
+     "pyl": [
+      "li"
+     ],
+     "route:Y": [
+      "m1",
+      "m2",
+      "mcon"
+     ]
+    }
+   },
+   {
+    "rule": "P-diffusion overlap of P-diffusion contact < 0.04um (licon.5a)",
+    "box_um": [
+     1.985,
+     2.015,
+     1.99,
+     2.185
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "pd1": [
+      "diff"
+     ],
+     "pim": [
+      "psdm"
+     ],
+     "py": [
+      "licon"
+     ],
+     "pyl": [
+      "li"
+     ]
+    }
+   },
+   {
+    "rule": "N-diffusion overlap of N-diffusion contact < 0.04um (licon.5a)",
+    "box_um": [
+     0.31,
+     0.575,
+     0.315,
+     0.745
+    ],
+    "objects": {
+     "nd1": [
+      "diff"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "sn": [
+      "licon"
+     ],
+     "snl": [
+      "li"
+     ],
+     "gnd1": [
+      "li"
+     ]
+    }
+   },
+   {
+    "rule": "N-diffusion overlap of N-diffusion contact < 0.04um (licon.5a)",
+    "box_um": [
+     1.985,
+     0.575,
+     1.99,
+     0.745
+    ],
+    "objects": {
+     "nd1": [
+      "diff"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "sv": [
+      "licon"
+     ],
+     "svl": [
+      "li"
+     ],
+     "gnd2": [
+      "li"
+     ]
+    }
+   }
+  ]
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": true,
+  "result": "Circuits match uniquely.",
+  "devices_layout_vs_ref": [
+   6,
+   6
+  ],
+  "nets_layout_vs_ref": [
+   8,
+   8
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085552-deep-L1-compact-nemotron/a21oi/check4/a21oi.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085552-deep-L1-compact-nemotron/a21oi/check4/a21oi.lvs.txt",
+  "dummies_ignored": 0
+ },
+ "routes": {
+  "nets": {
+   "n2": {
+    "length_um": 0.69,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 4,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 9.62
+   },
+   "Y": {
+    "length_um": 1.38,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 4,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 10.23
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [
+  {
+   "rule": "licon.5a",
+   "msg": "diff enclosure of licon < 0.040 um",
+   "objects": [
+    "nd1 (line 19)",
+    "nim (line 21)",
+    "sv (line 30)",
+    "svl (line 33)",
+    "gnd2 (line 35)",
+    "boundary"
+   ],
+   "box_um": [
+    1.99,
+    0.556,
+    2.025,
+    0.764
+   ]
+  },
+  {
+   "rule": "licon.5a",
+   "msg": "diff enclosure of licon < 0.040 um",
+   "objects": [
+    "nwell (line 62)",
+    "pd1 (line 20)",
+    "pim (line 22)",
+    "pn2l (line 38)",
+    "pn2ll (line 42)",
+    "boundary"
+   ],
+   "box_um": [
+    0.275,
+    1.996,
+    0.31,
+    2.204
+   ]
+  },
+  {
+   "rule": "licon.5a",
+   "msg": "diff enclosure of licon < 0.040 um",
+   "objects": [
+    "nwell (line 62)",
+    "pd1 (line 20)",
+    "pim (line 22)",
+    "pn2l (line 38)",
+    "pn2ll (line 42)",
+    "route:n2"
+   ],
+   "box_um": [
+    0.275,
+    1.656,
+    0.31,
+    1.864
+   ]
+  },
+  {
+   "rule": "licon.5a",
+   "msg": "diff enclosure of licon < 0.040 um",
+   "objects": [
+    "nd1 (line 19)",
+    "nim (line 21)",
+    "sn (line 28)",
+    "snl (line 31)",
+    "gnd1 (line 34)",
+    "boundary"
+   ],
+   "box_um": [
+    0.275,
+    0.556,
+    0.31,
+    0.764
+   ]
+  },
+  {
+   "rule": "licon.5a",
+   "msg": "diff enclosure of licon < 0.040 um",
+   "objects": [
+    "nwell (line 62)",
+    "pd1 (line 20)",
+    "pim (line 22)",
+    "py (line 41)",
+    "pyl (line 45)",
+    "boundary"
+   ],
+   "box_um": [
+    1.99,
+    1.996,
+    2.025,
+    2.204
+   ]
+  },
+  {
+   "rule": "licon.5a",
+   "msg": "diff enclosure of licon < 0.040 um",
+   "objects": [
+    "nwell (line 62)",
+    "pd1 (line 20)",
+    "pim (line 22)",
+    "py (line 41)",
+    "pyl (line 45)",
+    "route:Y"
+   ],
+   "box_um": [
+    1.99,
+    1.656,
+    2.025,
+    1.864
+   ]
+  }
+ ],
+ "constraint_violations": [],
+ "objects": {
+  "vgnd": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    -0.24,
+    2.3,
+    0.24
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vpwr": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    2.48,
+    2.3,
+    2.96
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ptap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    -0.145,
+    2.12,
+    0.145
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    -0.085,
+    1.695,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    -0.085,
+    2.155,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vgnd_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    -0.085,
+    2.3,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_imp": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.0,
+    -0.27,
+    2.3,
+    0.27
+   ],
+   "net": null,
+   "line": 0
+  },
+  "ntap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    2.575,
+    2.12,
+    2.865
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    2.635,
+    1.695,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    2.635,
+    2.155,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "vpwr_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    2.635,
+    2.3,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_imp": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.0,
+    2.45,
+    2.3,
+    2.99
+   ],
+   "net": null,
+   "line": 0
+  },
+  "nwell": {
+   "layer": "nwell",
+   "bbox_um": [
+    0.0,
+    1.31,
+    2.3,
+    3.045
+   ],
+   "net": null,
+   "line": 62
+  },
+  "nd1": {
+   "layer": "diff",
+   "bbox_um": [
+    0.275,
+    0.415,
+    2.025,
+    0.905
+   ],
+   "net": null,
+   "line": 19
+  },
+  "pd1": {
+   "layer": "diff",
+   "bbox_um": [
+    0.275,
+    1.555,
+    2.025,
+    2.305
+   ],
+   "net": null,
+   "line": 20
+  },
+  "nim": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.15,
+    0.29,
+    2.15,
+    1.03
+   ],
+   "net": null,
+   "line": 21
+  },
+  "pim": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.15,
+    1.43,
+    2.15,
+    2.43
+   ],
+   "net": null,
+   "line": 22
+  },
+  "g1": {
+   "layer": "poly",
+   "bbox_um": [
+    0.535,
+    0.285,
+    0.685,
+    2.435
+   ],
+   "net": null,
+   "line": 23
+  },
+  "g2": {
+   "layer": "poly",
+   "bbox_um": [
+    1.075,
+    0.285,
+    1.225,
+    2.435
+   ],
+   "net": null,
+   "line": 24
+  },
+  "g3": {
+   "layer": "poly",
+   "bbox_um": [
+    1.615,
+    0.285,
+    1.765,
+    2.435
+   ],
+   "net": null,
+   "line": 25
+  },
+  "sn": {
+   "layer": "licon",
+   "bbox_um": [
+    0.31,
+    0.575,
+    0.48,
+    0.745
+   ],
+   "net": null,
+   "line": 28
+  },
+  "sy": {
+   "layer": "licon",
+   "bbox_um": [
+    1.28,
+    0.575,
+    1.45,
+    0.745
+   ],
+   "net": null,
+   "line": 29
+  },
+  "sv": {
+   "layer": "licon",
+   "bbox_um": [
+    1.82,
+    0.575,
+    1.99,
+    0.745
+   ],
+   "net": null,
+   "line": 30
+  },
+  "snl": {
+   "layer": "li",
+   "bbox_um": [
+    0.31,
+    0.495,
+    0.48,
+    0.825
+   ],
+   "net": "VGND",
+   "line": 31
+  },
+  "syl": {
+   "layer": "li",
+   "bbox_um": [
+    1.28,
+    0.495,
+    1.45,
+    0.825
+   ],
+   "net": "Y",
+   "line": 32
+  },
+  "svl": {
+   "layer": "li",
+   "bbox_um": [
+    1.82,
+    0.495,
+    1.99,
+    0.825
+   ],
+   "net": "VGND",
+   "line": 33
+  },
+  "gnd1": {
+   "layer": "li",
+   "bbox_um": [
+    0.31,
+    -0.085,
+    0.48,
+    0.825
+   ],
+   "net": null,
+   "line": 34
+  },
+  "gnd2": {
+   "layer": "li",
+   "bbox_um": [
+    1.82,
+    -0.085,
+    1.99,
+    0.825
+   ],
+   "net": null,
+   "line": 35
+  },
+  "pn2l": {
+   "layer": "licon",
+   "bbox_um": [
+    0.31,
+    1.675,
+    0.48,
+    2.185
+   ],
+   "net": null,
+   "line": 38
+  },
+  "pvp": {
+   "layer": "licon",
+   "bbox_um": [
+    0.74,
+    1.675,
+    0.91,
+    2.185
+   ],
+   "net": null,
+   "line": 39
+  },
+  "pn2r": {
+   "layer": "licon",
+   "bbox_um": [
+    1.28,
+    1.675,
+    1.45,
+    2.185
+   ],
+   "net": null,
+   "line": 40
+  },
+  "py": {
+   "layer": "licon",
+   "bbox_um": [
+    1.82,
+    1.675,
+    1.99,
+    2.185
+   ],
+   "net": null,
+   "line": 41
+  },
+  "pn2ll": {
+   "layer": "li",
+   "bbox_um": [
+    0.31,
+    1.595,
+    0.48,
+    2.265
+   ],
+   "net": "n2",
+   "line": 42
+  },
+  "pvpl": {
+   "layer": "li",
+   "bbox_um": [
+    0.74,
+    1.595,
+    0.91,
+    2.265
+   ],
+   "net": "VPWR",
+   "line": 43
+  },
+  "pn2rl": {
+   "layer": "li",
+   "bbox_um": [
+    1.28,
+    1.595,
+    1.45,
+    2.265
+   ],
+   "net": "n2",
+   "line": 44
+  },
+  "pyl": {
+   "layer": "li",
+   "bbox_um": [
+    1.82,
+    1.595,
+    1.99,
+    2.265
+   ],
+   "net": "Y",
+   "line": 45
+  },
+  "p1": {
+   "layer": "li",
+   "bbox_um": [
+    0.74,
+    1.595,
+    0.91,
+    2.805
+   ],
+   "net": null,
+   "line": 46
+  },
+  "gc1": {
+   "layer": "licon",
+   "bbox_um": [
+    0.525,
+    1.095,
+    0.695,
+    1.265
+   ],
+   "net": null,
+   "line": 51
+  },
+  "gp1": {
+   "layer": "poly",
+   "bbox_um": [
+    0.445,
+    1.045,
+    0.775,
+    1.315
+   ],
+   "net": null,
+   "line": 52
+  },
+  "gl1": {
+   "layer": "li",
+   "bbox_um": [
+    0.525,
+    1.015,
+    0.695,
+    1.345
+   ],
+   "net": "A2",
+   "line": 53
+  },
+  "gc2": {
+   "layer": "licon",
+   "bbox_um": [
+    1.065,
+    1.095,
+    1.235,
+    1.265
+   ],
+   "net": null,
+   "line": 54
+  },
+  "gp2": {
+   "layer": "poly",
+   "bbox_um": [
+    0.985,
+    1.045,
+    1.315,
+    1.315
+   ],
+   "net": null,
+   "line": 55
+  },
+  "gl2": {
+   "layer": "li",
+   "bbox_um": [
+    1.065,
+    1.015,
+    1.235,
+    1.345
+   ],
+   "net": "A1",
+   "line": 56
+  },
+  "gc3": {
+   "layer": "licon",
+   "bbox_um": [
+    1.605,
+    1.095,
+    1.775,
+    1.265
+   ],
+   "net": null,
+   "line": 57
+  },
+  "gp3": {
+   "layer": "poly",
+   "bbox_um": [
+    1.525,
+    1.045,
+    1.855,
+    1.315
+   ],
+   "net": null,
+   "line": 58
+  },
+  "gl3": {
+   "layer": "li",
+   "bbox_um": [
+    1.605,
+    1.015,
+    1.775,
+    1.345
+   ],
+   "net": "B1",
+   "line": 59
+  },
+  "gn": {
+   "layer": "npc",
+   "bbox_um": [
+    0.425,
+    0.995,
+    1.875,
+    1.365
+   ],
+   "net": null,
+   "line": 60
+  },
+  "a1m": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.065,
+    1.095,
+    1.235,
+    1.265
+   ],
+   "net": null,
+   "line": 64
+  },
+  "a1p": {
+   "layer": "m1",
+   "bbox_um": [
+    1.005,
+    1.035,
+    1.295,
+    1.325
+   ],
+   "net": "A1",
+   "line": 65
+  },
+  "a2m": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.525,
+    1.095,
+    0.695,
+    1.265
+   ],
+   "net": null,
+   "line": 67
+  },
+  "a2p": {
+   "layer": "m1",
+   "bbox_um": [
+    0.465,
+    1.035,
+    0.755,
+    1.325
+   ],
+   "net": "A2",
+   "line": 68
+  },
+  "b1m": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.605,
+    1.095,
+    1.775,
+    1.265
+   ],
+   "net": null,
+   "line": 70
+  },
+  "b1p": {
+   "layer": "m1",
+   "bbox_um": [
+    1.545,
+    1.035,
+    1.835,
+    1.325
+   ],
+   "net": "B1",
+   "line": 71
+  }
+ },
+ "connectivity": [],
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085552-deep-L1-compact-nemotron/a21oi/check4/a21oi.png",
+ "route_failed": [],
+ "status": "VIOLATIONS",
+ "seconds": 2.8
+}

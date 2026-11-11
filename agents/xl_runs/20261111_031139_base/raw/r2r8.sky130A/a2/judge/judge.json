@@ -1,0 +1,36 @@
+{
+ "task": "r2r8",
+ "pdk": "sky130A",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/r2r8.sky130A/a2/r2r8.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/r2r8.sky130A/a2/r2r8.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "1528 violation(s): 524 x Metal1 overlap of local interconnect contact < 0.06um in one direction (met1.5); 326 x Metal1 overlap of Via1 < 0.03um in one direction (via.5a - via.4a); 268 x Metal2 overlap of Via1 < 0.03um in one direction (met2.5 - met2.4); 200 x Local interconnect overlap of poly contact < 0.08um in one direction (li.5); 100 x Local interconnect minimum area < 0.0561um^2 (li.6); 50 x poly contact width        < 0.17um (licon.1)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 616 violation(s): 208 x via.4a: via.4a : min. m1 enclosure of 0.15um via : 0.055um; 136 x m2.4: m2.4 : min. m2 enclosure of via : 0.055um; 50 x li.5: li.5 : min. li enclosure of licon of 2 adjacent edges : 0.08um; 50 x li.6: li.6 : min. li area : 0.0561um\u00b2; 50 x m1.5: m1.5 : min. m1 enclosure of mcon of 2 adjacent edges : 0.06um; 34 x via.5a: via.5a : min. m1 enclosure of 0.15um via of 2 adjacent edges : 0.085um"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "(netgen produced no result)  (devices layout/ref ?/?; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/r2r8.sky130A/a2/judge/r2r8.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "top-level pin names differ from the task netlist"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "42.24 x 29.12 = 1230.0 um2, budget 1630, reference 814.74"
+  }
+ ],
+ "area_um2": 1230.03,
+ "area_vs_reference": 1.51,
+ "solved": false
+}

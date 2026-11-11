@@ -1,0 +1,35 @@
+Judge:
+  FAIL DRC      11921 violation(s): 4328 x Metal1 spacing < 0.14um (met1.2); 2336 x Local interconnect spacing < 0.17um (li.3); 1040 x mcon.spacing < 0.19um (mcon.2); 928 x Min area of metal1 holes > 0.14um^2 (met1.7); 704 x Core local interconnect spacing < 0.14um (li.c2); 688 x poly overlap of poly contact < 0.05um (licon.8)
+  FAIL DRC2     foundry KLayout deck: 801 violation(s): 129 x m1.2: m1.2 : min. m1 spacing : 0.14um; 109 x ct.2: ct.2 : min. mcon spacing : 0.19um; 108 x MR_licon.SP.1: MR_licon.SP.1: min. licon spacing in periphery : 0.17um; 95 x licon.1: licon.1: min/max. licon length : 0.17um; 94 x m1.7: m1.7 : min. m1 with holes area : 0.14um²; 61 x m1.6: m1.6 : min. m1 area : 0.083um²
+  FAIL LVS      Verify:  cell /home/ibrahim/claude-workspace/icdsl/bench/xl/tasks/rca8/sky130A.spice has no elements and/or nodes.  Not checked.  (devices layout/ref ?/?; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/rca8.sky130A/a3/judge/rca8.lvs.txt)
+  FAIL pins     not confirmed (LVS failed)
+  FAIL area     94.20 x 18.14 = 1708.8 um2, budget 1147, reference 573.12
+
+Tool report:
+DRC (magic drc(full)): 11921 violation(s), boxes in um
+  4328 x Metal1 spacing < 0.14um (met1.2)   e.g. at (-0.270 9.320 -0.220 9.380)  (-0.270 9.295 -0.220 9.320)  (-0.080 9.320 0.020 9.380)
+  2336 x Local interconnect spacing < 0.17um (li.3)   e.g. at (-0.290 9.320 0.040 9.400)  (-0.290 9.245 -0.210 9.320)  (-0.210 9.310 -0.040 9.320)
+  1040 x mcon.spacing < 0.19um (mcon.2)   e.g. at (-0.210 9.305 -0.040 9.320)  (-0.065 9.305 -0.040 9.320)  (10.790 9.305 10.960 9.320)
+   928 x Min area of metal1 holes > 0.14um^2 (met1.7)   e.g. at (0.280 4.570 0.350 4.930)  (0.545 4.570 0.740 4.930)  (0.880 4.570 0.950 4.930)
+   704 x Core local interconnect spacing < 0.14um (li.c2)   e.g. at (-0.210 9.310 -0.040 9.320)  (-0.210 9.275 -0.130 9.310)  (-0.130 9.275 -0.040 9.310)
+   688 x poly overlap of poly contact < 0.05um (licon.8)   e.g. at (-0.130 9.260 -0.040 9.310)  (10.870 9.260 10.960 9.310)  (21.870 9.260 21.960 9.310)
+   360 x poly contact width        < 0.17um (licon.1)   e.g. at (-0.040 9.160 0.040 9.310)  (-0.130 9.320 -0.040 9.330)  (-0.130 9.310 -0.040 9.320)
+   240 x P-Diffusion overhang of pmos < 0.25um (poly.7)   e.g. at (0.000 9.310 8.640 9.560)  (11.000 9.310 19.640 9.560)  (22.000 9.310 30.640 9.560)
+   240 x poly contact spacing to diffusion < 0.19um (licon.14)   e.g. at (0.000 9.160 0.150 9.310)  (11.000 9.160 11.150 9.310)  (22.000 9.160 22.150 9.310)
+   240 x poly overlap of poly contact < 0.08um in one direction (licon.8a)   e.g. at (-0.120 9.310 -0.040 9.390)  (-0.120 9.080 -0.040 9.160)  (10.880 9.310 10.960 9.390)
+   240 x poly contact spacing to P-diffusion < 0.235um (licon.9 + psdm.5a)   e.g. at (0.000 9.160 0.195 9.310)  (11.000 9.160 11.195 9.310)  (22.000 9.160 22.195 9.310)
+   240 x poly overhang of transistor < 0.13um (poly.8)   e.g. at (-0.130 9.310 8.770 9.440)  (10.870 9.310 19.770 9.440)  (21.870 9.310 30.770 9.440)
+DRC2 (foundry KLayout deck): 801 violation(s), boxes in um
+   129 x m1.2: m1.2 : min. m1 spacing : 0.14um   e.g. at (3.880 1.295 3.950 1.430)  (4.480 4.570 4.550 5.930)  (3.880 1.295 3.950 1.430)
+   109 x ct.2: ct.2 : min. mcon spacing : 0.19um   e.g. at (-0.235 9.320 -0.040 9.495)  (-0.040 0.990 0.125 1.160)  (-0.040 0.915 0.125 1.235)
+   108 x MR_licon.SP.1: MR_licon.SP.1: min. licon spacing in periphery : 0.17um   e.g. at (3.895 0.990 3.990 1.235)  (3.895 0.990 3.990 1.160)  (3.895 0.915 3.990 1.235)
+    95 x licon.1: licon.1: min/max. licon length : 0.17um   e.g. at (7.535 9.075 7.535 9.395)  (6.935 9.075 6.935 9.395)  (7.105 9.320 7.160 9.320)
+    94 x m1.7: m1.7 : min. m1 with holes area : 0.14um²   e.g. at (2.080 4.570 2.150 5.430)  (3.280 4.570 3.350 5.930)  (3.880 4.570 3.950 5.930)
+    61 x m1.6: m1.6 : min. m1 area : 0.083um²   e.g. at (5.430 13.500 5.570 14.000)  (5.430 -1.000 5.570 -0.500)  (16.430 13.500 16.570 14.000)
+    49 x via.4a_a: via.4a_a : 0.15um via must be enclosed by met1   e.g. at (77.545 6.575 77.575 6.575)  (66.545 6.575 66.575 6.575)  (33.545 6.575 33.575 6.575)
+    43 x ct.1_b: ct.1_b : maximum length of mcon : 0.17um   e.g. at (8.135 9.075 8.135 9.395)  (8.305 9.075 8.305 9.395)  (5.735 9.075 5.735 9.395)
+    41 x licon.17: licon.17 : Licons may not overlap both poly and (diff or tap)   e.g. at (6.935 9.160 7.160 9.310)  (5.135 9.160 5.360 9.310)  (3.335 9.160 3.560 9.310)
+    15 x li.3: li.3 : min. li spacing outside or crossing areaid:ce : 0.17um   e.g. at (0.640 0.835 0.645 1.315)  (-0.315 9.400 0.040 9.415)  (7.240 0.835 7.245 1.315)
+    14 x m2.4_a: m2.4_a : via in periphery must be enclosed by met2   e.g. at (10.425 6.425 10.575 6.575)  (11.425 6.425 11.575 6.575)  (65.425 6.425 65.575 6.575)
+    13 x difftap.3: difftap.3 : min. difftap spacing : 0.27um   e.g. at (6.420 1.000 6.600 1.150)  (5.220 1.000 5.400 1.150)  (4.620 1.000 4.800 1.150)
+LVS: Verify:  cell /home/ibrahim/claude-workspace/icdsl/bench/xl/tasks/rca8/sky130A.spice has no elements and/or nodes.  Not checked.   devices layout/ref ?/?, nets layout/ref ?/?

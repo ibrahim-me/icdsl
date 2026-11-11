@@ -1,0 +1,43 @@
+* reference netlist written by icl canvas for ota_miller (freepdk45)
+.subckt ota_miller INP INN OUT IB VDD VSS
+M8_0 IB IB VSS VSS nmos w=2u l=1u
+M8_1 VSS IB IB VSS nmos w=2u l=1u
+M5_0 tail IB VSS VSS nmos w=2u l=1u
+M5_1 VSS IB tail VSS nmos w=2u l=1u
+M5_2 tail IB VSS VSS nmos w=2u l=1u
+M5_3 VSS IB tail VSS nmos w=2u l=1u
+M7_0 OUT IB VSS VSS nmos w=2u l=1u
+M7_1 VSS IB OUT VSS nmos w=2u l=1u
+M7_2 OUT IB VSS VSS nmos w=2u l=1u
+M7_3 VSS IB OUT VSS nmos w=2u l=1u
+M7_4 OUT IB VSS VSS nmos w=2u l=1u
+M7_5 VSS IB OUT VSS nmos w=2u l=1u
+M7_6 OUT IB VSS VSS nmos w=2u l=1u
+M7_7 VSS IB OUT VSS nmos w=2u l=1u
+M1_0 d1 INN tail VSS nmos w=4u l=0.5u
+M1_1 tail INN d1 VSS nmos w=4u l=0.5u
+M2_0 d2 INP tail VSS nmos w=4u l=0.5u
+M2_1 tail INP d2 VSS nmos w=4u l=0.5u
+M9 x VDD d2 VSS nmos w=2u l=0.5u
+MC_0 x OUT x VSS nmos w=4u l=1u
+MC_1 x OUT x VSS nmos w=4u l=1u
+MC_2 x OUT x VSS nmos w=4u l=1u
+MC_3 x OUT x VSS nmos w=4u l=1u
+MC_4 x OUT x VSS nmos w=4u l=1u
+MC_5 x OUT x VSS nmos w=4u l=1u
+MC_6 x OUT x VSS nmos w=4u l=1u
+MC_7 x OUT x VSS nmos w=4u l=1u
+M3_0 d1 d1 VDD VDD pmos w=4u l=1u
+M3_1 VDD d1 d1 VDD pmos w=4u l=1u
+M4_0 d2 d1 VDD VDD pmos w=4u l=1u
+M4_1 VDD d1 d2 VDD pmos w=4u l=1u
+M6_0 OUT d2 VDD VDD pmos w=4u l=0.5u
+M6_1 VDD d2 OUT VDD pmos w=4u l=0.5u
+M6_2 OUT d2 VDD VDD pmos w=4u l=0.5u
+M6_3 VDD d2 OUT VDD pmos w=4u l=0.5u
+M6_4 OUT d2 VDD VDD pmos w=4u l=0.5u
+M6_5 VDD d2 OUT VDD pmos w=4u l=0.5u
+M6_6 OUT d2 VDD VDD pmos w=4u l=0.5u
+M6_7 VDD d2 OUT VDD pmos w=4u l=0.5u
+.ends
+.end

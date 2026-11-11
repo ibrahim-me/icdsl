@@ -1,0 +1,174 @@
+{
+ "cell": "mirror4",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073009-deep-L2-nemotron/mirror4/check1/mirror4.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073009-deep-L2-nemotron/mirror4/check1/mirror4.reference.spice",
+ "size_um": [
+  10.12,
+  6.9
+ ],
+ "warnings": [],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 0,
+  "by_rule": [],
+  "all": []
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": true,
+  "result": "Circuits match uniquely.",
+  "devices_layout_vs_ref": [
+   4,
+   4
+  ],
+  "nets_layout_vs_ref": [
+   5,
+   5
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073009-deep-L2-nemotron/mirror4/check1/mirror4.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073009-deep-L2-nemotron/mirror4/check1/mirror4.lvs.txt",
+  "dummies_ignored": 0
+ },
+ "routes": {
+  "nets": {
+   "IREF": {
+    "length_um": 10.58,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 5,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 13.54
+   },
+   "I1": {
+    "length_um": 6.9,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 4,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 11.05
+   },
+   "I2": {
+    "length_um": 6.44,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 5,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 18.84
+   },
+   "I3": {
+    "length_um": 11.96,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 3,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 12.3
+   },
+   "VGND": {
+    "length_um": 10.58,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 9,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 17.21
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [],
+ "constraint_violations": [],
+ "objects": {
+  "CC": {
+   "kind": "array",
+   "at_um": [
+    1.84,
+    3.22
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    1.59,
+    1.815,
+    8.53,
+    5.245
+   ],
+   "line": 16
+  },
+  "G": {
+   "kind": "ring",
+   "at_um": [
+    1.84,
+    3.22
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    0.59,
+    0.65,
+    9.53,
+    6.25
+   ],
+   "line": 18
+  }
+ },
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073009-deep-L2-nemotron/mirror4/check1/mirror4.png",
+ "route_failed": [],
+ "status": "CLEAN",
+ "seconds": 2.9,
+ "judge": {
+  "ok": true,
+  "results": [
+   {
+    "constraint": {
+     "type": "common_centroid",
+     "devices": [
+      "M0",
+      "M1",
+      "M2",
+      "M3"
+     ]
+    },
+    "ok": true,
+    "detail": "M0 centroid (5.060, 3.365), M1 centroid (5.060, 3.365), M2 centroid (5.060, 3.365), M3 centroid (5.060, 3.365); max offset 0.000 um (allowed 0.06)"
+   },
+   {
+    "constraint": {
+     "type": "guard_ring",
+     "devices": [
+      "M0",
+      "M1",
+      "M2",
+      "M3"
+     ],
+     "kind": "ptap"
+    },
+    "ok": true,
+    "detail": "a closed ptap ring around M0, M1, M2, M3"
+   }
+  ]
+ }
+}

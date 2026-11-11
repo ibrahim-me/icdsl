@@ -1,0 +1,1579 @@
+{
+ "config": {
+  "level": 1,
+  "task": "repair",
+  "model": "nvidia/nemotron-3.5-super-vl:free",
+  "cells": "",
+  "workers": 3,
+  "max_calls": 20,
+  "max_checks": 6,
+  "max_total_calls": 150,
+  "reasoning": 4000,
+  "temperature": 0.2,
+  "examples": 0,
+  "nudges": 3,
+  "tag": "nemotron",
+  "harness": "deepagents",
+  "feedback": "ranked",
+  "images": "none",
+  "keep_best": true,
+  "lessons": "lessons_stdcell_v3.md"
+ },
+ "results": [
+  {
+   "cell": "nand2",
+   "tier": 1,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "VIOLATIONS",
+     "drc": 36,
+     "lvs": true,
+     "score": 36,
+     "error": "",
+     "t": 1793935586.275327
+    },
+    {
+     "k": 2,
+     "status": "CLEAN",
+     "drc": 0,
+     "lvs": true,
+     "score": 0,
+     "error": "",
+     "t": 1793935674.4945493
+    }
+   ],
+   "nominal_clean": true,
+   "mutation": "gap",
+   "nudges": 0,
+   "model_calls": 11,
+   "tokens": 157369,
+   "stop": "agent finished",
+   "seconds": 141,
+   "final_message": "All 6 sweep points are CLEAN (DRC 0, LVS match at every point).\n\n## Summary\n\nThe original `/nand2.icl` had three compounding problems:\n1. **Gate pitch too small** \u2014 gates were spaced with only a 0.20 \u00b5m gap (needs \u22650.21 \u00b5m poly-poly, and \u22650.54 \u00b5m centre-to-centre for gate-contact pads).\n2. **Drain contact too close to gate** \u2014 the p-row Y contact `c4` sat between the two gates and overlapped/violated the licon.11 rule against gate B.\n3. **Gate contacts too close together** \u2014 both gate contacts were centred on their gates with no outward shift, causing poly.2/mcon.2/met1.2 violations between the contact pads and their met1 port enclosures.\n\nI rewrote the geometry following the verified `l1_param_nand2.icl` pattern: a single shared diffusion island per row (`dw = 2*L + 0.81`), gates placed at the ends (`left=(nd.left+0.265)`, `right=(nd.right-0.265)`), drain/source contact columns via `array licon ... left_of/right_of/between`, gate contacts pushed outwards (`cx=(ga.cx-0.1)`, `cx=(gb.cx+0.1)`) so the pads clear, `cb` computed only from n-row items (per lesson 1), and `route Y layers=m1` to join the misaligned n/p Y drains (per lesson 6). `width=6` columns (2.76 \u00b5m) fits the diffusion at L=0.25. Nominal + all 5 sweep points pass DRC/LVS.",
+   "calls": 11,
+   "checks": 2,
+   "final_status": "CLEAN",
+   "clean_at": 2,
+   "sweep": [
+    [
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.18,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.25,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.42,
+       "WP": 0.64
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 3.26,
+       "WN": 0.66,
+       "WP": 1.01
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       3.26
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 4.08,
+       "WN": 0.93,
+       "WP": 1.42
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       4.08
+      ]
+     }
+    ]
+   ],
+   "sweep_best": 6,
+   "final": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085550-deep-L1-repair-nemotron/nand2/nand2_final.icl"
+  },
+  {
+   "cell": "inv",
+   "tier": 1,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "VIOLATIONS",
+     "drc": 0,
+     "lvs": false,
+     "score": 5000,
+     "error": "",
+     "t": 1793935592.5628526
+    },
+    {
+     "k": 2,
+     "status": "CLEAN",
+     "drc": 0,
+     "lvs": true,
+     "score": 0,
+     "error": "",
+     "t": 1793935603.5462978
+    }
+   ],
+   "nominal_clean": true,
+   "mutation": "strap",
+   "nudges": 0,
+   "model_calls": 12,
+   "tokens": 130642,
+   "stop": "agent finished",
+   "seconds": 147,
+   "final_message": "All 6 sweep points are clean. The fix was a single missing strap: the n-side source contact strip `c2l` (net VGND) was not connected to the template's `vgnd_li` rail, causing an LVS OPEN net VGND. Adding `c2s = strap li from=c2l to=vgnd_li` resolved it, and the layout stays DRC/LVS clean across the full parameter sweep (L=0.15\u20130.25, widths \u00d70.85\u20131.9, H=2.72\u20134.08).",
+   "calls": 12,
+   "checks": 2,
+   "final_status": "CLEAN",
+   "clean_at": 2,
+   "sweep": [
+    [
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       1.84,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.18,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       1.84,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.25,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       1.84,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.42,
+       "WP": 0.64
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       1.84,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 3.26,
+       "WN": 0.66,
+       "WP": 1.01
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       1.84,
+       3.26
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 4.08,
+       "WN": 0.93,
+       "WP": 1.42
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       1.84,
+       4.08
+      ]
+     }
+    ]
+   ],
+   "sweep_best": 6,
+   "final": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085550-deep-L1-repair-nemotron/inv/inv_final.icl"
+  },
+  {
+   "cell": "nor2",
+   "tier": 1,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "VIOLATIONS",
+     "drc": 5,
+     "lvs": true,
+     "score": 5,
+     "error": "",
+     "t": 1793935749.8061244
+    },
+    {
+     "k": 2,
+     "status": "CLEAN",
+     "drc": 0,
+     "lvs": true,
+     "score": 0,
+     "error": "",
+     "t": 1793935784.2156498
+    }
+   ],
+   "nominal_clean": true,
+   "mutation": "ext",
+   "nudges": 0,
+   "model_calls": 9,
+   "tokens": 91760,
+   "stop": "agent finished",
+   "seconds": 96,
+   "final_message": "All 6 sweep points are clean. The fix was a single line: the n-diffusion `nd1` extended only `g1.left - 0.18` beyond gate A, but the poly.7 rule requires diffusion to extend 0.25+ um beyond the gate (room for source/drain contacts). Changing `0.18` to `0.265` (matching the right-side end contact) resolved all 5 DRC errors while LVS was already matching. The layout is parametric and stays clean across the full sweep (L=0.15\u20130.25, widths x0.85\u2013x1.9, H=2.72\u20134.08).\n\nFinal status: `/nor2.icl` is DRC-clean and LVS-matching at the nominal point and all 6 sweep points. The hard part was identifying that the one broken edit was the diffusion end margin (`0.18` \u2192 `0.265`) violating poly.7; everything else (gate order, contact placement, net labeling, routing) was already correct per the lessons.",
+   "calls": 9,
+   "checks": 2,
+   "final_status": "CLEAN",
+   "clean_at": 2,
+   "sweep": [
+    [
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.3,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.18,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.3,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.25,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.3,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.42,
+       "WP": 0.64
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.3,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 3.26,
+       "WN": 0.66,
+       "WP": 1.01
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.3,
+       3.26
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 4.08,
+       "WN": 0.93,
+       "WP": 1.42
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.3,
+       4.08
+      ]
+     }
+    ]
+   ],
+   "sweep_best": 6,
+   "final": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085550-deep-L1-repair-nemotron/nor2/nor2_final.icl"
+  },
+  {
+   "cell": "buf",
+   "tier": 1,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "VIOLATIONS",
+     "drc": 175,
+     "lvs": false,
+     "score": 5175,
+     "error": "",
+     "t": 1793935586.401713
+    },
+    {
+     "k": 2,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "cross: 'yspan=' conflicts with crossing - a vertical cross spans the crossed objects plus ext= at each end",
+     "t": 1793935726.7209067
+    },
+    {
+     "k": 3,
+     "status": "VIOLATIONS",
+     "drc": 17,
+     "lvs": false,
+     "score": 5017,
+     "error": "",
+     "t": 1793935734.677023
+    },
+    {
+     "k": 4,
+     "status": "VIOLATIONS",
+     "drc": 17,
+     "lvs": false,
+     "score": 5017,
+     "error": "",
+     "t": 1793935856.0946598
+    },
+    {
+     "k": 5,
+     "status": "CLEAN",
+     "drc": 0,
+     "lvs": true,
+     "score": 0,
+     "error": "",
+     "t": 1793935894.064204
+    }
+   ],
+   "nominal_clean": true,
+   "mutation": "cb",
+   "nudges": 0,
+   "model_calls": 21,
+   "tokens": 423197,
+   "stop": "budget: model-call budget (20) used up",
+   "seconds": 365,
+   "final_message": "",
+   "calls": 21,
+   "checks": 5,
+   "final_status": "CLEAN",
+   "clean_at": 5,
+   "sweep": [
+    [
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.42,
+       "WP": 0.59
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.3,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.18,
+       "H": 2.72,
+       "WN": 0.42,
+       "WP": 0.59
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.3,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.25,
+       "H": 2.72,
+       "WN": 0.42,
+       "WP": 0.59
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.3,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.42,
+       "WP": 0.5
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.3,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 3.26,
+       "WN": 0.57,
+       "WP": 0.8
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.3,
+       3.26
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 4.08,
+       "WN": 0.8,
+       "WP": 1.12
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.3,
+       4.08
+      ]
+     }
+    ]
+   ],
+   "sweep_best": 6,
+   "final": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085550-deep-L1-repair-nemotron/buf/buf_final.icl"
+  },
+  {
+   "cell": "nand3",
+   "tier": 2,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "strap: the two objects do not line up horizontally or vertically; give cx= or cy=",
+     "t": 1793935783.4570155
+    },
+    {
+     "k": 2,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "unknown name 'y'",
+     "t": 1793935788.7681894
+    },
+    {
+     "k": 3,
+     "status": "VIOLATIONS",
+     "drc": 152,
+     "lvs": false,
+     "score": 5152,
+     "error": "",
+     "t": 1793935803.0785458
+    },
+    {
+     "k": 4,
+     "status": "VIOLATIONS",
+     "drc": 5,
+     "lvs": true,
+     "score": 5,
+     "error": "",
+     "t": 1793935891.643205
+    },
+    {
+     "k": 5,
+     "status": "CLEAN",
+     "drc": 0,
+     "lvs": true,
+     "score": 0,
+     "error": "",
+     "t": 1793935904.4230936
+    }
+   ],
+   "nominal_clean": true,
+   "mutation": "ext",
+   "nudges": 0,
+   "model_calls": 16,
+   "tokens": 237081,
+   "stop": "agent finished",
+   "seconds": 212,
+   "final_message": "All 6 sweep points are CLEAN \u2014 DRC 0 and LVS match at every point.\n\n## Summary\n\nThe original `/nand3.icl` had one broken edit: it used `strap li from=c1l to=c6l net=Y` to join the output between the n-row and p-row drains, which don't line up vertically (lesson 12). This caused a compile error (\"strap: the two objects do not line up\").\n\n**Fixes applied:**\n1. Replaced the misaligned `strap` with `route Y layers=m1,m2` (lesson 6/12) \u2014 routes join nets that don't line up.\n2. Added intermediate node contacts `cn2` (net=n2 between gates A-B) and `cn1` (net=n1 between gates B-C) on the n-side diffusion, with `route n1` and `route n2` so LVS can see the series nodes (lesson 5).\n3. Included those contact strips in the `cb = max(...)` calculation (lesson 1 \u2014 cb only uses n-row items).\n4. Fixed `nd1` end margin from `g1.left - 0.18` to `g1.left - 0.265` to satisfy `poly.7` (diffusion must extend 0.25 beyond each gate).\n5. Kept a single continuous p-diffusion island (avoiding the poly.7/nwell errors from splitting it into 3 small islands).\n\nThe cell is parametric: every dimension derives from `L`, `WN`, `WP`, `H` via `max(0.28, 0.54 - L)` gate spacing and `0.265` end margins, so it passes all sweep points including L=0.25 and width x1.9.",
+   "calls": 16,
+   "checks": 5,
+   "final_status": "CLEAN",
+   "clean_at": 5,
+   "sweep": [
+    [
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.18,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.25,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.42,
+       "WP": 0.64
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 3.26,
+       "WN": 0.66,
+       "WP": 1.01
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       3.26
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 4.08,
+       "WN": 0.93,
+       "WP": 1.42
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       4.08
+      ]
+     }
+    ]
+   ],
+   "sweep_best": 6,
+   "final": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085550-deep-L1-repair-nemotron/nand3/nand3_final.icl"
+  },
+  {
+   "cell": "nor3",
+   "tier": 2,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "VIOLATIONS",
+     "drc": 0,
+     "lvs": false,
+     "score": 5000,
+     "error": "",
+     "t": 1793935871.2584407
+    },
+    {
+     "k": 2,
+     "status": "CLEAN",
+     "drc": 0,
+     "lvs": true,
+     "score": 0,
+     "error": "",
+     "t": 1793935960.8165646
+    }
+   ],
+   "nominal_clean": true,
+   "mutation": "strap",
+   "nudges": 0,
+   "model_calls": 16,
+   "tokens": 229273,
+   "stop": "agent finished",
+   "seconds": 164,
+   "final_message": "All 6 sweep points are clean. The fix was a single line: adding `c1s = strap li from=c1l to=vgnd_li` to connect the VGND contact strip left of gate A (source of M0) to the VGND rail. The n-diffusion `nd1` is one continuous shape but the poly gates break it into separate diffusion segments electrically \u2014 c1l (VGND segment left of g1) and c3l (VGND segment between g2/g3) are on different segments separated by gates, so c1l had no path to the rail, leaving VGND OPEN (2 pieces). The strap joins it to the template rail just as c3s does for the other VGND segment.\n\nFinal status: `/nor3.icl` is DRC 0 + LVS match at nominal and clean across all 6 sweep points (L=0.15/0.18/0.25, widths x0.85/1.0/1.35/1.9, H=2.72/3.26/4.08).",
+   "calls": 16,
+   "checks": 2,
+   "final_status": "CLEAN",
+   "clean_at": 2,
+   "sweep": [
+    [
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.18,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.25,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.42,
+       "WP": 0.64
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 3.26,
+       "WN": 0.66,
+       "WP": 1.01
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       3.26
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 4.08,
+       "WN": 0.93,
+       "WP": 1.42
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       4.08
+      ]
+     }
+    ]
+   ],
+   "sweep_best": 6,
+   "final": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085550-deep-L1-repair-nemotron/nor3/nor3_final.icl"
+  },
+  {
+   "cell": "a21oi",
+   "tier": 3,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "VIOLATIONS",
+     "drc": 0,
+     "lvs": false,
+     "score": 5000,
+     "error": "",
+     "t": 1793936042.0736809
+    },
+    {
+     "k": 2,
+     "status": "CLEAN",
+     "drc": 0,
+     "lvs": true,
+     "score": 0,
+     "error": "",
+     "t": 1793936071.9699683
+    }
+   ],
+   "nominal_clean": true,
+   "mutation": "route",
+   "nudges": 0,
+   "model_calls": 8,
+   "tokens": 92484,
+   "stop": "agent finished",
+   "seconds": 83,
+   "final_message": "The cell is now clean across all 6 sweep points.\n\n**Problem:** The existing `/a21oi.icl` had an LVS mismatch \u2014 net `n2` was in two separate pieces (`c4l` and `c6l`, both on the p-diffusion `pd1`) that were never joined. Per lesson 5, an internal net running from drain to gate inside the cell needs its drain li strips and gate contact li labelled with the same net and a `route` to connect them.\n\n**Fix:** Added `route n2 layers=m1,m2` before the Y route, joining the two n2 pieces into one connected net. Everything else (device lines, gate order, contact placement, well, ports) was left unchanged.\n\n**Result:** DRC 0 errors, LVS match at nominal and all 5 sweep points (L=0.18/0.25, widths x0.85/x1.35/x1.9, H up to 4.08).",
+   "calls": 8,
+   "checks": 2,
+   "final_status": "CLEAN",
+   "clean_at": 2,
+   "sweep": [
+    [
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.18,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.25,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.42,
+       "WP": 0.64
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 3.26,
+       "WN": 0.66,
+       "WP": 1.01
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       3.26
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 4.08,
+       "WN": 0.93,
+       "WP": 1.42
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       2.76,
+       4.08
+      ]
+     }
+    ]
+   ],
+   "sweep_best": 6,
+   "final": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085550-deep-L1-repair-nemotron/a21oi/a21oi_final.icl"
+  },
+  {
+   "cell": "and2",
+   "tier": 2,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "VIOLATIONS",
+     "drc": 131,
+     "lvs": true,
+     "score": 131,
+     "error": "",
+     "t": 1793935976.440176
+    },
+    {
+     "k": 2,
+     "status": "CLEAN",
+     "drc": 0,
+     "lvs": true,
+     "score": 0,
+     "error": "",
+     "t": 1793936148.7956522
+    }
+   ],
+   "nominal_clean": true,
+   "mutation": "cb",
+   "nudges": 0,
+   "model_calls": 11,
+   "tokens": 202208,
+   "stop": "agent finished",
+   "seconds": 230,
+   "final_message": "All 6 sweep points are clean. The repair is complete.\n\n## Summary\n\nThe cell `/and2.icl` was broken by one edit that introduced `pd1.bottom - 0.05` into the `cb = max(...)` calculation for gate-contact height. Per lesson 1, `cb` may use **only n-row items** \u2014 including the p-row (`pd1.bottom`) pushed every gate contact up into the p-tap row, causing 131 DRC errors (licon.14, li.3, li.c2, licon.9, poly.2) and an LVS short of inputs to VPWR.\n\n**Fixes applied:**\n1. **Removed `pd1.bottom - 0.05` from `cb`** \u2014 now `cb = max(nd1.top + 0.19, nd2.top + 0.19, c1l.top + 0.25, c2l.top + 0.25, c3l.top + 0.25, c4l.top + 0.25)` (n-row only).\n2. **Added output routing** \u2014 n-side drain `c1l` and p-side drain `c5l` (both net=X) don't line up, so both get mcon contacts and `route X layers=m1,m2` joins them; `port X out on=xp` puts the pin on routed met1.\n3. **Added `route n1 layers=m1,m2`** to connect the internal net n1 (drain li strips + gate contact li share net=n1).\n\nResult: DRC 0, LVS match at nominal, and all 6 sweep points clean (L=0.18/0.25, widths \u00d70.85/\u00d71.35/\u00d71.9, H up to 4.08).",
+   "calls": 11,
+   "checks": 2,
+   "final_status": "CLEAN",
+   "clean_at": 2,
+   "sweep": [
+    [
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.49,
+       "WN2": 0.42,
+       "WP": 0.75,
+       "WP2": 0.42
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.18,
+       "H": 2.72,
+       "WN": 0.49,
+       "WN2": 0.42,
+       "WP": 0.75,
+       "WP2": 0.42
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.25,
+       "H": 2.72,
+       "WN": 0.49,
+       "WN2": 0.42,
+       "WP": 0.75,
+       "WP2": 0.42
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.42,
+       "WN2": 0.42,
+       "WP": 0.64,
+       "WP2": 0.42
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 3.26,
+       "WN": 0.66,
+       "WN2": 0.57,
+       "WP": 1.01,
+       "WP2": 0.57
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       3.26
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 4.08,
+       "WN": 0.93,
+       "WN2": 0.8,
+       "WP": 1.42,
+       "WP2": 0.8
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       4.08
+      ]
+     }
+    ]
+   ],
+   "sweep_best": 6,
+   "final": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085550-deep-L1-repair-nemotron/and2/and2_final.icl"
+  },
+  {
+   "cell": "or2",
+   "tier": 2,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "VIOLATIONS",
+     "drc": 30,
+     "lvs": true,
+     "score": 30,
+     "error": "",
+     "t": 1793936014.113464
+    },
+    {
+     "k": 2,
+     "status": "VIOLATIONS",
+     "drc": 27,
+     "lvs": true,
+     "score": 27,
+     "error": "",
+     "t": 1793936159.852698
+    },
+    {
+     "k": 3,
+     "status": "ERROR",
+     "drc": null,
+     "lvs": null,
+     "score": 1000000,
+     "error": "unknown statement 'g1x' in a stdcell",
+     "t": 1793936188.4219594
+    },
+    {
+     "k": 4,
+     "status": "CLEAN",
+     "drc": 0,
+     "lvs": true,
+     "score": 0,
+     "error": "",
+     "t": 1793936233.8498368
+    }
+   ],
+   "nominal_clean": true,
+   "mutation": "gap",
+   "nudges": 0,
+   "model_calls": 18,
+   "tokens": 366304,
+   "stop": "agent finished",
+   "seconds": 295,
+   "final_message": "All 6 sweep points are clean. The repair is complete.\n\n## Summary\n\nThe original `/or2.icl` had two fundamental problems:\n\n1. **Gate pitch too small**: Gates A and B were spaced with only 0.2 \u00b5m gap (centre-to-centre 0.35 \u00b5m for L=0.15), violating the 0.54 \u00b5m minimum pitch needed for gate contacts. This caused cascading poly.2, licon.11, met1.2, and mcon.2 errors.\n\n2. **Diffusion boundaries used gate centres instead of edges**: The diffusion `xspan` was computed from gate centre positions rather than gate edges, so the diffusion didn't extend 0.265 \u00b5m beyond each gate edge, causing poly.7 and licon.1 errors.\n\n**Fix applied**: Rewrote the geometry section to compute gate centre positions with proper pitch (`max(0.28, 0.54 - L)` between adjacent gates, `max(0.80, 0.54 - L)` for the island break between B and n2), then derived gate edges from centres, and set diffusion boundaries from gate edges \u00b1 0.265 \u00b5m. Gate contacts use only n-row items in the `cb` max (per lesson 1), and the internal net n2 and output X are connected via `route` statements. Cell width increased to 8 columns (0.46 \u00b5m each) to fit at L=0.25.",
+   "calls": 18,
+   "checks": 4,
+   "final_status": "CLEAN",
+   "clean_at": 4,
+   "sweep": [
+    [
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.49,
+       "WN2": 0.42,
+       "WP": 0.75,
+       "WP2": 0.42
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.68,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.18,
+       "H": 2.72,
+       "WN": 0.49,
+       "WN2": 0.42,
+       "WP": 0.75,
+       "WP2": 0.42
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.68,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.25,
+       "H": 2.72,
+       "WN": 0.49,
+       "WN2": 0.42,
+       "WP": 0.75,
+       "WP2": 0.42
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.68,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.42,
+       "WN2": 0.42,
+       "WP": 0.64,
+       "WP2": 0.42
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.68,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 3.26,
+       "WN": 0.66,
+       "WN2": 0.57,
+       "WP": 1.01,
+       "WP2": 0.57
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.68,
+       3.26
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 4.08,
+       "WN": 0.93,
+       "WN2": 0.8,
+       "WP": 1.42,
+       "WP2": 0.8
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.68,
+       4.08
+      ]
+     }
+    ]
+   ],
+   "sweep_best": 6,
+   "final": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085550-deep-L1-repair-nemotron/or2/or2_final.icl"
+  },
+  {
+   "cell": "o21ai",
+   "tier": 3,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "VIOLATIONS",
+     "drc": 6,
+     "lvs": true,
+     "score": 6,
+     "error": "",
+     "t": 1793936140.3184493
+    },
+    {
+     "k": 2,
+     "status": "VIOLATIONS",
+     "drc": 17,
+     "lvs": true,
+     "score": 17,
+     "error": "",
+     "t": 1793936192.5607548
+    },
+    {
+     "k": 3,
+     "status": "CLEAN",
+     "drc": 0,
+     "lvs": true,
+     "score": 0,
+     "error": "",
+     "t": 1793936250.893346
+    }
+   ],
+   "nominal_clean": true,
+   "mutation": "ext",
+   "nudges": 0,
+   "model_calls": 11,
+   "tokens": 164835,
+   "stop": "agent finished",
+   "seconds": 195,
+   "final_message": "All 6 sweep points are clean \u2014 DRC 0 and LVS match at every point.\n\n## Summary\n\nThe original `/o21ai.icl` had two geometry bugs:\n\n1. **Diffusion end extension too small**: `nd1` extended only 0.18 \u00b5m beyond the outer gates, but poly.7 requires 0.25 \u00b5m beyond the gate for source/drain contact room. Fixed by using `g1.left - 0.265` / `g3.right + 0.265`.\n\n2. **Wrong gate gap between A1 and B1**: The p-row needs a diffusion island break between A1 and B1 (they can't share a diffusion since their source nets differ), requiring a 0.80 \u00b5m gap. The original used 0.28 \u00b5m everywhere, causing poly.4 (poly-to-diffusion spacing) violations on `pd1`/`pd2` and poly.2 (gate-contact pad pitch) violations. Fixed by using `gap12 = max(0.28, 0.54 - L)` between A2/A1 and `gap23 = 0.80` between A1/B1.\n\nThe resulting layout is parametric (all dimensions derive from `L`, `WN`, `WP`, `WP2`), so it passes the full sweep: L=0.15/0.18/0.25 with nominal widths, widths \u00d70.85/\u00d71.35/\u00d71.9, and heights 2.72/3.26/4.08.",
+   "calls": 11,
+   "checks": 3,
+   "final_status": "CLEAN",
+   "clean_at": 3,
+   "sweep": [
+    [
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75,
+       "WP2": 0.52
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.18,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75,
+       "WP2": 0.52
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.25,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75,
+       "WP2": 0.52
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.42,
+       "WP": 0.64,
+       "WP2": 0.44
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 3.26,
+       "WN": 0.66,
+       "WP": 1.01,
+       "WP2": 0.7
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       3.26
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 4.08,
+       "WN": 0.93,
+       "WP": 1.42,
+       "WP2": 0.99
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       4.08
+      ]
+     }
+    ]
+   ],
+   "sweep_best": 6,
+   "final": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085550-deep-L1-repair-nemotron/o21ai/o21ai_final.icl"
+  },
+  {
+   "cell": "xor2",
+   "tier": 4,
+   "attempts": [],
+   "nominal_clean": false,
+   "mutation": "gap",
+   "nudges": 0,
+   "model_calls": 3,
+   "tokens": 11289,
+   "stop": "budget: run-wide call budget used up",
+   "seconds": 4,
+   "final_message": "",
+   "calls": 3,
+   "checks": 0,
+   "final_status": "VIOLATIONS"
+  },
+  {
+   "cell": "mux2i",
+   "tier": 4,
+   "attempts": [],
+   "nominal_clean": false,
+   "mutation": "route",
+   "nudges": 0,
+   "model_calls": 1,
+   "stop": "budget: run-wide call budget used up",
+   "seconds": 0,
+   "final_message": "",
+   "calls": 1,
+   "checks": 0,
+   "final_status": "VIOLATIONS"
+  },
+  {
+   "cell": "o22ai",
+   "tier": 3,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "VIOLATIONS",
+     "drc": 299,
+     "lvs": true,
+     "score": 299,
+     "error": "",
+     "t": 1793936319.084939
+    }
+   ],
+   "nominal_clean": false,
+   "mutation": "cb",
+   "nudges": 0,
+   "model_calls": 7,
+   "tokens": 64857,
+   "stop": "budget: run-wide call budget used up",
+   "seconds": 68,
+   "final_message": "",
+   "calls": 7,
+   "checks": 1,
+   "final_status": "VIOLATIONS"
+  },
+  {
+   "cell": "a22oi",
+   "tier": 3,
+   "attempts": [
+    {
+     "k": 1,
+     "status": "VIOLATIONS",
+     "drc": 0,
+     "lvs": false,
+     "score": 5000,
+     "error": "",
+     "t": 1793936221.676481
+    },
+    {
+     "k": 2,
+     "status": "CLEAN",
+     "drc": 0,
+     "lvs": true,
+     "score": 0,
+     "error": "",
+     "t": 1793936304.9156804
+    }
+   ],
+   "nominal_clean": true,
+   "mutation": "strap",
+   "nudges": 0,
+   "model_calls": 10,
+   "tokens": 124062,
+   "stop": "budget: run-wide call budget used up",
+   "seconds": 141,
+   "final_message": "",
+   "calls": 10,
+   "checks": 2,
+   "final_status": "CLEAN",
+   "clean_at": 2,
+   "sweep": [
+    [
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.18,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.25,
+       "H": 2.72,
+       "WN": 0.49,
+       "WP": 0.75
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 2.72,
+       "WN": 0.42,
+       "WP": 0.64
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       2.72
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 3.26,
+       "WN": 0.66,
+       "WP": 1.01
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       3.26
+      ]
+     },
+     {
+      "params": {
+       "L": 0.15,
+       "H": 4.08,
+       "WN": 0.93,
+       "WP": 1.42
+      },
+      "clean": true,
+      "problem": "",
+      "size_um": [
+       3.22,
+       4.08
+      ]
+     }
+    ]
+   ],
+   "sweep_best": 6,
+   "final": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-085550-deep-L1-repair-nemotron/a22oi/a22oi_final.icl"
+  }
+ ],
+ "api_calls": 154
+}

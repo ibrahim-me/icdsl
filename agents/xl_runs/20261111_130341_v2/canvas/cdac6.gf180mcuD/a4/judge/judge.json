@@ -1,0 +1,37 @@
+{
+ "task": "cdac6",
+ "pdk": "gf180mcuD",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/cdac6.gf180mcuD/a4/cdac6.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/cdac6.gf180mcuD/a4/cdac6.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "12 violation(s): 12 x Metal4 > 0.3um spacing to unrelated m4 < 0.3um (M4.2b)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 24 violation(s): 23 x MIMTM.1: MIMTM.1 : Minimum MiM bottom plate spacing to the bottom plate metal\n            ; 1 x M4.2b: M4.2b : Space to wide Metal4 (length & width > 10um) : 0.3\u00b5m"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Top level cell failed pin matching.  (devices layout/ref 1/7; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/cdac6.gf180mcuD/a4/judge/cdac6.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "not confirmed (LVS failed)"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "25.50 x 112.78 = 2875.9 um2, budget 10578, reference 5288.9"
+  }
+ ],
+ "area_um2": 2875.89,
+ "area_vs_reference": 0.544,
+ "solved": false,
+ "detail": "DRC (magic drc(full)): 12 violation(s), boxes in um\n    12 x Metal4 > 0.3um spacing to unrelated m4 < 0.3um (M4.2b)   e.g. at (0.000 69.260 2.500 69.280)  (0.000 69.560 2.500 69.580)  (0.000 45.380 2.500 45.400)\nDRC2 (foundry KLayout deck): 24 violation(s), boxes in um\n    23 x MIMTM.1: MIMTM.1 : Minimum MiM bottom plate spacing to the bottom plate metal\n                      (whether adjacent MiM or routing metal). : 1.2\u00b5m   e.g. at (23.600 83.860 25.500 84.740)  (0.873 96.120 2.500 96.400)  (23.600 71.180 25.500 72.060)\n     1 x M4.2b: M4.2b : Space to wide Metal4 (length & width > 10um) : 0.3\u00b5m   e.g. at (8.592 103.200 14.408 103.480)\nLVS: Top level cell failed pin matching.   devices layout/ref 1/7, nets layout/ref 2/8\n  Number of devices: 1 **Mismatch**          |Number of devices: 7 **Mismatch**\n  Number of nets: 2 **Mismatch**             |Number of nets: 8 **Mismatch**\n  ---------------------------------------------------------------------------------------\n  NET mismatches: Class fragments follow (with fanout counts):\n  Circuit 1: cdac6                           |Circuit 2: cdac6\n  ---------------------------------------------------------------------------------------\n  Net: TOP                                   |Net: TOP\n    cap_mim_2f0_m4m5_noshield/1 = 1          |  cap_mim_2f0_m4m5_noshield/1 = 7\n                                             |\n  Net: B1                                    |Net: B1\n    cap_mim_2f0_m4m5_noshield/2 = 1          |  cap_mim_2f0_m4m5_noshield/2 = 1\n                                             |\n  (no matching net)                          |Net: B4\n                                             |  cap_mim_2f0_m4m5_noshield/2 = 1\n                                             |\n  (no matching net)                          |Net: B3\n                                             |  cap_mim_2f0_m4m5_noshield/2 = 1\n                                             |\n  (no matching net)                          |Net: B2\n                                             |  cap_mim_2f0_m4m5_noshield/2 = 1\n                                             |\n  (no matching net)                          |Net: B5\n                                             |  cap_mim_2f0_m4m5_noshield/2 = 1\n                                             |\n  (no matching net)                          |Net: B0\n                                             |  cap_mim_2f0_m4m5_noshield/2 = 1\n                                             |\n  (no matching net)                          |Net: VSS\n                                             |  cap_mim_2f0_m4m5_noshield/2 = 1\n  ---------------------------------------------------------------------------------------\n  DEVICE mismatches: Class fragments follow (with node fanout counts):\n  Circuit 1: cdac6                           |Circuit 2: cdac6\n  ---------------------------------------------------------------------------------------\n  Instance: cap_mim_2f0_m4m5_noshield:0      |Instance: cap_mim_2f0_m4m5_noshield:C0\n    1 = 1                                    |  1 = 7\n    2 = 1                                    |  2 = 1\n                                             |\n  (no matching instance)                     |Instance: cap_mim_2f0_m4m5_noshield:C1\n                                             |  1 = 7\n                                             |  2 = 1"
+}

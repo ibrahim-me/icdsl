@@ -1,0 +1,1410 @@
+{
+ "cell": "o21ai",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-230956-lessons3-kb/o21ai/check1/o21ai.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-230956-lessons3-kb/o21ai/check1/o21ai.reference.spice",
+ "size_um": [
+  4.6,
+  2.72
+ ],
+ "warnings": [
+  "o21ai: fast pre-check found 9 rule issue(s): poly.space at [1.82, 0.922, 1.99, 1.438] near nwell (line 61), nim (line 14), pim (line 15); poly.space at [2.36, 0.922, 2.53, 1.438] near nwell (line 61), nim (line 14), pim (line 15); via.space at [2.03, 1.88, 2.11, 2.03] near nwell (line 61), pd (line 13), pim (line 15); li.cover at [1.53, 1.095, 1.7, 1.265] near ga2 (line 18), gca2 (line 47), pa2 (line 50); li.cover at [2.07, 1.095, 2.24, 1.265] near ga1 (line 19), gca1 (line 48), pa1 (line 51); li.cover at [2.61, 1.095, 2.78, 1.265] near gb1 (line 20), gcb1 (line 49), pb1 (line 52)"
+ ],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 10,
+  "by_rule": [
+   {
+    "rule": "Local interconnect minimum area < 0.0561um^2 (li.6)",
+    "count": 6,
+    "examples": [
+     {
+      "box_um": [
+       1.53,
+       1.095,
+       1.7,
+       1.265
+      ],
+      "objects": {
+       "ga2": [
+        "poly"
+       ],
+       "gca2": [
+        "licon"
+       ],
+       "pa2": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "a2m": [
+        "mcon"
+       ],
+       "a2p": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.53,
+       1.095,
+       1.7,
+       1.265
+      ],
+      "objects": {
+       "ga2": [
+        "poly"
+       ],
+       "gca2": [
+        "licon"
+       ],
+       "pa2": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "a2m": [
+        "mcon"
+       ],
+       "a2p": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.07,
+       1.095,
+       2.24,
+       1.265
+      ],
+      "objects": {
+       "ga1": [
+        "poly"
+       ],
+       "gca1": [
+        "licon"
+       ],
+       "pa1": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "a1m": [
+        "mcon"
+       ],
+       "a1p": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.07,
+       1.095,
+       2.24,
+       1.265
+      ],
+      "objects": {
+       "ga1": [
+        "poly"
+       ],
+       "gca1": [
+        "licon"
+       ],
+       "pa1": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "a1m": [
+        "mcon"
+       ],
+       "a1p": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "poly spacing < 0.21um (poly.2)",
+    "count": 4,
+    "examples": [
+     {
+      "box_um": [
+       1.78,
+       1.315,
+       1.82,
+       1.525
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "ga2": [
+        "poly"
+       ],
+       "pa2": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "a2p": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.32,
+       1.315,
+       2.36,
+       1.525
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "ga1": [
+        "poly"
+       ],
+       "pa1": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "a1p": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.99,
+       1.045,
+       2.03,
+       1.315
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "pa1": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "a1p": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.53,
+       1.045,
+       2.57,
+       1.315
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "pb1": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "b1p": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "all": [
+   {
+    "rule": "poly spacing < 0.21um (poly.2)",
+    "box_um": [
+     1.78,
+     1.315,
+     1.82,
+     1.525
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "pim": [
+      "psdm"
+     ],
+     "ga2": [
+      "poly"
+     ],
+     "pa2": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "a2p": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "poly spacing < 0.21um (poly.2)",
+    "box_um": [
+     2.32,
+     1.315,
+     2.36,
+     1.525
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "pim": [
+      "psdm"
+     ],
+     "ga1": [
+      "poly"
+     ],
+     "pa1": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "a1p": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "poly spacing < 0.21um (poly.2)",
+    "box_um": [
+     1.99,
+     1.045,
+     2.03,
+     1.315
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "pa1": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "a1p": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "poly spacing < 0.21um (poly.2)",
+    "box_um": [
+     2.53,
+     1.045,
+     2.57,
+     1.315
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "pb1": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "b1p": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect minimum area < 0.0561um^2 (li.6)",
+    "box_um": [
+     1.53,
+     1.095,
+     1.7,
+     1.265
+    ],
+    "objects": {
+     "ga2": [
+      "poly"
+     ],
+     "gca2": [
+      "licon"
+     ],
+     "pa2": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "a2m": [
+      "mcon"
+     ],
+     "a2p": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect minimum area < 0.0561um^2 (li.6)",
+    "box_um": [
+     1.53,
+     1.095,
+     1.7,
+     1.265
+    ],
+    "objects": {
+     "ga2": [
+      "poly"
+     ],
+     "gca2": [
+      "licon"
+     ],
+     "pa2": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "a2m": [
+      "mcon"
+     ],
+     "a2p": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect minimum area < 0.0561um^2 (li.6)",
+    "box_um": [
+     2.07,
+     1.095,
+     2.24,
+     1.265
+    ],
+    "objects": {
+     "ga1": [
+      "poly"
+     ],
+     "gca1": [
+      "licon"
+     ],
+     "pa1": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "a1m": [
+      "mcon"
+     ],
+     "a1p": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect minimum area < 0.0561um^2 (li.6)",
+    "box_um": [
+     2.07,
+     1.095,
+     2.24,
+     1.265
+    ],
+    "objects": {
+     "ga1": [
+      "poly"
+     ],
+     "gca1": [
+      "licon"
+     ],
+     "pa1": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "a1m": [
+      "mcon"
+     ],
+     "a1p": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect minimum area < 0.0561um^2 (li.6)",
+    "box_um": [
+     2.61,
+     1.095,
+     2.78,
+     1.265
+    ],
+    "objects": {
+     "gb1": [
+      "poly"
+     ],
+     "gcb1": [
+      "licon"
+     ],
+     "pb1": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "b1m": [
+      "mcon"
+     ],
+     "b1p": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect minimum area < 0.0561um^2 (li.6)",
+    "box_um": [
+     2.61,
+     1.095,
+     2.78,
+     1.265
+    ],
+    "objects": {
+     "gb1": [
+      "poly"
+     ],
+     "gcb1": [
+      "licon"
+     ],
+     "pb1": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "b1m": [
+      "mcon"
+     ],
+     "b1p": [
+      "m1"
+     ]
+    }
+   }
+  ]
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": false,
+  "result": "Top level cell failed pin matching.",
+  "devices_layout_vs_ref": [
+   6,
+   6
+  ],
+  "nets_layout_vs_ref": [
+   8,
+   8
+  ],
+  "details": [
+   "NET mismatches: Class fragments follow (with fanout counts):",
+   "Circuit 1: o21ai                           |Circuit 2: o21ai                           ",
+   "---------------------------------------------------------------------------------------",
+   "Net: Y                                     |Net: Y                                     ",
+   "  sky130_fd_pr__pfet_01v8/(1|3) = 2        |  sky130_fd_pr__pfet_01v8/(1|3) = 2        ",
+   "  sky130_fd_pr__nfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/(1|3) = 1        ",
+   "                                           |                                           ",
+   "Net: n2                                    |Net: n2                                    ",
+   "  sky130_fd_pr__nfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/(1|3) = 3        ",
+   "                                           |                                           ",
+   "Net: VPWR                                  |Net: VPWR                                  ",
+   "  sky130_fd_pr__pfet_01v8/(1|3) = 4        |  sky130_fd_pr__pfet_01v8/(1|3) = 2        ",
+   "  sky130_fd_pr__pfet_01v8/4 = 3            |  sky130_fd_pr__pfet_01v8/4 = 3            ",
+   "                                           |                                           ",
+   "Net: VGND                                  |Net: VGND                                  ",
+   "  sky130_fd_pr__nfet_01v8/(1|3) = 2        |  sky130_fd_pr__nfet_01v8/(1|3) = 2        ",
+   "  sky130_fd_pr__nfet_01v8/4 = 3            |  sky130_fd_pr__nfet_01v8/4 = 3            ",
+   "---------------------------------------------------------------------------------------",
+   "---------------------------------------------------------------------------------------",
+   "Net: a_398_209#                            |Net: A1                                    ",
+   "  sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/2 = 1            ",
+   "  sky130_fd_pr__pfet_01v8/2 = 1            |  sky130_fd_pr__pfet_01v8/2 = 1            ",
+   "                                           |                                           ",
+   "Net: a_506_209#                            |Net: A2                                    ",
+   "  sky130_fd_pr__pfet_01v8/2 = 1            |  sky130_fd_pr__pfet_01v8/2 = 1            ",
+   "  sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/2 = 1            ",
+   "                                           |                                           ",
+   "Net: a_472_83#                             |Net: n1                                    ",
+   "  sky130_fd_pr__nfet_01v8/(1|3) = 2        |  sky130_fd_pr__pfet_01v8/(1|3) = 2        ",
+   "---------------------------------------------------------------------------------------",
+   "DEVICE mismatches: Class fragments follow (with node fanout counts):",
+   "Circuit 1: o21ai                           |Circuit 2: o21ai                           ",
+   "---------------------------------------------------------------------------------------",
+   "Instance: sky130_fd_pr__nfet_01v8:3        |Instance: sky130_fd_pr__nfet_01v8:M5       ",
+   "  (1,3) = (3,2)                            |  (1,3) = (5,3)                            ",
+   "  2 = 2                                    |  2 = 2                                    ",
+   "  4 = 5                                    |  4 = 5                                    ",
+   "                                           |                                           ",
+   "Instance: sky130_fd_pr__nfet_01v8:2        |Instance: sky130_fd_pr__nfet_01v8:M2       ",
+   "  (1,3) = (5,2)                            |  (1,3) = (5,3)                            ",
+   "  2 = 2                                    |  2 = 2                                    ",
+   "  4 = 5                                    |  4 = 5                                    ",
+   "---------------------------------------------------------------------------------------",
+   "---------------------------------------------------------------------------------------",
+   "Instance: sky130_fd_pr__pfet_01v8:5        |Instance: sky130_fd_pr__pfet_01v8:M4       ",
+   "  (1,3) = (7,7)                            |  (1,3) = (5,2)                            ",
+   "  2 = 2                                    |  2 = 2                                    ",
+   "  4 = 7                                    |  4 = 5                                    ",
+   "                                           |                                           ",
+   "Instance: sky130_fd_pr__pfet_01v8:0        |Instance: sky130_fd_pr__pfet_01v8:M0       ",
+   "  (1,3) = (7,3)                            |  (1,3) = (3,2)                            ",
+   "  2 = 2                                    |  2 = 2                                    ",
+   "  4 = 7                                    |  4 = 5                                    ",
+   "---------------------------------------------------------------------------------------",
+   "Netlists do not match.",
+   "Port matching may fail to disambiguate symmetries.",
+   "Subcircuit pins:",
+   "Circuit 1: o21ai                           |Circuit 2: o21ai                           ",
+   "-------------------------------------------|-------------------------------------------",
+   "Y                                          |Y                                          ",
+   "VPWR                                       |(no pin, node is n2)                       "
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-230956-lessons3-kb/o21ai/check1/o21ai.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-230956-lessons3-kb/o21ai/check1/o21ai.lvs.txt"
+ },
+ "routes": {
+  "nets": {
+   "Y": {
+    "length_um": 2.42,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 4,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 11.16
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [
+  {
+   "rule": "poly.space",
+   "msg": "poly spacing < 0.210 um",
+   "objects": [
+    "nwell (line 61)",
+    "nim (line 14)",
+    "pim (line 15)",
+    "ga2 (line 18)",
+    "pa1 (line 51)",
+    "gn (line 53)"
+   ],
+   "box_um": [
+    1.82,
+    0.922,
+    1.99,
+    1.438
+   ]
+  },
+  {
+   "rule": "poly.space",
+   "msg": "poly spacing < 0.210 um",
+   "objects": [
+    "nwell (line 61)",
+    "nim (line 14)",
+    "pim (line 15)",
+    "ga1 (line 19)",
+    "pb1 (line 52)",
+    "gn (line 53)"
+   ],
+   "box_um": [
+    2.36,
+    0.922,
+    2.53,
+    1.438
+   ]
+  },
+  {
+   "rule": "via.space",
+   "msg": "via spacing < 0.170 um",
+   "objects": [
+    "nwell (line 61)",
+    "pd (line 13)",
+    "pim (line 15)",
+    "sn1 (line 35)",
+    "sn1l (line 39)",
+    "pwr1 (line 42)"
+   ],
+   "box_um": [
+    2.03,
+    1.88,
+    2.11,
+    2.03
+   ]
+  },
+  {
+   "rule": "li.cover",
+   "msg": "licon not covered by li",
+   "objects": [
+    "ga2 (line 18)",
+    "gca2 (line 47)",
+    "pa2 (line 50)",
+    "gn (line 53)",
+    "a2m (line 65)",
+    "a2p (line 66)"
+   ],
+   "box_um": [
+    1.53,
+    1.095,
+    1.7,
+    1.265
+   ]
+  },
+  {
+   "rule": "li.cover",
+   "msg": "licon not covered by li",
+   "objects": [
+    "ga1 (line 19)",
+    "gca1 (line 48)",
+    "pa1 (line 51)",
+    "gn (line 53)",
+    "a1m (line 63)",
+    "a1p (line 64)"
+   ],
+   "box_um": [
+    2.07,
+    1.095,
+    2.24,
+    1.265
+   ]
+  },
+  {
+   "rule": "li.cover",
+   "msg": "licon not covered by li",
+   "objects": [
+    "gb1 (line 20)",
+    "gcb1 (line 49)",
+    "pb1 (line 52)",
+    "gn (line 53)",
+    "b1m (line 67)",
+    "b1p (line 68)"
+   ],
+   "box_um": [
+    2.61,
+    1.095,
+    2.78,
+    1.265
+   ]
+  },
+  {
+   "rule": "ct.4",
+   "msg": "mcon not covered by li",
+   "objects": [
+    "ga2 (line 18)",
+    "gca2 (line 47)",
+    "pa2 (line 50)",
+    "gn (line 53)",
+    "a2m (line 65)",
+    "a2p (line 66)"
+   ],
+   "box_um": [
+    1.53,
+    1.095,
+    1.7,
+    1.265
+   ]
+  },
+  {
+   "rule": "ct.4",
+   "msg": "mcon not covered by li",
+   "objects": [
+    "ga1 (line 19)",
+    "gca1 (line 48)",
+    "pa1 (line 51)",
+    "gn (line 53)",
+    "a1m (line 63)",
+    "a1p (line 64)"
+   ],
+   "box_um": [
+    2.07,
+    1.095,
+    2.24,
+    1.265
+   ]
+  },
+  {
+   "rule": "ct.4",
+   "msg": "mcon not covered by li",
+   "objects": [
+    "gb1 (line 20)",
+    "gcb1 (line 49)",
+    "pb1 (line 52)",
+    "gn (line 53)",
+    "b1m (line 67)",
+    "b1p (line 68)"
+   ],
+   "box_um": [
+    2.61,
+    1.095,
+    2.78,
+    1.265
+   ]
+  }
+ ],
+ "constraint_violations": [],
+ "objects": {
+  "vgnd": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    -0.24,
+    4.6,
+    0.24
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vpwr": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    2.48,
+    4.6,
+    2.96
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ptap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    -0.145,
+    4.42,
+    0.145
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    -0.085,
+    3.995,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    -0.085,
+    4.455,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vgnd_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    -0.085,
+    4.6,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_imp": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.0,
+    -0.27,
+    4.6,
+    0.27
+   ],
+   "net": null,
+   "line": 0
+  },
+  "ntap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    2.575,
+    4.42,
+    2.865
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    2.635,
+    3.995,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    2.635,
+    4.455,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "vpwr_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    2.635,
+    4.6,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_imp": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.0,
+    2.45,
+    4.6,
+    2.99
+   ],
+   "net": null,
+   "line": 0
+  },
+  "nwell": {
+   "layer": "nwell",
+   "bbox_um": [
+    0.0,
+    1.31,
+    4.6,
+    3.045
+   ],
+   "net": null,
+   "line": 61
+  },
+  "nd": {
+   "layer": "diff",
+   "bbox_um": [
+    1.405,
+    0.415,
+    3.195,
+    0.905
+   ],
+   "net": null,
+   "line": 12
+  },
+  "pd": {
+   "layer": "diff",
+   "bbox_um": [
+    1.405,
+    1.555,
+    3.195,
+    2.305
+   ],
+   "net": null,
+   "line": 13
+  },
+  "nim": {
+   "layer": "nsdm",
+   "bbox_um": [
+    1.28,
+    0.29,
+    3.32,
+    1.03
+   ],
+   "net": null,
+   "line": 14
+  },
+  "pim": {
+   "layer": "psdm",
+   "bbox_um": [
+    1.28,
+    1.43,
+    3.32,
+    2.43
+   ],
+   "net": null,
+   "line": 15
+  },
+  "ga2": {
+   "layer": "poly",
+   "bbox_um": [
+    1.67,
+    0.285,
+    1.82,
+    2.435
+   ],
+   "net": null,
+   "line": 18
+  },
+  "ga1": {
+   "layer": "poly",
+   "bbox_um": [
+    2.21,
+    0.285,
+    2.36,
+    2.435
+   ],
+   "net": null,
+   "line": 19
+  },
+  "gb1": {
+   "layer": "poly",
+   "bbox_um": [
+    2.75,
+    0.285,
+    2.9,
+    2.435
+   ],
+   "net": null,
+   "line": 20
+  },
+  "sn2": {
+   "layer": "licon",
+   "bbox_um": [
+    1.445,
+    0.575,
+    1.615,
+    0.745
+   ],
+   "net": null,
+   "line": 23
+  },
+  "sv": {
+   "layer": "licon",
+   "bbox_um": [
+    1.93,
+    0.575,
+    2.1,
+    0.745
+   ],
+   "net": null,
+   "line": 24
+  },
+  "sn2b": {
+   "layer": "licon",
+   "bbox_um": [
+    2.47,
+    0.575,
+    2.64,
+    0.745
+   ],
+   "net": null,
+   "line": 25
+  },
+  "sy": {
+   "layer": "licon",
+   "bbox_um": [
+    2.955,
+    0.575,
+    3.125,
+    0.745
+   ],
+   "net": null,
+   "line": 26
+  },
+  "sn2l": {
+   "layer": "li",
+   "bbox_um": [
+    1.445,
+    0.495,
+    1.615,
+    0.825
+   ],
+   "net": "n2",
+   "line": 27
+  },
+  "svl": {
+   "layer": "li",
+   "bbox_um": [
+    1.93,
+    0.495,
+    2.1,
+    0.825
+   ],
+   "net": null,
+   "line": 28
+  },
+  "sn2bl": {
+   "layer": "li",
+   "bbox_um": [
+    2.47,
+    0.495,
+    2.64,
+    0.825
+   ],
+   "net": "n2",
+   "line": 29
+  },
+  "syl": {
+   "layer": "li",
+   "bbox_um": [
+    2.955,
+    0.495,
+    3.125,
+    0.825
+   ],
+   "net": "Y",
+   "line": 30
+  },
+  "gndn": {
+   "layer": "li",
+   "bbox_um": [
+    1.93,
+    -0.085,
+    2.1,
+    0.825
+   ],
+   "net": null,
+   "line": 31
+  },
+  "sp0": {
+   "layer": "licon",
+   "bbox_um": [
+    1.445,
+    1.675,
+    1.615,
+    2.185
+   ],
+   "net": null,
+   "line": 34
+  },
+  "sn1": {
+   "layer": "licon",
+   "bbox_um": [
+    1.93,
+    1.675,
+    2.1,
+    2.185
+   ],
+   "net": null,
+   "line": 35
+  },
+  "svp": {
+   "layer": "licon",
+   "bbox_um": [
+    2.47,
+    1.675,
+    2.64,
+    2.185
+   ],
+   "net": null,
+   "line": 36
+  },
+  "sp3": {
+   "layer": "licon",
+   "bbox_um": [
+    2.955,
+    1.675,
+    3.125,
+    2.185
+   ],
+   "net": null,
+   "line": 37
+  },
+  "sp0l": {
+   "layer": "li",
+   "bbox_um": [
+    1.445,
+    1.595,
+    1.615,
+    2.265
+   ],
+   "net": "Y",
+   "line": 38
+  },
+  "sn1l": {
+   "layer": "li",
+   "bbox_um": [
+    1.93,
+    1.595,
+    2.1,
+    2.265
+   ],
+   "net": "n1",
+   "line": 39
+  },
+  "svpl": {
+   "layer": "li",
+   "bbox_um": [
+    2.47,
+    1.595,
+    2.64,
+    2.265
+   ],
+   "net": null,
+   "line": 40
+  },
+  "sp3l": {
+   "layer": "li",
+   "bbox_um": [
+    2.955,
+    1.595,
+    3.125,
+    2.265
+   ],
+   "net": "Y",
+   "line": 41
+  },
+  "pwr1": {
+   "layer": "li",
+   "bbox_um": [
+    1.93,
+    1.595,
+    2.1,
+    2.805
+   ],
+   "net": null,
+   "line": 42
+  },
+  "pwr2": {
+   "layer": "li",
+   "bbox_um": [
+    2.47,
+    1.595,
+    2.64,
+    2.805
+   ],
+   "net": null,
+   "line": 43
+  },
+  "gca2": {
+   "layer": "licon",
+   "bbox_um": [
+    1.53,
+    1.095,
+    1.7,
+    1.265
+   ],
+   "net": null,
+   "line": 47
+  },
+  "gca1": {
+   "layer": "licon",
+   "bbox_um": [
+    2.07,
+    1.095,
+    2.24,
+    1.265
+   ],
+   "net": null,
+   "line": 48
+  },
+  "gcb1": {
+   "layer": "licon",
+   "bbox_um": [
+    2.61,
+    1.095,
+    2.78,
+    1.265
+   ],
+   "net": null,
+   "line": 49
+  },
+  "pa2": {
+   "layer": "poly",
+   "bbox_um": [
+    1.45,
+    1.045,
+    1.78,
+    1.315
+   ],
+   "net": "A2",
+   "line": 50
+  },
+  "pa1": {
+   "layer": "poly",
+   "bbox_um": [
+    1.99,
+    1.045,
+    2.32,
+    1.315
+   ],
+   "net": "A1",
+   "line": 51
+  },
+  "pb1": {
+   "layer": "poly",
+   "bbox_um": [
+    2.53,
+    1.045,
+    2.86,
+    1.315
+   ],
+   "net": "B1",
+   "line": 52
+  },
+  "gn": {
+   "layer": "npc",
+   "bbox_um": [
+    1.43,
+    0.995,
+    2.88,
+    1.365
+   ],
+   "net": null,
+   "line": 53
+  },
+  "a1m": {
+   "layer": "mcon",
+   "bbox_um": [
+    2.07,
+    1.095,
+    2.24,
+    1.265
+   ],
+   "net": null,
+   "line": 63
+  },
+  "a1p": {
+   "layer": "m1",
+   "bbox_um": [
+    2.01,
+    1.035,
+    2.3,
+    1.325
+   ],
+   "net": "A1",
+   "line": 64
+  },
+  "a2m": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.53,
+    1.095,
+    1.7,
+    1.265
+   ],
+   "net": null,
+   "line": 65
+  },
+  "a2p": {
+   "layer": "m1",
+   "bbox_um": [
+    1.47,
+    1.035,
+    1.76,
+    1.325
+   ],
+   "net": "A2",
+   "line": 66
+  },
+  "b1m": {
+   "layer": "mcon",
+   "bbox_um": [
+    2.61,
+    1.095,
+    2.78,
+    1.265
+   ],
+   "net": null,
+   "line": 67
+  },
+  "b1p": {
+   "layer": "m1",
+   "bbox_um": [
+    2.55,
+    1.035,
+    2.84,
+    1.325
+   ],
+   "net": "B1",
+   "line": 68
+  },
+  "ym": {
+   "layer": "mcon",
+   "bbox_um": [
+    2.955,
+    1.845,
+    3.125,
+    2.015
+   ],
+   "net": null,
+   "line": 69
+  },
+  "yp": {
+   "layer": "m1",
+   "bbox_um": [
+    2.895,
+    1.785,
+    3.185,
+    2.075
+   ],
+   "net": "Y",
+   "line": 70
+  }
+ },
+ "connectivity": [
+  "SHORT VPWR / n1: on li around (2.3, 2.2): shapes of VPWR and n1 overlap/touch there (pwr1 (line 42), pwr2 (line 43), sn1l (line 39), svpl (line 40))",
+  "OPEN net A1 is 2 separate pieces: [ga1 (line 19), pa1 (line 51)] | [a1p (line 64)] - join them (strap / shared metal / `route A1`)",
+  "OPEN net A2 is 2 separate pieces: [ga2 (line 18), pa2 (line 50)] | [a2p (line 66)] - join them (strap / shared metal / `route A2`)",
+  "OPEN net B1 is 2 separate pieces: [gb1 (line 20), pb1 (line 52)] | [b1p (line 68)] - join them (strap / shared metal / `route B1`)",
+  "OPEN net n2 is 2 separate pieces: [nd (line 12), sn2l (line 27)] | [nd (line 12), sn2bl (line 29)] - join them (strap / shared metal / `route n2`)",
+  "DEVICE M0 (pmos g=A2 d=n1 s=Y) has no matching transistor in the layout - the pmos with gate A2 at x=1.745 has VPWR+n1 and Y on its sides; it needs n1 and Y: the side labelled VPWR+n1 should be n1 (wrong net label on that contact column, or the gates are in the wrong order)",
+  "DEVICE M1 (pmos g=B1 d=Y s=VPWR) has no matching transistor in the layout - the pmos with gate B1 at x=2.825 has VPWR+n1 and Y on its sides; it needs Y and VPWR: the side labelled VPWR+n1 should be VPWR (wrong net label on that contact column, or the gates are in the wrong order)",
+  "DEVICE M4 (pmos g=A1 d=VPWR s=n1) has no matching transistor in the layout - the pmos with gate A1 at x=2.285 has VPWR+n1 and VPWR+n1 on its sides; it needs VPWR and n1: the side labelled VPWR+n1 should be VPWR (wrong net label on that contact column, or the gates are in the wrong order)",
+  "  layout pmos at x=1.745 y=1.93: gate A2 [ga2 (line 18), pa2 (line 50)], source/drain VPWR+n1 [pd (line 13), pwr1 (line 42), pwr2 (line 43), +2 more], Y [nd (line 12), pd (line 13), sp0l (line 38), +2 more]",
+  "  layout pmos at x=2.285 y=1.93: gate A1 [ga1 (line 19), pa1 (line 51)], source/drain VPWR+n1 [pd (line 13), pwr1 (line 42), pwr2 (line 43), +2 more], VPWR+n1 [pd (line 13), pwr1 (line 42), pwr2 (line 43), +2 more]",
+  "  layout pmos at x=2.825 y=1.93: gate B1 [gb1 (line 20), pb1 (line 52)], source/drain VPWR+n1 [pd (line 13), pwr1 (line 42), pwr2 (line 43), +2 more], Y [nd (line 12), pd (line 13), sp0l (line 38), +2 more]"
+ ],
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-230956-lessons3-kb/o21ai/check1/o21ai.png",
+ "route_failed": [],
+ "status": "VIOLATIONS",
+ "seconds": 2.1
+}

@@ -1,0 +1,37 @@
+{
+ "task": "r2r8",
+ "pdk": "sky130A",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_165328_v4/canvas/r2r8.sky130A/a3/r2r8.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_165328_v4/canvas/r2r8.sky130A/a3/r2r8.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "26 violation(s): 26 x Local interconnect spacing < 0.17um (li.3)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 16 violation(s): 16 x li.3: li.3 : min. li spacing outside or crossing areaid:ce : 0.17um"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Netlists do not match.  (devices layout/ref 10/16; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_165328_v4/canvas/r2r8.sky130A/a3/judge/r2r8.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "not confirmed (LVS failed)"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "74.27 x 18.02 = 1338.3 um2, budget 1630, reference 814.74"
+  }
+ ],
+ "area_um2": 1338.35,
+ "area_vs_reference": 1.643,
+ "solved": false,
+ "detail": "DRC (magic drc(full)): 26 violation(s), boxes in um\n    26 x Local interconnect spacing < 0.17um (li.3)   e.g. at (12.500 19.730 13.400 19.750)  (21.500 19.730 22.400 19.750)  (30.500 19.730 31.400 19.750)\nDRC2 (foundry KLayout deck): 16 violation(s), boxes in um\n    16 x li.3: li.3 : min. li spacing outside or crossing areaid:ce : 0.17um   e.g. at (12.420 19.750 12.580 19.900)  (12.500 19.750 13.400 19.900)  (57.500 19.750 58.400 19.900)\nLVS: Netlists do not match.   devices layout/ref 10/16, nets layout/ref 20/17\n  Number of devices: 10 **Mismatch**         |Number of devices: 16 **Mismatch**\n  Number of nets: 20 **Mismatch**            |Number of nets: 17 **Mismatch**\n  ---------------------------------------------------------------------------------------\n  NET mismatches: Class fragments follow (with fanout counts):\n  Circuit 1: r2r8                            |Circuit 2: r2r8\n  ---------------------------------------------------------------------------------------\n  Net: VSS                                   |Net: VSS\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  Net: B0                                    |Net: B0\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  Net: B1                                    |Net: B1\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  Net: B2                                    |Net: B2\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  Net: B3                                    |Net: B3\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  Net: B4                                    |Net: B4\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  Net: B5                                    |Net: B5\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  Net: B6                                    |Net: B6\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  Net: B7                                    |Net: B7\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  Net: a_6200_1700#                          |Net: n0\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 3\n                                             |\n  Net: a_15200_1700#                         |Net: n1\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 3\n                                             |\n  Net: a_800_4600#                           |Net: n2"
+}

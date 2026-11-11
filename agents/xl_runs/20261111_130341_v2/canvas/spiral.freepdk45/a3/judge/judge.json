@@ -1,0 +1,52 @@
+{
+ "task": "spiral",
+ "pdk": "freepdk45",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/spiral.freepdk45/a3/spiral.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/spiral.freepdk45/a3/spiral.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": true,
+   "detail": "clean"
+  },
+  {
+   "check": "DRC2",
+   "ok": true,
+   "detail": "foundry KLayout deck clean"
+  },
+  {
+   "check": "one coil, no closed loop",
+   "ok": true,
+   "detail": "1 polygon(s) on m10, largest has 0 hole(s) and 100% of the metal"
+  },
+  {
+   "check": "edges Manhattan or 45 degrees, some at 45",
+   "ok": true,
+   "detail": "25 at 45 degrees, 0 at other angles"
+  },
+  {
+   "check": "trace width >= 4.0 um",
+   "ok": true,
+   "detail": "0 narrow spot(s) on m10"
+  },
+  {
+   "check": "at least 3 turns around the centre",
+   "ok": true,
+   "detail": "3 turn(s) around (179.2, 178.0)"
+  },
+  {
+   "check": "underpass from the inner end to outside the coil",
+   "ok": false,
+   "detail": "no via9 cut on the coil joins a m9 wire that leaves the coil"
+  },
+  {
+   "check": "area",
+   "ok": false,
+   "detail": "313.44 x 341.24 = 106955.0 um2, budget 10465, reference 5232.32"
+  }
+ ],
+ "area_um2": 106954.99,
+ "area_vs_reference": 20.441,
+ "solved": false,
+ "detail": "n\no\n \nv\ni\na\n9\n \nc\nu\nt\n \no\nn\n \nt\nh\ne\n \nc\no\ni\nl\n \nj\no\ni\nn\ns\n \na\n \nm\n9\n \nw\ni\nr\ne\n \nt\nh\na\nt\n \nl\ne\na\nv\ne\ns\n \nt\nh\ne\n \nc\no\ni\nl"
+}

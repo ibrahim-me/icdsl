@@ -1,0 +1,180 @@
+{
+ "cell": "cascode_n",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-001511-L2-basic/cascode_n/check1/cascode_n.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-001511-L2-basic/cascode_n/check1/cascode_n.reference.spice",
+ "size_um": [
+  9.2,
+  5.52
+ ],
+ "warnings": [],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 0,
+  "by_rule": [],
+  "all": []
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": true,
+  "result": "Circuits match uniquely.",
+  "devices_layout_vs_ref": [
+   4,
+   4
+  ],
+  "nets_layout_vs_ref": [
+   5,
+   5
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-001511-L2-basic/cascode_n/check1/cascode_n.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-001511-L2-basic/cascode_n/check1/cascode_n.lvs.txt",
+  "dummies_ignored": 4
+ },
+ "routes": {
+  "nets": {
+   "n1": {
+    "length_um": 11.96,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 15,
+    "width_um": {
+     "m1": 0.3,
+     "m2": 0.3
+    },
+    "res_ohm": 35.98
+   },
+   "n2": {
+    "length_um": 3.68,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 6,
+    "width_um": {
+     "m1": 0.3,
+     "m2": 0.3
+    },
+    "res_ohm": 11.88
+   },
+   "IREF": {
+    "length_um": 8.28,
+    "layers": [
+     "m1"
+    ],
+    "cuts": 4,
+    "width_um": {
+     "m1": 0.3
+    },
+    "res_ohm": 10.66
+   },
+   "IOUT": {
+    "length_um": 4.14,
+    "layers": [
+     "m2"
+    ],
+    "cuts": 2,
+    "width_um": {
+     "m2": 0.3
+    },
+    "res_ohm": 7.1
+   },
+   "VGND": {
+    "length_um": 11.96,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 10,
+    "width_um": {
+     "m1": 0.5,
+     "m2": 0.5
+    },
+    "res_ohm": 27.04
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [],
+ "constraint_violations": [],
+ "objects": {
+  "M12": {
+   "kind": "array",
+   "at_um": [
+    1.84,
+    2.76
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    1.59,
+    0.735,
+    7.61,
+    2.945
+   ],
+   "line": 14
+  },
+  "M34": {
+   "kind": "array",
+   "at_um": [
+    0.92,
+    4.6
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    0.67,
+    2.575,
+    8.53,
+    4.785
+   ],
+   "line": 15
+  },
+  "TP": {
+   "kind": "tap",
+   "at_um": [
+    4.6,
+    0.92
+   ],
+   "orient": "R0",
+   "bbox_um": [
+    4.27,
+    0.65,
+    5.39,
+    1.19
+   ],
+   "line": 20
+  }
+ },
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-001511-L2-basic/cascode_n/check1/cascode_n.png",
+ "route_failed": [],
+ "status": "CLEAN",
+ "seconds": 3.6,
+ "judge": {
+  "ok": true,
+  "results": [
+   {
+    "constraint": {
+     "type": "interdigitated",
+     "devices": [
+      "M1",
+      "M2"
+     ]
+    },
+    "ok": true,
+    "detail": "order left to right ABBA (A=M1, B=M2); M1 centroid (4.600, 1.985), M2 centroid (4.600, 1.985)"
+   },
+   {
+    "constraint": {
+     "type": "interdigitated",
+     "devices": [
+      "M3",
+      "M4"
+     ]
+    },
+    "ok": true,
+    "detail": "order left to right ABBA (A=M3, B=M4); M3 centroid (4.600, 3.825), M4 centroid (4.600, 3.825)"
+   }
+  ]
+ }
+}

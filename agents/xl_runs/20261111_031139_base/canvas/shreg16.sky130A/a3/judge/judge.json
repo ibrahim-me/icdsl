@@ -1,0 +1,37 @@
+{
+ "task": "shreg16",
+ "pdk": "sky130A",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/canvas/shreg16.sky130A/a3/shreg16.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/canvas/shreg16.sky130A/a3/shreg16.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "1919 violation(s): 640 x poly spacing to diffusion tap < 0.055um (poly.5); 384 x mcon.spacing < 0.19um (mcon.2); 320 x N-Diffusion spacing to N-well < 0.34um (diff/tap.9); 320 x N-Diffusion spacing to N-well < 0.005um (diff/tap.9); 192 x N-diff distance to P-tap must be < 15.0um (LU.2); 47 x N-well spacing < 1.27um (nwell.2a)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 44 violation(s): 16 x nwell.2a: nwell.2a : min. nwell spacing (merged if less) : 1.27um; 16 x via.2: via.2 : min. via spacing : 0.17um; 12 x ct.2: ct.2 : min. mcon spacing : 0.19um"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Top level cell failed pin matching.  (devices layout/ref 64/352; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/canvas/shreg16.sky130A/a3/judge/shreg16.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "not confirmed (LVS failed)"
+  },
+  {
+   "check": "area",
+   "ok": false,
+   "detail": "152.99 x 20.33 = 3110.3 um2, budget 1857, reference 928.02"
+  }
+ ],
+ "area_um2": 3110.29,
+ "area_vs_reference": 3.352,
+ "solved": false,
+ "detail": "DRC (magic drc(full)): 1919 violation(s), boxes in um\n   640 x poly spacing to diffusion tap < 0.055um (poly.5)   e.g. at (0.810 7.365 0.865 7.420)  (0.810 7.365 0.865 7.420)  (1.015 7.365 1.070 7.420)\n   384 x mcon.spacing < 0.19um (mcon.2)   e.g. at (6.665 7.275 6.810 7.295)  (6.665 7.275 6.810 7.295)  (7.070 7.275 7.215 7.295)\n   320 x N-Diffusion spacing to N-well < 0.34um (diff/tap.9)   e.g. at (0.525 7.420 1.015 7.760)  (2.025 7.420 2.515 7.760)  (3.525 7.420 4.015 7.760)\n   320 x N-Diffusion spacing to N-well < 0.005um (diff/tap.9)   e.g. at (0.865 7.000 0.870 7.125)  (0.865 7.125 0.870 7.295)  (0.865 7.295 0.870 7.420)\n   192 x N-diff distance to P-tap must be < 15.0um (LU.2)   e.g. at (0.600 0.600 0.865 1.020)  (1.015 0.600 1.280 1.020)  (2.100 0.600 2.365 1.020)\n    47 x N-well spacing < 1.27um (nwell.2a)   e.g. at (6.650 4.820 7.760 6.090)  (7.920 3.620 8.960 4.820)  (9.720 3.620 10.230 6.090)\n    16 x All nwells must contain metal-connected N+ taps (nwell.4)   e.g. at (7.920 3.620 8.960 4.820)  (17.520 3.620 18.560 4.820)  (27.120 3.620 28.160 4.820)\nDRC2 (foundry KLayout deck): 44 violation(s), boxes in um\n    16 x nwell.2a: nwell.2a : min. nwell spacing (merged if less) : 1.27um   e.g. at (133.760 3.320 134.520 5.837)  (47.360 3.320 48.120 5.837)  (18.560 3.320 19.320 5.837)\n    16 x via.2: via.2 : min. via spacing : 0.17um   e.g. at (148.550 16.425 148.615 16.575)  (119.750 16.425 119.815 16.575)  (90.950 16.425 91.015 16.575)\n    12 x ct.2: ct.2 : min. mcon spacing : 0.19um   e.g. at (2.485 0.895 2.610 1.065)  (2.310 0.880 2.355 1.080)  (2.270 0.895 2.395 1.065)\nLVS: Top level cell failed pin matching.   devices layout/ref 64/352, nets layout/ref 113/212\n  sky130_fd_pr__nfet_01v8 (6->2)             |sky130_fd_pr__nfet_01v8 (11) **Mismatch**\n  sky130_fd_pr__pfet_01v8 (11->2)            |sky130_fd_pr__pfet_01v8 (11) **Mismatch**\n  Number of devices: 4 **Mismatch**          |Number of devices: 22 **Mismatch**\n  Number of nets: 8 **Mismatch**             |Number of nets: 17 **Mismatch**\n  ---------------------------------------------------------------------------------------\n  NET mismatches: Class fragments follow (with fanout counts):\n  Circuit 1: dff                             |Circuit 2: dff\n  ---------------------------------------------------------------------------------------\n  Net: a_1703_120#                           |Net: n1\n    sky130_fd_pr__nfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/(1|3) = 2\n                                             |\n  Net: a_1673_94#                            |Net: n2\n    sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/(1|3) = 2\n                                             |\n  Net: a_173_94#                             |Net: n3\n    sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/(1|3) = 2\n                                             |\n  Net: a_173_2014#                           |Net: n4\n    sky130_fd_pr__pfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/(1|3) = 2\n                                             |\n  Net: a_1673_734#                           |Net: D\n    sky130_fd_pr__pfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/2 = 1\n                                             |  sky130_fd_pr__pfet_01v8/2 = 1\n                                             |\n  Net: w_1584_724#                           |Net: p1\n    sky130_fd_pr__pfet_01v8/4 = 1            |  sky130_fd_pr__pfet_01v8/(1|3) = 2\n                                             |\n  Net: Q                                     |Net: Q\n    sky130_fd_pr__nfet_01v8/(1|3) = 3        |  sky130_fd_pr__nfet_01v8/(1|3) = 1\n    sky130_fd_pr__pfet_01v8/(1|3) = 4        |  sky130_fd_pr__pfet_01v8/(1|3) = 1\n    sky130_fd_pr__pfet_01v8/4 = 1            |  sky130_fd_pr__pfet_01v8/2 = 1\n                                             |  sky130_fd_pr__nfet_01v8/2 = 1\n                                             |\n  Net: VSUBS                                 |Net: p3\n    sky130_fd_pr__nfet_01v8/4 = 2            |  sky130_fd_pr__pfet_01v8/(1|3) = 2\n                                             |\n  (no matching net)                          |Net: p4\n                                             |  sky130_fd_pr__pfet_01v8/(1|3) = 2\n                                             |\n  (no matching net)                          |Net: VSS"
+}

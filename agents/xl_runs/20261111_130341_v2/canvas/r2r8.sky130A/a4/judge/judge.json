@@ -1,0 +1,37 @@
+{
+ "task": "r2r8",
+ "pdk": "sky130A",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/r2r8.sky130A/a4/r2r8.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/r2r8.sky130A/a4/r2r8.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "63 violation(s): 60 x Local interconnect spacing < 0.17um (li.3); 3 x mrp1 resistor width < 0.33um (poly.3)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 66 violation(s): 45 x MR_licon.SP.1: MR_licon.SP.1: min. licon spacing in periphery : 0.17um; 15 x li.3: li.3 : min. li spacing outside or crossing areaid:ce : 0.17um; 6 x licon.1: licon.1: min/max. licon length : 0.17um"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Netlists do not match.  (devices layout/ref 10/16; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/r2r8.sky130A/a4/judge/r2r8.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "not confirmed (LVS failed)"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "48.52 x 25.54 = 1239.2 um2, budget 1630, reference 814.74"
+  }
+ ],
+ "area_um2": 1239.2,
+ "area_vs_reference": 1.521,
+ "solved": false,
+ "detail": "DRC (magic drc(full)): 63 violation(s), boxes in um\n    60 x Local interconnect spacing < 0.17um (li.3)   e.g. at (-0.005 9.160 0.075 9.170)  (-0.005 9.330 0.075 9.340)  (0.925 9.160 1.005 9.170)\n     3 x mrp1 resistor width < 0.33um (poly.3)   e.g. at (-0.250 3.170 0.000 3.500)  (0.075 2.830 0.330 3.170)  (1.000 2.830 1.255 3.500)\nDRC2 (foundry KLayout deck): 66 violation(s), boxes in um\n    45 x MR_licon.SP.1: MR_licon.SP.1: min. licon spacing in periphery : 0.17um   e.g. at (35.170 0.755 35.330 0.925)  (35.170 0.415 35.330 0.585)  (0.415 -3.330 0.585 -3.170)\n    15 x li.3: li.3 : min. li spacing outside or crossing areaid:ce : 0.17um   e.g. at (45.495 9.170 46.505 9.330)  (38.995 9.170 40.005 9.330)  (12.995 9.170 14.005 9.330)\n     6 x licon.1: licon.1: min/max. licon length : 0.17um   e.g. at (0.075 2.830 0.075 3.170)  (0.245 2.830 0.245 3.170)  (0.415 2.830 0.415 3.170)\nLVS: Netlists do not match.   devices layout/ref 10/16, nets layout/ref 20/17\n  Number of devices: 10 **Mismatch**         |Number of devices: 16 **Mismatch**\n  Number of nets: 20 **Mismatch**            |Number of nets: 17 **Mismatch**\n  ---------------------------------------------------------------------------------------\n  NET mismatches: Class fragments follow (with fanout counts):\n  Circuit 1: r2r8                            |Circuit 2: r2r8\n  ---------------------------------------------------------------------------------------\n  Net: VSS                                   |Net: VSS\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  Net: B0                                    |Net: B0\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  Net: B1                                    |Net: B1\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  Net: B2                                    |Net: B2\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  Net: B3                                    |Net: B3\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  Net: B4                                    |Net: B4\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  Net: B5                                    |Net: B5\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  Net: B6                                    |Net: B6\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  Net: B7                                    |Net: B7\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  Net: a_5200_550#                           |Net: n0\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 3\n                                             |\n  Net: a_1300_550#                           |Net: n1\n    sky130_fd_pr__res_generic_po/(1|2) = 1   |  sky130_fd_pr__res_generic_po/(1|2) = 3\n                                             |\n  Net: a_6500_550#                           |Net: n2"
+}

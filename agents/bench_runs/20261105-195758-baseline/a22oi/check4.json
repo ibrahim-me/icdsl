@@ -1,0 +1,661 @@
+{
+ "cell": "a22oi",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-195758-baseline/a22oi/check4/a22oi.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-195758-baseline/a22oi/check4/a22oi.reference.spice",
+ "size_um": [
+  4.6,
+  2.72
+ ],
+ "warnings": [
+  "a22oi: port B1: no legal met1/met2 access point for a parent router (0.23 um grid) (blocked by b2p on m1); put the pin on met1 (contact mcon in=<li> + enclose ... m1 by=0.06) or keep met1 clear above it",
+  "a22oi: port B2: no legal met1/met2 access point for a parent router (0.23 um grid) (blocked by b1p on m1); put the pin on met1 (contact mcon in=<li> + enclose ... m1 by=0.06) or keep met1 clear above it",
+  "a22oi: fast pre-check found 8 rule issue(s): licon.space at [3.2, 1.095, 3.26, 1.265] near gc3 (line 67), gc4 (line 68), gp3 (line 71); li.space at [3.2, 1.015, 3.26, 1.345] near nwell (line 79), nim (line 17), gc3 (line 67); mcon.space at [3.2, 1.095, 3.26, 1.265] near gc3 (line 67), gc4 (line 68), gp3 (line 71); psdm.space at [2.275, 1.43, 2.325, 2.43] near nwell (line 79), pim1 (line 18), pim2 (line 19); licon.cover at [0.855, 1.675, 1.025, 1.845] near nwell (line 79), pd1 (line 15), pim1 (line 18); licon.cover at [0.855, 2.015, 1.025, 2.185] near nwell (line 79), pd1 (line 15), pim1 (line 18)"
+ ],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 13,
+  "by_rule": [
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "count": 6,
+    "examples": [
+     {
+      "box_um": [
+       3.26,
+       1.015,
+       3.37,
+       1.095
+      ],
+      "objects": {
+       "nim": [
+        "nsdm"
+       ],
+       "gb1": [
+        "poly"
+       ],
+       "gc3": [
+        "licon"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gp4": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "b1": [
+        "li"
+       ],
+       "b1m": [
+        "mcon"
+       ],
+       "b1p": [
+        "m1"
+       ],
+       "b2p": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       3.26,
+       1.095,
+       3.37,
+       1.265
+      ],
+      "objects": {
+       "gb1": [
+        "poly"
+       ],
+       "gc3": [
+        "licon"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gp4": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "b1": [
+        "li"
+       ],
+       "b1m": [
+        "mcon"
+       ],
+       "b1p": [
+        "m1"
+       ],
+       "b2p": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       3.26,
+       1.265,
+       3.37,
+       1.345
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "gb1": [
+        "poly"
+       ],
+       "gc3": [
+        "licon"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gp4": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "b1": [
+        "li"
+       ],
+       "b1m": [
+        "mcon"
+       ],
+       "b1p": [
+        "m1"
+       ],
+       "b2p": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       3.09,
+       1.265,
+       3.2,
+       1.345
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "gb2": [
+        "poly"
+       ],
+       "gc4": [
+        "licon"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gp4": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "b2": [
+        "li"
+       ],
+       "b1p": [
+        "m1"
+       ],
+       "b2m": [
+        "mcon"
+       ],
+       "b2p": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "mcon.spacing < 0.19um (mcon.2)",
+    "count": 2,
+    "examples": [
+     {
+      "box_um": [
+       3.26,
+       1.095,
+       3.39,
+       1.265
+      ],
+      "objects": {
+       "gb1": [
+        "poly"
+       ],
+       "gc3": [
+        "licon"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gp4": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "b1": [
+        "li"
+       ],
+       "b1m": [
+        "mcon"
+       ],
+       "b1p": [
+        "m1"
+       ],
+       "b2p": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       3.07,
+       1.095,
+       3.2,
+       1.265
+      ],
+      "objects": {
+       "gb2": [
+        "poly"
+       ],
+       "gc4": [
+        "licon"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gp4": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "b2": [
+        "li"
+       ],
+       "b1p": [
+        "m1"
+       ],
+       "b2m": [
+        "mcon"
+       ],
+       "b2p": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "P-Diffusion overhang of pmos < 0.25um (poly.7)",
+    "count": 2,
+    "examples": [
+     {
+      "box_um": [
+       0.83,
+       1.555,
+       1.03,
+       2.305
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd1": [
+        "diff"
+       ],
+       "pim1": [
+        "psdm"
+       ],
+       "cp0": [
+        "licon"
+       ],
+       "cpl0": [
+        "li"
+       ],
+       "pwrp": [
+        "li"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       3.57,
+       1.555,
+       3.77,
+       2.305
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd2": [
+        "diff"
+       ],
+       "pim2": [
+        "psdm"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "Core local interconnect spacing < 0.14um (li.c2)",
+    "count": 2,
+    "examples": [
+     {
+      "box_um": [
+       3.26,
+       1.095,
+       3.34,
+       1.265
+      ],
+      "objects": {
+       "gc3": [
+        "licon"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gp4": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "b1": [
+        "li"
+       ],
+       "b1m": [
+        "mcon"
+       ],
+       "b1p": [
+        "m1"
+       ],
+       "b2p": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       3.12,
+       1.095,
+       3.2,
+       1.265
+      ],
+      "objects": {
+       "gc4": [
+        "licon"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gp4": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "b2": [
+        "li"
+       ],
+       "b1p": [
+        "m1"
+       ],
+       "b2m": [
+        "mcon"
+       ],
+       "b2p": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "Poly1 contact spacing < 0.17um (licon.2)",
+    "count": 1,
+    "examples": [
+     {
+      "box_um": [
+       3.26,
+       1.095,
+       3.37,
+       1.265
+      ],
+      "objects": {
+       "gb1": [
+        "poly"
+       ],
+       "gc3": [
+        "licon"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gp4": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "b1": [
+        "li"
+       ],
+       "b1m": [
+        "mcon"
+       ],
+       "b1p": [
+        "m1"
+       ],
+       "b2p": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   }
+  ]
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": false,
+  "result": "Top level cell failed pin matching.",
+  "devices_layout_vs_ref": [
+   8,
+   8
+  ],
+  "nets_layout_vs_ref": [
+   10,
+   10
+  ],
+  "details": [
+   "NET mismatches: Class fragments follow (with fanout counts):",
+   "Circuit 1: a22oi                           |Circuit 2: a22oi                           ",
+   "---------------------------------------------------------------------------------------",
+   "Net: Y                                     |Net: n1                                    ",
+   "  sky130_fd_pr__pfet_01v8/(1|3) = 2        |  sky130_fd_pr__nfet_01v8/(1|3) = 2        ",
+   "                                           |                                           ",
+   "Net: n3                                    |Net: n3                                    ",
+   "  sky130_fd_pr__nfet_01v8/(1|3) = 7        |  sky130_fd_pr__nfet_01v8/(1|3) = 2        ",
+   "                                           |                                           ",
+   "Net: a_206_311#                            |Net: B1                                    ",
+   "  sky130_fd_pr__pfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/2 = 1            ",
+   "                                           |  sky130_fd_pr__pfet_01v8/2 = 1            ",
+   "                                           |                                           ",
+   "Net: A2                                    |Net: A2                                    ",
+   "  sky130_fd_pr__pfet_01v8/2 = 1            |  sky130_fd_pr__pfet_01v8/2 = 1            ",
+   "  sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/2 = 1            ",
+   "                                           |                                           ",
+   "Net: A1                                    |Net: A1                                    ",
+   "  sky130_fd_pr__pfet_01v8/2 = 1            |  sky130_fd_pr__pfet_01v8/2 = 1            ",
+   "  sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/2 = 1            ",
+   "                                           |                                           ",
+   "Net: a_704_83#                             |Net: B2                                    ",
+   "  sky130_fd_pr__nfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/2 = 1            ",
+   "                                           |  sky130_fd_pr__pfet_01v8/2 = 1            ",
+   "                                           |                                           ",
+   "Net: a_704_311#                            |Net: VGND                                  ",
+   "  sky130_fd_pr__pfet_01v8/(1|3) = 1        |  sky130_fd_pr__nfet_01v8/4 = 4            ",
+   "                                           |  sky130_fd_pr__nfet_01v8/(1|3) = 2        ",
+   "                                           |                                           ",
+   "Net: VPWR                                  |Net: VPWR                                  ",
+   "  sky130_fd_pr__pfet_01v8/(1|3) = 4        |  sky130_fd_pr__pfet_01v8/(1|3) = 2        ",
+   "  sky130_fd_pr__pfet_01v8/4 = 4            |  sky130_fd_pr__pfet_01v8/4 = 4            ",
+   "---------------------------------------------------------------------------------------",
+   "---------------------------------------------------------------------------------------",
+   "Net: VGND                                  |Net: n2                                    ",
+   "  sky130_fd_pr__nfet_01v8/4 = 4            |  sky130_fd_pr__pfet_01v8/(1|3) = 4        ",
+   "                                           |                                           ",
+   "Net: B2                                    |Net: Y                                     ",
+   "  sky130_fd_pr__nfet_01v8/2 = 2            |  sky130_fd_pr__nfet_01v8/(1|3) = 2        ",
+   "  sky130_fd_pr__pfet_01v8/2 = 2            |  sky130_fd_pr__pfet_01v8/(1|3) = 2        ",
+   "---------------------------------------------------------------------------------------",
+   "DEVICE mismatches: Class fragments follow (with node fanout counts):",
+   "Circuit 1: a22oi                           |Circuit 2: a22oi                           ",
+   "---------------------------------------------------------------------------------------",
+   "Instance: sky130_fd_pr__nfet_01v8:6        |Instance: sky130_fd_pr__nfet_01v8:M6       ",
+   "  (1,3) = (7,1)                            |  (1,3) = (4,2)                            ",
+   "  2 = 4                                    |  2 = 2                                    ",
+   "  4 = 4                                    |  4 = 6                                    ",
+   "                                           |                                           ",
+   "Instance: sky130_fd_pr__nfet_01v8:1        |Instance: sky130_fd_pr__nfet_01v8:M0       ",
+   "  (1,3) = (7,7)                            |  (1,3) = (4,2)                            ",
+   "  2 = 4                                    |  2 = 2                                    ",
+   "  4 = 4                                    |  4 = 6                                    ",
+   "                                           |                                           ",
+   "Instance: sky130_fd_pr__nfet_01v8:4        |Instance: sky130_fd_pr__nfet_01v8:M4       ",
+   "  (1,3) = (7,7)                            |  (1,3) = (6,2)                            ",
+   "  2 = 2                                    |  2 = 2                                    ",
+   "  4 = 4                                    |  4 = 6                                    ",
+   "                                           |                                           ",
+   "Instance: sky130_fd_pr__nfet_01v8:3        |Instance: sky130_fd_pr__nfet_01v8:M3       ",
+   "  (1,3) = (7,7)                            |  (1,3) = (6,2)                            "
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-195758-baseline/a22oi/check4/a22oi.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-195758-baseline/a22oi/check4/a22oi.lvs.txt"
+ },
+ "routes": {},
+ "precheck": [
+  {
+   "rule": "licon.space",
+   "msg": "licon spacing < 0.170 um",
+   "objects": [
+    "gc3 (line 67)",
+    "gc4 (line 68)",
+    "gp3 (line 71)",
+    "gp4 (line 72)",
+    "gn (line 73)",
+    "b1 (line 76)"
+   ],
+   "box_um": [
+    3.2,
+    1.095,
+    3.26,
+    1.265
+   ]
+  },
+  {
+   "rule": "li.space",
+   "msg": "li spacing < 0.170 um",
+   "objects": [
+    "nwell (line 79)",
+    "nim (line 17)",
+    "gc3 (line 67)",
+    "gc4 (line 68)",
+    "gp3 (line 71)",
+    "gp4 (line 72)"
+   ],
+   "box_um": [
+    3.2,
+    1.015,
+    3.26,
+    1.345
+   ]
+  },
+  {
+   "rule": "mcon.space",
+   "msg": "mcon spacing < 0.190 um",
+   "objects": [
+    "gc3 (line 67)",
+    "gc4 (line 68)",
+    "gp3 (line 71)",
+    "gp4 (line 72)",
+    "gn (line 73)",
+    "b1 (line 76)"
+   ],
+   "box_um": [
+    3.2,
+    1.095,
+    3.26,
+    1.265
+   ]
+  },
+  {
+   "rule": "psdm.space",
+   "msg": "psdm spacing < 0.380 um",
+   "objects": [
+    "nwell (line 79)",
+    "pim1 (line 18)",
+    "pim2 (line 19)",
+    "n2s (line 60)",
+    "boundary"
+   ],
+   "box_um": [
+    2.275,
+    1.43,
+    2.325,
+    2.43
+   ]
+  },
+  {
+   "rule": "licon.cover",
+   "msg": "licon not on diff, tap or poly",
+   "objects": [
+    "nwell (line 79)",
+    "pd1 (line 15)",
+    "pim1 (line 18)",
+    "cp0 (line 43)",
+    "cpl0 (line 46)",
+    "pwrp (line 58)"
+   ],
+   "box_um": [
+    0.855,
+    1.675,
+    1.025,
+    1.845
+   ]
+  },
+  {
+   "rule": "licon.cover",
+   "msg": "licon not on diff, tap or poly",
+   "objects": [
+    "nwell (line 79)",
+    "pd1 (line 15)",
+    "pim1 (line 18)",
+    "cp0 (line 43)",
+    "cpl0 (line 46)",
+    "pwrp (line 58)"
+   ],
+   "box_um": [
+    0.855,
+    2.015,
+    1.025,
+    2.185
+   ]
+  },
+  {
+   "rule": "poly.7",
+   "msg": "diffusion extends less than 0.250 um past the gate",
+   "objects": [
+    "nwell (line 79)",
+    "pd1 (line 15)",
+    "pim1 (line 18)",
+    "ga2 (line 22)",
+    "cp0 (line 43)",
+    "cpl0 (line 46)"
+   ],
+   "box_um": [
+    0.83,
+    1.555,
+    1.08,
+    2.305
+   ]
+  },
+  {
+   "rule": "poly.7",
+   "msg": "diffusion extends less than 0.250 um past the gate",
+   "objects": [
+    "nwell (line 79)",
+    "pd2 (line 16)",
+    "pim2 (line 19)",
+    "gb1 (line 24)",
+    "boundary"
+   ],
+   "box_um": [
+    3.52,
+    1.555,
+    3.77,
+    2.305
+   ]
+  }
+ ],
+ "constraint_violations": [],
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261105-195758-baseline/a22oi/check4/a22oi.png",
+ "status": "VIOLATIONS",
+ "seconds": 3.4
+}

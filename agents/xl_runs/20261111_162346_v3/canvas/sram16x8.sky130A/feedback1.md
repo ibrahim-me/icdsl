@@ -1,0 +1,4 @@
+The script did not build:
+ERROR empty rectangle on poly: x 2.295 .. 2.24, y 1.29 .. 2.39
+  hint: the upper edge is not above the lower edge in x: x0 < x1 and y0 < y1 (or left < right, bottom < top) are needed; swap them or check the shapes they come from
+  sub.py, line 39: A.rect("poly", x0=pup.gates[0].left, x1=q.right, y0=pup.gates[0].bottom,

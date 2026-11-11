@@ -1,0 +1,52 @@
+{
+ "task": "spiral",
+ "pdk": "freepdk45",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/spiral.freepdk45/a3/spiral.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/spiral.freepdk45/a3/spiral.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "1 violation(s): 1 x Metal10 spacing < 800nm (METALG.2)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 11 violation(s): 5 x METAL10.1: METAL10.1 : Minimum width of global metal10 : 800nm; 5 x METAL10.2: METAL10.2 : Minimum spacing of global metal10 : 800nm; 1 x METAL10.7: METAL10.7 : Minimum spacing of global metal10 wider than 500 nm and longer than"
+  },
+  {
+   "check": "one coil, no closed loop",
+   "ok": true,
+   "detail": "1 polygon(s) on m10, largest has 0 hole(s) and 100% of the metal"
+  },
+  {
+   "check": "edges Manhattan or 45 degrees, some at 45",
+   "ok": false,
+   "detail": "0 at 45 degrees, 4 at other angles"
+  },
+  {
+   "check": "trace width >= 4.0 um",
+   "ok": false,
+   "detail": "26 narrow spot(s)"
+  },
+  {
+   "check": "at least 3 turns around the centre",
+   "ok": true,
+   "detail": "3 turn(s) around (50.0, 45.0)"
+  },
+  {
+   "check": "underpass from the inner end to outside the coil",
+   "ok": true,
+   "detail": "m9 wire 34.0 x 34.0 um joined by via9"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "58.00 x 63.00 = 3654.0 um2, budget 10465, reference 5232.32"
+  }
+ ],
+ "area_um2": 3654.0,
+ "area_vs_reference": 0.698,
+ "solved": false,
+ "detail": "m\n9\n \nw\ni\nr\ne\n \n3\n4\n.\n0\n \nx\n \n3\n4\n.\n0\n \nu\nm\n \nj\no\ni\nn\ne\nd\n \nb\ny\n \nv\ni\na\n9"
+}

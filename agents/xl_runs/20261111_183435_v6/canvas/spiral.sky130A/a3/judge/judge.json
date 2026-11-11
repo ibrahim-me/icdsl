@@ -1,0 +1,52 @@
+{
+ "task": "spiral",
+ "pdk": "sky130A",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_183435_v6/canvas/spiral.sky130A/a3/spiral.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_183435_v6/canvas/spiral.sky130A/a3/spiral.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "29 violation(s): 18 x Only 45 and 90 degree angles permitted on metal5 (x.3a); 11 x Metal5 spacing < 1.6um (met5.2)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 2 violation(s): 2 x m5.2: m5.2 : min. m5 spacing : 1.6um"
+  },
+  {
+   "check": "one coil, no closed loop",
+   "ok": true,
+   "detail": "2 polygon(s) on m5, largest has 0 hole(s) and 100% of the metal"
+  },
+  {
+   "check": "edges Manhattan or 45 degrees, some at 45",
+   "ok": false,
+   "detail": "15 at 45 degrees, 18 at other angles"
+  },
+  {
+   "check": "trace width >= 4.0 um",
+   "ok": false,
+   "detail": "7 narrow spot(s) on m5: the trace is cut where it is narrower than 4.0 um: 2 pieces are left (also where two parts of the trace only meet at a corner). Measured: 2.165 um wide at (-39.77, -97.90)..(-38.94, -93.17); 2.165 um wide at (-41.11, -97.34)..(-37.77, -94.00); 2.950 um wide at (0.00, -2.00)..(3.99, -0.80) (a dead end of at most 4 um2, such as a via pad at the end of the trace, is not counted)"
+  },
+  {
+   "check": "at least 3 turns around the centre",
+   "ok": true,
+   "detail": "4 turn(s) around (0.3, 4.0)"
+  },
+  {
+   "check": "underpass from the inner end to outside the coil",
+   "ok": false,
+   "detail": "no via4 cut on the coil joins a m4 wire that leaves the coil"
+  },
+  {
+   "check": "area",
+   "ok": false,
+   "detail": "177.12 x 189.12 = 33497.9 um2, budget 10465, reference 5232.32"
+  }
+ ],
+ "area_um2": 33497.88,
+ "area_vs_reference": 6.402,
+ "solved": false,
+ "detail": "n\no\n \nv\ni\na\n4\n \nc\nu\nt\n \no\nn\n \nt\nh\ne\n \nc\no\ni\nl\n \nj\no\ni\nn\ns\n \na\n \nm\n4\n \nw\ni\nr\ne\n \nt\nh\na\nt\n \nl\ne\na\nv\ne\ns\n \nt\nh\ne\n \nc\no\ni\nl"
+}

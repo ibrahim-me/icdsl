@@ -1,0 +1,37 @@
+{
+ "task": "r2r8",
+ "pdk": "sky130A",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_165328_v4/canvas/r2r8.sky130A/a2.last/r2r8.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_165328_v4/canvas/r2r8.sky130A/a2.last/r2r8.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": true,
+   "detail": "clean"
+  },
+  {
+   "check": "DRC2",
+   "ok": true,
+   "detail": "foundry KLayout deck clean"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Top level cell failed pin matching.  (devices layout/ref 17/16; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_165328_v4/canvas/r2r8.sky130A/a2.last/judge/r2r8.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "not confirmed (LVS failed)"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "60.49 x 17.10 = 1034.4 um2, budget 1630, reference 814.74"
+  }
+ ],
+ "area_um2": 1034.38,
+ "area_vs_reference": 1.27,
+ "solved": false,
+ "detail": "LVS: Top level cell failed pin matching.   devices layout/ref 17/16, nets layout/ref 9/17\n  Number of devices: 17 **Mismatch**         |Number of devices: 16 **Mismatch**\n  Number of nets: 9 **Mismatch**             |Number of nets: 17 **Mismatch**\n  ---------------------------------------------------------------------------------------\n  NET mismatches: Class fragments follow (with fanout counts):\n  Circuit 1: r2r8                            |Circuit 2: r2r8\n  ---------------------------------------------------------------------------------------\n  Net: n2                                    |Net: n2\n    sky130_fd_pr__res_generic_po/(1|2) = 4   |  sky130_fd_pr__res_generic_po/(1|2) = 3\n                                             |\n  Net: n1                                    |Net: n1\n    sky130_fd_pr__res_generic_po/(1|2) = 4   |  sky130_fd_pr__res_generic_po/(1|2) = 3\n                                             |\n  Net: n6                                    |Net: n6\n    sky130_fd_pr__res_generic_po/(1|2) = 4   |  sky130_fd_pr__res_generic_po/(1|2) = 3\n                                             |\n  Net: n5                                    |Net: n5\n    sky130_fd_pr__res_generic_po/(1|2) = 4   |  sky130_fd_pr__res_generic_po/(1|2) = 3\n                                             |\n  Net: n0                                    |Net: n0\n    sky130_fd_pr__res_generic_po/(1|2) = 4   |  sky130_fd_pr__res_generic_po/(1|2) = 3\n                                             |\n  Net: n4                                    |Net: n4\n    sky130_fd_pr__res_generic_po/(1|2) = 4   |  sky130_fd_pr__res_generic_po/(1|2) = 3\n                                             |\n  Net: n3                                    |Net: n3\n    sky130_fd_pr__res_generic_po/(1|2) = 4   |  sky130_fd_pr__res_generic_po/(1|2) = 3\n                                             |\n  Net: t                                     |Net: VSS\n    sky130_fd_pr__res_generic_po/(1|2) = 3   |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  Net: B7                                    |Net: B7\n    sky130_fd_pr__res_generic_po/(1|2) = 3   |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  (no matching net)                          |Net: B1\n                                             |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  (no matching net)                          |Net: B2\n                                             |  sky130_fd_pr__res_generic_po/(1|2) = 1\n                                             |\n  (no matching net)                          |Net: B3"
+}

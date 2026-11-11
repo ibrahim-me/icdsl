@@ -1,0 +1,1416 @@
+{
+ "cell": "a21oi",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073007-deep-L1-nemotron/a21oi/check6/a21oi.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073007-deep-L1-nemotron/a21oi/check6/a21oi.reference.spice",
+ "size_um": [
+  2.3,
+  2.72
+ ],
+ "warnings": [
+  "a21oi: fast pre-check found 6 rule issue(s): via.space at [0.88, 1.65, 0.96, 1.8] near nwell (line 65), pd (line 17), pim (line 19); licon.5a at [2.01, 1.64, 2.03, 1.88] near nwell (line 65), pd (line 17), pim (line 19); licon.5a at [2.01, 0.54, 2.03, 0.78] near nd (line 16), nim (line 18), sn2 (line 29); licon.5a at [2.01, 1.98, 2.03, 2.22] near nwell (line 65), pd (line 17), pim (line 19); poly.7 at [1.785, 0.415, 2.035, 0.905] near nd (line 16), nim (line 18), gb1 (line 23); poly.7 at [1.785, 1.555, 2.035, 2.305] near nwell (line 65), pd (line 17), pim (line 19)"
+ ],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 11,
+  "by_rule": [
+   {
+    "rule": "P-Diffusion overhang of pmos < 0.25um (poly.7)",
+    "count": 5,
+    "examples": [
+     {
+      "box_um": [
+       2.03,
+       2.185,
+       2.035,
+       2.305
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd": [
+        "diff"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "dpy": [
+        "licon"
+       ],
+       "dpyl": [
+        "li"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.03,
+       2.015,
+       2.035,
+       2.185
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd": [
+        "diff"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "dpy": [
+        "licon"
+       ],
+       "dpyl": [
+        "li"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.03,
+       1.845,
+       2.035,
+       2.015
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd": [
+        "diff"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "dpy": [
+        "licon"
+       ],
+       "dpyl": [
+        "li"
+       ],
+       "route:Y": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.03,
+       1.675,
+       2.035,
+       1.845
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd": [
+        "diff"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "dpy": [
+        "licon"
+       ],
+       "dpyl": [
+        "li"
+       ],
+       "route:Y": [
+        "m1",
+        "mcon"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "N-Diffusion overhang of nFET < 0.25um (poly.7)",
+    "count": 3,
+    "examples": [
+     {
+      "box_um": [
+       2.03,
+       0.745,
+       2.035,
+       0.905
+      ],
+      "objects": {
+       "nd": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "sn2": [
+        "licon"
+       ],
+       "sn2l": [
+        "li"
+       ],
+       "gnd2": [
+        "li"
+       ],
+       "route:Y": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.03,
+       0.575,
+       2.035,
+       0.745
+      ],
+      "objects": {
+       "nd": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "sn2": [
+        "licon"
+       ],
+       "sn2l": [
+        "li"
+       ],
+       "gnd2": [
+        "li"
+       ],
+       "route:Y": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.03,
+       0.415,
+       2.035,
+       0.575
+      ],
+      "objects": {
+       "nd": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "sn2": [
+        "licon"
+       ],
+       "sn2l": [
+        "li"
+       ],
+       "gnd2": [
+        "li"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "P-diffusion overlap of P-diffusion contact < 0.04um (licon.5a)",
+    "count": 2,
+    "examples": [
+     {
+      "box_um": [
+       1.99,
+       1.675,
+       2.01,
+       1.845
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd": [
+        "diff"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "dpy": [
+        "licon"
+       ],
+       "dpyl": [
+        "li"
+       ],
+       "route:Y": [
+        "m1",
+        "mcon"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.99,
+       2.015,
+       2.01,
+       2.185
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pd": [
+        "diff"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "dpy": [
+        "licon"
+       ],
+       "dpyl": [
+        "li"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "N-diffusion overlap of N-diffusion contact < 0.04um (licon.5a)",
+    "count": 1,
+    "examples": [
+     {
+      "box_um": [
+       1.99,
+       0.575,
+       2.01,
+       0.745
+      ],
+      "objects": {
+       "nd": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "sn2": [
+        "licon"
+       ],
+       "sn2l": [
+        "li"
+       ],
+       "gnd2": [
+        "li"
+       ],
+       "route:Y": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "all": [
+   {
+    "rule": "P-Diffusion overhang of pmos < 0.25um (poly.7)",
+    "box_um": [
+     2.03,
+     2.185,
+     2.035,
+     2.305
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "pd": [
+      "diff"
+     ],
+     "pim": [
+      "psdm"
+     ],
+     "dpy": [
+      "licon"
+     ],
+     "dpyl": [
+      "li"
+     ]
+    }
+   },
+   {
+    "rule": "P-Diffusion overhang of pmos < 0.25um (poly.7)",
+    "box_um": [
+     2.03,
+     2.015,
+     2.035,
+     2.185
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "pd": [
+      "diff"
+     ],
+     "pim": [
+      "psdm"
+     ],
+     "dpy": [
+      "licon"
+     ],
+     "dpyl": [
+      "li"
+     ]
+    }
+   },
+   {
+    "rule": "P-Diffusion overhang of pmos < 0.25um (poly.7)",
+    "box_um": [
+     2.03,
+     1.845,
+     2.035,
+     2.015
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "pd": [
+      "diff"
+     ],
+     "pim": [
+      "psdm"
+     ],
+     "dpy": [
+      "licon"
+     ],
+     "dpyl": [
+      "li"
+     ],
+     "route:Y": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "P-Diffusion overhang of pmos < 0.25um (poly.7)",
+    "box_um": [
+     2.03,
+     1.675,
+     2.035,
+     1.845
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "pd": [
+      "diff"
+     ],
+     "pim": [
+      "psdm"
+     ],
+     "dpy": [
+      "licon"
+     ],
+     "dpyl": [
+      "li"
+     ],
+     "route:Y": [
+      "m1",
+      "mcon"
+     ]
+    }
+   },
+   {
+    "rule": "P-Diffusion overhang of pmos < 0.25um (poly.7)",
+    "box_um": [
+     2.03,
+     1.555,
+     2.035,
+     1.675
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "pd": [
+      "diff"
+     ],
+     "pim": [
+      "psdm"
+     ],
+     "dpy": [
+      "licon"
+     ],
+     "dpyl": [
+      "li"
+     ],
+     "route:Y": [
+      "m1",
+      "mcon"
+     ]
+    }
+   },
+   {
+    "rule": "P-diffusion overlap of P-diffusion contact < 0.04um (licon.5a)",
+    "box_um": [
+     1.99,
+     1.675,
+     2.01,
+     1.845
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "pd": [
+      "diff"
+     ],
+     "pim": [
+      "psdm"
+     ],
+     "dpy": [
+      "licon"
+     ],
+     "dpyl": [
+      "li"
+     ],
+     "route:Y": [
+      "m1",
+      "mcon"
+     ]
+    }
+   },
+   {
+    "rule": "P-diffusion overlap of P-diffusion contact < 0.04um (licon.5a)",
+    "box_um": [
+     1.99,
+     2.015,
+     2.01,
+     2.185
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "pd": [
+      "diff"
+     ],
+     "pim": [
+      "psdm"
+     ],
+     "dpy": [
+      "licon"
+     ],
+     "dpyl": [
+      "li"
+     ]
+    }
+   },
+   {
+    "rule": "N-Diffusion overhang of nFET < 0.25um (poly.7)",
+    "box_um": [
+     2.03,
+     0.745,
+     2.035,
+     0.905
+    ],
+    "objects": {
+     "nd": [
+      "diff"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "sn2": [
+      "licon"
+     ],
+     "sn2l": [
+      "li"
+     ],
+     "gnd2": [
+      "li"
+     ],
+     "route:Y": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "N-Diffusion overhang of nFET < 0.25um (poly.7)",
+    "box_um": [
+     2.03,
+     0.575,
+     2.035,
+     0.745
+    ],
+    "objects": {
+     "nd": [
+      "diff"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "sn2": [
+      "licon"
+     ],
+     "sn2l": [
+      "li"
+     ],
+     "gnd2": [
+      "li"
+     ],
+     "route:Y": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "N-Diffusion overhang of nFET < 0.25um (poly.7)",
+    "box_um": [
+     2.03,
+     0.415,
+     2.035,
+     0.575
+    ],
+    "objects": {
+     "nd": [
+      "diff"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "sn2": [
+      "licon"
+     ],
+     "sn2l": [
+      "li"
+     ],
+     "gnd2": [
+      "li"
+     ]
+    }
+   },
+   {
+    "rule": "N-diffusion overlap of N-diffusion contact < 0.04um (licon.5a)",
+    "box_um": [
+     1.99,
+     0.575,
+     2.01,
+     0.745
+    ],
+    "objects": {
+     "nd": [
+      "diff"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "sn2": [
+      "licon"
+     ],
+     "sn2l": [
+      "li"
+     ],
+     "gnd2": [
+      "li"
+     ],
+     "route:Y": [
+      "m1"
+     ]
+    }
+   }
+  ]
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": true,
+  "result": "Circuits match uniquely.",
+  "devices_layout_vs_ref": [
+   6,
+   6
+  ],
+  "nets_layout_vs_ref": [
+   8,
+   8
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073007-deep-L1-nemotron/a21oi/check6/a21oi.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073007-deep-L1-nemotron/a21oi/check6/a21oi.lvs.txt",
+  "dummies_ignored": 0
+ },
+ "routes": {
+  "nets": {
+   "n2": {
+    "length_um": 0.69,
+    "layers": [
+     "m1",
+     "m2"
+    ],
+    "cuts": 4,
+    "width_um": {
+     "m1": 0.14,
+     "m2": 0.14
+    },
+    "res_ohm": 9.62
+   },
+   "Y": {
+    "length_um": 1.73,
+    "layers": [
+     "m1"
+    ],
+    "cuts": 1,
+    "width_um": {
+     "m1": 0.14
+    },
+    "res_ohm": 1.54
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [
+  {
+   "rule": "via.space",
+   "msg": "via spacing < 0.170 um",
+   "objects": [
+    "nwell (line 65)",
+    "pd (line 17)",
+    "pim (line 19)",
+    "dpwr (line 32)",
+    "dpwrl (line 41)",
+    "pwr (line 47)"
+   ],
+   "box_um": [
+    0.88,
+    1.65,
+    0.96,
+    1.8
+   ]
+  },
+  {
+   "rule": "licon.5a",
+   "msg": "diff enclosure of licon < 0.040 um",
+   "objects": [
+    "nwell (line 65)",
+    "pd (line 17)",
+    "pim (line 19)",
+    "dpy (line 34)",
+    "dpyl (line 43)",
+    "route:Y"
+   ],
+   "box_um": [
+    2.01,
+    1.64,
+    2.03,
+    1.88
+   ]
+  },
+  {
+   "rule": "licon.5a",
+   "msg": "diff enclosure of licon < 0.040 um",
+   "objects": [
+    "nd (line 16)",
+    "nim (line 18)",
+    "sn2 (line 29)",
+    "sn2l (line 39)",
+    "gnd2 (line 46)",
+    "route:Y"
+   ],
+   "box_um": [
+    2.01,
+    0.54,
+    2.03,
+    0.78
+   ]
+  },
+  {
+   "rule": "licon.5a",
+   "msg": "diff enclosure of licon < 0.040 um",
+   "objects": [
+    "nwell (line 65)",
+    "pd (line 17)",
+    "pim (line 19)",
+    "dpy (line 34)",
+    "dpyl (line 43)",
+    "boundary"
+   ],
+   "box_um": [
+    2.01,
+    1.98,
+    2.03,
+    2.22
+   ]
+  },
+  {
+   "rule": "poly.7",
+   "msg": "diffusion extends less than 0.250 um past the gate",
+   "objects": [
+    "nd (line 16)",
+    "nim (line 18)",
+    "gb1 (line 23)",
+    "sn2 (line 29)",
+    "sn2l (line 39)",
+    "gnd2 (line 46)"
+   ],
+   "box_um": [
+    1.785,
+    0.415,
+    2.035,
+    0.905
+   ]
+  },
+  {
+   "rule": "poly.7",
+   "msg": "diffusion extends less than 0.250 um past the gate",
+   "objects": [
+    "nwell (line 65)",
+    "pd (line 17)",
+    "pim (line 19)",
+    "gb1 (line 23)",
+    "dpy (line 34)",
+    "dpyl (line 43)"
+   ],
+   "box_um": [
+    1.785,
+    1.555,
+    2.035,
+    2.305
+   ]
+  }
+ ],
+ "constraint_violations": [],
+ "objects": {
+  "vgnd": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    -0.24,
+    2.3,
+    0.24
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vpwr": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    2.48,
+    2.3,
+    2.96
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ptap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    -0.145,
+    2.12,
+    0.145
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    -0.085,
+    1.695,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    -0.085,
+    2.155,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vgnd_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    -0.085,
+    2.3,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_imp": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.0,
+    -0.27,
+    2.3,
+    0.27
+   ],
+   "net": null,
+   "line": 0
+  },
+  "ntap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    2.575,
+    2.12,
+    2.865
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    2.635,
+    1.695,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    2.635,
+    2.155,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "vpwr_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    2.635,
+    2.3,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_imp": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.0,
+    2.45,
+    2.3,
+    2.99
+   ],
+   "net": null,
+   "line": 0
+  },
+  "nwell": {
+   "layer": "nwell",
+   "bbox_um": [
+    0.0,
+    1.31,
+    2.3,
+    3.045
+   ],
+   "net": null,
+   "line": 65
+  },
+  "nd": {
+   "layer": "diff",
+   "bbox_um": [
+    0.27,
+    0.415,
+    2.03,
+    0.905
+   ],
+   "net": null,
+   "line": 16
+  },
+  "pd": {
+   "layer": "diff",
+   "bbox_um": [
+    0.27,
+    1.555,
+    2.03,
+    2.305
+   ],
+   "net": null,
+   "line": 17
+  },
+  "nim": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.145,
+    0.29,
+    2.155,
+    1.03
+   ],
+   "net": null,
+   "line": 18
+  },
+  "pim": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.145,
+    1.43,
+    2.155,
+    2.43
+   ],
+   "net": null,
+   "line": 19
+  },
+  "ga2": {
+   "layer": "poly",
+   "bbox_um": [
+    0.535,
+    0.285,
+    0.685,
+    2.435
+   ],
+   "net": null,
+   "line": 21
+  },
+  "ga1": {
+   "layer": "poly",
+   "bbox_um": [
+    1.085,
+    0.285,
+    1.235,
+    2.435
+   ],
+   "net": null,
+   "line": 22
+  },
+  "gb1": {
+   "layer": "poly",
+   "bbox_um": [
+    1.635,
+    0.285,
+    1.785,
+    2.435
+   ],
+   "net": null,
+   "line": 23
+  },
+  "sn": {
+   "layer": "licon",
+   "bbox_um": [
+    0.31,
+    0.575,
+    0.48,
+    0.745
+   ],
+   "net": null,
+   "line": 26
+  },
+  "dn1": {
+   "layer": "licon",
+   "bbox_um": [
+    0.8,
+    0.575,
+    0.97,
+    0.745
+   ],
+   "net": "n1",
+   "line": 27
+  },
+  "dny": {
+   "layer": "licon",
+   "bbox_um": [
+    1.35,
+    0.575,
+    1.52,
+    0.745
+   ],
+   "net": "Y",
+   "line": 28
+  },
+  "sn2": {
+   "layer": "licon",
+   "bbox_um": [
+    1.84,
+    0.575,
+    2.01,
+    0.745
+   ],
+   "net": null,
+   "line": 29
+  },
+  "sp": {
+   "layer": "licon",
+   "bbox_um": [
+    0.31,
+    1.675,
+    0.48,
+    2.185
+   ],
+   "net": "n2",
+   "line": 31
+  },
+  "dpwr": {
+   "layer": "licon",
+   "bbox_um": [
+    0.8,
+    1.675,
+    0.97,
+    2.185
+   ],
+   "net": "VPWR",
+   "line": 32
+  },
+  "dn2": {
+   "layer": "licon",
+   "bbox_um": [
+    1.35,
+    1.675,
+    1.52,
+    2.185
+   ],
+   "net": "n2",
+   "line": 33
+  },
+  "dpy": {
+   "layer": "licon",
+   "bbox_um": [
+    1.84,
+    1.675,
+    2.01,
+    2.185
+   ],
+   "net": "Y",
+   "line": 34
+  },
+  "snl": {
+   "layer": "li",
+   "bbox_um": [
+    0.31,
+    0.495,
+    0.48,
+    0.825
+   ],
+   "net": null,
+   "line": 36
+  },
+  "dn1l": {
+   "layer": "li",
+   "bbox_um": [
+    0.8,
+    0.495,
+    0.97,
+    0.825
+   ],
+   "net": "n1",
+   "line": 37
+  },
+  "dnyl": {
+   "layer": "li",
+   "bbox_um": [
+    1.35,
+    0.495,
+    1.52,
+    0.825
+   ],
+   "net": "Y",
+   "line": 38
+  },
+  "sn2l": {
+   "layer": "li",
+   "bbox_um": [
+    1.84,
+    0.495,
+    2.01,
+    0.825
+   ],
+   "net": null,
+   "line": 39
+  },
+  "spl": {
+   "layer": "li",
+   "bbox_um": [
+    0.31,
+    1.595,
+    0.48,
+    2.265
+   ],
+   "net": "n2",
+   "line": 40
+  },
+  "dpwrl": {
+   "layer": "li",
+   "bbox_um": [
+    0.8,
+    1.595,
+    0.97,
+    2.265
+   ],
+   "net": "VPWR",
+   "line": 41
+  },
+  "dn2l": {
+   "layer": "li",
+   "bbox_um": [
+    1.35,
+    1.595,
+    1.52,
+    2.265
+   ],
+   "net": "n2",
+   "line": 42
+  },
+  "dpyl": {
+   "layer": "li",
+   "bbox_um": [
+    1.84,
+    1.595,
+    2.01,
+    2.265
+   ],
+   "net": "Y",
+   "line": 43
+  },
+  "gnd": {
+   "layer": "li",
+   "bbox_um": [
+    0.31,
+    -0.085,
+    0.48,
+    0.825
+   ],
+   "net": null,
+   "line": 45
+  },
+  "gnd2": {
+   "layer": "li",
+   "bbox_um": [
+    1.84,
+    -0.085,
+    2.01,
+    0.825
+   ],
+   "net": null,
+   "line": 46
+  },
+  "pwr": {
+   "layer": "li",
+   "bbox_um": [
+    0.8,
+    1.595,
+    0.97,
+    2.805
+   ],
+   "net": null,
+   "line": 47
+  },
+  "gca": {
+   "layer": "licon",
+   "bbox_um": [
+    0.425,
+    1.095,
+    0.595,
+    1.265
+   ],
+   "net": null,
+   "line": 54
+  },
+  "gcb": {
+   "layer": "licon",
+   "bbox_um": [
+    1.175,
+    1.095,
+    1.345,
+    1.265
+   ],
+   "net": null,
+   "line": 55
+  },
+  "gcc": {
+   "layer": "licon",
+   "bbox_um": [
+    1.725,
+    1.095,
+    1.895,
+    1.265
+   ],
+   "net": null,
+   "line": 56
+  },
+  "gpa": {
+   "layer": "poly",
+   "bbox_um": [
+    0.345,
+    1.045,
+    0.675,
+    1.315
+   ],
+   "net": null,
+   "line": 57
+  },
+  "gpb": {
+   "layer": "poly",
+   "bbox_um": [
+    1.095,
+    1.045,
+    1.425,
+    1.315
+   ],
+   "net": null,
+   "line": 58
+  },
+  "gpc": {
+   "layer": "poly",
+   "bbox_um": [
+    1.645,
+    1.045,
+    1.975,
+    1.315
+   ],
+   "net": null,
+   "line": 59
+  },
+  "gna": {
+   "layer": "npc",
+   "bbox_um": [
+    0.325,
+    0.995,
+    1.995,
+    1.365
+   ],
+   "net": null,
+   "line": 60
+  },
+  "aa": {
+   "layer": "li",
+   "bbox_um": [
+    0.425,
+    1.015,
+    0.595,
+    1.345
+   ],
+   "net": "A2",
+   "line": 61
+  },
+  "ab": {
+   "layer": "li",
+   "bbox_um": [
+    1.175,
+    1.015,
+    1.345,
+    1.345
+   ],
+   "net": "A1",
+   "line": 62
+  },
+  "ac": {
+   "layer": "li",
+   "bbox_um": [
+    1.725,
+    1.015,
+    1.895,
+    1.345
+   ],
+   "net": "B1",
+   "line": 63
+  },
+  "a2m": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.425,
+    1.095,
+    0.595,
+    1.265
+   ],
+   "net": null,
+   "line": 67
+  },
+  "a2p": {
+   "layer": "m1",
+   "bbox_um": [
+    0.365,
+    1.035,
+    0.655,
+    1.325
+   ],
+   "net": "A2",
+   "line": 68
+  },
+  "a1m": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.175,
+    1.095,
+    1.345,
+    1.265
+   ],
+   "net": null,
+   "line": 69
+  },
+  "a1p": {
+   "layer": "m1",
+   "bbox_um": [
+    1.115,
+    1.035,
+    1.405,
+    1.325
+   ],
+   "net": "A1",
+   "line": 70
+  },
+  "b1m": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.725,
+    1.095,
+    1.895,
+    1.265
+   ],
+   "net": null,
+   "line": 71
+  },
+  "b1p": {
+   "layer": "m1",
+   "bbox_um": [
+    1.665,
+    1.035,
+    1.955,
+    1.325
+   ],
+   "net": "B1",
+   "line": 72
+  },
+  "ym": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.35,
+    0.575,
+    1.52,
+    0.745
+   ],
+   "net": null,
+   "line": 73
+  },
+  "yp": {
+   "layer": "m1",
+   "bbox_um": [
+    1.29,
+    0.515,
+    1.58,
+    0.805
+   ],
+   "net": "Y",
+   "line": 74
+  }
+ },
+ "connectivity": [],
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-073007-deep-L1-nemotron/a21oi/check6/a21oi.png",
+ "route_failed": [],
+ "status": "VIOLATIONS",
+ "seconds": 1.9
+}

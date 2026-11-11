@@ -1,0 +1,37 @@
+{
+ "task": "shreg16",
+ "pdk": "freepdk45",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/shreg16.freepdk45/a4/shreg16.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/shreg16.freepdk45/a4/shreg16.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "2932 violation(s): 864 x Metal1 spacing < 65nm (METAL1.2); 728 x Contact width < 65nm (CONTACT.1); 704 x Diffusion overlap of diffusion contact < 5nm in one direction (CONTACT.4); 352 x Contact spacing < 75nm (CONTACT.2); 144 x N-well spacing < 135nm (WELL.3); 140 x Poly gate spacing < 140nm (POLY.2)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 1894 violation(s): 960 x GRID: vertexes on layer metal1 not on grid of 0.0025; 358 x METAL1.2: METAL1.2 : Minimum spacing of metal1 : 65nm; 317 x WELL.4: WELL.4 : Minimum width of nwell/pwell : 200nm; 88 x CONTACT.5: CONTACT.5 : Minimum enclosure of poly around contact : 5nm; 65 x IMPLANT.5: IMPLANT.5 : Nimplant and pimplant must not overlap; 44 x POLY.4: POLY.4 : Minimum enclosure of active around gate : 70nm"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Top level cell failed pin matching.  (devices layout/ref 442/352; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/shreg16.freepdk45/a4/judge/shreg16.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "top-level pin names differ from the task netlist"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "19.40 x 10.86 = 210.7 um2, budget 261, reference 130.23"
+  }
+ ],
+ "area_um2": 210.68,
+ "area_vs_reference": 1.618,
+ "solved": false,
+ "detail": "DRC (magic drc(full)): 2932 violation(s), boxes in um\n   864 x Metal1 spacing < 65nm (METAL1.2)   e.g. at (0.564 8.586 0.580 8.612)  (0.656 8.586 0.672 8.612)  (0.851 8.586 0.884 8.612)\n   728 x Contact width < 65nm (CONTACT.1)   e.g. at (0.410 8.614 0.432 8.666)  (0.500 8.614 0.522 8.666)  (0.714 8.614 0.736 8.666)\n   704 x Diffusion overlap of diffusion contact < 5nm in one direction (CONTACT.4)   e.g. at (0.420 8.666 0.460 8.670)  (0.420 8.610 0.460 8.614)  (0.724 8.666 0.764 8.670)\n   352 x Contact spacing < 75nm (CONTACT.2)   e.g. at (0.410 8.614 0.470 8.666)  (0.714 8.614 0.774 8.666)  (1.018 8.614 1.078 8.666)\n   144 x N-well spacing < 135nm (WELL.3)   e.g. at (0.624 8.524 0.668 8.756)  (0.928 8.524 0.972 8.756)  (1.232 8.524 1.276 8.756)\n   140 x Poly gate spacing < 140nm (POLY.2)   e.g. at (0.420 7.728 0.460 7.748)  (0.724 7.728 0.764 7.748)  (1.028 7.728 1.068 7.748)\nDRC2 (foundry KLayout deck): 1894 violation(s), boxes in um\n   960 x GRID: vertexes on layer metal1 not on grid of 0.0025   e.g. at (16.624 10.723 16.644 10.742)  (16.624 10.240 16.644 10.260)  (16.624 10.040 16.644 10.060)\n   358 x METAL1.2: METAL1.2 : Minimum spacing of metal1 : 65nm   e.g. at (10.740 8.150 10.764 8.165)  (10.562 8.268 10.697 8.315)  (15.210 9.785 15.255 9.815)\n   317 x WELL.4: WELL.4 : Minimum width of nwell/pwell : 200nm   e.g. at (1.080 5.566 1.160 5.928)  (1.720 5.745 2.040 5.750)  (0.960 5.745 1.280 5.750)\n    88 x CONTACT.5: CONTACT.5 : Minimum enclosure of poly around contact : 5nm   e.g. at (2.027 1.667 2.050 1.667)  (2.027 1.732 2.050 1.732)  (2.090 1.732 2.112 1.732)\n    65 x IMPLANT.5: IMPLANT.5 : Nimplant and pimplant must not overlap   e.g. at (14.935 5.735 15.265 5.760)  (14.935 3.135 15.265 3.160)  (16.075 3.135 16.405 3.160)\n    44 x POLY.4: POLY.4 : Minimum enclosure of active around gate : 70nm   e.g. at (0.455 0.605 0.525 0.695)  (0.575 0.605 0.645 0.695)  (0.835 0.605 0.905 0.695)\n    44 x CONTACT.1: CONTACT.1 : Minimum/Maximum width of contact : 65nm   e.g. at (0.475 0.618 0.625 0.618)  (0.855 0.618 1.005 0.618)  (1.235 0.618 1.385 0.618)\n    18 x WELL.3: WELL.3 : Minimum spacing of pwell at same potential : 135nm   e.g. at (0.700 1.805 0.780 2.095)  (1.080 1.805 1.160 2.095)  (1.840 1.805 1.920 2.095)\nLVS: Top level cell failed pin matching.   devices layout/ref 442/352, nets layout/ref 465/212\n  pmos (22->21)                              |pmos (11) **Mismatch**\n  nmos (22->11)                              |nmos (11)\n  Number of devices: 32 **Mismatch**         |Number of devices: 22 **Mismatch**\n  Number of nets: 40 **Mismatch**            |Number of nets: 17 **Mismatch**\n  ---------------------------------------------------------------------------------------\n  NET mismatches: Class fragments follow (with fanout counts):\n  Circuit 1: dff                             |Circuit 2: dff\n  ---------------------------------------------------------------------------------------\n  Net: a_2570_3965#                          |Net: D\n    pmos/gate = 1                            |  nmos/gate = 1\n                                             |  pmos/gate = 1\n                                             |\n  Net: a_4090_3965#                          |Net: n1\n    pmos/gate = 1                            |  nmos/(drain|source) = 2\n                                             |\n  Net: a_1050_6065#                          |Net: n2\n    pmos/gate = 1                            |  nmos/(drain|source) = 2\n                                             |\n  Net: a_3330_3965#                          |Net: n3\n    pmos/gate = 1                            |  nmos/(drain|source) = 2\n                                             |\n  Net: a_1050_5680#                          |Net: n4\n    pmos/gate = 1                            |  nmos/(drain|source) = 2\n                                             |\n  Net: a_2570_6065#                          |Net: p1\n    pmos/gate = 1                            |  pmos/(drain|source) = 2\n                                             |\n  Net: a_4850_3965#                          |Net: p2\n    pmos/gate = 1                            |  pmos/(drain|source) = 2\n                                             |\n  Net: a_2570_5680#                          |Net: p3\n    pmos/gate = 1                            |  pmos/(drain|source) = 2\n                                             |\n  Net: a_1810_6065#                          |Net: p4\n    pmos/gate = 1                            |  pmos/(drain|source) = 2\n                                             |\n  Net: a_1050_3965#                          |Net: VSS\n    pmos/gate = 1                            |  nmos/(drain|source) = 7\n                                             |  nmos/bulk = 11\n                                             |"
+}

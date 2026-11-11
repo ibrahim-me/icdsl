@@ -1,0 +1,1160 @@
+{
+ "cell": "nor3",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-081644-deep-L1-nemotron-nudge-retr2/nor3/check1/nor3.gds",
+ "reference_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-081644-deep-L1-nemotron-nudge-retr2/nor3/check1/nor3.reference.spice",
+ "size_um": [
+  2.76,
+  2.72
+ ],
+ "warnings": [
+  "nor3: port Y: no legal met1/met2 access point for a parent router (0.23 um grid); put the pin on met1 (contact mcon in=<li> + enclose ... m1 by=0.06) or keep met1 clear above it",
+  "nor3: fast pre-check found 1 rule issue(s): li.space at [2.005, 0.851, 2.05, 1.509] near nwell (line 51), g3 (line 21), nd1 (line 22)"
+ ],
+ "drc": {
+  "tool": "magic drc(full) sky130A",
+  "violations": 10,
+  "by_rule": [
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "count": 8,
+    "examples": [
+     {
+      "box_um": [
+       2.05,
+       1.345,
+       2.175,
+       1.515
+      ],
+      "objects": {
+       "nwell": [
+        "nwell"
+       ],
+       "pim": [
+        "psdm"
+       ],
+       "ys": [
+        "li"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "cp": [
+        "m1"
+       ],
+       "route:Y": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.05,
+       0.845,
+       2.175,
+       1.015
+      ],
+      "objects": {
+       "nd1": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "c2l": [
+        "li"
+       ],
+       "ys": [
+        "li"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "cp": [
+        "m1"
+       ],
+       "route:Y": [
+        "m1",
+        "mcon"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.05,
+       0.845,
+       2.175,
+       1.095
+      ],
+      "objects": {
+       "nd1": [
+        "diff"
+       ],
+       "nim": [
+        "nsdm"
+       ],
+       "c2l": [
+        "li"
+       ],
+       "ys": [
+        "li"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "cp": [
+        "m1"
+       ],
+       "route:Y": [
+        "m1",
+        "mcon"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       2.05,
+       1.095,
+       2.175,
+       1.265
+      ],
+      "objects": {
+       "ys": [
+        "li"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "cp": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   },
+   {
+    "rule": "Core local interconnect spacing < 0.14um (li.c2)",
+    "count": 2,
+    "examples": [
+     {
+      "box_um": [
+       2.05,
+       1.095,
+       2.145,
+       1.265
+      ],
+      "objects": {
+       "ys": [
+        "li"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "cp": [
+        "m1"
+       ]
+      }
+     },
+     {
+      "box_um": [
+       1.91,
+       1.095,
+       2.005,
+       1.265
+      ],
+      "objects": {
+       "g3": [
+        "poly"
+       ],
+       "gc3": [
+        "licon"
+       ],
+       "gp3": [
+        "poly"
+       ],
+       "gl3": [
+        "li"
+       ],
+       "gn": [
+        "npc"
+       ],
+       "cm": [
+        "mcon"
+       ],
+       "cp": [
+        "m1"
+       ]
+      }
+     }
+    ]
+   }
+  ],
+  "all": [
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     2.05,
+     1.345,
+     2.175,
+     1.515
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "pim": [
+      "psdm"
+     ],
+     "ys": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "cp": [
+      "m1"
+     ],
+     "route:Y": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     2.05,
+     0.845,
+     2.175,
+     1.015
+    ],
+    "objects": {
+     "nd1": [
+      "diff"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "c2l": [
+      "li"
+     ],
+     "ys": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "cp": [
+      "m1"
+     ],
+     "route:Y": [
+      "m1",
+      "mcon"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     2.05,
+     0.845,
+     2.175,
+     1.095
+    ],
+    "objects": {
+     "nd1": [
+      "diff"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "c2l": [
+      "li"
+     ],
+     "ys": [
+      "li"
+     ],
+     "gp3": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "cp": [
+      "m1"
+     ],
+     "route:Y": [
+      "m1",
+      "mcon"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     2.05,
+     1.095,
+     2.175,
+     1.265
+    ],
+    "objects": {
+     "ys": [
+      "li"
+     ],
+     "gp3": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "cp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     2.05,
+     1.265,
+     2.175,
+     1.515
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "pim": [
+      "psdm"
+     ],
+     "ys": [
+      "li"
+     ],
+     "gp3": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "cp": [
+      "m1"
+     ],
+     "route:Y": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     1.88,
+     1.265,
+     2.005,
+     1.345
+    ],
+    "objects": {
+     "nwell": [
+      "nwell"
+     ],
+     "g3": [
+      "poly"
+     ],
+     "gc3": [
+      "licon"
+     ],
+     "gp3": [
+      "poly"
+     ],
+     "gl3": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "cm": [
+      "mcon"
+     ],
+     "cp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     1.88,
+     1.095,
+     2.005,
+     1.265
+    ],
+    "objects": {
+     "g3": [
+      "poly"
+     ],
+     "gc3": [
+      "licon"
+     ],
+     "gp3": [
+      "poly"
+     ],
+     "gl3": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "cm": [
+      "mcon"
+     ],
+     "cp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Local interconnect spacing < 0.17um (li.3)",
+    "box_um": [
+     1.88,
+     1.015,
+     2.005,
+     1.095
+    ],
+    "objects": {
+     "g3": [
+      "poly"
+     ],
+     "nim": [
+      "nsdm"
+     ],
+     "gc3": [
+      "licon"
+     ],
+     "gp3": [
+      "poly"
+     ],
+     "gl3": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "cm": [
+      "mcon"
+     ],
+     "cp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Core local interconnect spacing < 0.14um (li.c2)",
+    "box_um": [
+     2.05,
+     1.095,
+     2.145,
+     1.265
+    ],
+    "objects": {
+     "ys": [
+      "li"
+     ],
+     "gp3": [
+      "poly"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "cp": [
+      "m1"
+     ]
+    }
+   },
+   {
+    "rule": "Core local interconnect spacing < 0.14um (li.c2)",
+    "box_um": [
+     1.91,
+     1.095,
+     2.005,
+     1.265
+    ],
+    "objects": {
+     "g3": [
+      "poly"
+     ],
+     "gc3": [
+      "licon"
+     ],
+     "gp3": [
+      "poly"
+     ],
+     "gl3": [
+      "li"
+     ],
+     "gn": [
+      "npc"
+     ],
+     "cm": [
+      "mcon"
+     ],
+     "cp": [
+      "m1"
+     ]
+    }
+   }
+  ]
+ },
+ "lvs": {
+  "tool": "netgen sky130A_setup",
+  "match": false,
+  "result": "Top level cell failed pin matching.",
+  "devices_layout_vs_ref": [
+   6,
+   6
+  ],
+  "nets_layout_vs_ref": [
+   10,
+   8
+  ],
+  "details": [
+   "Number of nets: 10 **Mismatch**            |Number of nets: 8 **Mismatch**             ",
+   "---------------------------------------------------------------------------------------",
+   "NET mismatches: Class fragments follow (with fanout counts):",
+   "Circuit 1: nor3                            |Circuit 2: nor3                            ",
+   "---------------------------------------------------------------------------------------",
+   "Net: Y                                     |Net: n1                                    ",
+   "  sky130_fd_pr__nfet_01v8/(1|3) = 1        |  sky130_fd_pr__pfet_01v8/(1|3) = 2        ",
+   "  sky130_fd_pr__pfet_01v8/(1|3) = 1        |                                           ",
+   "                                           |                                           ",
+   "Net: a_291_83#                             |Net: n2                                    ",
+   "  sky130_fd_pr__nfet_01v8/(1|3) = 2        |  sky130_fd_pr__pfet_01v8/(1|3) = 2        ",
+   "                                           |                                           ",
+   "Net: A                                     |Net: A                                     ",
+   "  sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/2 = 1            ",
+   "  sky130_fd_pr__pfet_01v8/2 = 1            |  sky130_fd_pr__pfet_01v8/2 = 1            ",
+   "                                           |                                           ",
+   "Net: C                                     |Net: C                                     ",
+   "  sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/2 = 1            ",
+   "  sky130_fd_pr__pfet_01v8/2 = 1            |  sky130_fd_pr__pfet_01v8/2 = 1            ",
+   "                                           |                                           ",
+   "Net: B                                     |Net: B                                     ",
+   "  sky130_fd_pr__nfet_01v8/2 = 1            |  sky130_fd_pr__nfet_01v8/2 = 1            ",
+   "  sky130_fd_pr__pfet_01v8/2 = 1            |  sky130_fd_pr__pfet_01v8/2 = 1            ",
+   "                                           |                                           ",
+   "Net: a_183_83#                             |Net: VGND                                  ",
+   "  sky130_fd_pr__nfet_01v8/(1|3) = 2        |  sky130_fd_pr__nfet_01v8/(1|3) = 3        ",
+   "                                           |  sky130_fd_pr__nfet_01v8/4 = 3            ",
+   "                                           |                                           ",
+   "Net: a_183_311#                            |(no matching net)                          ",
+   "  sky130_fd_pr__pfet_01v8/(1|3) = 2        |                                           ",
+   "                                           |                                           ",
+   "Net: a_291_311#                            |(no matching net)                          ",
+   "  sky130_fd_pr__pfet_01v8/(1|3) = 2        |                                           ",
+   "---------------------------------------------------------------------------------------",
+   "---------------------------------------------------------------------------------------",
+   "Net: VPWR                                  |Net: VPWR                                  ",
+   "  sky130_fd_pr__pfet_01v8/(1|3) = 1        |  sky130_fd_pr__pfet_01v8/(1|3) = 1        ",
+   "  sky130_fd_pr__pfet_01v8/4 = 3            |  sky130_fd_pr__pfet_01v8/4 = 3            ",
+   "                                           |                                           ",
+   "Net: VGND                                  |Net: Y                                     ",
+   "  sky130_fd_pr__nfet_01v8/4 = 3            |  sky130_fd_pr__nfet_01v8/(1|3) = 3        ",
+   "  sky130_fd_pr__nfet_01v8/(1|3) = 1        |  sky130_fd_pr__pfet_01v8/(1|3) = 1        ",
+   "---------------------------------------------------------------------------------------",
+   "DEVICE mismatches: Class fragments follow (with node fanout counts):",
+   "Circuit 1: nor3                            |Circuit 2: nor3                            ",
+   "---------------------------------------------------------------------------------------",
+   "Instance: sky130_fd_pr__pfet_01v8:5        |Instance: sky130_fd_pr__pfet_01v8:M5       ",
+   "  (1,3) = (2,2)                            |  (1,3) = (2,2)                            ",
+   "  2 = 2                                    |  2 = 2                                    ",
+   "  4 = 4                                    |  4 = 4                                    ",
+   "                                           |                                           ",
+   "Instance: sky130_fd_pr__pfet_01v8:4        |Instance: sky130_fd_pr__pfet_01v8:M4       ",
+   "  (1,3) = (2,2)                            |  (1,3) = (4,2)                            ",
+   "  2 = 2                                    |  2 = 2                                    ",
+   "  4 = 4                                    |  4 = 4                                    ",
+   "                                           |                                           ",
+   "Instance: sky130_fd_pr__pfet_01v8:3        |Instance: sky130_fd_pr__pfet_01v8:M2       ",
+   "  (1,3) = (4,2)                            |  (1,3) = (4,2)                            ",
+   "  2 = 2                                    |  2 = 2                                    ",
+   "  4 = 4                                    |  4 = 4                                    ",
+   "---------------------------------------------------------------------------------------"
+  ],
+  "pins_equivalent": true,
+  "extracted_spice": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-081644-deep-L1-nemotron-nudge-retr2/nor3/check1/nor3.extracted.spice",
+  "report": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-081644-deep-L1-nemotron-nudge-retr2/nor3/check1/nor3.lvs.txt",
+  "dummies_ignored": 0
+ },
+ "routes": {
+  "nets": {
+   "Y": {
+    "length_um": 0.57,
+    "layers": [
+     "m1"
+    ],
+    "cuts": 2,
+    "width_um": {
+     "m1": 0.14
+    },
+    "res_ohm": 0.51
+   }
+  },
+  "coupling": [],
+  "notes": []
+ },
+ "precheck": [
+  {
+   "rule": "li.space",
+   "msg": "li spacing < 0.170 um",
+   "objects": [
+    "nwell (line 51)",
+    "g3 (line 21)",
+    "nd1 (line 22)",
+    "nim (line 24)",
+    "pim (line 25)",
+    "ys (line 39)"
+   ],
+   "box_um": [
+    2.005,
+    0.851,
+    2.05,
+    1.509
+   ]
+  }
+ ],
+ "constraint_violations": [],
+ "objects": {
+  "vgnd": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    -0.24,
+    2.76,
+    0.24
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vpwr": {
+   "layer": "m1",
+   "bbox_um": [
+    0.0,
+    2.48,
+    2.76,
+    2.96
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ptap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    -0.145,
+    2.58,
+    0.145
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    -0.085,
+    2.155,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    -0.085,
+    2.615,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "vgnd_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    -0.085,
+    2.76,
+    0.085
+   ],
+   "net": "VGND",
+   "line": 0
+  },
+  "ptap_imp": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.0,
+    -0.27,
+    2.76,
+    0.27
+   ],
+   "net": null,
+   "line": 0
+  },
+  "ntap": {
+   "layer": "tap",
+   "bbox_um": [
+    0.18,
+    2.575,
+    2.58,
+    2.865
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_licon": {
+   "layer": "licon",
+   "bbox_um": [
+    0.605,
+    2.635,
+    2.155,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_mcon": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.145,
+    2.635,
+    2.615,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "vpwr_li": {
+   "layer": "li",
+   "bbox_um": [
+    0.0,
+    2.635,
+    2.76,
+    2.805
+   ],
+   "net": "VPWR",
+   "line": 0
+  },
+  "ntap_imp": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.0,
+    2.45,
+    2.76,
+    2.99
+   ],
+   "net": null,
+   "line": 0
+  },
+  "nwell": {
+   "layer": "nwell",
+   "bbox_um": [
+    0.0,
+    1.31,
+    2.76,
+    3.045
+   ],
+   "net": null,
+   "line": 51
+  },
+  "g1": {
+   "layer": "poly",
+   "bbox_um": [
+    0.765,
+    0.285,
+    0.915,
+    2.435
+   ],
+   "net": null,
+   "line": 19
+  },
+  "g2": {
+   "layer": "poly",
+   "bbox_um": [
+    1.305,
+    0.285,
+    1.455,
+    2.435
+   ],
+   "net": null,
+   "line": 20
+  },
+  "g3": {
+   "layer": "poly",
+   "bbox_um": [
+    1.845,
+    0.285,
+    1.995,
+    2.435
+   ],
+   "net": null,
+   "line": 21
+  },
+  "nd1": {
+   "layer": "diff",
+   "bbox_um": [
+    0.5,
+    0.415,
+    2.26,
+    0.905
+   ],
+   "net": null,
+   "line": 22
+  },
+  "pd1": {
+   "layer": "diff",
+   "bbox_um": [
+    0.5,
+    1.555,
+    2.26,
+    2.305
+   ],
+   "net": null,
+   "line": 23
+  },
+  "nim": {
+   "layer": "nsdm",
+   "bbox_um": [
+    0.375,
+    0.29,
+    2.385,
+    1.03
+   ],
+   "net": null,
+   "line": 24
+  },
+  "pim": {
+   "layer": "psdm",
+   "bbox_um": [
+    0.375,
+    1.43,
+    2.385,
+    2.43
+   ],
+   "net": null,
+   "line": 25
+  },
+  "c1": {
+   "layer": "licon",
+   "bbox_um": [
+    0.54,
+    0.575,
+    0.71,
+    0.745
+   ],
+   "net": null,
+   "line": 27
+  },
+  "c1l": {
+   "layer": "li",
+   "bbox_um": [
+    0.54,
+    0.495,
+    0.71,
+    0.825
+   ],
+   "net": "VGND",
+   "line": 28
+  },
+  "c1s": {
+   "layer": "li",
+   "bbox_um": [
+    0.54,
+    -0.085,
+    0.71,
+    0.825
+   ],
+   "net": null,
+   "line": 29
+  },
+  "c2": {
+   "layer": "licon",
+   "bbox_um": [
+    2.05,
+    0.575,
+    2.22,
+    0.745
+   ],
+   "net": null,
+   "line": 30
+  },
+  "c2l": {
+   "layer": "li",
+   "bbox_um": [
+    2.05,
+    0.495,
+    2.22,
+    0.825
+   ],
+   "net": "Y",
+   "line": 31
+  },
+  "c3": {
+   "layer": "licon",
+   "bbox_um": [
+    0.54,
+    1.675,
+    0.71,
+    2.185
+   ],
+   "net": null,
+   "line": 33
+  },
+  "c3l": {
+   "layer": "li",
+   "bbox_um": [
+    0.54,
+    1.595,
+    0.71,
+    2.265
+   ],
+   "net": "VPWR",
+   "line": 34
+  },
+  "c3s": {
+   "layer": "li",
+   "bbox_um": [
+    0.54,
+    1.595,
+    0.71,
+    2.805
+   ],
+   "net": null,
+   "line": 35
+  },
+  "c4": {
+   "layer": "licon",
+   "bbox_um": [
+    2.05,
+    1.675,
+    2.22,
+    2.185
+   ],
+   "net": null,
+   "line": 36
+  },
+  "c4l": {
+   "layer": "li",
+   "bbox_um": [
+    2.05,
+    1.595,
+    2.22,
+    2.265
+   ],
+   "net": "Y",
+   "line": 37
+  },
+  "ys": {
+   "layer": "li",
+   "bbox_um": [
+    2.05,
+    0.495,
+    2.22,
+    2.265
+   ],
+   "net": null,
+   "line": 39
+  },
+  "gc1": {
+   "layer": "licon",
+   "bbox_um": [
+    0.755,
+    1.095,
+    0.925,
+    1.265
+   ],
+   "net": null,
+   "line": 41
+  },
+  "gp1": {
+   "layer": "poly",
+   "bbox_um": [
+    0.675,
+    1.045,
+    1.005,
+    1.315
+   ],
+   "net": null,
+   "line": 42
+  },
+  "gl1": {
+   "layer": "li",
+   "bbox_um": [
+    0.755,
+    1.015,
+    0.925,
+    1.345
+   ],
+   "net": "A",
+   "line": 43
+  },
+  "gc2": {
+   "layer": "licon",
+   "bbox_um": [
+    1.295,
+    1.095,
+    1.465,
+    1.265
+   ],
+   "net": null,
+   "line": 44
+  },
+  "gp2": {
+   "layer": "poly",
+   "bbox_um": [
+    1.215,
+    1.045,
+    1.545,
+    1.315
+   ],
+   "net": null,
+   "line": 45
+  },
+  "gl2": {
+   "layer": "li",
+   "bbox_um": [
+    1.295,
+    1.015,
+    1.465,
+    1.345
+   ],
+   "net": "B",
+   "line": 46
+  },
+  "gc3": {
+   "layer": "licon",
+   "bbox_um": [
+    1.835,
+    1.095,
+    2.005,
+    1.265
+   ],
+   "net": null,
+   "line": 47
+  },
+  "gp3": {
+   "layer": "poly",
+   "bbox_um": [
+    1.755,
+    1.045,
+    2.085,
+    1.315
+   ],
+   "net": null,
+   "line": 48
+  },
+  "gl3": {
+   "layer": "li",
+   "bbox_um": [
+    1.835,
+    1.015,
+    2.005,
+    1.345
+   ],
+   "net": "C",
+   "line": 49
+  },
+  "gn": {
+   "layer": "npc",
+   "bbox_um": [
+    0.655,
+    0.995,
+    2.105,
+    1.365
+   ],
+   "net": null,
+   "line": 50
+  },
+  "am": {
+   "layer": "mcon",
+   "bbox_um": [
+    0.755,
+    1.095,
+    0.925,
+    1.265
+   ],
+   "net": null,
+   "line": 52
+  },
+  "ap": {
+   "layer": "m1",
+   "bbox_um": [
+    0.695,
+    1.035,
+    0.985,
+    1.325
+   ],
+   "net": "A",
+   "line": 53
+  },
+  "bm": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.295,
+    1.095,
+    1.465,
+    1.265
+   ],
+   "net": null,
+   "line": 55
+  },
+  "bp": {
+   "layer": "m1",
+   "bbox_um": [
+    1.235,
+    1.035,
+    1.525,
+    1.325
+   ],
+   "net": "B",
+   "line": 56
+  },
+  "cm": {
+   "layer": "mcon",
+   "bbox_um": [
+    1.835,
+    1.095,
+    2.005,
+    1.265
+   ],
+   "net": null,
+   "line": 58
+  },
+  "cp": {
+   "layer": "m1",
+   "bbox_um": [
+    1.775,
+    1.035,
+    2.065,
+    1.325
+   ],
+   "net": "C",
+   "line": 59
+  }
+ },
+ "connectivity": [
+  "DEVICE M1 (nmos g=B d=VGND s=Y) has no matching transistor in the layout - the nmos with gate B at x=1.38 has ?1 and ?2 on its sides; it needs VGND and Y: the side labelled ?1 should be VGND (wrong net label on that contact column, or the gates are in the wrong order)",
+  "DEVICE M3 (nmos g=C d=Y s=VGND) has no matching transistor in the layout - the nmos with gate C at x=1.92 has ?2 and Y on its sides; it needs Y and VGND: the side labelled ?2 should be VGND (wrong net label on that contact column, or the gates are in the wrong order)",
+  "  layout nmos at x=1.38 y=0.66: gate B [g2 (line 20), gp2 (line 45)], source/drain ?1 [nd1 (line 22)], ?2 [nd1 (line 22)]  (?N = connected to no labelled net: a gate with no contact on it, or a diffusion piece with no contact - fine only for a series node)",
+  "  layout nmos at x=1.92 y=0.66: gate C [g3 (line 21), gp3 (line 48)], source/drain ?2 [nd1 (line 22)], Y [c2l (line 31), c4l (line 37), nd1 (line 22), +2 more]  (?N = connected to no labelled net: a gate with no contact on it, or a diffusion piece with no contact - fine only for a series node)"
+ ],
+ "image": "/home/ibrahim/claude-workspace/icdsl/agents/bench_runs/20261106-081644-deep-L1-nemotron-nudge-retr2/nor3/check1/nor3.png",
+ "route_failed": [],
+ "status": "VIOLATIONS",
+ "seconds": 3.4
+}

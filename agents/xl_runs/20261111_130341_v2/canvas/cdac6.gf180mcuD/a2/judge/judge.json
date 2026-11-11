@@ -1,0 +1,37 @@
+{
+ "task": "cdac6",
+ "pdk": "gf180mcuD",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/cdac6.gf180mcuD/a2/cdac6.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/cdac6.gf180mcuD/a2/cdac6.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "616 violation(s): 320 x MiM cap cannot overlap via3 (MIMTM.10); 168 x Bottom plate overlap of MiM cap < 0.6um (MIMTM.3); 64 x MiM cap top plate width < 5um (MIMTM.8a); 64 x Via3 width < 0.28um (V3.1 + 2 * V3.4)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 64 violation(s): 64 x MIMTM.10: MIMTM.10 : (a) There cannot be any Vian-2 touching MIM bottom plate Metaln-1.\n  "
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Top level cell failed pin matching.  (devices layout/ref 1/7; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_130341_v2/canvas/cdac6.gf180mcuD/a2/judge/cdac6.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "not confirmed (LVS failed)"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "47.30 x 49.04 = 2319.6 um2, budget 10578, reference 5288.9"
+  }
+ ],
+ "area_um2": 2319.59,
+ "area_vs_reference": 0.439,
+ "solved": false,
+ "detail": "DRC (magic drc(full)): 616 violation(s), boxes in um\n   320 x MiM cap cannot overlap via3 (MIMTM.10)   e.g. at (2.500 44.480 2.550 44.530)  (2.500 38.880 2.550 38.930)  (2.500 33.280 2.550 33.330)\n   168 x Bottom plate overlap of MiM cap < 0.6um (MIMTM.3)   e.g. at (7.360 44.480 7.500 45.080)  (7.360 43.600 7.500 45.080)  (7.360 43.600 7.500 44.200)\n    64 x MiM cap top plate width < 5um (MIMTM.8a)   e.g. at (2.500 44.200 2.640 44.480)  (8.100 44.200 8.240 44.480)  (13.700 44.200 13.840 44.480)\n    64 x Via3 width < 0.28um (V3.1 + 2 * V3.4)   e.g. at (2.500 44.200 2.640 44.480)  (2.500 38.600 2.640 38.880)  (2.500 33.000 2.640 33.280)\nDRC2 (foundry KLayout deck): 64 violation(s), boxes in um\n    64 x MIMTM.10: MIMTM.10 : (a) There cannot be any Vian-2 touching MIM bottom plate Metaln-1.\n                      (b) MIM bottom plate Metaln-1 can only b   e.g. at (2.500 5.010 2.630 5.270)  (8.100 5.010 8.230 5.270)  (13.700 5.010 13.830 5.270)\nLVS: Top level cell failed pin matching.   devices layout/ref 1/7, nets layout/ref 2/8\n  Number of devices: 1 **Mismatch**          |Number of devices: 7 **Mismatch**\n  Number of nets: 2 **Mismatch**             |Number of nets: 8 **Mismatch**\n  ---------------------------------------------------------------------------------------\n  NET mismatches: Class fragments follow (with fanout counts):\n  Circuit 1: cdac6                           |Circuit 2: cdac6\n  ---------------------------------------------------------------------------------------\n  Net: TOP                                   |Net: TOP\n    cap_mim_2f0_m4m5_noshield/1 = 1          |  cap_mim_2f0_m4m5_noshield/1 = 7\n                                             |\n  Net: B5                                    |Net: B5\n    cap_mim_2f0_m4m5_noshield/2 = 1          |  cap_mim_2f0_m4m5_noshield/2 = 1\n                                             |\n  (no matching net)                          |Net: B4\n                                             |  cap_mim_2f0_m4m5_noshield/2 = 1\n                                             |\n  (no matching net)                          |Net: B3\n                                             |  cap_mim_2f0_m4m5_noshield/2 = 1\n                                             |\n  (no matching net)                          |Net: B2\n                                             |  cap_mim_2f0_m4m5_noshield/2 = 1\n                                             |\n  (no matching net)                          |Net: B1\n                                             |  cap_mim_2f0_m4m5_noshield/2 = 1\n                                             |\n  (no matching net)                          |Net: B0\n                                             |  cap_mim_2f0_m4m5_noshield/2 = 1\n                                             |\n  (no matching net)                          |Net: VSS\n                                             |  cap_mim_2f0_m4m5_noshield/2 = 1\n  ---------------------------------------------------------------------------------------\n  DEVICE mismatches: Class fragments follow (with node fanout counts):\n  Circuit 1: cdac6                           |Circuit 2: cdac6\n  ---------------------------------------------------------------------------------------\n  Instance: cap_mim_2f0_m4m5_noshield:0      |Instance: cap_mim_2f0_m4m5_noshield:C0\n    1 = 1                                    |  1 = 7\n    2 = 1                                    |  2 = 1\n                                             |\n  (no matching instance)                     |Instance: cap_mim_2f0_m4m5_noshield:C1\n                                             |  1 = 7\n                                             |  2 = 1"
+}

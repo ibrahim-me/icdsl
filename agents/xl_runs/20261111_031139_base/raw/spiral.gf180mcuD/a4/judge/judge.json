@@ -1,0 +1,52 @@
+{
+ "task": "spiral",
+ "pdk": "gf180mcuD",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/spiral.gf180mcuD/a4/spiral.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/spiral.gf180mcuD/a4/spiral.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "1299 violation(s): 766 x Metal5 width < 0.44um (MT.1); 509 x Metal5 spacing < 0.46um (MT.2a); 24 x Metal5 minimum area < 0.5265um^2 (MT.4)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 513 violation(s): 253 x MT.1: MT.1 : min. metaltop width : 0.44\u00b5m; 195 x MT.2a: MT.2a : min. metaltop spacing : 0.46\u00b5m; 53 x metal5_OFFGRID: OFFGRID : OFFGRID vertex on metal5; 11 x metal5_ACUTE: ACUTE : non 45 degree angle metal5; 1 x MT.4: MT.4 : Minimum MetalTop area : 0.5625\u00b5m\u00b2"
+  },
+  {
+   "check": "one coil, no closed loop",
+   "ok": true,
+   "detail": "3 polygon(s) on m5, largest has 0 hole(s) and 99% of the metal"
+  },
+  {
+   "check": "edges Manhattan or 45 degrees, some at 45",
+   "ok": false,
+   "detail": "0 at 45 degrees, 0 at other angles"
+  },
+  {
+   "check": "trace width >= 4.0 um",
+   "ok": true,
+   "detail": "0 narrow spot(s)"
+  },
+  {
+   "check": "at least 3 turns around the centre",
+   "ok": false,
+   "detail": "0 turn(s)"
+  },
+  {
+   "check": "underpass from the inner end to outside the coil",
+   "ok": false,
+   "detail": "no via4 cut on the coil joins a m4 wire that leaves the coil"
+  },
+  {
+   "check": "area",
+   "ok": false,
+   "detail": "200.91 x 180.82 = 36328.5 um2, budget 10465, reference 5232.32"
+  }
+ ],
+ "area_um2": 36328.55,
+ "area_vs_reference": 6.943,
+ "solved": false,
+ "detail": "n\no\n \nv\ni\na\n4\n \nc\nu\nt\n \no\nn\n \nt\nh\ne\n \nc\no\ni\nl\n \nj\no\ni\nn\ns\n \na\n \nm\n4\n \nw\ni\nr\ne\n \nt\nh\na\nt\n \nl\ne\na\nv\ne\ns\n \nt\nh\ne\n \nc\no\ni\nl"
+}

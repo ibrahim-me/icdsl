@@ -1,0 +1,52 @@
+{
+ "task": "spiral",
+ "pdk": "freepdk45",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_183435_v6/canvas/spiral.freepdk45/a3/spiral.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_183435_v6/canvas/spiral.freepdk45/a3/spiral.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": true,
+   "detail": "clean"
+  },
+  {
+   "check": "DRC2",
+   "ok": true,
+   "detail": "foundry KLayout deck clean"
+  },
+  {
+   "check": "one coil, no closed loop",
+   "ok": false,
+   "detail": "1 polygon(s) on m10, largest has 4 hole(s) and 100% of the metal"
+  },
+  {
+   "check": "edges Manhattan or 45 degrees, some at 45",
+   "ok": true,
+   "detail": "12 at 45 degrees, 0 at other angles"
+  },
+  {
+   "check": "trace width >= 4.0 um",
+   "ok": false,
+   "detail": "2 narrow spot(s) on m10: the trace is cut where it is narrower than 4.0 um: 10 pieces are left (also where two parts of the trace only meet at a corner). Measured: 3.163 um wide at (8.36, -13.00)..(12.64, -10.00); 3.163 um wide at (10.00, -13.87)..(11.00, -9.13) (a dead end of at most 4 um2, such as a via pad at the end of the trace, is not counted)"
+  },
+  {
+   "check": "at least 3 turns around the centre",
+   "ok": true,
+   "detail": "4 turn(s) around (-8.0, -7.0)"
+  },
+  {
+   "check": "underpass from the inner end to outside the coil",
+   "ok": false,
+   "detail": "no via9 cut on the coil joins a m9 wire that leaves the coil"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "68.00 x 67.00 = 4556.0 um2, budget 10465, reference 5232.32"
+  }
+ ],
+ "area_um2": 4556.0,
+ "area_vs_reference": 0.871,
+ "solved": false,
+ "detail": "n\no\n \nv\ni\na\n9\n \nc\nu\nt\n \no\nn\n \nt\nh\ne\n \nc\no\ni\nl\n \nj\no\ni\nn\ns\n \na\n \nm\n9\n \nw\ni\nr\ne\n \nt\nh\na\nt\n \nl\ne\na\nv\ne\ns\n \nt\nh\ne\n \nc\no\ni\nl"
+}

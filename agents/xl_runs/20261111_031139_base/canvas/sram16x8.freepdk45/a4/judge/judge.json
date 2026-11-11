@@ -1,0 +1,37 @@
+{
+ "task": "sram16x8",
+ "pdk": "freepdk45",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/canvas/sram16x8.freepdk45/a4/sram16x8.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/canvas/sram16x8.freepdk45/a4/sram16x8.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "1536 violation(s): 1536 x Active spacing < 80nm (ACTIVE.2)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 232 violation(s): 112 x WELL.3: WELL.3 : Minimum spacing of pwell at same potential : 135nm; 112 x WELL.4: WELL.4 : Minimum width of nwell/pwell : 200nm; 4 x ACTIVE.2: ACTIVE.2 : Minimum spacing of active : 80nm; 4 x IMPLANT.4: IMPLANT.4 : Minimum spacing of nimplant/ pimplant  : 45nm"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "Top level cell failed pin matching.  (devices layout/ref 10/768; report /home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/canvas/sram16x8.freepdk45/a4/judge/sram16x8.lvs.txt)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "top-level pin names differ from the task netlist"
+  },
+  {
+   "check": "area",
+   "ok": true,
+   "detail": "12.34 x 23.55 = 290.7 um2, budget 592, reference 295.8"
+  }
+ ],
+ "area_um2": 290.67,
+ "area_vs_reference": 0.983,
+ "solved": false,
+ "detail": "DRC (magic drc(full)): 1536 violation(s), boxes in um\n  1536 x Active spacing < 80nm (ACTIVE.2)   e.g. at (0.680 11.430 0.685 11.485)  (0.680 11.485 0.685 11.550)  (0.680 11.550 0.685 11.610)\nDRC2 (foundry KLayout deck): 232 violation(s), boxes in um\n   112 x WELL.3: WELL.3 : Minimum spacing of pwell at same potential : 135nm   e.g. at (6.035 1.690 6.100 1.980)  (6.035 7.650 6.100 7.940)  (6.035 10.630 6.100 10.920)\n   112 x WELL.4: WELL.4 : Minimum width of nwell/pwell : 200nm   e.g. at (6.035 1.690 6.100 1.980)  (6.035 7.650 6.100 7.940)  (6.035 10.630 6.100 10.920)\n     4 x ACTIVE.2: ACTIVE.2 : Minimum spacing of active : 80nm   e.g. at (0.265 0.300 0.340 0.390)  (0.605 0.300 0.680 0.390)  (0.945 0.300 1.020 0.390)\n     4 x IMPLANT.4: IMPLANT.4 : Minimum spacing of nimplant/ pimplant  : 45nm   e.g. at (0.300 0.230 0.305 0.460)  (0.640 0.230 0.645 0.460)  (0.980 0.230 0.985 0.460)\nLVS: Top level cell failed pin matching.   devices layout/ref 10/768, nets layout/ref 21/290\n  nmos (4->2)                                |nmos (4) **Mismatch**\n  pmos (2->1)                                |pmos (2) **Mismatch**\n  Number of devices: 3 **Mismatch**          |Number of devices: 6 **Mismatch**\n  Number of nets: 7                          |Number of nets: 7\n  ---------------------------------------------------------------------------------------\n  NET mismatches: Class fragments follow (with fanout counts):\n  Circuit 1: sram6t                          |Circuit 2: sram6t\n  ---------------------------------------------------------------------------------------\n  Net: WL                                    |Net: Q\n    nmos/(drain|source) = 3                  |  nmos/(drain|source) = 2\n    pmos/(drain|source) = 2                  |  nmos/gate = 1\n                                             |  pmos/(drain|source) = 1\n                                             |  pmos/gate = 1\n                                             |\n  Net: a_22_49#                              |Net: QB\n    nmos/gate = 1                            |  nmos/gate = 1\n                                             |  nmos/(drain|source) = 2\n                                             |  pmos/gate = 1\n                                             |  pmos/(drain|source) = 1\n                                             |\n  Net: BL                                    |Net: BL\n    nmos/(drain|source) = 1                  |  nmos/(drain|source) = 1\n                                             |\n  Net: a_226_49#                             |Net: BLB\n    nmos/gate = 1                            |  nmos/(drain|source) = 1\n                                             |\n  Net: a_90_189#                             |Net: VSS\n    pmos/gate = 1                            |  nmos/bulk = 4\n                                             |  nmos/(drain|source) = 2\n                                             |\n  Net: w_48_180#                             |Net: VDD\n    pmos/bulk = 1                            |  pmos/(drain|source) = 2\n                                             |  pmos/bulk = 2\n  ---------------------------------------------------------------------------------------\n  ---------------------------------------------------------------------------------------\n  Net: w_n1073741817_n1073741817#            |Net: WL\n    nmos/bulk = 2                            |  nmos/gate = 2\n  ---------------------------------------------------------------------------------------\n  DEVICE mismatches: Class fragments follow (with node fanout counts):\n  Circuit 1: sram6t                          |Circuit 2: sram6t"
+}

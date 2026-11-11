@@ -1,0 +1,52 @@
+{
+ "task": "spiral",
+ "pdk": "freepdk45",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/spiral.freepdk45/a1/spiral.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/spiral.freepdk45/a1/spiral.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "magic DRC failed:\n\nMagic 8.3 revision 692 - Compiled on Wednesday 04 November 2026 01:01:53 AM IST.\nStarting magic under Tcl interpreter\nUsing the terminal as the console.\nWARNING: RLIMIT_NOFILE is above 1024 and Tcl_Version<9 this may cause runtime issues [rlim_cur=524288]\nUsing NULL graphics devic"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 105 violation(s): 52 x METAL10.1: METAL10.1 : Minimum width of global metal10 : 800nm; 52 x GRID: vertexes on layer metal10 not on grid of 0.0025; 1 x METAL9.2: METAL9.2 : Minimum spacing of global metal9 : 800nm"
+  },
+  {
+   "check": "one coil, no closed loop",
+   "ok": true,
+   "detail": "3 polygon(s) on m10, largest has 0 hole(s) and 99% of the metal"
+  },
+  {
+   "check": "edges Manhattan or 45 degrees, some at 45",
+   "ok": false,
+   "detail": "7 at 45 degrees, 32 at other angles"
+  },
+  {
+   "check": "trace width >= 4.0 um",
+   "ok": false,
+   "detail": "54 narrow spot(s)"
+  },
+  {
+   "check": "at least 3 turns around the centre",
+   "ok": true,
+   "detail": "3 turn(s) around (-5.0, 28.6)"
+  },
+  {
+   "check": "underpass from the inner end to outside the coil",
+   "ok": false,
+   "detail": "no via9 cut on the coil joins a m9 wire that leaves the coil"
+  },
+  {
+   "check": "area",
+   "ok": false,
+   "detail": "2670.55 x 363.37 = 970405.5 um2, budget 10465, reference 5232.32"
+  }
+ ],
+ "area_um2": 970405.52,
+ "area_vs_reference": 185.464,
+ "solved": false,
+ "detail": "n\no\n \nv\ni\na\n9\n \nc\nu\nt\n \no\nn\n \nt\nh\ne\n \nc\no\ni\nl\n \nj\no\ni\nn\ns\n \na\n \nm\n9\n \nw\ni\nr\ne\n \nt\nh\na\nt\n \nl\ne\na\nv\ne\ns\n \nt\nh\ne\n \nc\no\ni\nl"
+}

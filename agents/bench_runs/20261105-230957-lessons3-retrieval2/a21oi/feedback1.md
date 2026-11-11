@@ -1,0 +1,10 @@
+Check result at {'L': 0.15, 'H': 2.72, 'WN': 0.49, 'WP': 0.75}: VIOLATIONS  (DRC 0 errors, LVS MISMATCH)
+CONNECTIVITY (fix these first - they are why LVS fails):
+  SHORT VPWR / n2: on li around (1.84, 2.2): shapes of VPWR and n2 overlap/touch there (c5l (line 38), c5s (line 39), c7l (line 43), c7s (line 44), c8l (line 46))
+  DEVICE M1 (pmos g=A1 d=n2 s=VPWR) has no matching transistor in the layout - the pmos with gate A1 at x=1.84 has VPWR+n2 and VPWR+n2 on its sides; it needs n2 and VPWR: the side labelled VPWR+n2 should be n2 (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M2 (pmos g=B1 d=Y s=n2) has no matching transistor in the layout - the pmos with gate B1 at x=2.38 has VPWR+n2 and Y on its sides; it needs Y and n2: the side labelled VPWR+n2 should be n2 (wrong net label on that contact column, or the gates are in the wrong order)
+  DEVICE M4 (pmos g=A2 d=VPWR s=n2) has no matching transistor in the layout - the pmos with gate A2 at x=1.3 has VPWR+n2 and VPWR+n2 on its sides; it needs VPWR and n2: the side labelled VPWR+n2 should be VPWR (wrong net label on that contact column, or the gates are in the wrong order)
+    layout pmos at x=1.3 y=1.93: gate A2 [g1 (line 19), gp1 (line 51)], source/drain VPWR+n2 [c5l (line 38), c5s (line 39), c6l (line 41), +5 more], VPWR+n2 [c5l (line 38), c5s (line 39), c6l (line 41), +5 more]
+    layout pmos at x=1.84 y=1.93: gate A1 [g2 (line 20), gp2 (line 54)], source/drain VPWR+n2 [c5l (line 38), c5s (line 39), c6l (line 41), +5 more], VPWR+n2 [c5l (line 38), c5s (line 39), c6l (line 41), +5 more]
+    layout pmos at x=2.38 y=1.93: gate B1 [g3 (line 21), gp3 (line 57)], source/drain VPWR+n2 [c5l (line 38), c5s (line 39), c6l (line 41), +5 more], Y [c3l (line 33), c9l (line 48), nd1 (line 22), +1 more]
+Fix the first items first (the attached image is your layout, DRC errors boxed in red). Return the complete corrected file.

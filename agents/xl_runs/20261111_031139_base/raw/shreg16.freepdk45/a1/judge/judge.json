@@ -1,0 +1,37 @@
+{
+ "task": "shreg16",
+ "pdk": "freepdk45",
+ "submission": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/shreg16.freepdk45/a1/shreg16.gds",
+ "gds": "/home/ibrahim/claude-workspace/icdsl/agents/xl_runs/20261111_031139_base/raw/shreg16.freepdk45/a1/shreg16.gds",
+ "checks": [
+  {
+   "check": "DRC",
+   "ok": false,
+   "detail": "magic DRC did not finish in 180 s (a layout with very many errors or shorts takes this long; a correct layout of this size takes seconds)"
+  },
+  {
+   "check": "DRC2",
+   "ok": false,
+   "detail": "foundry KLayout deck: 348 violation(s): 260 x VIA1.1: VIA1.1 : Minimum/Maximum width of via1 : 70nm; 88 x CONTACT.1: CONTACT.1 : Minimum/Maximum width of contact : 65nm"
+  },
+  {
+   "check": "LVS",
+   "ok": false,
+   "detail": "magic extraction did not finish in 180 s (a layout with very many errors or shorts takes this long; a correct layout of this size takes seconds)  (devices layout/ref ?/?; report -)"
+  },
+  {
+   "check": "pins",
+   "ok": false,
+   "detail": "not confirmed (LVS failed)"
+  },
+  {
+   "check": "area",
+   "ok": false,
+   "detail": "134400.00 x 8980.00 = 1206912000.0 um2, budget 261, reference 130.23"
+  }
+ ],
+ "area_um2": 1206912000.0,
+ "area_vs_reference": 9267542.041,
+ "solved": false,
+ "detail": "DRC2 (foundry KLayout deck): 348 violation(s), boxes in um\n   260 x VIA1.1: VIA1.1 : Minimum/Maximum width of via1 : 70nm   e.g. at (130070.000 530.000 130070.000 670.000)  (129930.000 670.000 130070.000 670.000)  (129930.000 530.000 129930.000 670.000)\n    88 x CONTACT.1: CONTACT.1 : Minimum/Maximum width of contact : 65nm   e.g. at (955.000 6335.000 955.000 6465.000)  (2645.000 3535.000 2645.000 3665.000)  (1845.000 3535.000 1845.000 3665.000)\nLVS: magic extraction did not finish in 180 s (a layout with very many errors or shorts takes this long; a correct layout of this size takes seconds)   devices layout/ref ?/?, nets layout/ref ?/?"
+}

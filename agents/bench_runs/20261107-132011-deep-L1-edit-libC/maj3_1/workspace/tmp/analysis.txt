@@ -1,0 +1,26 @@
+maj3_1 netlist analysis:
+
+PMOS (pull-up):
+M0: d=n1 g=A s=VPWR
+M6: d=n3 g=B s=n6
+M7: d=n6 g=C s=VPWR
+M8: d=VPWR g=n3 s=X   (output driver)
+M11: d=n3 g=C s=n1
+M12: d=VPWR g=A s=n7
+M13: d=n7 g=B s=n3
+
+NMOS (pull-down):
+M1: d=n2 g=B s=n3
+M2: d=n3 g=B s=n4
+M3: d=VGND g=n3 s=X   (output driver)
+M4: d=VGND g=A s=n2
+M5: d=n5 g=A s=VGND
+M9: d=n4 g=C s=VGND
+M10: d=n3 g=C s=n5
+
+Diffusion chains (shared source/drain nets):
+NMOS: M4-M1-M2-M9 (share n2,n3,n4), M5-M10 (share n5), M3 standalone (X output)
+PMOS: M0-M11-M6-M7 (share n1,n3,n6), M12-M13 (share n7), M8 standalone (X output)
+
+Gate nets: A, B, C, n3 (4 unique gates)
+Gate columns needed: A, B, C, n3
