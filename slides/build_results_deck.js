@@ -1,5 +1,5 @@
 // ICL results deck: language, benchmarks, techniques, harnesses, three-model comparison, log-driven fixes.
-// Build: cd slides && node build_results_deck.js
+// Build: cd slides && NODE_PATH=$PWD/node_modules node build_results_deck.js
 const path = require("path");
 const pptxgen = require("pptxgenjs");
 const React = require("react");
@@ -506,8 +506,14 @@ async function icon(Comp, color = "FFFFFF", size = 256) {
     "Move the best configuration into your LangGraph deepagents harness"];
   text(s, next.map((t, k) => ({ text: t, options: { bullet: true, breakLine: k < next.length - 1 } })),
     { x: 7.05, y: 2.6, w: 5.45, h: 3.6, fontSize: 15, paraSpaceAfter: 10, color: C.text2, objectName: "next-list" });
+  text(s, [{ text: "Status 2026-11-11: ", options: { bold: true } },
+    { text: "the work continued on a PDK-neutral canvas: larger layouts (up to 768 transistors), resistors and capacitors, "
+      + "free polygons and two more PDKs. See icl_canvas.pptx." }],
+    { x: 0.55, y: 6.5, w: 12.2, h: 0.45, fontSize: 12, color: C.accent6, objectName: "status-note" });
   s.addNotes("The main remaining tool limit is the router's pin access in dense standard cells. The most promising language step is "
-    + "letting the row template produce standard cells in the 2.72 µm frame, which the free model already tried on its own.");
+    + "letting the row template produce standard cells in the 2.72 µm frame, which the free model already tried on its own. "
+    + "This slide is the state of the ICL experiments. What followed (the canvas, three PDKs, the larger benchmark) is in "
+    + "icl_canvas.pptx.");
 
   // ================================================================== 17. takeaways
   s = pres.addSlide({ masterName: "CLOSING_DARK", sectionTitle: "Learning from logs" });
@@ -518,8 +524,8 @@ async function icon(Comp, color = "FFFFFF", size = 256) {
     { text: "For strong models, techniques buy robustness, size and cost rather than pass rate.", options: { bullet: true, breakLine: true } },
     { text: "Agent logs are the best source of tool fixes.", options: { bullet: true } },
   ], { placeholder: "body" });
-  text(s, "Code and results: ~/claude-workspace/icdsl  (agents/README.md, agent_compare2/RESULTS.md)",
-    { x: 0.6, y: 6.6, w: 9, h: 0.4, fontSize: 12, color: "9FB0C4", objectName: "closing-paths" });
+  text(s, "Code and results: github.com/ibrahim-me/icdsl (private).  agents/README.md, agent_compare2/RESULTS.md.  Continued in icl_canvas.pptx",
+    { x: 0.6, y: 6.6, w: 12, h: 0.4, fontSize: 12, color: "9FB0C4", objectName: "closing-paths" });
   frameImage(s, "nemo_ha.png", 8.6, 1.4, 4.1, 2.46, "closing-image");
   s.addNotes("Four takeaways, and where to find the code and the detailed results.");
 

@@ -24,7 +24,13 @@ and netgen LVS. It has the same levels as ICL, from shapes (`rect`, `polygon`, `
 |---|---|---|---|
 | <img src="bench/xl/gallery/sram16x8.freepdk45.png" height="230"> | <img src="bench/xl/gallery/ota_miller.sky130A.png" height="230"> | <img src="bench/xl/gallery/spiral.gf180mcuD.png" height="230"> | <img src="bench/xl/gallery/rca8.sky130A.png" width="330"> |
 
-(reference layouts of the larger benchmark, all 22 in [bench/xl/README.md](bench/xl/README.md); slides in `slides/`)
+(reference layouts of the larger benchmark, all 22 in [bench/xl/README.md](bench/xl/README.md))
+
+Slides are in `slides/`: `icl_overview.pptx` (the ICL language), `icl_results.pptx` (the agent
+experiments on SKY130) and `icl_canvas.pptx` (the canvas, the three PDKs, the larger benchmark and
+its LLM runs). Each is built by a script next to it:
+`cd slides && npm install && NODE_PATH=$PWD/node_modules node build_canvas_deck.js` (the theme helper
+`apply_theme.js` is loaded from the local path in `SKILL` at the top of each script).
 
 ```
 $ bin/icl check tests/canvas/strip.py --pdk freepdk45

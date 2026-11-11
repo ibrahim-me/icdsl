@@ -409,9 +409,12 @@ two took the hand route first and changed after the note:
 The note was sent three times (those two cases), the no-tools answer once.
 
 spiral, the one task without a netlist: solved on gf180mcuD at the third attempt (a wrong keyword,
-then 10 edges off the 45 degree grid, which the report named, then clean). Not solved on sky130A
-(off-angle edges and metal5 spacing in every attempt, 13 DRC errors at the end) and on freepdk45
-(the turns touch and close loops, no underpass in any attempt).
+then 10 edges off the 45 degree grid, which the report named, then clean). Not solved on sky130A:
+attempts 1 to 3 had edges off the 45 degree grid; attempt 4 had 45 degree edges, three turns and an
+underpass, but 13 metal5 spacing errors (11 in magic, 2 in the KLayout deck) and necks of 2.2 um at
+the bends, where 4.0 um is required. Not solved on freepdk45: the first script did not build, and in
+the other three the turns touch and close loops and there is no underpass (attempt 3 was clean in
+both DRC decks).
 
 How to read it: several things changed together, and two runs of this model differ by two or three
 cases without any change (v4 / v5). The 20 is therefore not a measured effect of one of the items.

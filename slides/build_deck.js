@@ -1,4 +1,5 @@
 // Builds icl_overview.pptx - an explanation of the ICL layout language.
+// Build: cd slides && NODE_PATH=$PWD/node_modules node build_deck.js
 const path = require("path");
 const pptxgen = require("pptxgenjs");
 const { applyTheme } = require(
@@ -542,45 +543,50 @@ pres.addSection({ title: "Wrap-up" });
 // 15 --------------------------------------------------------------- limits
 {
   const s = pres.addSlide({ masterName: "CONTENT", sectionTitle: "Wrap-up" });
-  s.addText("Limits and next steps", { placeholder: "title" });
-  [[0.6, C.accent6, "Limits today", [
+  s.addText("Limits, and what came next", { placeholder: "title" });
+  [[0.6, C.accent6, "Limits of the ICL language", [
       "1.8 V transistors only; no resistors or capacitors",
       "Routing on met1 to met4",
       "Resistance and coupling are estimates",
-      "No KLayout deck, antenna or density checks",
-      "Nothing simulated yet",
+      "SKY130 only; magic is the only DRC judge",
+      "No antenna or density checks; nothing simulated",
     ]],
-   [6.77, C.accent1, "Next steps", [
-      "Retry BUF and AOI21 with closer worked examples",
-      "Compare other free models on the same tasks",
-      "Add passive devices and multi-finger std cells",
-      "Post-layout simulation of the example circuits",
+   [6.77, C.accent1, "What came next: the canvas", [
+      "Plain Python scripts: any layer, any polygon, resistors and MIM capacitors",
+      "Three PDKs from one script: sky130A, gf180mcuD and freepdk45 (45 nm)",
+      "The PDK's own KLayout deck as a second DRC judge",
+      "A larger benchmark: 8 tasks, up to 768 transistors",
+      "See icl_canvas.pptx and CANVAS.md (status 2026-11-11)",
     ]]].forEach(([x, col, head, items], k) => {
-    s.addShape(SH.ROUNDED_RECTANGLE, { x, y: 1.55, w: 5.96, h: 4.0, rectRadius: 0.1, fill: { color: C.background2 },
+    s.addShape(SH.ROUNDED_RECTANGLE, { x, y: 1.55, w: 5.96, h: 4.6, rectRadius: 0.1, fill: { color: C.background2 },
       line: { color: C.background2 }, objectName: `wrap card ${k}` });
     s.addShape(SH.OVAL, { x: x + 0.3, y: 1.8, w: 0.45, h: 0.45, fill: { color: col }, line: { color: col },
       objectName: `wrap marker ${k}` });
     s.addText(head, { x: x + 0.95, y: 1.75, w: 4.7, h: 0.55, fontSize: 20, bold: true, color: C.text1, margin: 0,
       valign: "middle", isTextBox: true, objectName: `wrap heading ${k}` });
-    bullets(s, items, x + 0.3, 2.6, 5.36, 2.8, `wrap list ${k}`, 16);
+    bullets(s, items, x + 0.3, 2.6, 5.36, 3.4, `wrap list ${k}`, 16);
   });
-  s.addNotes("Honest boundaries: digital-and-analog MOS only, estimates for R and C, and no simulation yet.");
+  s.addNotes("The limits on the left are those of the ICL language: MOS only, SKY130 only, estimates for R and C, and no " +
+    "simulation. The right side is what was added later as a second interface, the canvas. It lifts the first, second " +
+    "and fourth limit; the deck icl_canvas.pptx describes it.");
 }
 
 // 16 --------------------------------------------------------------- closing
 {
   const s = pres.addSlide({ masterName: "TITLE_DARK", sectionTitle: "Wrap-up" });
   s.addText("Try it", { placeholder: "title" });
-  s.addText("Reference: AGENTS.md · examples/ · agents/README.md", { placeholder: "body" });
-  s.addShape(SH.ROUNDED_RECTANGLE, { x: 0.6, y: 5.3, w: 12.13, h: 1.35, rectRadius: 0.08, fill: { color: C.text2 },
+  s.addText("Reference: AGENTS.md · CANVAS.md · examples/ · agents/README.md", { placeholder: "body" });
+  s.addShape(SH.ROUNDED_RECTANGLE, { x: 0.6, y: 5.2, w: 12.13, h: 1.6, rectRadius: 0.08, fill: { color: C.text2 },
     line: { color: C.text2 }, objectName: "closing code panel" });
   s.addText([
     { text: "bin/icl check   examples/l2_analog.icl --top diff_stage", options: { breakLine: true } },
-    { text: "bin/icl inspect examples/l3_chip.icl --top chip" },
-  ], { x: 0.85, y: 5.45, w: 11.63, h: 1.05, fontFace: "Courier New", fontSize: 18, color: C.background1, margin: 0,
+    { text: "bin/icl inspect examples/l3_chip.icl --top chip", options: { breakLine: true } },
+    { text: "bin/icl check   tests/canvas/strip.py --pdk freepdk45" },
+  ], { x: 0.85, y: 5.32, w: 11.63, h: 1.36, fontFace: "Courier New", fontSize: 18, color: C.background1, margin: 0,
     valign: "middle", isTextBox: true, objectName: "closing code" });
   picture(s, "nand2_p.png", 9.6, 0.6, 3.13, 4.4, "Rendered parametric NAND2 standard cell");
-  s.addNotes("Two commands to start. AGENTS.md is the full reference; the examples go level by level.");
+  s.addNotes("Three commands to start: two on ICL files, one on a canvas script with another PDK. AGENTS.md is the reference " +
+    "of the ICL language and CANVAS.md that of the canvas; the examples go level by level.");
 }
 
 (async () => {
