@@ -31,6 +31,7 @@ ref/<task>.py                 reference solution: one PDK-neutral canvas script 
 reference.json, REFERENCE.md  reference results (area, time, device and shape counts)
 judge.py                      the judge
 make_tasks.py                 regenerates tasks/ and the reference tables from ref/
+gallery/                      GDS and PNG of the reference layouts
 ```
 
 ## Judging
@@ -73,6 +74,22 @@ practice, not judged".
 See `REFERENCE.md`. All 22 cases are clean; each builds and verifies in 3.4 to 16 s (most of it is
 the KLayout deck). The reference solutions were written by hand through the canvas interface. They
 prove that every task is solvable on every PDK from one script; they are **not** an LLM result.
+
+### Gallery
+
+The reference layouts as built (`gallery/`: one PNG and one GDS per case; `make_gallery.sh` refreshes them
+from `build/`). Each PDK has its own colours and its own scale.
+
+| task | sky130A | gf180mcuD | freepdk45 |
+|---|---|---|---|
+| `rca8` | <a href="gallery/rca8.sky130A.png"><img src="gallery/rca8.sky130A.png" width="230"></a> | <a href="gallery/rca8.gf180mcuD.png"><img src="gallery/rca8.gf180mcuD.png" width="230"></a> | <a href="gallery/rca8.freepdk45.png"><img src="gallery/rca8.freepdk45.png" width="230"></a> |
+| `dec4to16` | <a href="gallery/dec4to16.sky130A.png"><img src="gallery/dec4to16.sky130A.png" width="230"></a> | <a href="gallery/dec4to16.gf180mcuD.png"><img src="gallery/dec4to16.gf180mcuD.png" width="230"></a> | <a href="gallery/dec4to16.freepdk45.png"><img src="gallery/dec4to16.freepdk45.png" width="230"></a> |
+| `shreg16` | <a href="gallery/shreg16.sky130A.png"><img src="gallery/shreg16.sky130A.png" width="230"></a> | <a href="gallery/shreg16.gf180mcuD.png"><img src="gallery/shreg16.gf180mcuD.png" width="230"></a> | <a href="gallery/shreg16.freepdk45.png"><img src="gallery/shreg16.freepdk45.png" width="230"></a> |
+| `sram16x8` | <a href="gallery/sram16x8.sky130A.png"><img src="gallery/sram16x8.sky130A.png" width="230"></a> | <a href="gallery/sram16x8.gf180mcuD.png"><img src="gallery/sram16x8.gf180mcuD.png" width="230"></a> | <a href="gallery/sram16x8.freepdk45.png"><img src="gallery/sram16x8.freepdk45.png" width="230"></a> |
+| `r2r8` | <a href="gallery/r2r8.sky130A.png"><img src="gallery/r2r8.sky130A.png" width="230"></a> | <a href="gallery/r2r8.gf180mcuD.png"><img src="gallery/r2r8.gf180mcuD.png" width="230"></a> | - |
+| `cdac6` | <a href="gallery/cdac6.sky130A.png"><img src="gallery/cdac6.sky130A.png" width="230"></a> | <a href="gallery/cdac6.gf180mcuD.png"><img src="gallery/cdac6.gf180mcuD.png" width="230"></a> | - |
+| `ota_miller` | <a href="gallery/ota_miller.sky130A.png"><img src="gallery/ota_miller.sky130A.png" width="230"></a> | <a href="gallery/ota_miller.gf180mcuD.png"><img src="gallery/ota_miller.gf180mcuD.png" width="230"></a> | <a href="gallery/ota_miller.freepdk45.png"><img src="gallery/ota_miller.freepdk45.png" width="230"></a> |
+| `spiral` | <a href="gallery/spiral.sky130A.png"><img src="gallery/spiral.sky130A.png" width="230"></a> | <a href="gallery/spiral.gf180mcuD.png"><img src="gallery/spiral.gf180mcuD.png" width="230"></a> | <a href="gallery/spiral.freepdk45.png"><img src="gallery/spiral.freepdk45.png" width="230"></a> |
 
 ## The netlist tasks without drawing (`from_netlist.py`)
 

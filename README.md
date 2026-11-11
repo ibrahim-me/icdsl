@@ -20,6 +20,12 @@ and netgen LVS. It has the same levels as ICL, from shapes (`rect`, `polygon`, `
 `TOP = from_spice("netlist.spice")`, which lays out a whole netlist. The larger benchmark
 (`bench/xl`, 8 tasks on 3 PDKs, up to 768 transistors) and its LLM runs (`agents/README.md`) use it.
 
+| 16 x 8 SRAM, freepdk45 (45 nm) | Miller OTA, sky130A | spiral inductor, gf180mcuD | 8-bit adder, sky130A |
+|---|---|---|---|
+| <img src="bench/xl/gallery/sram16x8.freepdk45.png" height="230"> | <img src="bench/xl/gallery/ota_miller.sky130A.png" height="230"> | <img src="bench/xl/gallery/spiral.gf180mcuD.png" height="230"> | <img src="bench/xl/gallery/rca8.sky130A.png" width="330"> |
+
+(reference layouts of the larger benchmark, all 22 in [bench/xl/README.md](bench/xl/README.md); slides in `slides/`)
+
 ```
 $ bin/icl check tests/canvas/strip.py --pdk freepdk45
 DRC (magic drc(full) freepdk45): clean
@@ -94,9 +100,10 @@ fetches the three PDKs with ciel into `pdk/` (sky130A, gf180mcu, freepdk45; abou
 The second DRC judge (the PDK's KLayout deck) needs the `klayout` program, 0.30 or later, on `PATH`
 or as `tools/install/bin/klayout`. Without it that check is left out and only magic DRC and LVS run.
 
-The run records (`agents/*runs*/`, `agent_compare*/`, `library/`) keep what was written: prompts,
-model replies, scripts, feedback, results. The files the tools generate from them (GDS, images,
-extraction and DRC output) are not stored; `bin/icl check` or `bench/xl/judge.py` rebuilds them.
+The run records (`agents/*runs*/`, `agent_compare*/`, `library/`) keep what was written (prompts,
+model replies, scripts, feedback, results) and the layouts built from it (GDS, PNG, SVG; about
+520 MB). The intermediate files of the signoff tools (extraction, DRC and LVS output) are not
+stored; `bin/icl check` or `bench/xl/judge.py` rebuilds them. `build/` and `out/` are scratch.
 
 ## Limits
 
