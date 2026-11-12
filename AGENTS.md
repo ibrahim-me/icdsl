@@ -175,7 +175,7 @@ resistance, plus coupling estimates for every `limit coupling` pair.
 
 ## Limits
 
-These limits are those of the ICL language (`.icl`). They do not apply to the canvas (`.py` scripts, [CANVAS.md](CANVAS.md)): any layer, any polygon, resistors / MIM capacitors / any declared device, sky130A, gf180mcuD and freepdk45 (45 nm), with the PDK's KLayout DRC deck as a second DRC judge. Use the canvas when a task does not fit ICL.
+These limits are those of the ICL language (`.icl`). They do not apply to the canvas (`.py` scripts, [CANVAS.md](CANVAS.md)): any layer, any polygon, resistors / MIM capacitors / any declared device, sky130A, gf180mcuD and freepdk45 (45 nm), with the PDK's KLayout DRC deck as a second DRC judge (asap7, 7 nm FinFET: shapes and `mos` / `tap` / `via` only, see CANVAS.md section 11). Use the canvas when a task does not fit ICL.
 
 1.8 V nfet/pfet only (no R/C/HV/BJT/diode devices); routing met1–met4; the row template has a
 single n-well band; instance rows in the row template must be equal height; coupling is a

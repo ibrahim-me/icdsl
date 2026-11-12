@@ -45,6 +45,7 @@ def mos_strip(c, r, kind, name, w, l=None, nf=1, g="G", s="S", d="D", at=(0, 0),
     no bar (connect their c0 straps yourself, e.g. into a tap ring). s == d (a MOS capacitor): one bar.
     Returns (the Mos, Group of everything drawn)."""
     t = c.tech
+    t.planar_only("mos_strip")
     c0, c1 = t.c0, t.c1
     s01, sg, BAR, GAP = _sizes(c)
     rec = t.device(kind)
@@ -229,6 +230,7 @@ def device_rows(name, devices, pins, aspect=1.0, tech=None):
     p devices above), resistors and capacitors to the right, nets wired by the Router, a port per pin."""
     from .route import Router
     t = tech or T.current()
+    t.planar_only("device_rows")
     c0, c1 = t.c0, t.c1
     nwell = t.roles.get("nwell")
     c = Cell(name, tech=t)

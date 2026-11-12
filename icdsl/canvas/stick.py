@@ -47,6 +47,7 @@ def _ceil(v, g):
 
 def geometry(t, l=None, kinds=("nmos", "pmos")):
     """The grid a stick cell uses on this PDK (all nm): column pitch P, track pitch, keep-apart K."""
+    t.planar_only("stick")
     g = t.grid
     poly, cut, c0, c1, c2 = t.roles["poly"], t.roles["contact"], t.c0, t.c1, t.c2
     nrec, prec = t.device(kinds[0]), t.device(kinds[1])
@@ -82,6 +83,7 @@ def stick(name, n, p, ports, wn=None, wp=None, l=None, ntracks=None, power=None,
     tracks={net: index} fixes track positions. Returns the Cell; cell.stick has the grid:
     P (column pitch), H, W, track_y {net: y}, pitch (track pitch), ntracks - all in um."""
     t = tech or T.current()
+    t.planar_only("stick")
     g = t.grid
     sup = t.d.get("supplies", {})
     power, ground = power or sup.get("power", "VDD"), ground or sup.get("ground", "VSS")
@@ -394,6 +396,7 @@ def rows(parent, rows_, power=None, ground=None, x0=0.0, y0=0.0, bars=True):
     With bars=True the ground rails are joined by a vertical bar on the left and the power rails by one
     on the right (first conductor), and both are made ports. Returns {name: Ref}."""
     t = parent.tech
+    t.planar_only("rows")
     sup = t.d.get("supplies", {})
     power, ground = power or sup.get("power", "VDD"), ground or sup.get("ground", "VSS")
     c0 = t.c0

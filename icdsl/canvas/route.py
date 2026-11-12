@@ -45,6 +45,7 @@ class Router:
     def __init__(self, cell, v=None, h=None, pin_layer=None):
         self.cell = cell
         t = self.t = cell.tech
+        t.planar_only("Router")
         self.v, self.h = t.lname(v or t.c2), t.lname(h or t.c3)
         self.pl = t.lname(pin_layer or t.c1)
         g = t.grid

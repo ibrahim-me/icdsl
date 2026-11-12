@@ -72,6 +72,7 @@ def via(self, frm, to, at=None, nx=1, ny=1, net=None, dir="v", inside=None, bott
     lower_dev = None
     if frm not in t.stack or to not in t.stack:
         dev, other = (frm, to) if frm not in t.stack else (to, frm)
+        dev = t.d.get("via_from", {}).get(dev, dev)      # e.g. asap7: a via from the gate starts on lig
         if other not in t.stack:
             raise CanvasError(f"via: {other!r} is not a conductor of {t.name}", "stack: " + " < ".join(t.stack))
         cut = next((c for c, d in t.cuts.items()
@@ -126,10 +127,12 @@ def via(self, frm, to, at=None, nx=1, ny=1, net=None, dir="v", inside=None, bott
                 self.shapes.append(Rect(xl, x0 - e, y0 - e, x0 + tw + e, y0 + th + e, None, src))
     for layer, b in boxes.items():
         if layer == lower_dev:
-            draw = bottom_pad if bottom_pad is not None else (layer == t.roles.get("poly"))
+            padded = layer == t.roles.get("poly") or layer in t.d.get("via_from", {}).values()
+            draw = bottom_pad if bottom_pad is not None else padded
             if not draw:
                 continue
-            r = Rect(layer, *b, net, src)
+            r = Rect(layer, *(_grow_area(t, layer, *b, dir) if layer in t.d.get("via_from", {}).values() else b),
+                     net, src)
         else:
             if layer == levels[0][0] and bottom_pad is False:
                 continue
@@ -187,6 +190,10 @@ def mos(self, kind, w, l=None, nf=1, at=(0, 0), gates="G", sd=("S", "D"), bulk=N
     rec = t.device(kind)
     if rec.get("type") != "mos":
         raise CanvasError(f"{kind!r} is not a MOS recipe of {t.name}")
+    if rec.get("recipe") == "finfet":
+        from .finfet import mos_finfet
+        return mos_finfet(self, Mos, kind, rec, w, l, nf, at, gates, sd, bulk, name, contacts, pitch, gate_ext,
+                          implant, well, strap_h, origin)
     src = _src()
     l = rec["lmin"] if l is None else l
     if l < rec["lmin"] - 1e-9 or w < rec["wmin"] - 1e-9:
@@ -297,14 +304,19 @@ class Tap(Group):
 
 
 def tap(self, kind, x0=None, y0=None, x1=None, y1=None, net=None, at=None, w=None, h=None, well=True,
-        implant=True, _inset=(0, 0)):
+        implant=True, _inset=(0, 0), gate_ext=0.0):
     """Substrate / well tie filled with contacts. kind: 'ptap' | 'ntap' (PDK recipes).
-    Region by corners (x0, y0, x1, y1) or at=(x, y) lower-left + w, h (um). The c0 strap covers it."""
+    Region by corners (x0, y0, x1, y1) or at=(x, y) lower-left + w, h (um). The c0 strap covers it.
+    On a FinFET PDK a tap is one column: at=(x, y) on the device grids, h = nfin * fin pitch; gate_ext
+    extends its two dummy gates like cell.mos does."""
     t = self.tech
     g = t.grid
     rec = t.device(kind)
     if rec.get("type") != "tap":
         raise CanvasError(f"{kind!r} is not a tap recipe of {t.name}")
+    if rec.get("recipe") == "finfet":
+        from .finfet import tap_finfet
+        return tap_finfet(self, Tap, kind, rec, x0, y0, x1, y1, net, at, w, h, well, implant, gate_ext)
     src = _src()
     cut, c0, lay = t.roles["contact"], t.c0, rec["diff"]
     cs, csp = t.nm(t.cuts[cut]["size"]), t.nm(t.cuts[cut]["space"])
@@ -365,6 +377,9 @@ def guard_ring(self, kind, around, space=None, width=None, net=None, well=True):
     well=False leaves the well to you (needed when the contents sit in the other well). Returns a Group with .inner / .outer boxes (um) and .straps (c0, a closed ring)."""
     t = self.tech
     rec = t.device(kind)
+    if rec.get("recipe") == "finfet":
+        raise CanvasError(f"guard_ring is not available on {t.name}: a FinFET tap is a column on the gate grid, "
+                          "not a ring", f"place cell.tap({kind!r}, at=...) columns next to the devices instead")
     cut = t.roles["contact"]
     cs = t.cuts[cut]["size"]
     csn = t.nm(t.cuts[cut]["space"])

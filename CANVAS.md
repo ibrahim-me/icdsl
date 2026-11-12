@@ -15,6 +15,7 @@ bin/icl check   f.py --pdk sky130A      # build + DRC (magic and the PDK's KLayo
                                         # exit 0 clean / 1 violations / 2 script error
 bin/icl check   f.py --pdk gf180mcuD    # the same script on another PDK
 bin/icl check   f.py --pdk freepdk45    # and on a 45 nm one
+bin/icl check   tests/asap7/inv.py --pdk asap7   # 7 nm FinFET: shapes, mos / tap / via (section 11)
 bin/icl inspect f.py --pdk gf180mcuD    # print the PDK rule sheet (layers, stack, rules, device recipes)
 bin/icl build   f.py --pdk ...          # GDS + SPICE only, no signoff
 options: --top NAME (default: the variable TOP, else the last cell made)   --no-lvs   --no-klayout
@@ -286,8 +287,8 @@ keyword, the names that exist. Frequent mistakes:
 One file `icdsl/canvas/pdks/<name>.py` with a `TECH` dict: layer numbers, the conductor stack and
 cuts, width / space / enclosure / area numbers, a handful of named rules, device recipes (which
 layers make an nmos, a tap, a resistor, a MIM, and the SPICE model name), and the paths of the
-magic tech file, the netgen setup and the KLayout DRC deck. The three files are 100 to 115 lines
-each. Then run `bash tests/run_canvas.sh` with the new name added to `PDKS`: the PCell tests and the
+magic tech file, the netgen setup and the KLayout DRC deck. The three planar files are 100 to 115
+lines each (asap7: 169 lines, plus the FinFET recipe `icdsl/canvas/finfet.py`, 188 lines). Then run `bash tests/run_canvas.sh` with the new name added to `PDKS`: the PCell tests and the
 benchmark references are the acceptance test of a PDK description.
 
 Keys that exist because a PDK needed them (all optional):
@@ -301,11 +302,71 @@ Keys that exist because a PDK needed them (all optional):
 | `signoff.drc_style`, `signoff.ext_style` | magic DRC / extraction style to select | all / freepdk45 |
 | `signoff.ext_scale` | factor on every extracted length, for a tech file that states its scale wrongly | freepdk45 |
 | `signoff.klayout` | `dict(deck, top, args, waive)`: the PDK's KLayout DRC deck as second DRC judge; `waive` = `{rule: reason}` for die-level rules (density, fill) | all |
+| recipe `recipe="finfet"`, `finfet`, `via_from` | gridded device recipe (fins, gate pitch, dummy gates, sdt / strap columns); `via('gate', ...)` starts on another layer | asap7 |
+| `signoff.extract` | `dict(tool="klayout", derive, mos, conductors, connect, labels, substrate)`: layout netlist by KLayout when no magic tech file exists; without a `magic` entry the KLayout deck is the only DRC judge | asap7 |
+| `conn.cuts`, `conn.direct` | pre-check: layers that join two conductors like a cut; conductor pairs joined where they overlap | asap7 |
+| `display` | `{layer: (colour, KLayout stipple index)}`: image colours where the PDK's own layer table is unreadable | asap7 |
 
 What the 45 nm port cost, as a measure of how far the method scales: one data file, and four general
 fixes in the canvas (odd-grid cuts and wires, minimum guard-ring width, rail contacts of mirrored
 rows, a router retry). No script changed: the same PCell tests and benchmark references build on all
 three PDKs.
+
+## 11. FinFET: asap7 (7 nm)
+
+`--pdk asap7` is ASAP7, the predictive 7 nm FinFET PDK of Arizona State University and ARM. `rect`,
+`polygon`, `path`, `via`, `place`, ports, the connectivity pre-check and `check` work as on the planar
+PDKs. Devices are different, because the process fixes what a planar one leaves free:
+
+| | planar PDKs | asap7 |
+|---|---|---|
+| DRC | magic and the PDK's KLayout deck | the KLayout deck `asap7.lydrc` alone (no magic tech file exists) |
+| layout netlist | magic extraction | KLayout extraction from the `signoff.extract` table (no LVS deck exists upstream) |
+| LVS | netgen | netgen |
+| `mos(w=, l=)` | any size from the minimum up | `w = nfin * 0.027` (the active's height), `l` is always 0.020 |
+| `mos` / `tap` `at=` | any grid point | the active's lower-left corner at x = 0.046 + k * 0.054, y = k * 0.027; the error names the nearest legal point |
+| what `mos` draws | diffusion, poly, contact columns, c0 straps, implant, well | active, fins, gates and one dummy gate at each end, `sdt` + `lisd` columns (`.sd[i]` is the lisd rect), select, n-well |
+| neighbours in a row | spaced by the rules | footprints abut: the next active starts at `handle.x_next` (92 nm between actives, two dummy gates) |
+| n under p | two poly stripes joined by a rect | one gate stripe: `gate_ext=(bottom, top)` until the gates meet; gates that end facing each other are a DRC error |
+| two nets on one gate stripe | not applicable | a rect on `gcut` across the stripe (extraction and pre-check cut the gate there) |
+| gate contact | `via("poly", tech.c0)` | `via("gate", "m1")`: a `lig` pad on the gate, v0, m1 |
+| source/drain to metal | `via(tech.c0, tech.c1)` on the strap | `via("lisd", "m1", dir="h", bottom_pad=False)` on the column, or extend the lisd column onto a `lig` rail |
+| `tap` | a region filled with contacts | one column, `h = nfin * 0.027`, with its two dummy gates |
+
+```python
+tech = use("asap7")
+n = c.mos("nmos", w=3 * 0.027, at=(0.046, 0.027), gates="A", sd=("VSS", "Y"), gate_ext=(0.027, 0.022))
+p = c.mos("pmos", w=3 * 0.027, at=(0.046, 0.162), gates="A", sd=("VDD", "Y"), gate_ext=(0.022, 0.027))
+pt = c.tap("ptap", at=(n.x_next, 0.027), h=3 * 0.027, net="VSS", gate_ext=(0.027, 0.022))
+a = c.via("gate", "m1", at=(n.gx[0], 0.135), net="A")          # lig + v0 + m1 between the two actives
+```
+
+`tests/asap7/` has the worked cells, all clean under the deck with an LVS match: `inv_drawn.py` (an
+inverter and a tap column from rectangles only, with the geometry of the PDK's INVx1 and TAPCELL),
+`inv.py`, `nand2.py` and `ringosc.py` (NAND2 and two inverters in one row, 8 transistors, feedback on
+m2) from `mos` / `tap` / `via`. They follow the 7.5-track architecture of the ASAP7 cells: m1 rails
+over `lig`, a `gcut` bar under each rail, sources on lisd down to the rail, drains through v0 to an m1
+trunk on a gate track. That architecture is in the scripts, not in the helpers.
+
+| `inv.py` (0.27 x 0.27 um) | `nand2.py` (0.324 x 0.27 um) | `ringosc.py` (0.648 x 0.27 um) |
+|---|---|---|
+| <img src="tests/asap7/gallery/inv.png" height="200"> | <img src="tests/asap7/gallery/nand2.png" height="200"> | <img src="tests/asap7/gallery/ringosc.png" height="200"> |
+
+Gates red, active green (where a gate crosses it), sdt / lisd columns brown, v0 white, m1 blue, m2
+purple. GDS and PNG of the four cells are in `tests/asap7/gallery/`.
+
+Rules worth knowing before drawing by hand (all from the deck as it is coded):
+- m1 / m2 / m3 wires are exactly as wide as their via (18 nm) and extend 5 nm past it along the wire
+  (m2 past v1: 6 nm, the deck's V1.M2.EN.2 does not see an end cap of exactly 5 nm). `via` draws these pads.
+- Gates sit at x = 0.027 + k * 0.054 (centre). Two gate edges closer than 100 nm must be exactly 34 nm
+  apart, also end to end: stripes of stacked devices have to be continuous.
+- Fins closer than 35 nm must be exactly 20 nm apart: keep every active on the 27 nm fin grid.
+- Every n-transistor needs a `ptap` and every p-transistor an `ntap` on the layout (ACTIVE.LUP.1).
+
+Not ported to asap7: `stick` / `stick_auto` / `rows`, `Router`, `from_spice`, `mos_strip`, `guard_ring`,
+`resistor`, `capacitor`. Each raises an error that says so. `via` builds stacks up to m3; m4 to m9
+are layers you can draw on and the deck checks them, but V3 and up are not square and have no stack
+helper. The benchmark `bench/xl` has not been run on asap7.
 
 ## Known limits
 
@@ -317,8 +378,9 @@ three PDKs.
   be drawn and declared with `c.device(...)` or brought in with `pdk_cell`, but have no PCell.
 - freepdk45: keep wells plain rectangles. Its KLayout deck reports WELL.4 on a well polygon that is a
   thin ring or an L (an artifact of how the rule is coded, see the PDK file).
-- Planar bulk CMOS only. A FinFET process (ASAP7, 7 nm) needs a gridded device recipe (fins and gates
-  at exact pitches, gate cuts, local interconnect on two layers) and coordinates finer than 1 nm; the
-  open ASAP7 package also has a KLayout DRC deck but no LVS deck. Not supported.
+- asap7 (section 11) has the shape level and the device helpers `mos` / `tap` / `via` only; the row,
+  router and netlist levels are planar. Its LVS runs on a KLayout extraction written for this project
+  (the upstream package has a DRC deck but no LVS deck), and its DRC judge is that one deck: several of
+  its checks are coded differently from their rule text, and the coded check is what counts here.
 - The router is a two-layer trunk router, not a maze router: it is fast and predictable on rows of
   cells, and it fails loudly rather than detouring.

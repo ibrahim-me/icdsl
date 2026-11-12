@@ -225,6 +225,7 @@ def stick_auto(name, devices, ports, wn=None, wp=None, l=None, ntracks=None, pow
     `kinds` (or 'n' / 'p'). Chooses the column order and orientations, then calls `stick` (same options).
     The chosen strips are in cell.stick['n'] / ['p'] (strings you can copy into a `stick` call and edit)."""
     t = tech or T.current()
+    t.planar_only("stick_auto")
     nd = [(d, g, s) for k, d, g, s in devices if k in (kinds[0], "n")]
     pd = [(d, g, s) for k, d, g, s in devices if k in (kinds[1], "p")]
     if len(nd) + len(pd) != len(devices):
@@ -297,6 +298,7 @@ def from_spice(src, top=None, nrows=None, serpentine=True, tech=None, style=None
     the file unless top= names it. Every pin of the top subcircuit becomes a port. Returns the top Cell."""
     from .route import Router
     t = tech or T.current()
+    t.planar_only("from_spice")
     text = src
     if "\n" not in src and os.path.exists(src):
         with open(src) as f:

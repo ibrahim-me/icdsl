@@ -15,6 +15,30 @@ for f in examples/canvas/*.py tests/canvas/*.py bench/xl/ref/*.py; do
     printf "%-4s %-28s %-10s %s\n" "$s" "$f" "$p" "$(echo "$r" | cut -c1-40)"
   done
 done
+# asap7 (7 nm FinFET): its own cells - the device grids differ from a planar PDK, so the generic scripts
+# above do not apply. Judges: the ASAP7 KLayout deck, KLayout extraction, netgen LVS. Skipped when the
+# deck is not installed (pdk/asap7/asap7.lydrc).
+if [ -f pdk/asap7/asap7.lydrc ]; then
+  for f in tests/asap7/*.py; do
+    r=$(bin/icl check "$f" --pdk asap7 2>&1 | grep -E "^result|^ERROR" | head -1)
+    case "$r" in "result: CLEAN"*) s=ok ;; *) s=FAIL; fail=1 ;; esac
+    printf "%-4s %-28s %-10s %s\n" "$s" "$f" asap7 "$(echo "$r" | cut -c1-40)"
+  done
+  # wrong layouts must be rejected: gates of n and p not joined (GATE.S.1), two actives one gate pitch too
+  # close (ACTIVE.S.2A), the m2 feedback wire missing (LVS)
+  tmp=$(mktemp -d)
+  sed 's/^LO, HI = .*/LO, HI = 0.0, 0.0/' tests/asap7/ringosc.py > "$tmp/gates.py"
+  sed 's/^(i2,), y2, x = stage(x, /(i2,), y2, x = stage(x - 0.054, /' tests/asap7/ringosc.py > "$tmp/close.py"
+  sed 's/^c.rect("m2", .*$/pass/' tests/asap7/ringosc.py > "$tmp/nom2.py"
+  for v in "gates GATE.S.1" "close ACTIVE.S.2A" "nom2 MISMATCH"; do
+    set -- $v
+    if bin/icl check "$tmp/$1.py" --pdk asap7 --out "$tmp/o_$1" 2>&1 | grep -q "$2"; then s=ok; else s=FAIL; fail=1; fi
+    printf "%-4s asap7 rejects ringosc variant %-6s (%s)\n" "$s" "$1" "$2"
+  done
+  rm -rf "$tmp"
+else
+  echo "skip asap7: pdk/asap7/asap7.lydrc not installed"
+fi
 J=".venv/bin/python bench/xl/judge.py"
 for t in bench/xl/tasks/*/; do
   t=$(basename "$t")

@@ -179,7 +179,8 @@ class Tech:
 
     def cut_between(self, lower, upper):
         for c, d in self.cuts.items():
-            if d.get("lower") == lower and d.get("upper") == upper:
+            lo = d.get("lower")
+            if (lo == lower or (isinstance(lo, (list, tuple)) and lower in lo)) and d.get("upper") == upper:
                 return c
         return None
 
@@ -204,6 +205,14 @@ class Tech:
     def deck(self, key):
         p = self.d["signoff"][key]
         return p if os.path.isabs(p) else os.path.join(self.root, p)
+
+    def planar_only(self, what):
+        """Stop a helper that is written for planar devices when the PDK's devices are FinFETs."""
+        if "finfet" in self.d:
+            from .core import CanvasError
+            raise CanvasError(f"{what} is not available on {self.name}: it is written for planar devices",
+                              "on a FinFET PDK build cells from cell.mos / cell.tap / cell.via and rect "
+                              "(CANVAS.md section 11; tests/asap7/ has worked cells)")
 
     def describe(self):
         """Rule sheet (text) for agents: layers, stack, the rules the helpers use, device recipes."""
@@ -232,6 +241,8 @@ class Tech:
         for k, d in self.devices.items():
             extra = "  ".join(f"{x}={d[x]}" for x in ("lmin", "wmin") if x in d)
             o.append(f"  {k:10s} {d.get('type', 'mos'):4s} model {d.get('model', '-')}  {extra}")
+        for n in self.d.get("notes", []):
+            o.append("note: " + n)
         return "\n".join(o)
 
 

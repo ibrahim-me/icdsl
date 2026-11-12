@@ -73,6 +73,15 @@ def render_png(tech, gds, png, width=1600, markers=None):
     lyp = os.path.join(tech.root, lyp) if lyp else None
     if lyp and os.path.exists(lyp):
         lv.load_layer_props(lyp)
+    disp = {tuple(tech.alias[k]): v for k, v in tech.d.get("display", {}).items() if k in tech.alias}
+    it = lv.begin_layers()                   # optional per-PDK colours on top of the PDK's layer table
+    while disp and not it.at_end():
+        lp = it.current()
+        v = disp.get((lp.source_layer, lp.source_datatype))
+        if v:
+            lp.fill_color = lp.frame_color = int(v[0].lstrip("#"), 16)
+            lp.dither_pattern = v[1]
+        it.next()
     lv.max_hier()
     bb = lv.active_cellview().cell.dbbox()
     m = 0.03 * max(bb.width(), bb.height(), 1e-3)
@@ -105,6 +114,8 @@ def check(cell, out=None, lvs=True, ref=None, drc=True, png=True, quiet=False, p
     """Full verification of a canvas cell. Returns a report dict; report['status'] is 'CLEAN' only when
     magic DRC has no violation, the foundry KLayout DRC deck (if the PDK data names one and klayout=True)
     has none either, and (if the cell has a netlist or ref= is given) netgen LVS matches.
+    A PDK without a magic tech file (asap7) is judged by its KLayout deck alone, and its layout netlist
+    comes from the KLayout extraction described in the PDK data (signoff.extract).
     ref = path of a SPICE netlist to compare against instead of the script's own device declarations."""
     t = cell.tech
     t0 = time.time()
@@ -129,31 +140,46 @@ def check(cell, out=None, lvs=True, ref=None, drc=True, png=True, quiet=False, p
             return run()
         except RuntimeError as e:
             return [{"rule": "TOOL: " + str(e)[:400], "box_um": [0, 0, 0, 0]}], [], ""
-    if drc:
-        errs = tool(lambda: signoff.drc(t, gds, cell.name, out))[0]
-        attr = _Attr(cell) if errs else None
+    attr = []
+
+    def grouped(name, errs, waived=None):
+        if errs and not attr:
+            attr.append(_Attr(cell))
         groups = defaultdict(list)
         for e in errs:
             groups[e["rule"]].append(e)
-        rep["drc"] = {"tool": f"magic {t.d['signoff'].get('drc_style', 'drc')} {t.name}", "violations": len(errs),
-                      "by_rule": [{"rule": r, "count": len(es),
-                                   "examples": [{"box_um": e["box_um"], "drawn_by": attr.at(e["box_um"])}
-                                                for e in es[:3]]}
-                                  for r, es in sorted(groups.items(), key=lambda kv: -len(kv[1]))]}
+        d = {"tool": name, "violations": len(errs),
+             "by_rule": [{"rule": r, "count": len(es),
+                          "examples": [{"box_um": e["box_um"], "drawn_by": attr[0].at(e["box_um"])} for e in es[:3]]}
+                         for r, es in sorted(groups.items(), key=lambda kv: -len(kv[1]))]}
+        if waived is not None:
+            d["waived_rules"] = waived
+        return d
+
+    def deck_name():
+        return f"KLayout, {os.path.basename(t.d['signoff']['klayout']['deck'])}"
+    if drc and signoff.magic_ready(t):
+        errs = tool(lambda: signoff.drc(t, gds, cell.name, out))[0]
+        rep["drc"] = grouped(f"magic {t.d['signoff'].get('drc_style', 'drc')} {t.name}", errs)
         clean &= not errs
         if klayout and signoff.klayout_ready(t):
             errs, waived, _ = tool(lambda: signoff.klayout_drc(t, gds, cell.name, out))
-            attr = attr or (_Attr(cell) if errs else None)
-            groups = defaultdict(list)
-            for e in errs:
-                groups[e["rule"]].append(e)
-            rep["drc_klayout"] = {"tool": f"KLayout, {os.path.basename(t.d['signoff']['klayout']['deck'])}",
-                                  "violations": len(errs), "waived_rules": waived,
-                                  "by_rule": [{"rule": r, "count": len(es),
-                                               "examples": [{"box_um": e["box_um"], "drawn_by": attr.at(e["box_um"])}
-                                                            for e in es[:3]]}
-                                              for r, es in sorted(groups.items(), key=lambda kv: -len(kv[1]))]}
+            rep["drc_klayout"] = grouped(deck_name(), errs, waived)
             clean &= not errs
+    elif drc:
+        # A PDK without a magic tech file: its KLayout deck is the only DRC judge, so it always runs
+        # (klayout=False / ICL_KLAYOUT=0 do not apply) and a missing deck or binary is a failure.
+        if not t.d["signoff"].get("klayout"):
+            errs, waived = [{"rule": f"TOOL: the PDK data of {t.name} names no DRC deck (signoff.magicrc or "
+                                     "signoff.klayout)", "box_um": [0, 0, 0, 0]}], []
+        elif not signoff.klayout_ready(t, force=True):
+            errs, waived = [{"rule": f"TOOL: the DRC deck of {t.name} or the klayout program was not found "
+                                     f"(deck {signoff.klayout_deck(t)}; run tools/build_tools.sh)",
+                             "box_um": [0, 0, 0, 0]}], []
+        else:
+            errs, waived, _ = tool(lambda: signoff.klayout_drc(t, gds, cell.name, out))
+        rep["drc"] = grouped(deck_name() if t.d["signoff"].get("klayout") else "none", errs, waived)
+        clean &= not errs
     do_lvs = lvs and (ref or cell.has_netlist())
     if do_lvs:
         refp = ref
@@ -161,7 +187,7 @@ def check(cell, out=None, lvs=True, ref=None, drc=True, png=True, quiet=False, p
             refp = os.path.join(out, f"{cell.name}.ref.spice")
             open(refp, "w").write(cell.netlist())
         try:
-            ext, _ = signoff.extract(t, gds, cell.name, out)
+            ext, _ = signoff.extract(t, gds, cell.name, out, ports=cell.port_order)
             res = signoff.lvs(t, ext, refp, cell.name, out)
             res.pop("log", None)
             res["devices_extracted"] = signoff.count_devices(ext)

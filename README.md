@@ -20,6 +20,12 @@ and netgen LVS. It has the same levels as ICL, from shapes (`rect`, `polygon`, `
 `TOP = from_spice("netlist.spice")`, which lays out a whole netlist. The larger benchmark
 (`bench/xl`, 8 tasks on 3 PDKs, up to 768 transistors) and its LLM runs (`agents/README.md`) use it.
 
+A fourth PDK, **asap7 (7 nm FinFET)**, is ported up to the device level: shapes and `mos` / `tap` /
+`via` on the fin and gate grids, checked by the PDK's KLayout DRC deck, a KLayout extraction and
+netgen LVS (no magic tech file and no LVS deck exist for it). `tests/asap7/` has an inverter, a NAND2
+and an 8-transistor gated ring oscillator that are clean under the deck with an LVS match. Stick
+cells, the router, `from_spice` and the benchmark are not ported to it (CANVAS.md, section 11).
+
 | 16 x 8 SRAM, freepdk45 (45 nm) | Miller OTA, sky130A | spiral inductor, gf180mcuD | 8-bit adder, sky130A |
 |---|---|---|---|
 | <img src="bench/xl/gallery/sram16x8.freepdk45.png" height="230"> | <img src="bench/xl/gallery/ota_miller.sky130A.png" height="230"> | <img src="bench/xl/gallery/spiral.gf180mcuD.png" height="230"> | <img src="bench/xl/gallery/rca8.sky130A.png" width="330"> |
@@ -100,7 +106,9 @@ icdsl/signoff.py       magic / netgen icdsl/cli.py        icl check|build|inspec
 
 `tools/build_tools.sh` builds magic 8.3 and netgen 1.5 from upstream into `tools/install`
 (user-local; `-std=gnu17` needed with GCC 15), creates the venv (`klayout`, `ciel`) and
-fetches the three PDKs with ciel into `pdk/` (sky130A, gf180mcu, freepdk45; about 2.8 GB). Then
+fetches the three PDKs with ciel into `pdk/` (sky130A, gf180mcu, freepdk45; about 2.8 GB) and three
+ASAP7 files (DRC deck, layer table, standard-cell GDS; 2 MB, sha256-checked) from
+OpenROAD-flow-scripts at a pinned commit. Then
 `bin/icl …`. None of that is in the repository: `pdk/`, `tools/install` and `.venv` are local.
 
 The second DRC judge (the PDK's KLayout deck) needs the `klayout` program, 0.30 or later, on `PATH`
@@ -113,7 +121,7 @@ stored; `bin/icl check` or `bench/xl/judge.py` rebuilds them. `build/` and `out/
 
 ## Limits
 
-These limits are those of the ICL language (`.icl`). They do not apply to the canvas (`.py` scripts, [CANVAS.md](CANVAS.md)): any layer, any polygon, resistors / MIM capacitors / any declared device, sky130A, gf180mcuD and freepdk45. Use the canvas when a task does not fit ICL.
+These limits are those of the ICL language (`.icl`). They do not apply to the canvas (`.py` scripts, [CANVAS.md](CANVAS.md)): any layer, any polygon, resistors / MIM capacitors / any declared device, sky130A, gf180mcuD and freepdk45 (asap7: shapes and `mos` / `tap` / `via` only). Use the canvas when a task does not fit ICL.
 
 1.8 V nfet/pfet only; routing met1–met4; resistance and coupling are estimates (sheet/via R,
 sidewall C); KLayout's official DRC deck is not run (magic is the DRC signoff); no antenna or

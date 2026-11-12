@@ -99,7 +99,11 @@ def analyze(cell, max_report=12):
     cut_by = {k: list(v) for k, v in cfg.get("cut_by", {}).items()}
     plates = dict(cfg.get("plates", {}))                    # plate layer -> cut that lands on it
     cond = set(t.stack) | set(cfg.get("conductors", [])) | set(plates)
-    for d in t.cuts.values():
+    # conn.cuts: layers that join two conductors like a cut without being a via of the stack (asap7 sdt:
+    # active -> lisd); conn.direct: pairs of conductors that are connected wherever they overlap
+    all_cuts = {**t.cuts, **cfg.get("cuts", {})}
+    direct = [tuple(p) for p in cfg.get("direct", [])]
+    for d in all_cuts.values():
         lo = d["lower"]
         cond |= set([lo] if isinstance(lo, str) else lo)
     cutters = {m for v in cut_by.values() for m in v}
@@ -107,7 +111,7 @@ def analyze(cell, max_report=12):
 
     by_layer = defaultdict(list)
     for s, net, path in flat:
-        if s.layer in cond or s.layer in t.cuts or s.layer in cutters:
+        if s.layer in cond or s.layer in all_cuts or s.layer in cutters:
             by_layer[s.layer].append((s, net, path))
 
     # conductors cut by other layers (diffusion by poly, resistor bodies by their marker)
@@ -141,7 +145,7 @@ def analyze(cell, max_report=12):
 
     items, lay_idx = [], {}
     for layer, lst in by_layer.items():
-        if layer in cond or layer in t.cuts:
+        if layer in cond or layer in all_cuts:
             idx = _Index()
             lay_idx[layer] = idx
             for s, net, path in lst:
@@ -184,8 +188,16 @@ def analyze(cell, max_report=12):
     for g in groups.values():
         for a in g[1:]:
             link(g[0], a)
+    for a, b in direct:
+        ia, ib = lay_idx.get(a), lay_idx.get(b)
+        if not ia or not ib:
+            continue
+        for i in sorted({i for bk in ia.b.values() for i in bk}):
+            for j in ib.near(items[i][0]):
+                if _touch(items[i][0], items[j][0], area=True):
+                    link(i, j)
     plate_of = {c: p for p, c in plates.items()}
-    for cut, d in t.cuts.items():
+    for cut, d in all_cuts.items():
         idx = lay_idx.get(cut)
         if not idx:
             continue
@@ -210,7 +222,7 @@ def analyze(cell, max_report=12):
 
     names = defaultdict(dict)        # root -> {net: first item index}
     for i, (s, net, path) in enumerate(items):
-        if net is not None and s.layer not in t.cuts:
+        if net is not None and s.layer not in all_cuts:
             names[find(i)].setdefault(net, i)
 
     def where(i):
