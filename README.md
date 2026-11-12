@@ -126,3 +126,13 @@ These limits are those of the ICL language (`.icl`). They do not apply to the ca
 1.8 V nfet/pfet only; routing met1–met4; resistance and coupling are estimates (sheet/via R,
 sidewall C); KLayout's official DRC deck is not run (magic is the DRC signoff); no antenna or
 density checks; no post-layout simulation.
+
+## License
+
+Copyright (C) 2026 ibrahim-me. This project is free software under the GNU General Public License,
+version 3; see [LICENSE](LICENSE). It comes without any warranty.
+
+Third-party material keeps its own licence. `library/hd` and the layouts that place `pdk:` cells
+contain data derived from the SkyWater `sky130_fd_sc_hd` library (Apache-2.0). The PDKs and the tools
+(magic, netgen, KLayout) are fetched or built by `tools/build_tools.sh` and are not part of this
+repository.
